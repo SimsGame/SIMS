@@ -332,33 +332,33 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rKontonameFocusGained
 
     private void textfield_rEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail1FocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        textfield_rEmail1.requestFocus();
+        textfield_rEmail1.selectAll();
     }//GEN-LAST:event_textfield_rEmail1FocusGained
 
     private void textfield_rEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail2FocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        textfield_rEmail2.requestFocus();
+        textfield_rEmail2.selectAll();
     }//GEN-LAST:event_textfield_rEmail2FocusGained
 
     private void textfield_rNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rNameFocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        textfield_rName.requestFocus();
+        textfield_rName.selectAll();
     }//GEN-LAST:event_textfield_rNameFocusGained
 
     private void textfield_rSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rSurenameFocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        textfield_rSurename.requestFocus();
+        textfield_rSurename.selectAll();
     }//GEN-LAST:event_textfield_rSurenameFocusGained
 
     private void password_rPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass1FocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        password_rPass1.requestFocus();
+        password_rPass1.selectAll();
     }//GEN-LAST:event_password_rPass1FocusGained
 
     private void password_rPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass2FocusGained
-        textfield_rKontoname.requestFocus();
-        textfield_rKontoname.selectAll();
+        password_rPass2.requestFocus();
+        password_rPass2.selectAll();
     }//GEN-LAST:event_password_rPass2FocusGained
 
     /**
