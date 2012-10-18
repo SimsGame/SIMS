@@ -106,8 +106,6 @@ public class StartScreen extends javax.swing.JFrame {
         } else {
             textfield_rSurename.setBackground(Color.white);
         }
-
-
     }
 
     /**
@@ -145,6 +143,11 @@ public class StartScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         textfield_rKontoname.setText("Kontoname");
+        textfield_rKontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rKontonameFocusGained(evt);
+            }
+        });
 
         textfield_rEmail1.setText("E-Mail");
         textfield_rEmail1.addActionListener(new java.awt.event.ActionListener() {
@@ -152,16 +155,46 @@ public class StartScreen extends javax.swing.JFrame {
                 textfield_rEmail1ActionPerformed(evt);
             }
         });
+        textfield_rEmail1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rEmail1FocusGained(evt);
+            }
+        });
 
         textfield_rEmail2.setText("E-Mail");
+        textfield_rEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rEmail2FocusGained(evt);
+            }
+        });
 
         textfield_rName.setText("Name");
+        textfield_rName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rNameFocusGained(evt);
+            }
+        });
 
         textfield_rSurename.setText("Nachname");
+        textfield_rSurename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rSurenameFocusGained(evt);
+            }
+        });
 
         password_rPass1.setText("PW");
+        password_rPass1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_rPass1FocusGained(evt);
+            }
+        });
 
         password_rPass2.setText("PW");
+        password_rPass2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_rPass2FocusGained(evt);
+            }
+        });
 
         button_rRegister.setText("Registrieren");
         button_rRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +287,7 @@ public class StartScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panel_Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -292,6 +325,41 @@ public class StartScreen extends javax.swing.JFrame {
         panel_Login.setVisible(false);
         panel_Register.setVisible(true);
     }//GEN-LAST:event_button_RegisterActionPerformed
+
+    private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rKontonameFocusGained
+
+    private void textfield_rEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail1FocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rEmail1FocusGained
+
+    private void textfield_rEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail2FocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rEmail2FocusGained
+
+    private void textfield_rNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rNameFocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rNameFocusGained
+
+    private void textfield_rSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rSurenameFocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rSurenameFocusGained
+
+    private void password_rPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass1FocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_password_rPass1FocusGained
+
+    private void password_rPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass2FocusGained
+        textfield_rKontoname.requestFocus();
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_password_rPass2FocusGained
 
     /**
      * @param args the command line arguments

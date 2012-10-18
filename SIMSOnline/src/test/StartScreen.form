@@ -22,7 +22,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panel_Login" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -104,6 +104,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Kontoname"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rKontonameFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rEmail1">
           <Properties>
@@ -111,32 +114,48 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_rEmail1ActionPerformed"/>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rEmail1FocusGained"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rEmail2">
           <Properties>
             <Property name="text" type="java.lang.String" value="E-Mail"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rEmail2FocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rNameFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rSurename">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nachname"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rSurenameFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="password_rPass1">
           <Properties>
             <Property name="text" type="java.lang.String" value="PW"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="password_rPass1FocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="password_rPass2">
           <Properties>
             <Property name="text" type="java.lang.String" value="PW"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="password_rPass2FocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_rRegister">
           <Properties>
