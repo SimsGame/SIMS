@@ -15,7 +15,7 @@ public class Sims_1 extends javax.swing.JFrame {
     /**
      * Creates new form Sims
      */
-    CardLayout cl;
+    public CardLayout cl;
     
     public Sims_1() {
         initComponents();
@@ -96,7 +96,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar10 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
+        enterShop = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
@@ -129,9 +129,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel68 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
+        ucoinsShop = new javax.swing.JLabel();
+        creditsShop = new javax.swing.JLabel();
+        punkteShop = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
@@ -497,16 +497,16 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.setLayout(null);
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("SHOP");
-        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+        enterShop.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        enterShop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        enterShop.setText("SHOP");
+        enterShop.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel26MouseClicked(evt);
+                enterShopMouseClicked(evt);
             }
         });
-        jPanel11.add(jLabel26);
-        jLabel26.setBounds(0, 0, 130, 110);
+        jPanel11.add(enterShop);
+        enterShop.setBounds(0, 0, 130, 110);
 
         gamePlanning.add(jPanel11);
         jPanel11.setBounds(850, 0, 130, 110);
@@ -666,20 +666,20 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.setLayout(null);
 
-        jLabel62.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel62.setText("7");
-        jPanel20.add(jLabel62);
-        jLabel62.setBounds(80, 10, 80, 20);
+        ucoinsShop.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ucoinsShop.setText("0");
+        jPanel20.add(ucoinsShop);
+        ucoinsShop.setBounds(80, 10, 80, 20);
 
-        jLabel65.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel65.setText("700");
-        jPanel20.add(jLabel65);
-        jLabel65.setBounds(80, 40, 70, 17);
+        creditsShop.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        creditsShop.setText("0");
+        jPanel20.add(creditsShop);
+        creditsShop.setBounds(80, 40, 70, 17);
 
-        jLabel69.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel69.setText("1500");
-        jPanel20.add(jLabel69);
-        jLabel69.setBounds(80, 70, 70, 17);
+        punkteShop.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        punkteShop.setText("0");
+        jPanel20.add(punkteShop);
+        punkteShop.setBounds(80, 70, 70, 17);
 
         jButton12.setText("UCoins Tauschen");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -688,7 +688,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel20.add(jButton12);
-        jButton12.setBounds(250, 10, 130, 90);
+        jButton12.setBounds(230, 10, 160, 90);
 
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel70.setText("UCoins:");
@@ -708,7 +708,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel85.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel85.setText("SHOP");
         jPanel20.add(jLabel85);
-        jLabel85.setBounds(490, 0, 210, 110);
+        jLabel85.setBounds(470, 0, 210, 110);
 
         shop.add(jPanel20);
         jPanel20.setBounds(150, 0, 700, 110);
@@ -1030,11 +1030,13 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(true);
     }//GEN-LAST:event_jLabel27MouseClicked
 
-    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+    private void enterShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterShopMouseClicked
         // TODO add your handling code here:
         cl.show(jPanel2, "card4");
         startPlanningGame.setVisible(false);
-    }//GEN-LAST:event_jLabel26MouseClicked
+        OpenShop labels = new OpenShop();
+        labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
+    }//GEN-LAST:event_enterShopMouseClicked
 
     private void jLabel55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel55MouseClicked
         // TODO add your handling code here:
@@ -1116,6 +1118,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog buyCoins;
+    private javax.swing.JLabel creditsShop;
+    private javax.swing.JLabel enterShop;
     private javax.swing.JButton exit;
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
@@ -1149,7 +1153,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1188,14 +1191,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
@@ -1264,8 +1264,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton loadGame;
+    private javax.swing.JLabel punkteShop;
     private javax.swing.JPanel shop;
     private javax.swing.JButton startNewGame;
     private javax.swing.JPanel startPlanningGame;
+    private javax.swing.JLabel ucoinsShop;
     // End of variables declaration//GEN-END:variables
 }
