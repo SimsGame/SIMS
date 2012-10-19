@@ -10,15 +10,17 @@ import javax.swing.JLabel;
  *
  * @author Stazzer
  */
-public class OpenShop{
+public class OpenShop extends Game{
+    
+    Game game = new Game();
     
     public OpenShop(){
         
     }
     
-    public void changeLabels(JLabel credits, JLabel punkte, JLabel ucoins){
-        credits.setText("5");
-        punkte.setText("7");
-        ucoins.setText("50");
+    public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){
+        credits.setText(String.valueOf(game.credits));
+        points.setText(String.valueOf(game.points));
+        ucoins.setText(String.valueOf(game.ucoins));
     }
 }
