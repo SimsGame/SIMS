@@ -16,9 +16,9 @@ public class CSVRead {
 //Reads a Comma Separated Value file and prints its contents.
 
  public static void main(String[] arg) throws Exception {
-
+  //is = this.getClass().getResourceAsStream("config.txt");   
   BufferedReader CSVFile = 
-        new BufferedReader(new FileReader("Example.csv"));
+        new BufferedReader(new FileReader("Test.csv"));
 
   String dataRow = CSVFile.readLine(); // Read first line.
   // The while checks to see if the data is null. If 
