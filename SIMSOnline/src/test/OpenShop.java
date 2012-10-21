@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Class that is called whenever a player presses the "shop" button during the planning screen.
+ * Fills all boxes/ fields in the shop with content
  */
 package test;
 
@@ -10,13 +10,17 @@ import javax.swing.JLabel;
  *
  * @author Stazzer
  */
-public class OpenShop extends Game{
+public class OpenShop{
     
     Game game = new Game();
     
     public OpenShop(){
         
     }
+    
+    /*
+     * Sets UCoins, Credits and points of the player
+     */
     
     public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){
         credits.setText(String.valueOf(game.credits));

@@ -5,6 +5,8 @@
 package test;
 
 import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -1105,6 +1107,12 @@ public class Sims_1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Sims.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        CSVRead read = new CSVRead();
+        try {
+            read.readCSV();
+        } catch (Exception ex) {
+            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         /*
          * Create and display the form
