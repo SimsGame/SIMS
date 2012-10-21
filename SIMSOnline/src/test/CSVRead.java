@@ -28,9 +28,9 @@ public class CSVRead {
   while (dataRow != null){
    String[] dataArray = dataRow.split(",");
    for (String item:dataArray) { 
-      System.out.print(item + "\t"); 
+      System.out.println(item);
    }
-   System.out.println(); // Print the data line.
+   //System.out.println(); // Print the data line.
    dataRow = CSVFile.readLine(); // Read next line of data.
   }
   // Close the file once all data has been read.
