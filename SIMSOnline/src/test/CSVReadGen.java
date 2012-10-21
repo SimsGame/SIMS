@@ -1,6 +1,6 @@
 /**
  * CSVRead.java: Reads a Comma Separated Value file and returns a a chained list
- * of chained lists with the vaules read.
+ * of chained lists with the values read.
  */
 package test;
 
