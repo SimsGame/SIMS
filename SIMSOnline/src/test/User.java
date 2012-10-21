@@ -18,7 +18,6 @@ public class User {
     private Date reg_date = new Date();
     private Date last_login = new Date();
     private int ucoins = 0;
-    private int credits = 0;
     private int time_played = 0;
     
 }
