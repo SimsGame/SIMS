@@ -46,6 +46,12 @@ public class Item {
             game.putItem(this);
     }
     
+    /**
+     * Creates each item container for the inventory.
+     * The variabels define the coordinates and the width and height of the container.
+     * Each item container includes a box for the image and two labels for the name and current amount.
+     */
+    
     public void createItemInventory(JLabel field, JLabel name, JLabel amount, Item item){
         int boxFactor = 120; 
         int itemBoxX = 25;
@@ -106,7 +112,14 @@ public class Item {
         }
     }
     
-    public void createItemShop(JLabel field, JLabel name, JLabel amount){
+    /**
+     * Creates the item container for the shop.
+     * @param field
+     * @param name
+     * @param amount 
+     */
+    
+    public void createItemShop(JLabel field, JLabel name, JLabel amount, Item item){
         
     }
 }
