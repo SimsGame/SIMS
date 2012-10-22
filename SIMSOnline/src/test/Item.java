@@ -46,7 +46,67 @@ public class Item {
             game.putItem(this);
     }
     
-    public void createItemContainer(JLabel field, JLabel name){
+    public void createItemInventory(JLabel field, JLabel name, JLabel amount, Item item){
+        int boxFactor = 120; 
+        int itemBoxX = 25;
+        int itemBoxY = 50;
+        int itemBoxWidth = 100;
+        int itemBoxHeight = 100;
+        int labelFactor = 120;
+        int itemLabelX = 35;
+        int itemLabelY = 100;
+        int itemLabelWidth = 80;
+        int itemLabelHeight = 20;
+        int itemAmountX = 33;
+        int itemAmountY = 120;
+        int itemAmountWidth = 80;
+        int itemAmountHeight = 20;
+        
+        name.setText(item.name);
+        name.setHorizontalAlignment(name.CENTER);
+        amount.setText(String.valueOf(item.amount)+" x");
+        amount.setHorizontalAlignment(name.CENTER);
+        
+        
+        if(item.name.equals("Red Bull")){
+            field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
+        }
+        if(item.name.equals("Duplo") && game.redBull.amount != 0){
+            field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
+        }
+        else{
+            field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
+        }
+        if(item.name.equals("OMNI Sense Audiobuch") && game.redBull.amount != 0 && game.duplo.amount != 0){
+            field.setBounds(itemBoxX, itemBoxY+2*boxFactor, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY+2*labelFactor, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY+2*labelFactor, itemAmountWidth, itemAmountHeight);
+        }
+        else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.redBull.amount != 0 || item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount != 0 && game.redBull.amount == 0){
+            field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
+        }
+        else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.redBull.amount == 0){
+            field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
+            name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
+            amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
+        }
+        
+        if(item.amount == 0){
+            field.setVisible(false);
+            name.setVisible(false);
+            amount.setVisible(false);
+        }
+    }
+    
+    public void createItemShop(JLabel field, JLabel name, JLabel amount){
         
     }
 }

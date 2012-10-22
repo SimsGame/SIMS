@@ -16,10 +16,10 @@ public class Game {
      * Items are public to have an easy access from every class
      */
     
-    public Item duplo;
-    public Item redBull;
-    public Item cheatSheet;
-    public Item omniSenseAudio;
+    public static Item duplo;
+    public static Item redBull;
+    public static Item cheatSheet;
+    public static Item omniSenseAudio;
     
     
     /**
@@ -30,15 +30,23 @@ public class Game {
     public void putItem(Item item){
         if(item.name.equals("Duplo")){
             this.duplo = item;
+            this.duplo.amount = 4;
         }
         if(item.name.equals("Red Bull")){
             this.redBull = item;
+            this.redBull.amount = 5;
         }
         if(item.name.equals("Spickzettel")){
             this.cheatSheet = item;
         }
         if(item.name.equals("OMNI Sense Audiobuch")){
             this.omniSenseAudio = item;
+            this.omniSenseAudio.amount = 6;
         }
+      }
+    
+    public void test(){
+        System.out.print(duplo.name);
     }
+    
 }
