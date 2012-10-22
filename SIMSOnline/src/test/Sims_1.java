@@ -185,7 +185,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar5 = new javax.swing.JProgressBar();
         jProgressBar6 = new javax.swing.JProgressBar();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel_timer = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
 
         buyCoins.getContentPane().setLayout(null);
@@ -230,7 +230,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(jButton2);
-        jButton2.setBounds(50, 220, 130, 23);
+        jButton2.setBounds(50, 220, 130, 29);
 
         jButton3.setText("Abbrechen");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(jButton3);
-        jButton3.setBounds(210, 220, 130, 23);
+        jButton3.setBounds(210, 220, 130, 29);
 
         jTextField2.setMinimumSize(new java.awt.Dimension(30, 20));
         buyCoins.getContentPane().add(jTextField2);
@@ -347,11 +347,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel47.setText("Studenten umsetzen");
         jPanel14.add(jLabel47);
-        jLabel47.setBounds(20, 40, 160, 14);
+        jLabel47.setBounds(20, 40, 160, 17);
 
         jLabel48.setText("Schritt 1:");
         jPanel14.add(jLabel48);
-        jLabel48.setBounds(10, 10, 100, 14);
+        jLabel48.setBounds(10, 10, 100, 17);
 
         jLabel52.setText("5 x");
         jPanel14.add(jLabel52);
@@ -369,7 +369,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel51.setText("Dozent wechseln");
         jPanel15.add(jLabel51);
-        jLabel51.setBounds(30, 50, 110, 14);
+        jLabel51.setBounds(30, 50, 110, 17);
 
         jLabel49.setText("1 x");
         jPanel15.add(jLabel49);
@@ -383,11 +383,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel53.setText("Schritt 3:");
         jPanel16.add(jLabel53);
-        jLabel53.setBounds(10, 10, 80, 14);
+        jLabel53.setBounds(10, 10, 80, 17);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item Auswählen", "Spickzettel", "Item 3", "Item 4" }));
         jPanel16.add(jComboBox1);
-        jComboBox1.setBounds(10, 50, 130, 20);
+        jComboBox1.setBounds(10, 50, 130, 27);
 
         jPanel9.add(jPanel16);
         jPanel16.setBounds(0, 220, 150, 110);
@@ -420,23 +420,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel30.setText("Studenten:");
         jPanel13.add(jLabel30);
-        jLabel30.setBounds(20, 310, 80, 14);
+        jLabel30.setBounds(20, 310, 80, 17);
 
         jLabel31.setText("4 / 40");
         jPanel13.add(jLabel31);
-        jLabel31.setBounds(90, 310, 50, 14);
+        jLabel31.setBounds(90, 310, 50, 17);
 
         jLabel32.setText("Semester: ");
         jPanel13.add(jLabel32);
-        jLabel32.setBounds(20, 330, 80, 14);
+        jLabel32.setBounds(20, 330, 80, 17);
 
         jLabel33.setText("3 / 6");
         jPanel13.add(jLabel33);
-        jLabel33.setBounds(90, 330, 60, 14);
+        jLabel33.setBounds(90, 330, 60, 17);
 
         jLabel34.setText("3 UC");
         jPanel13.add(jLabel34);
-        jLabel34.setBounds(100, 80, 40, 14);
+        jLabel34.setBounds(100, 80, 40, 17);
 
         jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel13.add(jLabel35);
@@ -448,15 +448,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel37.setText("700 C");
         jPanel13.add(jLabel37);
-        jLabel37.setBounds(20, 80, 40, 14);
+        jLabel37.setBounds(20, 80, 40, 17);
 
         jLabel38.setText("Red Bull");
         jPanel13.add(jLabel38);
-        jLabel38.setBounds(20, 170, 70, 14);
+        jLabel38.setBounds(20, 170, 70, 17);
 
         jLabel39.setText("3 x");
         jPanel13.add(jLabel39);
-        jLabel39.setBounds(30, 190, 40, 14);
+        jLabel39.setBounds(30, 190, 40, 17);
 
         jLabel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel13.add(jLabel40);
@@ -553,7 +553,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item auswählen", "Spicker" }));
         jPanel30.add(jComboBox2);
-        jComboBox2.setBounds(10, 40, 130, 20);
+        jComboBox2.setBounds(10, 40, 130, 27);
 
         jPanel27.add(jPanel30);
         jPanel30.setBounds(0, 220, 150, 110);
@@ -567,15 +567,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel16.setText("Duplo: 3");
         jPanel31.add(jLabel16);
-        jLabel16.setBounds(10, 50, 90, 14);
+        jLabel16.setBounds(10, 50, 90, 17);
 
         jLabel44.setText("Redbull: 5");
         jPanel31.add(jLabel44);
-        jLabel44.setBounds(10, 40, 90, 14);
+        jLabel44.setBounds(10, 40, 90, 17);
 
         jLabel45.setText("Zum Shop Gehen!");
         jPanel31.add(jLabel45);
-        jLabel45.setBounds(30, 90, 120, 14);
+        jLabel45.setBounds(30, 90, 120, 17);
 
         jPanel27.add(jPanel31);
         jPanel31.setBounds(0, 330, 150, 110);
@@ -625,19 +625,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 420, 80, 14);
+        jLabel58.setBounds(10, 420, 80, 17);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 420, 50, 14);
+        jLabel59.setBounds(80, 420, 50, 17);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 440, 80, 14);
+        jLabel60.setBounds(10, 440, 80, 17);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 440, 60, 14);
+        jLabel61.setBounds(80, 440, 60, 17);
 
         jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(jLabel64);
@@ -645,11 +645,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel66.setText("Red Bull");
         jPanel19.add(jLabel66);
-        jLabel66.setBounds(50, 170, 70, 14);
+        jLabel66.setBounds(50, 170, 70, 17);
 
         jLabel67.setText("3 x");
         jPanel19.add(jLabel67);
-        jLabel67.setBounds(60, 190, 40, 14);
+        jLabel67.setBounds(60, 190, 40, 17);
 
         jLabel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(jLabel68);
@@ -838,23 +838,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 420, 80, 14);
+        jLabel18.setBounds(10, 420, 80, 17);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 420, 50, 14);
+        jLabel19.setBounds(80, 420, 50, 17);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 440, 80, 14);
+        jLabel20.setBounds(10, 440, 80, 17);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 440, 60, 14);
+        jLabel21.setBounds(80, 440, 60, 17);
 
         jLabel22.setText("UCoins: 300");
         jPanel4.add(jLabel22);
-        jLabel22.setBounds(80, 350, 80, 14);
+        jLabel22.setBounds(80, 350, 80, 17);
 
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.add(jLabel17);
@@ -862,7 +862,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel23.setText("Credis: 700");
         jPanel4.add(jLabel23);
-        jLabel23.setBounds(10, 350, 70, 14);
+        jLabel23.setBounds(10, 350, 70, 17);
 
         jLabel24.setText("Red Bull");
         jPanel4.add(jLabel24);
@@ -870,7 +870,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel25.setText("3 x");
         jPanel4.add(jLabel25);
-        jLabel25.setBounds(60, 190, 40, 14);
+        jLabel25.setBounds(60, 190, 40, 17);
 
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.add(jLabel15);
@@ -920,7 +920,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 23);
+        jButton1.setBounds(350, 10, 120, 29);
 
         jButton4.setText("Gruppenarbeit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -929,11 +929,11 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 23);
+        jButton4.setBounds(350, 40, 120, 29);
 
         jButton5.setText("Pause");
         jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 23);
+        jButton5.setBounds(350, 80, 120, 29);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -955,10 +955,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel6.setLayout(null);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel4.setText("3:00");
-        jPanel6.add(jLabel4);
-        jLabel4.setBounds(10, 10, 140, 90);
+        jLabel_timer.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel_timer.setText("--:--");
+        jPanel6.add(jLabel_timer);
+        jLabel_timer.setBounds(10, 10, 140, 90);
 
         gamePlaying.add(jPanel6);
         jPanel6.setBounds(850, 0, 130, 110);
@@ -983,6 +983,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }    
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
+        ActivityPhase phase = new ActivityPhase(jLabel_timer); // added by Jörg
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -1167,7 +1168,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1221,6 +1221,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel_timer;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
