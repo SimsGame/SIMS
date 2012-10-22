@@ -1150,6 +1150,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
     }
+    private javax.swing.JLabel label_timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog buyCoins;
     private javax.swing.JLabel creditsShop;
