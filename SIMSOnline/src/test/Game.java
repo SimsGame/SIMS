@@ -30,7 +30,6 @@ public class Game {
         }
         if(item.name.equals("OMNI Sense Audiobuch")){
             this.omniSenseAudio = item;
-            System.out.print(item.name);
         }
     }
 }

@@ -3,6 +3,8 @@
  */
 package test;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Jannik
@@ -42,5 +44,9 @@ public class Item {
             this.availibility = availibility;
             //System.out.print(duplo.name);
             game.putItem(this);
+    }
+    
+    public void createItemContainer(JLabel field, JLabel name){
+        
     }
 }
