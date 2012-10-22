@@ -11,10 +11,10 @@ package test;
 public class Timer extends Thread {
 
     private int timer;
-    private javax.swing.JLabel jLabel_timer;
+    private javax.swing.JLabel label_timer;
 
    public Timer(javax.swing.JLabel jLabel_timer) {
-        this.jLabel_timer = jLabel_timer;
+        this.label_timer = jLabel_timer;
         initTimer();
     }
 
@@ -32,12 +32,12 @@ public class Timer extends Thread {
                 timerText+="0";
             }
             timerText+=timer % 60;
-            jLabel_timer.setText(timerText);
+            label_timer.setText(timerText);
         }
     }
 
     private void initTimer() {
-        jLabel_timer.setText("3:00");
+        label_timer.setText("3:00");
         this.timer = 180;
     }
 }

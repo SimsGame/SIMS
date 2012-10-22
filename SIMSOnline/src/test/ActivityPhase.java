@@ -11,15 +11,15 @@ package test;
  */
 public class ActivityPhase {
 
-    private javax.swing.JLabel jLabel_timer;
+    private javax.swing.JLabel label_timer;
 
     public ActivityPhase(javax.swing.JLabel jLabel_timer) {
-        this.jLabel_timer = jLabel_timer;
+        this.label_timer = jLabel_timer;
         activityPhaseMain();
     }
     
     private void activityPhaseMain(){
-        Thread runTimer = new Thread(new Timer(jLabel_timer));
+        Thread runTimer = new Thread(new Timer(label_timer));
         runTimer.start();
     }
 
