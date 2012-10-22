@@ -31,7 +31,7 @@ public class Student {
      * value of the tiredness attribute.
      */
     private void initTiredness() {
-        this.tiredness=Math.round(Math.random() % 40);
+        this.tiredness=Math.round(Math.random()*40);
     }
 
      /**
@@ -40,7 +40,7 @@ public class Student {
      * value of the motivation attribute.
      */
     private void initMotivation() {
-        this.motivation=Math.round(50+Math.random() % 40);
+        this.motivation=Math.round(50+Math.random()*40);
     }
 
      /**
