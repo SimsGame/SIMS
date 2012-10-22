@@ -12,7 +12,6 @@ import java.util.Arrays;
  */
 public class CSVRead {
 
-    Game game = new Game();
     public String[] data = new String[24];
     int column = 4;
 
@@ -39,7 +38,7 @@ public class CSVRead {
   
   // Filles the items with data
   for(int j=0; j<4; j++){
-    game.setItems(data[j], data[j+column], Integer.parseInt(data[j+2*column]), data[j+3*column], Integer.parseInt(data[j+4*column]), Integer.parseInt(data[j+5*column]));
+    Item item = new Item(data[j], data[j+column], Integer.parseInt(data[j+2*column]), data[j+3*column], Integer.parseInt(data[j+4*column]), Integer.parseInt(data[j+5*column]));
   }
  } 
 }

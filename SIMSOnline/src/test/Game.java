@@ -13,47 +13,24 @@ public class Game {
     public int credits = 60;
     public int points = 700; 
     
-    public Item duplo = new Item();
-    public Item redBull = new Item();
-    public Item cheatSheet = new Item();
-    public Item omniSenseAudio = new Item();
+    public Item duplo;
+    public Item redBull;
+    public Item cheatSheet;
+    public Item omniSenseAudio;
     
-    public void setItems(String name, String image, int price, String currency, int amount, int availibility){
-        if(name.equals("Duplo")){
-            duplo.name = name;
-            duplo.image = image;
-            duplo.price = price;
-            duplo.currency = currency;
-            duplo.amount = amount;
-            duplo.availibility = availibility;
-            System.out.print(duplo.name);
+    public void putItem(Item item){
+        if(item.name.equals("Duplo")){
+            this.duplo = item;
         }
-        if(name.equals("Red Bull")){
-            redBull.name = name;
-            redBull.image = image;
-            redBull.price = price;
-            redBull.currency = currency;
-            redBull.amount = amount;
-            redBull.availibility = availibility;
-            System.out.print(redBull.name);
+        if(item.name.equals("Red Bull")){
+            this.redBull = item;
         }
-        if(name.equals("Spickzettel")){
-            cheatSheet.name = name;
-            cheatSheet.image = image;
-            cheatSheet.price = price;
-            cheatSheet.currency = currency;
-            cheatSheet.amount = amount;
-            cheatSheet.availibility = availibility;
-            System.out.print(cheatSheet.name);
+        if(item.name.equals("Spickzettel")){
+            this.cheatSheet = item;
         }
-        if(name.equals("OMNI Sense Audiobuch")){
-            omniSenseAudio.name = name;
-            omniSenseAudio.image = image;
-            omniSenseAudio.price = price;
-            omniSenseAudio.currency = currency;
-            omniSenseAudio.amount = amount;
-            omniSenseAudio.availibility = availibility;
-            System.out.print(omniSenseAudio.name);
+        if(item.name.equals("OMNI Sense Audiobuch")){
+            this.omniSenseAudio = item;
+            System.out.print(item.name);
         }
     }
 }

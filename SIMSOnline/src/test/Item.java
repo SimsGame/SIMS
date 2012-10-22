@@ -9,6 +9,8 @@ package test;
  */
 public class Item {
     
+    Game game = new Game();
+    
     /**
      * Public attributes to have an easier access from other classes.
      * @param name           Item name.
@@ -26,4 +28,19 @@ public class Item {
     public int amount;
     public int availibility;
     
+    //public Item item;
+    public Item(){
+        
+    }
+    
+    public Item(String name, String image, int price, String currency, int amount, int availibility){
+            this.name = name;
+            this.image = image;
+            this.price = price;
+            this.currency = currency;
+            this.amount = amount;
+            this.availibility = availibility;
+            //System.out.print(duplo.name);
+            game.putItem(this);
+    }
 }
