@@ -192,7 +192,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar5 = new javax.swing.JProgressBar();
         jProgressBar6 = new javax.swing.JProgressBar();
         jPanel6 = new javax.swing.JPanel();
-        jLabel_timer = new javax.swing.JLabel();
+        label_timer = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
 
         buyCoins.getContentPane().setLayout(null);
@@ -978,10 +978,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel6.setLayout(null);
 
-        jLabel_timer.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel_timer.setText("--:--");
-        jPanel6.add(jLabel_timer);
-        jLabel_timer.setBounds(10, 10, 140, 90);
+        label_timer.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        label_timer.setText("--:--");
+        jPanel6.add(label_timer);
+        label_timer.setBounds(10, 10, 140, 90);
 
         gamePlaying.add(jPanel6);
         jPanel6.setBounds(850, 0, 130, 110);
@@ -1006,7 +1006,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }    
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
-        ActivityPhase phase = new ActivityPhase(jLabel_timer); // added by Jörg
+        ActivityPhase phase = new ActivityPhase(label_timer); // added by Jörg
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -1249,7 +1249,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
-    private javax.swing.JLabel jLabel_timer;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
