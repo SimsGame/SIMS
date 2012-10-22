@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * CSVRead.java: Reads a Comma Separated Value file and prints its contents.
  */
 package test;
 
@@ -9,14 +8,14 @@ import java.util.Arrays;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class CSVRead {
-    // CSVRead.java
-//Reads a Comma Separated Value file and prints its contents.
 
- public static void main(String[] arg) throws Exception {
-  //is = this.getClass().getResourceAsStream("config.txt");   
+    public String[] data = new String[24];
+    int column = 4;
+
+ public void readCSV() throws Exception{
   BufferedReader CSVFile = 
         new BufferedReader(new FileReader("Test.csv"));
 
@@ -24,20 +23,22 @@ public class CSVRead {
   // The while checks to see if the data is null. If 
   // it is, we've hit the end of the file. If not, 
   // process the data.
-
+    int i = 0;
   while (dataRow != null){
    String[] dataArray = dataRow.split(",");
    for (String item:dataArray) { 
-      System.out.print(item + "\t"); 
+      data[i] = item;
+      i++;
    }
-   System.out.println(); // Print the data line.
+
    dataRow = CSVFile.readLine(); // Read next line of data.
   }
   // Close the file once all data has been read.
   CSVFile.close();
-
-  // End the printout with a blank line.
-  System.out.println();
-
- } //main()
+  
+  // Filles the items with data
+  for(int j=0; j<4; j++){
+    Item item = new Item(data[j], data[j+column], Integer.parseInt(data[j+2*column]), data[j+3*column], Integer.parseInt(data[j+4*column]), Integer.parseInt(data[j+5*column]));
+  }
+ } 
 }
