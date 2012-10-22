@@ -61,9 +61,11 @@ public class Student {
      */
     void updateKnowledge() {
         this.knowledgeIncreasement = (this.motivation - this.tiredness) * this.intelligence * 0.000375;
-        this.knowledge = this.knowledge + this.knowledgeIncreasement;
+       
         if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge
             this.knowledgeIncreasement = 0;
+        this.knowledge = this.knowledge + this.knowledgeIncreasement;
+        
     }
 
     /**
