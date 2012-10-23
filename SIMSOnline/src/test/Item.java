@@ -119,7 +119,18 @@ public class Item {
      * @param amount 
      */
     
-    public void createItemShop(JLabel field, JLabel name, JLabel amount, Item item){
+    public void createItemShop(JLabel name, JLabel price, JLabel locked, Item item){
         
+        name.setHorizontalAlignment(JLabel.CENTER);
+        price.setHorizontalAlignment(JLabel.CENTER);
+        
+        if(item.availibility > game.semester){
+            name.setText("Verfügbar ab Semester "+String.valueOf(item.availibility));
+            price.setVisible(false);
+        }else{
+            locked.setVisible(false);
+            name.setText(item.name);
+            price.setText(String.valueOf(item.price)+" "+String.valueOf(item.currency));
+        }
     }
 }
