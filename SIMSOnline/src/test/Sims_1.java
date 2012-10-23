@@ -1259,6 +1259,10 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item1, label_item1Name, label_item1Amount, game.redBull);
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
+        item.createItemShop(label_redBullName, label_redBullAmount, label_redBullLocked, game.redBull);
+        item.createItemShop(label_duploName, label_duploAmount, label_duploLocked, game.duplo);
+        item.createItemShop(label_cheatSheetName, label_cheatSheetAmount, label_cheatSheetLocked, game.cheatSheet);
+        item.createItemShop(label_omniName, label_omniAmount, label_omniLocked, game.omniSenseAudio);
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
