@@ -47,6 +47,7 @@ public class Game {
         }
         if(item.name.equals("Spickzettel")){
             this.cheatSheet = item;
+            this.cheatSheet.amount = 1;
         }
         if(item.name.equals("OMNI Sense Audiobuch")){
             this.omniSenseAudio = item;
