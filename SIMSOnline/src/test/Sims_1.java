@@ -62,34 +62,73 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         gamePlanning = new javax.swing.JPanel();
         Logo = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
+        jLab_Logo = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        jProgressBar7 = new javax.swing.JProgressBar();
-        jProgressBar8 = new javax.swing.JProgressBar();
-        jProgressBar10 = new javax.swing.JProgressBar();
+        jProgB_Müdigkeit = new javax.swing.JProgressBar();
+        jProgB_Motivation = new javax.swing.JProgressBar();
+        jProgB_Wissen = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         Shop = new javax.swing.JPanel();
         enterShop = new javax.swing.JLabel();
-        StudField = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
         Navi = new javax.swing.JPanel();
-        jPanel28 = new javax.swing.JPanel();
+        jPan_StudSwitch = new javax.swing.JPanel();
+        jLab_StudSwitch = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
-        jLabel92 = new javax.swing.JLabel();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel89 = new javax.swing.JLabel();
+        jLab_StudCounter = new javax.swing.JLabel();
+        jBut_BackG = new javax.swing.JButton();
+        jPan_DozSwitch = new javax.swing.JPanel();
+        jLab_DozSwitch = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
-        jPanel30 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jPanel31 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLab_DozCounter = new javax.swing.JLabel();
+        jBut_BackG2 = new javax.swing.JButton();
+        jPan_ItemSelect = new javax.swing.JPanel();
+        jComboB_Items = new javax.swing.JComboBox();
+        jBut_ComboB_useItem = new javax.swing.JButton();
+        jPan_ItemStorage = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
+        jLab_Redbull = new javax.swing.JLabel();
+        jLab_Duplo = new javax.swing.JLabel();
+        jLab_OMNI = new javax.swing.JLabel();
         jPanel32 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
+        jBut_Play = new javax.swing.JButton();
+        StudField = new javax.swing.JPanel();
+        jBut_Dozent = new javax.swing.JButton();
+        jBut_1 = new javax.swing.JButton();
+        jBut_2 = new javax.swing.JButton();
+        jBut_3 = new javax.swing.JButton();
+        jBut_4 = new javax.swing.JButton();
+        jBut_5 = new javax.swing.JButton();
+        jBut_6 = new javax.swing.JButton();
+        jBut_7 = new javax.swing.JButton();
+        jBut_8 = new javax.swing.JButton();
+        jBut_9 = new javax.swing.JButton();
+        jBut_10 = new javax.swing.JButton();
+        jBut_11 = new javax.swing.JButton();
+        jBut_12 = new javax.swing.JButton();
+        jBut_13 = new javax.swing.JButton();
+        jBut_14 = new javax.swing.JButton();
+        jBut_15 = new javax.swing.JButton();
+        jBut_16 = new javax.swing.JButton();
+        jBut_17 = new javax.swing.JButton();
+        jBut_18 = new javax.swing.JButton();
+        jBut_19 = new javax.swing.JButton();
+        jBut_20 = new javax.swing.JButton();
+        jBut_21 = new javax.swing.JButton();
+        jBut_22 = new javax.swing.JButton();
+        jBut_23 = new javax.swing.JButton();
+        jBut_24 = new javax.swing.JButton();
+        jBut_25 = new javax.swing.JButton();
+        jBut_26 = new javax.swing.JButton();
+        jBut_27 = new javax.swing.JButton();
+        jBut_28 = new javax.swing.JButton();
+        jBut_29 = new javax.swing.JButton();
+        jBut_30 = new javax.swing.JButton();
         shop = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -316,16 +355,16 @@ public class Sims_1 extends javax.swing.JFrame {
         Logo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Logo.setLayout(null);
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("SIMS Logo");
-        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLab_Logo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLab_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLab_Logo.setText("SIMS Logo");
+        jLab_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel27MouseClicked(evt);
+                jLab_LogoMouseClicked(evt);
             }
         });
-        Logo.add(jLabel27);
-        jLabel27.setBounds(0, 0, 150, 110);
+        Logo.add(jLab_Logo);
+        jLab_Logo.setBounds(0, 0, 150, 110);
 
         gamePlanning.add(Logo);
         Logo.setBounds(0, 0, 150, 110);
@@ -336,7 +375,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel41.setText("Wissen:");
         Header.add(jLabel41);
-        jLabel41.setBounds(10, 10, 70, 20);
+        jLabel41.setBounds(10, 20, 70, 20);
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel42.setText("Motivation:");
@@ -347,12 +386,12 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel43.setText("Müdigkeit:");
         Header.add(jLabel43);
         jLabel43.setBounds(10, 80, 90, 20);
-        Header.add(jProgressBar7);
-        jProgressBar7.setBounds(90, 80, 260, 20);
-        Header.add(jProgressBar8);
-        jProgressBar8.setBounds(90, 40, 260, 30);
-        Header.add(jProgressBar10);
-        jProgressBar10.setBounds(90, 10, 260, 20);
+        Header.add(jProgB_Müdigkeit);
+        jProgB_Müdigkeit.setBounds(90, 80, 260, 20);
+        Header.add(jProgB_Motivation);
+        jProgB_Motivation.setBounds(90, 50, 260, 20);
+        Header.add(jProgB_Wissen);
+        jProgB_Wissen.setBounds(90, 20, 260, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setText("PLANUNGSPHASE");
@@ -376,91 +415,274 @@ public class Sims_1 extends javax.swing.JFrame {
         Shop.add(enterShop);
         enterShop.setBounds(0, 0, 130, 110);
 
+        jButton9.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jButton9.setText("SHOP");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        Shop.add(jButton9);
+        jButton9.setBounds(5, 5, 120, 100);
+
         gamePlanning.add(Shop);
         Shop.setBounds(850, 0, 130, 110);
-
-        StudField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        StudField.setLayout(null);
-        gamePlanning.add(StudField);
-        StudField.setBounds(150, 110, 830, 550);
 
         Navi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Navi.setLayout(null);
 
-        jPanel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel28.setLayout(null);
+        jPan_StudSwitch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPan_StudSwitch.setLayout(null);
+        jPan_StudSwitch.add(jLab_StudSwitch);
+        jLab_StudSwitch.setBounds(0, 0, 150, 110);
 
-        jLabel90.setText("Studenten umsetzen");
-        jPanel28.add(jLabel90);
-        jLabel90.setBounds(20, 30, 150, 20);
+        jLabel4.setText("umsetzen");
+        jPan_StudSwitch.add(jLabel4);
+        jLabel4.setBounds(40, 40, 70, 14);
 
-        jLabel92.setText("5 x");
-        jPanel28.add(jLabel92);
-        jLabel92.setBounds(60, 60, 60, 20);
+        jLabel90.setText("Studenten");
+        jPan_StudSwitch.add(jLabel90);
+        jLabel90.setBounds(40, 20, 70, 20);
 
-        Navi.add(jPanel28);
-        jPanel28.setBounds(0, 0, 150, 110);
-        jPanel28.getAccessibleContext().setAccessibleDescription("");
+        jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLab_StudCounter.setText("5x");
+        jPan_StudSwitch.add(jLab_StudCounter);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
-        jPanel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel29.setLayout(null);
+        jBut_BackG.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jBut_BackG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_BackGActionPerformed(evt);
+            }
+        });
+        jPan_StudSwitch.add(jBut_BackG);
+        jBut_BackG.setBounds(10, 10, 130, 90);
 
-        jLabel89.setText("Dozenten tauschen");
-        jPanel29.add(jLabel89);
-        jLabel89.setBounds(20, 30, 110, 20);
+        Navi.add(jPan_StudSwitch);
+        jPan_StudSwitch.setBounds(0, 0, 150, 110);
+        jPan_StudSwitch.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel91.setText("1 x");
-        jPanel29.add(jLabel91);
-        jLabel91.setBounds(60, 60, 60, 20);
+        jPan_DozSwitch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPan_DozSwitch.setLayout(null);
+        jPan_DozSwitch.add(jLab_DozSwitch);
+        jLab_DozSwitch.setBounds(0, 0, 150, 110);
 
-        Navi.add(jPanel29);
-        jPanel29.setBounds(0, 110, 150, 110);
+        jLabel91.setText("Dozenten");
+        jPan_DozSwitch.add(jLabel91);
+        jLabel91.setBounds(40, 20, 70, 20);
 
-        jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel30.setLayout(null);
+        jLabel27.setText("tauschen");
+        jPan_DozSwitch.add(jLabel27);
+        jLabel27.setBounds(40, 40, 60, 20);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item auswählen", "Spicker" }));
-        jPanel30.add(jComboBox2);
-        jComboBox2.setBounds(10, 40, 130, 20);
+        jLab_DozCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLab_DozCounter.setText("1x");
+        jPan_DozSwitch.add(jLab_DozCounter);
+        jLab_DozCounter.setBounds(60, 60, 30, 30);
 
-        Navi.add(jPanel30);
-        jPanel30.setBounds(0, 220, 150, 110);
+        jBut_BackG2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jBut_BackG2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_BackG2ActionPerformed(evt);
+            }
+        });
+        jPan_DozSwitch.add(jBut_BackG2);
+        jBut_BackG2.setBounds(10, 10, 130, 90);
 
-        jPanel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel31.setLayout(null);
+        Navi.add(jPan_DozSwitch);
+        jPan_DozSwitch.setBounds(0, 110, 150, 110);
 
+        jPan_ItemSelect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPan_ItemSelect.setLayout(null);
+
+        jComboB_Items.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "wähle Item", "Spicker" }));
+        jPan_ItemSelect.add(jComboB_Items);
+        jComboB_Items.setBounds(10, 20, 130, 30);
+
+        jBut_ComboB_useItem.setText("Benutzen");
+        jPan_ItemSelect.add(jBut_ComboB_useItem);
+        jBut_ComboB_useItem.setBounds(20, 60, 77, 23);
+
+        Navi.add(jPan_ItemSelect);
+        jPan_ItemSelect.setBounds(0, 220, 150, 110);
+
+        jPan_ItemStorage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPan_ItemStorage.setLayout(null);
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setText("Item-Vorräte");
-        jPanel31.add(jLabel8);
-        jLabel8.setBounds(10, 10, 80, 20);
+        jPan_ItemStorage.add(jLabel8);
+        jLabel8.setBounds(10, 10, 120, 20);
 
-        jLabel16.setText("Duplo: 3");
-        jPanel31.add(jLabel16);
-        jLabel16.setBounds(10, 50, 90, 14);
+        jLab_Redbull.setText("Redbull: 5");
+        jPan_ItemStorage.add(jLab_Redbull);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
-        jLabel44.setText("Redbull: 5");
-        jPanel31.add(jLabel44);
-        jLabel44.setBounds(10, 40, 90, 14);
+        jLab_Duplo.setText("Duplo: 3");
+        jPan_ItemStorage.add(jLab_Duplo);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
-        jLabel45.setText("Zum Shop Gehen!");
-        jPanel31.add(jLabel45);
-        jLabel45.setBounds(30, 90, 120, 14);
+        jLab_OMNI.setText("OMNI Sense Buch: 1");
+        jPan_ItemStorage.add(jLab_OMNI);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
-        Navi.add(jPanel31);
-        jPanel31.setBounds(0, 330, 150, 110);
+        Navi.add(jPan_ItemStorage);
+        jPan_ItemStorage.setBounds(0, 330, 150, 110);
 
         jPanel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel32.setLayout(null);
 
-        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel46.setText("SPIELEN");
-        jPanel32.add(jLabel46);
-        jLabel46.setBounds(20, 30, 170, 50);
+        jBut_Play.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jBut_Play.setText("SPIELEN");
+        jBut_Play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_PlayActionPerformed(evt);
+            }
+        });
+        jPanel32.add(jBut_Play);
+        jBut_Play.setBounds(10, 10, 130, 90);
 
         Navi.add(jPanel32);
         jPanel32.setBounds(0, 440, 150, 110);
 
         gamePlanning.add(Navi);
         Navi.setBounds(0, 110, 150, 550);
+
+        StudField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        StudField.setLayout(null);
+
+        jBut_Dozent.setText("Dozent");
+        StudField.add(jBut_Dozent);
+        jBut_Dozent.setBounds(340, 10, 110, 50);
+
+        jBut_1.setText("Platz_1");
+        StudField.add(jBut_1);
+        jBut_1.setBounds(60, 120, 110, 50);
+
+        jBut_2.setText("Platz_2");
+        StudField.add(jBut_2);
+        jBut_2.setBounds(210, 120, 110, 50);
+
+        jBut_3.setText("Platz_3");
+        StudField.add(jBut_3);
+        jBut_3.setBounds(360, 120, 110, 50);
+
+        jBut_4.setText("Platz_4");
+        StudField.add(jBut_4);
+        jBut_4.setBounds(510, 120, 110, 50);
+
+        jBut_5.setText("Platz_5");
+        StudField.add(jBut_5);
+        jBut_5.setBounds(660, 120, 110, 50);
+
+        jBut_6.setText("Platz_6");
+        StudField.add(jBut_6);
+        jBut_6.setBounds(60, 190, 110, 50);
+
+        jBut_7.setText("Platz_7");
+        StudField.add(jBut_7);
+        jBut_7.setBounds(210, 190, 110, 50);
+
+        jBut_8.setText("Platz_8");
+        StudField.add(jBut_8);
+        jBut_8.setBounds(360, 190, 110, 50);
+
+        jBut_9.setText("Platz_9");
+        StudField.add(jBut_9);
+        jBut_9.setBounds(510, 190, 110, 50);
+
+        jBut_10.setText("Platz_10");
+        StudField.add(jBut_10);
+        jBut_10.setBounds(660, 190, 110, 50);
+
+        jBut_11.setText("Platz_11");
+        StudField.add(jBut_11);
+        jBut_11.setBounds(60, 260, 110, 50);
+
+        jBut_12.setText("Platz_12");
+        StudField.add(jBut_12);
+        jBut_12.setBounds(210, 260, 110, 50);
+
+        jBut_13.setText("Platz_13");
+        StudField.add(jBut_13);
+        jBut_13.setBounds(360, 260, 110, 50);
+
+        jBut_14.setText("Platz_14");
+        StudField.add(jBut_14);
+        jBut_14.setBounds(510, 260, 110, 50);
+
+        jBut_15.setText("Platz_15");
+        StudField.add(jBut_15);
+        jBut_15.setBounds(660, 260, 110, 50);
+
+        jBut_16.setText("Platz_16");
+        StudField.add(jBut_16);
+        jBut_16.setBounds(60, 330, 110, 50);
+
+        jBut_17.setText("Platz_17");
+        jBut_17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_17ActionPerformed(evt);
+            }
+        });
+        StudField.add(jBut_17);
+        jBut_17.setBounds(210, 330, 110, 50);
+
+        jBut_18.setText("Platz_18");
+        StudField.add(jBut_18);
+        jBut_18.setBounds(360, 330, 110, 50);
+
+        jBut_19.setText("Platz_19");
+        StudField.add(jBut_19);
+        jBut_19.setBounds(510, 330, 110, 50);
+
+        jBut_20.setText("Platz_20");
+        StudField.add(jBut_20);
+        jBut_20.setBounds(660, 330, 110, 50);
+
+        jBut_21.setText("Platz_21");
+        StudField.add(jBut_21);
+        jBut_21.setBounds(60, 400, 110, 50);
+
+        jBut_22.setText("Platz_22");
+        StudField.add(jBut_22);
+        jBut_22.setBounds(210, 400, 110, 50);
+
+        jBut_23.setText("Platz_23");
+        StudField.add(jBut_23);
+        jBut_23.setBounds(360, 400, 110, 50);
+
+        jBut_24.setText("Platz_24");
+        StudField.add(jBut_24);
+        jBut_24.setBounds(510, 400, 110, 50);
+
+        jBut_25.setText("Platz_25");
+        StudField.add(jBut_25);
+        jBut_25.setBounds(660, 400, 110, 50);
+
+        jBut_26.setText("Platz_26");
+        StudField.add(jBut_26);
+        jBut_26.setBounds(60, 470, 110, 50);
+
+        jBut_27.setText("Platz_27");
+        jBut_27.setToolTipText("");
+        StudField.add(jBut_27);
+        jBut_27.setBounds(210, 470, 110, 50);
+
+        jBut_28.setText("Platz_28");
+        StudField.add(jBut_28);
+        jBut_28.setBounds(360, 470, 110, 50);
+
+        jBut_29.setText("Platz_29");
+        StudField.add(jBut_29);
+        jBut_29.setBounds(510, 470, 110, 50);
+
+        jBut_30.setText("Platz_30");
+        StudField.add(jBut_30);
+        jBut_30.setBounds(660, 470, 110, 50);
+
+        gamePlanning.add(StudField);
+        StudField.setBounds(150, 110, 830, 550);
 
         jPanel2.add(gamePlanning, "card3");
 
@@ -493,19 +715,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 14);
+        jLabel58.setBounds(10, 420, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 14);
+        jLabel59.setBounds(80, 420, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 14);
+        jLabel60.setBounds(10, 440, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 14);
+        jLabel61.setBounds(80, 440, 60, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -969,27 +1191,11 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+    private void jLab_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLab_LogoMouseClicked
         // TODO add your handling code here:
         jPanel2.setVisible(false);
         startPlanningGame.setVisible(true);
-    }//GEN-LAST:event_jLabel27MouseClicked
-
-    private void enterShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterShopMouseClicked
-        // TODO add your handling code here:
-        cl.show(jPanel2, "card4");
-        startPlanningGame.setVisible(false);
-        OpenShop labels = new OpenShop();
-        labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
-        Item item = new Item();
-        item.createItemInventory(label_item1,label_item1Name,label_item1Amount, game.redBull);
-        item.createItemInventory(label_item2,label_item2Name,label_item2Amount, game.duplo);
-        item.createItemInventory(label_item3,label_item3Name,label_item3Amount, game.omniSenseAudio);
-        item.createItemShop(label_redBullName, label_redBullAmount, label_redBullLocked, game.redBull);
-        item.createItemShop(label_duploName, label_duploAmount, label_duploLocked, game.duplo);
-        item.createItemShop(label_cheatSheetName, label_cheatSheetAmount, label_cheatSheetLocked, game.cheatSheet);
-        item.createItemShop(label_omniName, label_omniAmount, label_omniLocked, game.omniSenseAudio);
-    }//GEN-LAST:event_enterShopMouseClicked
+    }//GEN-LAST:event_jLab_LogoMouseClicked
 
     private void jLabel55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel55MouseClicked
         // TODO add your handling code here:
@@ -1028,21 +1234,38 @@ public class Sims_1 extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
+    private void jBut_BackGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_BackGActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_redBullOverlayMouseClicked
+    }//GEN-LAST:event_jBut_BackGActionPerformed
 
-    private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
+    private void jBut_BackG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_BackG2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_duploOverlayMouseClicked
+    }//GEN-LAST:event_jBut_BackG2ActionPerformed
 
-    private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
+    private void jBut_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_PlayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
+    }//GEN-LAST:event_jBut_PlayActionPerformed
 
-    private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_omniOverlayMouseClicked
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void enterShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterShopMouseClicked
+        // TODO add your handling code here:
+        cl.show(jPanel2, "card4");
+        startPlanningGame.setVisible(false);
+        OpenShop labels = new OpenShop();
+        labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
+        Item item = new Item();
+        item.createItemInventory(label_item1, label_item1Name, label_item1Amount, game.redBull);
+        item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
+        item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
+    }//GEN-LAST:event_enterShopMouseClicked
+
+    private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_17ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1104,6 +1327,41 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton exit;
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
+    private javax.swing.JButton jBut_1;
+    private javax.swing.JButton jBut_10;
+    private javax.swing.JButton jBut_11;
+    private javax.swing.JButton jBut_12;
+    private javax.swing.JButton jBut_13;
+    private javax.swing.JButton jBut_14;
+    private javax.swing.JButton jBut_15;
+    private javax.swing.JButton jBut_16;
+    private javax.swing.JButton jBut_17;
+    private javax.swing.JButton jBut_18;
+    private javax.swing.JButton jBut_19;
+    private javax.swing.JButton jBut_2;
+    private javax.swing.JButton jBut_20;
+    private javax.swing.JButton jBut_21;
+    private javax.swing.JButton jBut_22;
+    private javax.swing.JButton jBut_23;
+    private javax.swing.JButton jBut_24;
+    private javax.swing.JButton jBut_25;
+    private javax.swing.JButton jBut_26;
+    private javax.swing.JButton jBut_27;
+    private javax.swing.JButton jBut_28;
+    private javax.swing.JButton jBut_29;
+    private javax.swing.JButton jBut_3;
+    private javax.swing.JButton jBut_30;
+    private javax.swing.JButton jBut_4;
+    private javax.swing.JButton jBut_5;
+    private javax.swing.JButton jBut_6;
+    private javax.swing.JButton jBut_7;
+    private javax.swing.JButton jBut_8;
+    private javax.swing.JButton jBut_9;
+    private javax.swing.JButton jBut_BackG;
+    private javax.swing.JButton jBut_BackG2;
+    private javax.swing.JButton jBut_ComboB_useItem;
+    private javax.swing.JButton jBut_Dozent;
+    private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -1114,7 +1372,16 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox jComboB_Items;
+    private javax.swing.JLabel jLab_DozCounter;
+    private javax.swing.JLabel jLab_DozSwitch;
+    private javax.swing.JLabel jLab_Duplo;
+    private javax.swing.JLabel jLab_Logo;
+    private javax.swing.JLabel jLab_OMNI;
+    private javax.swing.JLabel jLab_Redbull;
+    private javax.swing.JLabel jLab_StudCounter;
+    private javax.swing.JLabel jLab_StudSwitch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1122,7 +1389,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1135,12 +1401,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -1162,11 +1426,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
-    private javax.swing.JLabel jLabel92;
+    private javax.swing.JPanel jPan_DozSwitch;
+    private javax.swing.JPanel jPan_ItemSelect;
+    private javax.swing.JPanel jPan_ItemStorage;
+    private javax.swing.JPanel jPan_StudSwitch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
@@ -1175,24 +1441,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JProgressBar jProgB_Motivation;
+    private javax.swing.JProgressBar jProgB_Müdigkeit;
+    private javax.swing.JProgressBar jProgB_Wissen;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar10;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JProgressBar jProgressBar4;
     private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JProgressBar jProgressBar6;
-    private javax.swing.JProgressBar jProgressBar7;
-    private javax.swing.JProgressBar jProgressBar8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel label_cheatSheetAmount;
