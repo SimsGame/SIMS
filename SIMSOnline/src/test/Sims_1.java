@@ -194,19 +194,23 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        label_item3Inv = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        label_ucoinsInv = new javax.swing.JLabel();
+        label_item2Inv = new javax.swing.JLabel();
+        label_creditsInv = new javax.swing.JLabel();
+        label_item3InvName = new javax.swing.JLabel();
+        label_item3InvAmount = new javax.swing.JLabel();
+        label_item1Inv = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        label_item1InvName = new javax.swing.JLabel();
+        label_item2InvName = new javax.swing.JLabel();
+        label_item2InvAmount = new javax.swing.JLabel();
+        label_item1InvAmount = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -1042,59 +1046,75 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel4.add(jLabel11);
         jLabel11.setBounds(30, 0, 120, 40);
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(jLabel12);
-        jLabel12.setBounds(30, 250, 90, 80);
+        label_item3Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(label_item3Inv);
+        label_item3Inv.setBounds(30, 250, 80, 80);
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 420, 80, 14);
+        jLabel18.setBounds(10, 450, 80, 14);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 420, 50, 14);
+        jLabel19.setBounds(80, 450, 50, 14);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 440, 80, 14);
+        jLabel20.setBounds(10, 470, 80, 14);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 440, 60, 14);
+        jLabel21.setBounds(80, 470, 60, 14);
 
-        jLabel22.setText("UCoins: 300");
-        jPanel4.add(jLabel22);
-        jLabel22.setBounds(80, 350, 80, 14);
+        label_ucoinsInv.setText("UCoins: 300");
+        jPanel4.add(label_ucoinsInv);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
-        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(jLabel17);
-        jLabel17.setBounds(30, 150, 90, 80);
+        label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(label_item2Inv);
+        label_item2Inv.setBounds(30, 150, 80, 80);
 
-        jLabel23.setText("Credis: 700");
-        jPanel4.add(jLabel23);
-        jLabel23.setBounds(10, 350, 70, 14);
+        label_creditsInv.setText("Credits: 700");
+        jPanel4.add(label_creditsInv);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
-        jLabel24.setText("Red Bull");
-        jPanel4.add(jLabel24);
-        jLabel24.setBounds(50, 160, 90, 30);
+        label_item3InvName.setText("Red Bull");
+        jPanel4.add(label_item3InvName);
+        label_item3InvName.setBounds(30, 260, 80, 30);
 
-        jLabel25.setText("3 x");
-        jPanel4.add(jLabel25);
-        jLabel25.setBounds(60, 190, 40, 14);
+        label_item3InvAmount.setText("3 x");
+        jPanel4.add(label_item3InvAmount);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.add(jLabel15);
-        jLabel15.setBounds(30, 50, 90, 80);
+        label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.add(label_item1Inv);
+        label_item1Inv.setBounds(30, 50, 80, 80);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Punkte:");
         jPanel4.add(jLabel13);
-        jLabel13.setBounds(10, 480, 70, 20);
+        jLabel13.setBounds(10, 510, 70, 20);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("700");
         jPanel4.add(jLabel14);
-        jLabel14.setBounds(90, 470, 40, 40);
+        jLabel14.setBounds(90, 500, 40, 40);
+
+        label_item1InvName.setText("Red Bull");
+        jPanel4.add(label_item1InvName);
+        label_item1InvName.setBounds(30, 80, 80, 30);
+
+        label_item2InvName.setText("Red Bull");
+        jPanel4.add(label_item2InvName);
+        label_item2InvName.setBounds(30, 160, 80, 30);
+
+        label_item2InvAmount.setText("3 x");
+        jPanel4.add(label_item2InvAmount);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
+
+        label_item1InvAmount.setText("3 x");
+        jPanel4.add(label_item1InvAmount);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -1193,6 +1213,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }    
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  "+game.ucoins);
+        label_creditsInv.setText("Credits:   "+game.credits);
         ActivityPhase phase = new ActivityPhase(label_timer); // added by Jörg
     }//GEN-LAST:event_startNewGameActionPerformed
 
@@ -1483,20 +1508,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1559,18 +1577,28 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_cheatSheetLocked;
     private javax.swing.JLabel label_cheatSheetName;
     private javax.swing.JLabel label_cheatSheetOverlay;
+    private javax.swing.JLabel label_creditsInv;
     private javax.swing.JLabel label_duploAmount;
     private javax.swing.JLabel label_duploLocked;
     private javax.swing.JLabel label_duploName;
     private javax.swing.JLabel label_duploOverlay;
     private javax.swing.JLabel label_item1;
     private javax.swing.JLabel label_item1Amount;
+    private javax.swing.JLabel label_item1Inv;
+    private javax.swing.JLabel label_item1InvAmount;
+    private javax.swing.JLabel label_item1InvName;
     private javax.swing.JLabel label_item1Name;
     private javax.swing.JLabel label_item2;
     private javax.swing.JLabel label_item2Amount;
+    private javax.swing.JLabel label_item2Inv;
+    private javax.swing.JLabel label_item2InvAmount;
+    private javax.swing.JLabel label_item2InvName;
     private javax.swing.JLabel label_item2Name;
     private javax.swing.JLabel label_item3;
     private javax.swing.JLabel label_item3Amount;
+    private javax.swing.JLabel label_item3Inv;
+    private javax.swing.JLabel label_item3InvAmount;
+    private javax.swing.JLabel label_item3InvName;
     private javax.swing.JLabel label_item3Name;
     private javax.swing.JLabel label_omniAmount;
     private javax.swing.JLabel label_omniLocked;
@@ -1584,6 +1612,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_shopMessage1;
     private javax.swing.JLabel label_shopMessage2;
     private javax.swing.JLabel label_timer;
+    private javax.swing.JLabel label_ucoinsInv;
     private javax.swing.JButton loadGame;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;

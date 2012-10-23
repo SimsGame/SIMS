@@ -53,18 +53,18 @@ public class Item {
      */
     
     public void createItemInventory(JLabel field, JLabel name, JLabel amount, Item item){
-        int boxFactor = 120; 
-        int itemBoxX = 25;
+        int boxFactor = 100; 
+        int itemBoxX = 30;
         int itemBoxY = 50;
-        int itemBoxWidth = 100;
-        int itemBoxHeight = 100;
-        int labelFactor = 120;
-        int itemLabelX = 35;
-        int itemLabelY = 100;
+        int itemBoxWidth = 80;
+        int itemBoxHeight = 80;
+        int labelFactor = 100;
+        int itemLabelX = 30;
+        int itemLabelY = 80;
         int itemLabelWidth = 80;
         int itemLabelHeight = 20;
-        int itemAmountX = 33;
-        int itemAmountY = 120;
+        int itemAmountX = 30;
+        int itemAmountY = 100;
         int itemAmountWidth = 80;
         int itemAmountHeight = 20;
         
