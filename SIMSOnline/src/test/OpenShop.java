@@ -18,8 +18,9 @@ public class OpenShop{
         
     }
     
-    /*
-     * Sets UCoins, Credits and points of the player
+    /**
+     * Sets UCoins, Credits and points of the player.
+     * At the same moment only in the shop.
      */
     
     public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){

@@ -55,8 +55,4 @@ public class Game {
         }
       }
     
-    public void test(){
-        System.out.print(duplo.name);
-    }
-    
 }

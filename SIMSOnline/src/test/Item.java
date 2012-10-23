@@ -35,6 +35,16 @@ public class Item {
         
     }
     
+    /**
+     * Creates a new Item and stores it in the Game.java file.
+     * @param name
+     * @param image
+     * @param price
+     * @param currency
+     * @param amount
+     * @param availibility 
+     */
+    
     public Item(String name, String image, int price, String currency, int amount, int availibility){
             this.name = name;
             this.image = image;
@@ -50,6 +60,11 @@ public class Item {
      * Creates each item container for the inventory.
      * The variabels define the coordinates and the width and height of the container.
      * Each item container includes a box for the image and two labels for the name and current amount.
+     * 
+     * @param field   The container holding the name and the amount.
+     * @param name    Container in which the items name will be storred.
+     * @param amaount Container which will hold the current amount of the item.
+     * @param item    The item which will be displayed in the container.
      */
     
     public void createItemInventory(JLabel field, JLabel name, JLabel amount, Item item){
@@ -73,6 +88,7 @@ public class Item {
         amount.setText(String.valueOf(item.amount)+" x");
         amount.setHorizontalAlignment(name.CENTER);
         
+        //The following part displays the container on the right position 
         
         if(item.name.equals("Red Bull")){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
@@ -134,10 +150,11 @@ public class Item {
     }
     
     /**
-     * Creates the item container for the shop.
-     * @param field
-     * @param name
-     * @param amount 
+     * Creates the item container for the shop. 
+     * @param name    The label which will be filled with the items name later.
+     * @param price   The label which will be filled with the items price later.
+     * @param locked  Looks if the item is available.
+     * @param item    The item that shall be displayed.
      */
     
     public void createItemShop(JLabel name, JLabel price, JLabel locked, Item item){
@@ -155,10 +172,25 @@ public class Item {
         }
     }
     
+    /**
+     * Updates the Inventory if someone bought something in the shop.
+     * @param item   The container that will be updated.
+     * @param it     The item which was bought.
+     * @param price  The Credits or UCoins label. 
+     * @param value  The new value of coins after the buy.
+     */
+    
     public void updateInventroy(JLabel item, Item it, JLabel price, int value){
         item.setText(""+it.amount+" x");
         price.setText(""+value);
     }
+    
+    /**
+     * Manages everything if a player klicks an item in the shop.
+     * @param item   The item that the player clicked.
+     * @param locked Looks if the player is allowed to buy this item.
+     * @return 
+     */
     
     public int managePurchase(Item item, JLabel locked){
         if(locked.isVisible() == true){
