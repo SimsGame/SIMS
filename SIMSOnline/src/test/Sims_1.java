@@ -28,6 +28,8 @@ public class Sims_1 extends javax.swing.JFrame {
         setSize(1000, 700);
         buyCoins.setSize(400, 320);
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog_error.setSize(400, 320);
+        dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jPanel2.setVisible(false);
         cl = (CardLayout)(jPanel2.getLayout());
     }
@@ -1300,7 +1302,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
         int result = item.managePurchase(game.redBull, label_redBullLocked);
         if(result != 0){
-            
+            dialog_error.setVisible(true);
+        }
+        else{
+            item.updateInventroy(label_item1Amount, game.redBull, creditsShop, game.credits);
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
@@ -1317,7 +1322,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_omniOverlayMouseClicked
 
     private void button_shopMessageOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopMessageOkActionPerformed
-        // TODO add your handling code here:
+        dialog_error.setVisible(false);
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
     
 

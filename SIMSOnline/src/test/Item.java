@@ -125,16 +125,32 @@ public class Item {
         price.setHorizontalAlignment(JLabel.CENTER);
         
         if(item.availibility > game.semester){
-            name.setText("Verfügbar ab Semester "+String.valueOf(item.availibility));
+            name.setText("Verfügbar ab Semester "+item.availibility);
             price.setVisible(false);
         }else{
             locked.setVisible(false);
             name.setText(item.name);
-            price.setText(String.valueOf(item.price)+" "+String.valueOf(item.currency));
+            price.setText(item.price+" "+item.currency);
         }
     }
     
+    public void updateInventroy(JLabel item, Item it, JLabel price, int value){
+        item.setText(""+it.amount+" x");
+        price.setText(""+value);
+    }
+    
     public int managePurchase(Item item, JLabel locked){
-        return 0;
+        if(locked.isVisible() == true){
+            return 1;
+        }
+        
+        if(game.credits<item.price){
+            return 1;
+        }
+        else{
+            item.amount += 1;
+            game.credits = game.credits-item.price;
+            return 0;
+        }
     }
 }

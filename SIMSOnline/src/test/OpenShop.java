@@ -23,8 +23,8 @@ public class OpenShop{
      */
     
     public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){
-        credits.setText(String.valueOf(game.credits));
-        points.setText(String.valueOf(game.points));
-        ucoins.setText(String.valueOf(game.ucoins));
+        credits.setText(""+game.credits);
+        points.setText(""+game.points);
+        ucoins.setText(""+game.ucoins);
     }
 }

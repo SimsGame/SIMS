@@ -13,10 +13,10 @@ public class Game {
      * later. 
      */
     
-    public int ucoins = 5;
-    public int credits = 60;
-    public int points = 700;
-    public int semester = 4;
+    public static int ucoins;
+    public static int credits;
+    public static int points;
+    public int semester = 3;
     
     /**
      * Items are public to have an easy access from every class
@@ -34,6 +34,9 @@ public class Game {
      * That's how each item can becalled by name.
      */
     public void putItem(Item item){
+        this.points = 700;
+        this.ucoins = 50;
+        this.credits = 400;
         if(item.name.equals("Duplo")){
             this.duplo = item;
             this.duplo.amount = 4;
