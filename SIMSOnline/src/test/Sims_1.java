@@ -114,21 +114,21 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_13 = new javax.swing.JButton();
         jBut_14 = new javax.swing.JButton();
         jBut_15 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
+        jBut_16 = new javax.swing.JButton();
+        jBut_17 = new javax.swing.JButton();
+        jBut_18 = new javax.swing.JButton();
+        jBut_19 = new javax.swing.JButton();
+        jBut_20 = new javax.swing.JButton();
+        jBut_21 = new javax.swing.JButton();
+        jBut_22 = new javax.swing.JButton();
+        jBut_23 = new javax.swing.JButton();
+        jBut_24 = new javax.swing.JButton();
+        jBut_25 = new javax.swing.JButton();
+        jBut_26 = new javax.swing.JButton();
+        jBut_27 = new javax.swing.JButton();
+        jBut_28 = new javax.swing.JButton();
+        jBut_29 = new javax.swing.JButton();
+        jBut_30 = new javax.swing.JButton();
         shop = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -611,65 +611,71 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_15);
         jBut_15.setBounds(660, 260, 110, 50);
 
-        jButton27.setText("jButton10");
-        StudField.add(jButton27);
-        jButton27.setBounds(60, 330, 110, 50);
+        jBut_16.setText("Platz_16");
+        StudField.add(jBut_16);
+        jBut_16.setBounds(60, 330, 110, 50);
 
-        jButton28.setText("jButton10");
-        StudField.add(jButton28);
-        jButton28.setBounds(210, 330, 110, 50);
+        jBut_17.setText("Platz_17");
+        jBut_17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_17ActionPerformed(evt);
+            }
+        });
+        StudField.add(jBut_17);
+        jBut_17.setBounds(210, 330, 110, 50);
 
-        jButton29.setText("jButton10");
-        StudField.add(jButton29);
-        jButton29.setBounds(360, 330, 110, 50);
+        jBut_18.setText("Platz_18");
+        StudField.add(jBut_18);
+        jBut_18.setBounds(360, 330, 110, 50);
 
-        jButton30.setText("jButton10");
-        StudField.add(jButton30);
-        jButton30.setBounds(510, 330, 110, 50);
+        jBut_19.setText("Platz_19");
+        StudField.add(jBut_19);
+        jBut_19.setBounds(510, 330, 110, 50);
 
-        jButton31.setText("jButton10");
-        StudField.add(jButton31);
-        jButton31.setBounds(660, 330, 110, 50);
+        jBut_20.setText("Platz_20");
+        StudField.add(jBut_20);
+        jBut_20.setBounds(660, 330, 110, 50);
 
-        jButton32.setText("jButton10");
-        StudField.add(jButton32);
-        jButton32.setBounds(60, 400, 110, 50);
+        jBut_21.setText("Platz_21");
+        StudField.add(jBut_21);
+        jBut_21.setBounds(60, 400, 110, 50);
 
-        jButton33.setText("jButton10");
-        StudField.add(jButton33);
-        jButton33.setBounds(210, 400, 110, 50);
+        jBut_22.setText("Platz_22");
+        StudField.add(jBut_22);
+        jBut_22.setBounds(210, 400, 110, 50);
 
-        jButton34.setText("jButton10");
-        StudField.add(jButton34);
-        jButton34.setBounds(360, 400, 110, 50);
+        jBut_23.setText("Platz_23");
+        StudField.add(jBut_23);
+        jBut_23.setBounds(360, 400, 110, 50);
 
-        jButton35.setText("jButton10");
-        StudField.add(jButton35);
-        jButton35.setBounds(510, 400, 110, 50);
+        jBut_24.setText("Platz_24");
+        StudField.add(jBut_24);
+        jBut_24.setBounds(510, 400, 110, 50);
 
-        jButton36.setText("jButton10");
-        StudField.add(jButton36);
-        jButton36.setBounds(660, 400, 110, 50);
+        jBut_25.setText("Platz_25");
+        StudField.add(jBut_25);
+        jBut_25.setBounds(660, 400, 110, 50);
 
-        jButton37.setText("jButton10");
-        StudField.add(jButton37);
-        jButton37.setBounds(60, 470, 110, 50);
+        jBut_26.setText("Platz_26");
+        StudField.add(jBut_26);
+        jBut_26.setBounds(60, 470, 110, 50);
 
-        jButton38.setText("jButton10");
-        StudField.add(jButton38);
-        jButton38.setBounds(210, 470, 110, 50);
+        jBut_27.setText("Platz_27");
+        jBut_27.setToolTipText("");
+        StudField.add(jBut_27);
+        jBut_27.setBounds(210, 470, 110, 50);
 
-        jButton39.setText("jButton10");
-        StudField.add(jButton39);
-        jButton39.setBounds(360, 470, 110, 50);
+        jBut_28.setText("Platz_28");
+        StudField.add(jBut_28);
+        jBut_28.setBounds(360, 470, 110, 50);
 
-        jButton40.setText("jButton10");
-        StudField.add(jButton40);
-        jButton40.setBounds(510, 470, 110, 50);
+        jBut_29.setText("Platz_29");
+        StudField.add(jBut_29);
+        jBut_29.setBounds(510, 470, 110, 50);
 
-        jButton41.setText("jButton10");
-        StudField.add(jButton41);
-        jButton41.setBounds(660, 470, 110, 50);
+        jBut_30.setText("Platz_30");
+        StudField.add(jBut_30);
+        jBut_30.setBounds(660, 470, 110, 50);
 
         gamePlanning.add(StudField);
         StudField.setBounds(150, 110, 830, 550);
@@ -1217,6 +1223,10 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
     }//GEN-LAST:event_enterShopMouseClicked
 
+    private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_17ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1284,8 +1294,23 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_13;
     private javax.swing.JButton jBut_14;
     private javax.swing.JButton jBut_15;
+    private javax.swing.JButton jBut_16;
+    private javax.swing.JButton jBut_17;
+    private javax.swing.JButton jBut_18;
+    private javax.swing.JButton jBut_19;
     private javax.swing.JButton jBut_2;
+    private javax.swing.JButton jBut_20;
+    private javax.swing.JButton jBut_21;
+    private javax.swing.JButton jBut_22;
+    private javax.swing.JButton jBut_23;
+    private javax.swing.JButton jBut_24;
+    private javax.swing.JButton jBut_25;
+    private javax.swing.JButton jBut_26;
+    private javax.swing.JButton jBut_27;
+    private javax.swing.JButton jBut_28;
+    private javax.swing.JButton jBut_29;
     private javax.swing.JButton jBut_3;
+    private javax.swing.JButton jBut_30;
     private javax.swing.JButton jBut_4;
     private javax.swing.JButton jBut_5;
     private javax.swing.JButton jBut_6;
@@ -1301,23 +1326,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
