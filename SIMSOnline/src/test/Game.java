@@ -8,9 +8,15 @@ package test;
  * @author Jannik
  */
 public class Game {
+    /**
+     * Test attributes. Will be changed by real items from file
+     * later. 
+     */
+    
     public int ucoins = 5;
     public int credits = 60;
-    public int points = 700; 
+    public int points = 700;
+    public int semester = 4;
     
     /**
      * Items are public to have an easy access from every class
