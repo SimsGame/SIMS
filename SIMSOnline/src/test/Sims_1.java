@@ -1326,6 +1326,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
