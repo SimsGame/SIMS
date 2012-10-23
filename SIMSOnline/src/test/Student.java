@@ -21,8 +21,10 @@ public class Student {
      * 
      * @param id 
      */
-    public void Student(int id){
+    public Student(int id){
         this.id=id;
+        initTiredness();
+        initMotivation();
     }
 
     /**
@@ -31,7 +33,7 @@ public class Student {
      * value of the tiredness attribute.
      */
     private void initTiredness() {
-        this.tiredness=Math.round(Math.random() % 40);
+        this.tiredness=Math.round(Math.random()*40);
     }
 
      /**
@@ -40,7 +42,7 @@ public class Student {
      * value of the motivation attribute.
      */
     private void initMotivation() {
-        this.motivation=Math.round(50+Math.random() % 40);
+        this.motivation=Math.round(50+Math.random()*40);
     }
 
      /**
@@ -61,14 +63,50 @@ public class Student {
      */
     void updateKnowledge() {
         this.knowledgeIncreasement = (this.motivation - this.tiredness) * this.intelligence * 0.000375;
+       
+        if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge
+            this.knowledgeIncreasement = 0;
         this.knowledge = this.knowledge + this.knowledgeIncreasement;
+        
     }
 
+    /**
+     *
+     * @return the id attribute of the student is returned
+     */
+    public double getId() {
+        return this.id;
+    }
+    
+    /**
+     *
+     * @return the knowledge attribute of the student is returned
+     */
+    public double getKnowledge() {
+        return this.knowledge;
+    }
+    
     /**
      *
      * @return the intelligence attribute of the student is returned
      */
     public double getIntelligence() {
         return this.intelligence;
+    }
+    
+    /**
+     *
+     * @return the tiredness attribute of the student is returned
+     */
+    public double getTiredness() {
+        return this.tiredness;
+    }
+    
+    /**
+     *
+     * @return the motivation attribute of the student is returned
+     */
+    public double getMotivation() {
+        return this.motivation;
     }
 }

@@ -1,59 +1,61 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This class holds all data during the game to have a samll amount of I/O 
  */
 package test;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class Game {
-    public int ucoins = 5;
-    public int credits = 60;
-    public int points = 700; 
+    /**
+     * Test attributes. Will be changed by real items from file
+     * later. 
+     */
     
-    public Item duplo = new Item();
-    public Item redBull = new Item();
-    public Item cheatSheet = new Item();
-    public Item omniSenseAudio = new Item();
+    public static int ucoins;
+    public static int credits;
+    public static int points;
+    public int semester = 4;
     
-    public void setItems(String name, String image, int price, String currency, int amount, int availibility){
-        if(name.equals("Duplo")){
-            duplo.name = name;
-            duplo.image = image;
-            duplo.price = price;
-            duplo.currency = currency;
-            duplo.amount = amount;
-            duplo.availibility = availibility;
-            System.out.print(duplo.name);
+    /**
+     * Items are public to have an easy access from every class
+     */
+    
+    public static Item duplo;
+    public static Item redBull;
+    public static Item cheatSheet;
+    public static Item omniSenseAudio;
+    
+    
+    /**
+     * Receives data (Item Objects) from Item.java and
+     * stores them in the fitting Item Objects in this class.
+     * That's how each item can becalled by name.
+     */
+    public void putItem(Item item){
+        this.points = 700;
+        this.ucoins = 50;
+        this.credits = 400;
+        if(item.name.equals("Duplo")){
+            this.duplo = item;
+            this.duplo.amount = 4;
         }
-        if(name.equals("Red Bull")){
-            redBull.name = name;
-            redBull.image = image;
-            redBull.price = price;
-            redBull.currency = currency;
-            redBull.amount = amount;
-            redBull.availibility = availibility;
-            System.out.print(redBull.name);
+        if(item.name.equals("Red Bull")){
+            this.redBull = item;
+            this.redBull.amount = 5;
         }
-        if(name.equals("Spickzettel")){
-            cheatSheet.name = name;
-            cheatSheet.image = image;
-            cheatSheet.price = price;
-            cheatSheet.currency = currency;
-            cheatSheet.amount = amount;
-            cheatSheet.availibility = availibility;
-            System.out.print(cheatSheet.name);
+        if(item.name.equals("Spickzettel")){
+            this.cheatSheet = item;
         }
-        if(name.equals("OMNI Sense Audiobuch")){
-            omniSenseAudio.name = name;
-            omniSenseAudio.image = image;
-            omniSenseAudio.price = price;
-            omniSenseAudio.currency = currency;
-            omniSenseAudio.amount = amount;
-            omniSenseAudio.availibility = availibility;
-            System.out.print(omniSenseAudio.name);
+        if(item.name.equals("OMNI Sense Audiobuch")){
+            this.omniSenseAudio = item;
+            this.omniSenseAudio.amount = 6;
         }
+      }
+    
+    public void test(){
+        System.out.print(duplo.name);
     }
+    
 }
