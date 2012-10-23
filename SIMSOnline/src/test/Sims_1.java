@@ -59,6 +59,7 @@ public class Sims_1 extends javax.swing.JFrame {
         button_shopMessageOk = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
+        Menu_overlay = new javax.swing.JLabel();
         startNewGame = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
@@ -323,13 +324,17 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenü1000x700_00000.png"))); // NOI18N
+        Menu_overlay.setText("Overlay_hauptmenü");
+        startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         startNewGame.setText("Neues Spiel");
         startNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startNewGameActionPerformed(evt);
             }
         });
-        startPlanningGame.add(startNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 160, 30));
+        startPlanningGame.add(startNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("SIMS Test Menü");
@@ -342,7 +347,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        startPlanningGame.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, 30));
+        startPlanningGame.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 160, 40));
 
         loadGame.setText("Spiel Laden");
         loadGame.addActionListener(new java.awt.event.ActionListener() {
@@ -350,7 +355,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 loadGameActionPerformed(evt);
             }
         });
-        startPlanningGame.add(loadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 160, 30));
+        startPlanningGame.add(loadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
 
         jButton6.setText("Credits");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -358,7 +363,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 160, 30));
+        startPlanningGame.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
 
         jButton7.setText("Profil");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +371,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 160, 30));
+        startPlanningGame.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 160, 40));
 
         jButton8.setText("Abmelden");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -374,7 +379,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 160, 30));
+        startPlanningGame.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 40));
 
         jButton13.setText("Statistik");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -382,7 +387,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 160, 30));
+        startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 160, 40));
 
         jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
@@ -1387,6 +1392,7 @@ public class Sims_1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Header;
     private javax.swing.JPanel Logo;
+    private javax.swing.JLabel Menu_overlay;
     private javax.swing.JPanel Navi;
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
