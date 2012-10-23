@@ -306,6 +306,10 @@ public class Sims_1 extends javax.swing.JFrame {
         button_shopMessageOk.setBounds(150, 210, 47, 23);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 700));
+        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 700));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1024, 786));
@@ -313,7 +317,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         startPlanningGame.setMinimumSize(new java.awt.Dimension(800, 600));
-        startPlanningGame.setName("");
+        startPlanningGame.setName(""); // NOI18N
         startPlanningGame.setPreferredSize(new java.awt.Dimension(800, 600));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -382,7 +386,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.CardLayout());
 
-        gamePlanning.setName("card3");
+        gamePlanning.setName("card3"); // NOI18N
         gamePlanning.setLayout(null);
 
         Logo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -908,7 +912,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_duploOverlay.setBounds(510, 40, 230, 220);
 
         panel_redBull.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_redBull.setName("panel_redBull");
+        panel_redBull.setName("panel_redBull"); // NOI18N
         panel_redBull.setLayout(null);
 
         label_redBullName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
