@@ -73,6 +73,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Shop = new javax.swing.JPanel();
         enterShop = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
         StudField = new javax.swing.JPanel();
         Navi = new javax.swing.JPanel();
         jPan_StudSwitch = new javax.swing.JPanel();
@@ -378,6 +379,16 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         Shop.add(enterShop);
         enterShop.setBounds(0, 0, 130, 110);
+
+        jButton9.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jButton9.setText("SHOP");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        Shop.add(jButton9);
+        jButton9.setBounds(5, 5, 120, 100);
 
         gamePlanning.add(Shop);
         Shop.setBounds(850, 0, 130, 110);
@@ -984,18 +995,6 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(true);
     }//GEN-LAST:event_jLab_LogoMouseClicked
 
-    private void enterShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterShopMouseClicked
-        // TODO add your handling code here:
-        cl.show(jPanel2, "card4");
-        startPlanningGame.setVisible(false);
-        OpenShop labels = new OpenShop();
-        labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
-        Item item = new Item();
-        item.createItemInventory(label_item1,label_item1Name,label_item1Amount, game.redBull);
-        item.createItemInventory(label_item2,label_item2Name,label_item2Amount, game.duplo);
-        item.createItemInventory(label_item3,label_item3Name,label_item3Amount, game.omniSenseAudio);
-    }//GEN-LAST:event_enterShopMouseClicked
-
     private void jLabel55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel55MouseClicked
         // TODO add your handling code here:
         jPanel2.setVisible(false);
@@ -1044,6 +1043,23 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_PlayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_PlayActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void enterShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterShopMouseClicked
+        // TODO add your handling code here:
+        cl.show(jPanel2, "card4");
+        startPlanningGame.setVisible(false);
+        OpenShop labels = new OpenShop();
+        labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
+        Item item = new Item();
+        item.createItemInventory(label_item1, label_item1Name, label_item1Amount, game.redBull);
+        item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
+        item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
+    }//GEN-LAST:event_enterShopMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1119,6 +1135,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
