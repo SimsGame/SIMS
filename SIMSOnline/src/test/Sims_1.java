@@ -61,6 +61,7 @@ public class Sims_1 extends javax.swing.JFrame {
         button_shopMessageOk = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
+        Menu_overlay = new javax.swing.JLabel();
         startNewGame = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
@@ -308,16 +309,25 @@ public class Sims_1 extends javax.swing.JFrame {
         button_shopMessageOk.setBounds(150, 210, 47, 23);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 700));
+        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 786));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 700));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        startPlanningGame.setMinimumSize(new java.awt.Dimension(800, 600));
-        startPlanningGame.setName("");
-        startPlanningGame.setPreferredSize(new java.awt.Dimension(800, 600));
+        startPlanningGame.setMaximumSize(new java.awt.Dimension(1000, 700));
+        startPlanningGame.setMinimumSize(new java.awt.Dimension(1000, 700));
+        startPlanningGame.setName(""); // NOI18N
+        startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenü1000x700_00000.png"))); // NOI18N
+        Menu_overlay.setText("Overlay_hauptmenü");
+        startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         startNewGame.setText("Neues Spiel");
         startNewGame.addActionListener(new java.awt.event.ActionListener() {
@@ -325,7 +335,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 startNewGameActionPerformed(evt);
             }
         });
-        startPlanningGame.add(startNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 160, 30));
+        startPlanningGame.add(startNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("SIMS Test Menü");
@@ -338,7 +348,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        startPlanningGame.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, 30));
+        startPlanningGame.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 160, 40));
 
         loadGame.setText("Spiel Laden");
         loadGame.addActionListener(new java.awt.event.ActionListener() {
@@ -346,7 +356,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 loadGameActionPerformed(evt);
             }
         });
-        startPlanningGame.add(loadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 160, 30));
+        startPlanningGame.add(loadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
 
         jButton6.setText("Credits");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -354,7 +364,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 160, 30));
+        startPlanningGame.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
 
         jButton7.setText("Profil");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -362,7 +372,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 160, 30));
+        startPlanningGame.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 160, 40));
 
         jButton8.setText("Abmelden");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -370,7 +380,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 160, 30));
+        startPlanningGame.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 40));
 
         jButton13.setText("Statistik");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -378,13 +388,13 @@ public class Sims_1 extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 160, 30));
+        startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 160, 40));
 
-        jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 768));
+        jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         jPanel2.setLayout(new java.awt.CardLayout());
 
-        gamePlanning.setName("card3");
+        gamePlanning.setName("card3"); // NOI18N
         gamePlanning.setLayout(null);
 
         Logo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -582,71 +592,76 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_Dozent.setText("Dozent");
         StudField.add(jBut_Dozent);
-        jBut_Dozent.setBounds(340, 10, 110, 50);
+        jBut_Dozent.setBounds(340, 470, 110, 50);
 
         jBut_1.setText("Platz_1");
+        jBut_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_1ActionPerformed(evt);
+            }
+        });
         StudField.add(jBut_1);
-        jBut_1.setBounds(60, 120, 110, 50);
+        jBut_1.setBounds(60, 10, 110, 50);
 
         jBut_2.setText("Platz_2");
         StudField.add(jBut_2);
-        jBut_2.setBounds(210, 120, 110, 50);
+        jBut_2.setBounds(210, 10, 110, 50);
 
         jBut_3.setText("Platz_3");
         StudField.add(jBut_3);
-        jBut_3.setBounds(360, 120, 110, 50);
+        jBut_3.setBounds(360, 10, 110, 50);
 
         jBut_4.setText("Platz_4");
         StudField.add(jBut_4);
-        jBut_4.setBounds(510, 120, 110, 50);
+        jBut_4.setBounds(510, 10, 110, 50);
 
         jBut_5.setText("Platz_5");
         StudField.add(jBut_5);
-        jBut_5.setBounds(660, 120, 110, 50);
+        jBut_5.setBounds(660, 10, 110, 50);
 
         jBut_6.setText("Platz_6");
         StudField.add(jBut_6);
-        jBut_6.setBounds(60, 190, 110, 50);
+        jBut_6.setBounds(60, 80, 110, 50);
 
         jBut_7.setText("Platz_7");
         StudField.add(jBut_7);
-        jBut_7.setBounds(210, 190, 110, 50);
+        jBut_7.setBounds(210, 80, 110, 50);
 
         jBut_8.setText("Platz_8");
         StudField.add(jBut_8);
-        jBut_8.setBounds(360, 190, 110, 50);
+        jBut_8.setBounds(360, 80, 110, 50);
 
         jBut_9.setText("Platz_9");
         StudField.add(jBut_9);
-        jBut_9.setBounds(510, 190, 110, 50);
+        jBut_9.setBounds(510, 80, 110, 50);
 
         jBut_10.setText("Platz_10");
         StudField.add(jBut_10);
-        jBut_10.setBounds(660, 190, 110, 50);
+        jBut_10.setBounds(660, 80, 110, 50);
 
         jBut_11.setText("Platz_11");
         StudField.add(jBut_11);
-        jBut_11.setBounds(60, 260, 110, 50);
+        jBut_11.setBounds(60, 150, 110, 50);
 
         jBut_12.setText("Platz_12");
         StudField.add(jBut_12);
-        jBut_12.setBounds(210, 260, 110, 50);
+        jBut_12.setBounds(210, 150, 110, 50);
 
         jBut_13.setText("Platz_13");
         StudField.add(jBut_13);
-        jBut_13.setBounds(360, 260, 110, 50);
+        jBut_13.setBounds(360, 150, 110, 50);
 
         jBut_14.setText("Platz_14");
         StudField.add(jBut_14);
-        jBut_14.setBounds(510, 260, 110, 50);
+        jBut_14.setBounds(510, 150, 110, 50);
 
         jBut_15.setText("Platz_15");
         StudField.add(jBut_15);
-        jBut_15.setBounds(660, 260, 110, 50);
+        jBut_15.setBounds(660, 150, 110, 50);
 
         jBut_16.setText("Platz_16");
         StudField.add(jBut_16);
-        jBut_16.setBounds(60, 330, 110, 50);
+        jBut_16.setBounds(60, 220, 110, 50);
 
         jBut_17.setText("Platz_17");
         jBut_17.addActionListener(new java.awt.event.ActionListener() {
@@ -655,60 +670,60 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         StudField.add(jBut_17);
-        jBut_17.setBounds(210, 330, 110, 50);
+        jBut_17.setBounds(210, 220, 110, 50);
 
         jBut_18.setText("Platz_18");
         StudField.add(jBut_18);
-        jBut_18.setBounds(360, 330, 110, 50);
+        jBut_18.setBounds(360, 220, 110, 50);
 
         jBut_19.setText("Platz_19");
         StudField.add(jBut_19);
-        jBut_19.setBounds(510, 330, 110, 50);
+        jBut_19.setBounds(510, 220, 110, 50);
 
         jBut_20.setText("Platz_20");
         StudField.add(jBut_20);
-        jBut_20.setBounds(660, 330, 110, 50);
+        jBut_20.setBounds(660, 220, 110, 50);
 
         jBut_21.setText("Platz_21");
         StudField.add(jBut_21);
-        jBut_21.setBounds(60, 400, 110, 50);
+        jBut_21.setBounds(60, 290, 110, 50);
 
         jBut_22.setText("Platz_22");
         StudField.add(jBut_22);
-        jBut_22.setBounds(210, 400, 110, 50);
+        jBut_22.setBounds(210, 290, 110, 50);
 
         jBut_23.setText("Platz_23");
         StudField.add(jBut_23);
-        jBut_23.setBounds(360, 400, 110, 50);
+        jBut_23.setBounds(360, 290, 110, 50);
 
         jBut_24.setText("Platz_24");
         StudField.add(jBut_24);
-        jBut_24.setBounds(510, 400, 110, 50);
+        jBut_24.setBounds(510, 290, 110, 50);
 
         jBut_25.setText("Platz_25");
         StudField.add(jBut_25);
-        jBut_25.setBounds(660, 400, 110, 50);
+        jBut_25.setBounds(660, 290, 110, 50);
 
         jBut_26.setText("Platz_26");
         StudField.add(jBut_26);
-        jBut_26.setBounds(60, 470, 110, 50);
+        jBut_26.setBounds(60, 360, 110, 50);
 
         jBut_27.setText("Platz_27");
         jBut_27.setToolTipText("");
         StudField.add(jBut_27);
-        jBut_27.setBounds(210, 470, 110, 50);
+        jBut_27.setBounds(210, 360, 110, 50);
 
         jBut_28.setText("Platz_28");
         StudField.add(jBut_28);
-        jBut_28.setBounds(360, 470, 110, 50);
+        jBut_28.setBounds(360, 360, 110, 50);
 
         jBut_29.setText("Platz_29");
         StudField.add(jBut_29);
-        jBut_29.setBounds(510, 470, 110, 50);
+        jBut_29.setBounds(510, 360, 110, 50);
 
         jBut_30.setText("Platz_30");
         StudField.add(jBut_30);
-        jBut_30.setBounds(660, 470, 110, 50);
+        jBut_30.setBounds(660, 360, 110, 50);
 
         gamePlanning.add(StudField);
         StudField.setBounds(150, 110, 830, 550);
@@ -905,7 +920,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_duploOverlay.setBounds(510, 40, 230, 220);
 
         panel_redBull.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_redBull.setName("panel_redBull");
+        panel_redBull.setName("panel_redBull"); // NOI18N
         panel_redBull.setLayout(null);
 
         label_redBullName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -1326,6 +1341,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
     
 
+    private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1377,6 +1396,7 @@ public class Sims_1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Header;
     private javax.swing.JPanel Logo;
+    private javax.swing.JLabel Menu_overlay;
     private javax.swing.JPanel Navi;
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
