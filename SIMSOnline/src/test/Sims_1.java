@@ -545,6 +545,11 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_Dozent.setBounds(340, 10, 110, 50);
 
         jBut_1.setText("Platz_1");
+        jBut_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_1ActionPerformed(evt);
+            }
+        });
         StudField.add(jBut_1);
         jBut_1.setBounds(60, 120, 110, 50);
 
@@ -1219,6 +1224,10 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
     }//GEN-LAST:event_jBut_startShopMouseClicked
+
+    private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_1ActionPerformed
 
     /**
      * @param args the command line arguments
