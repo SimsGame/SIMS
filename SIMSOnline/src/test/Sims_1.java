@@ -100,19 +100,20 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField = new javax.swing.JPanel();
         jBut_Dozent = new javax.swing.JButton();
         jBut_1 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
+        jBut_2 = new javax.swing.JButton();
+        jBut_3 = new javax.swing.JButton();
+        jBut_4 = new javax.swing.JButton();
+        jBut_5 = new javax.swing.JButton();
+        jBut_6 = new javax.swing.JButton();
+        jBut_7 = new javax.swing.JButton();
+        jBut_8 = new javax.swing.JButton();
+        jBut_9 = new javax.swing.JButton();
+        jBut_10 = new javax.swing.JButton();
+        jBut_11 = new javax.swing.JButton();
+        jBut_12 = new javax.swing.JButton();
+        jBut_13 = new javax.swing.JButton();
+        jBut_14 = new javax.swing.JButton();
+        jBut_15 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
@@ -128,7 +129,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
         shop = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -555,57 +555,61 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_1);
         jBut_1.setBounds(60, 120, 110, 50);
 
-        jButton14.setText("jButton10");
-        StudField.add(jButton14);
-        jButton14.setBounds(210, 120, 110, 50);
+        jBut_2.setText("Platz_2");
+        StudField.add(jBut_2);
+        jBut_2.setBounds(210, 120, 110, 50);
 
-        jButton18.setText("jButton10");
-        StudField.add(jButton18);
-        jButton18.setBounds(660, 120, 110, 50);
+        jBut_3.setText("Platz_3");
+        StudField.add(jBut_3);
+        jBut_3.setBounds(360, 120, 110, 50);
 
-        jButton19.setText("jButton10");
-        StudField.add(jButton19);
-        jButton19.setBounds(510, 120, 110, 50);
+        jBut_4.setText("Platz_4");
+        StudField.add(jBut_4);
+        jBut_4.setBounds(510, 120, 110, 50);
 
-        jButton15.setText("jButton10");
-        StudField.add(jButton15);
-        jButton15.setBounds(60, 190, 110, 50);
+        jBut_5.setText("Platz_5");
+        StudField.add(jBut_5);
+        jBut_5.setBounds(660, 120, 110, 50);
 
-        jButton16.setText("jButton10");
-        StudField.add(jButton16);
-        jButton16.setBounds(210, 190, 110, 50);
+        jBut_6.setText("Platz_6");
+        StudField.add(jBut_6);
+        jBut_6.setBounds(60, 190, 110, 50);
 
-        jButton17.setText("jButton10");
-        StudField.add(jButton17);
-        jButton17.setBounds(360, 190, 110, 50);
+        jBut_7.setText("Platz_7");
+        StudField.add(jBut_7);
+        jBut_7.setBounds(210, 190, 110, 50);
 
-        jButton20.setText("jButton10");
-        StudField.add(jButton20);
-        jButton20.setBounds(510, 190, 110, 50);
+        jBut_8.setText("Platz_8");
+        StudField.add(jBut_8);
+        jBut_8.setBounds(360, 190, 110, 50);
 
-        jButton21.setText("jButton10");
-        StudField.add(jButton21);
-        jButton21.setBounds(660, 190, 110, 50);
+        jBut_9.setText("Platz_9");
+        StudField.add(jBut_9);
+        jBut_9.setBounds(510, 190, 110, 50);
 
-        jButton22.setText("jButton10");
-        StudField.add(jButton22);
-        jButton22.setBounds(60, 260, 110, 50);
+        jBut_10.setText("Platz_10");
+        StudField.add(jBut_10);
+        jBut_10.setBounds(660, 190, 110, 50);
 
-        jButton23.setText("jButton10");
-        StudField.add(jButton23);
-        jButton23.setBounds(210, 260, 110, 50);
+        jBut_11.setText("Platz_11");
+        StudField.add(jBut_11);
+        jBut_11.setBounds(60, 260, 110, 50);
 
-        jButton24.setText("jButton10");
-        StudField.add(jButton24);
-        jButton24.setBounds(360, 260, 110, 50);
+        jBut_12.setText("Platz_12");
+        StudField.add(jBut_12);
+        jBut_12.setBounds(210, 260, 110, 50);
 
-        jButton25.setText("jButton10");
-        StudField.add(jButton25);
-        jButton25.setBounds(510, 260, 110, 50);
+        jBut_13.setText("Platz_13");
+        StudField.add(jBut_13);
+        jBut_13.setBounds(360, 260, 110, 50);
 
-        jButton26.setText("jButton10");
-        StudField.add(jButton26);
-        jButton26.setBounds(660, 260, 110, 50);
+        jBut_14.setText("Platz_14");
+        StudField.add(jBut_14);
+        jBut_14.setBounds(510, 260, 110, 50);
+
+        jBut_15.setText("Platz_15");
+        StudField.add(jBut_15);
+        jBut_15.setBounds(660, 260, 110, 50);
 
         jButton27.setText("jButton10");
         StudField.add(jButton27);
@@ -666,10 +670,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jButton41.setText("jButton10");
         StudField.add(jButton41);
         jButton41.setBounds(660, 470, 110, 50);
-
-        jButton42.setText("jButton10");
-        StudField.add(jButton42);
-        jButton42.setBounds(360, 120, 110, 50);
 
         gamePlanning.add(StudField);
         StudField.setBounds(150, 110, 830, 550);
@@ -1278,6 +1278,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
     private javax.swing.JButton jBut_1;
+    private javax.swing.JButton jBut_10;
+    private javax.swing.JButton jBut_11;
+    private javax.swing.JButton jBut_12;
+    private javax.swing.JButton jBut_13;
+    private javax.swing.JButton jBut_14;
+    private javax.swing.JButton jBut_15;
+    private javax.swing.JButton jBut_2;
+    private javax.swing.JButton jBut_3;
+    private javax.swing.JButton jBut_4;
+    private javax.swing.JButton jBut_5;
+    private javax.swing.JButton jBut_6;
+    private javax.swing.JButton jBut_7;
+    private javax.swing.JButton jBut_8;
+    private javax.swing.JButton jBut_9;
     private javax.swing.JButton jBut_BackG;
     private javax.swing.JButton jBut_BackG2;
     private javax.swing.JButton jBut_ComboB_useItem;
@@ -1286,20 +1300,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
@@ -1317,7 +1318,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
