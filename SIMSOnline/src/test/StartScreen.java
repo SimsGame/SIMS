@@ -58,33 +58,47 @@ public class StartScreen extends javax.swing.JFrame {
         }
         return true;
     }
-    
-    private boolean checkKontoname(String newName){
-        
-        return true;
+
+    private boolean checkGlobUser(String str) {
+        try {
+            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV("users.csv");
+            for (java.util.LinkedList sublist : list) {
+                if (sublist.contains(str)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
 
     private void checkRegister() {
-        if (textfield_rKontoname.getText().length() < 5 | textfield_rKontoname.getText().length() > 15) {
+        boolean check = true;
+        if (textfield_rKontoname.getText().length() < 5 | textfield_rKontoname.getText().length() > 15 | checkGlobUser(textfield_rKontoname.getText())) {
             textfield_rKontoname.setBackground(Color.red);
+            check = false;
         } else {
             textfield_rKontoname.setBackground(Color.white);
         }
         if (password_rPass1.getPassword().length < 5 | password_rPass1.getPassword().length > 15 | !checkAlphaNumm(password_rPass1.getPassword())) {
             password_rPass1.setBackground(Color.red);
             password_rPass2.setText("");
+            check = false;
         } else {
             password_rPass1.setBackground(Color.white);
         }
         if (!new String(password_rPass1.getPassword()).equals(new String(password_rPass2.getPassword()))) {
             password_rPass1.setBackground(Color.red);
             password_rPass2.setBackground(Color.red);
+            check = false;
         } else {
             password_rPass1.setBackground(Color.white);
             password_rPass2.setBackground(Color.white);
         }
-        if (textfield_rEmail1.getText().length() < 5 | !checkEmail(textfield_rEmail1.getText())) {
+        if (textfield_rEmail1.getText().length() < 5 | !checkEmail(textfield_rEmail1.getText()) | checkGlobUser(textfield_rEmail1.getText())) {
             textfield_rEmail1.setBackground(Color.red);
+            check = false;
             textfield_rEmail2.setText("");
         } else {
             textfield_rEmail1.setBackground(Color.white);
@@ -92,20 +106,30 @@ public class StartScreen extends javax.swing.JFrame {
         if (!textfield_rEmail1.getText().equals(textfield_rEmail2.getText())) {
             textfield_rEmail1.setBackground(Color.red);
             textfield_rEmail2.setBackground(Color.red);
+            check = false;
         } else {
             textfield_rEmail1.setBackground(Color.white);
             textfield_rEmail2.setBackground(Color.white);
         }
         if (!checkName(textfield_rName.getText())) {
             textfield_rName.setBackground(Color.red);
+            check = false;
         } else {
             textfield_rName.setBackground(Color.white);
         }
         if (!checkName(textfield_rSurename.getText())) {
             textfield_rSurename.setBackground(Color.red);
+            check = false;
         } else {
             textfield_rSurename.setBackground(Color.white);
         }
+
+        if (check) {
+            createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+        }
+    }
+
+    private void createUser(String accountname, char[] password, String email, String first_name, String last_name) {
     }
 
     /**
@@ -114,6 +138,13 @@ public class StartScreen extends javax.swing.JFrame {
     public StartScreen() {
         initComponents();
         panel_Register.setVisible(false);
+//        String[] str = new String[2];
+//        str[0] = "hallo";
+//        str[1] = "hier";
+//        try{
+//        CSVHandling.writeFile(str, "testtest.csv");
+//        } catch (Exception e){
+//        e.printStackTrace();}
     }
 
     /**
@@ -379,6 +410,8 @@ public class StartScreen extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
+
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -399,7 +432,7 @@ public class StartScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                
+
                 new StartScreen().setVisible(true);
             }
         });
