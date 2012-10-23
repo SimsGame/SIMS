@@ -16,7 +16,7 @@ public class Game {
     public static int ucoins;
     public static int credits;
     public static int points;
-    public int semester = 3;
+    public int semester = 4;
     
     /**
      * Items are public to have an easy access from every class

@@ -144,12 +144,15 @@ public class Item {
             return 1;
         }
         
-        if(game.credits<item.price){
+        if(item.currency.equals("Credits") && game.credits<item.price || item.currency.equals("UCoins") && game.ucoins<item.price){
             return 1;
         }
         else{
             item.amount += 1;
-            game.credits = game.credits-item.price;
+            if(item.currency.equals("Credits"))
+                game.credits = game.credits-item.price;
+            else
+                game.ucoins = game.ucoins-item.price;
             return 0;
         }
     }

@@ -1325,16 +1325,33 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
-        // TODO add your handling code here:
-        
+        int result = item.managePurchase(game.duplo, label_duploLocked);
+        if(result != 0){
+            dialog_error.setVisible(true);
+        }
+        else{
+            item.updateInventroy(label_item2Amount, game.duplo, creditsShop, game.credits);
+        }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
-        // TODO add your handling code here:
+        int result = item.managePurchase(game.cheatSheet, label_cheatSheetLocked);
+        if(result != 0){
+            dialog_error.setVisible(true);
+        }
+        else{
+            //item.updateInventroy(label_item1Amount, game.cheatSheet, ucoinsShop, game.ucoins);
+        }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
-        // TODO add your handling code here:
+        int result = item.managePurchase(game.omniSenseAudio, label_omniLocked);
+        if(result != 0){
+            dialog_error.setVisible(true);
+        }
+        else{
+            item.updateInventroy(label_item3Amount, game.omniSenseAudio, ucoinsShop, game.ucoins);
+        }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
 
     private void button_shopMessageOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopMessageOkActionPerformed
