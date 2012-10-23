@@ -5,6 +5,7 @@
 package test;
 
 import java.awt.CardLayout;
+import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -715,19 +716,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 420, 80, 14);
+        jLabel58.setBounds(10, 450, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 420, 50, 14);
+        jLabel59.setBounds(80, 450, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 440, 80, 14);
+        jLabel60.setBounds(10, 470, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 440, 60, 14);
+        jLabel61.setBounds(80, 470, 60, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1266,6 +1267,23 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_17ActionPerformed
+
+    private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_redBullOverlayMouseClicked
+
+    private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_duploOverlayMouseClicked
+
+    private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
+
+    private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_omniOverlayMouseClicked
+    
 
     /**
      * @param args the command line arguments
