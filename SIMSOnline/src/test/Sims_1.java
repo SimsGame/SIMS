@@ -312,13 +312,15 @@ public class Sims_1 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 786));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 700));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        startPlanningGame.setMinimumSize(new java.awt.Dimension(800, 600));
+        startPlanningGame.setMaximumSize(new java.awt.Dimension(1000, 700));
+        startPlanningGame.setMinimumSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setName(""); // NOI18N
-        startPlanningGame.setPreferredSize(new java.awt.Dimension(800, 600));
+        startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         startNewGame.setText("Neues Spiel");
@@ -382,7 +384,7 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 160, 30));
 
-        jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 768));
+        jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         jPanel2.setLayout(new java.awt.CardLayout());
 
