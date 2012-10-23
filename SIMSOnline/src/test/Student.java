@@ -21,8 +21,10 @@ public class Student {
      * 
      * @param id 
      */
-    public void Student(int id){
+    public Student(int id){
         this.id=id;
+        initTiredness();
+        initMotivation();
     }
 
     /**
@@ -70,9 +72,41 @@ public class Student {
 
     /**
      *
+     * @return the id attribute of the student is returned
+     */
+    public double getId() {
+        return this.id;
+    }
+    
+    /**
+     *
+     * @return the knowledge attribute of the student is returned
+     */
+    public double getKnowledge() {
+        return this.knowledge;
+    }
+    
+    /**
+     *
      * @return the intelligence attribute of the student is returned
      */
     public double getIntelligence() {
         return this.intelligence;
+    }
+    
+    /**
+     *
+     * @return the tiredness attribute of the student is returned
+     */
+    public double getTiredness() {
+        return this.tiredness;
+    }
+    
+    /**
+     *
+     * @return the motivation attribute of the student is returned
+     */
+    public double getMotivation() {
+        return this.motivation;
     }
 }
