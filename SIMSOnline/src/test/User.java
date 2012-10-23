@@ -10,7 +10,7 @@ import java.util.Date;
  * @author rusinda
  */
 public class User {
-    private String username = "";
+    private String accountname = "";
     private String password = "";
     private String email = "";
     private String first_name = "";

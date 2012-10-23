@@ -12,7 +12,7 @@ import java.util.LinkedList;
  *
  * @author Dawid
  */
-public class CSVReadGen {
+@Deprecated public class CSVReadGen {
 
 /**
  * 
