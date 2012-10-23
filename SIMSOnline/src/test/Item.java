@@ -133,4 +133,8 @@ public class Item {
             price.setText(String.valueOf(item.price)+" "+String.valueOf(item.currency));
         }
     }
+    
+    public int managePurchase(Item item, JLabel locked){
+        return 0;
+    }
 }

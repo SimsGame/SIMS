@@ -8,6 +8,7 @@ import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Sims_1 extends javax.swing.JFrame {
      */
     public CardLayout cl;
     public Game game;
+    Item item = new Item();
     
     public Sims_1() {
         initComponents();
@@ -1255,7 +1257,6 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(false);
         OpenShop labels = new OpenShop();
         labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
-        Item item = new Item();
         item.createItemInventory(label_item1, label_item1Name, label_item1Amount, game.redBull);
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
@@ -1266,7 +1267,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
-        // TODO add your handling code here:
+        int result = item.managePurchase(game.redBull, label_redBullLocked);
+        if(result != 0){
+            
+        }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
