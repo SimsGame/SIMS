@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ CSV-Files lesen und schreiben, Doku kommt noch... hab beide Funktionalitäten 
+ in eine Klasse gepackt, um die Imports klein zu halten... bitte ab jetzt diese 
+ Klasse verwenden ;-) ich werd sie noch mit ein paar Funktionlitäten 
+ erweitern... bei Fehlern/unerwarteten Exceptions bitte bescheidgeben ;-)
  */
 package test;
 
