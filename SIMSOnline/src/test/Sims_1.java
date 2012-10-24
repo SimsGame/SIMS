@@ -221,7 +221,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        KnowledgeBar = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
         jProgressBar4 = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
@@ -1168,8 +1168,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel7.setText("Müdigkeit:");
         jPanel5.add(jLabel7);
         jLabel7.setBounds(10, 80, 80, 20);
-        jPanel5.add(jProgressBar1);
-        jProgressBar1.setBounds(80, 10, 260, 20);
+        jPanel5.add(KnowledgeBar);
+        KnowledgeBar.setBounds(80, 10, 260, 20);
+        KnowledgeBar.getAccessibleContext().setAccessibleDescription("");
+
         jPanel5.add(jProgressBar2);
         jProgressBar2.setBounds(80, 40, 260, 20);
         jPanel5.add(jProgressBar4);
@@ -1250,7 +1252,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  "+game.ucoins);
         label_creditsInv.setText("Credits:   "+game.credits);
-        ActivityPhase phase = new ActivityPhase(label_timer); // added by Jörg
+        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar); // added by Jörg, Nadir
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -1509,6 +1511,7 @@ public class Sims_1 extends javax.swing.JFrame {
     //private javax.swing.JLabel label_timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Header;
+    private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JPanel Logo;
     private javax.swing.JLabel Menu_overlay;
     private javax.swing.JPanel Navi;
@@ -1630,7 +1633,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgB_Motivation;
     private javax.swing.JProgressBar jProgB_Müdigkeit;
     private javax.swing.JProgressBar jProgB_Wissen;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JProgressBar jProgressBar4;
     private javax.swing.JProgressBar jProgressBar5;
