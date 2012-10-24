@@ -10,7 +10,7 @@ package test;
  */
 public class Timer extends Thread {
 
-    private int timer;
+    public static int timer; // changed to public by nadir to use in updatebars
     private javax.swing.JLabel label_timer;
 
    public Timer(javax.swing.JLabel jLabel_timer) {
