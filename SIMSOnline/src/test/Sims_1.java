@@ -349,7 +349,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenü1000x700_00000.png"))); // NOI18N
+        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
         startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

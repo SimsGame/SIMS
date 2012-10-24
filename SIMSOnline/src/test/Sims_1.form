@@ -288,7 +288,7 @@
             <Component class="javax.swing.JLabel" name="Menu_overlay">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/pictures/hauptmen&#xfc;1000x700_00000.png"/>
+                  <Image iconType="3" name="/pictures/hauptmenue1000x700.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
               </Properties>
