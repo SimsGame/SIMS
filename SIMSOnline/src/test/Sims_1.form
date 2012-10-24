@@ -844,7 +844,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLab_Redbull">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Redbull: 5"/>
+                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="game.redBull.name +&quot;: &quot; +game.redBull.amount +&quot;x&quot; " type="code"/>
+                            </Property>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -854,7 +856,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLab_Duplo">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Duplo: 3"/>
+                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="game.duplo.name +&quot;: &quot; +game.duplo.amount +&quot;x&quot;" type="code"/>
+                            </Property>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -864,7 +868,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLab_OMNI">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="OMNI Sense Buch: 1"/>
+                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="&quot;OmniSense B&#xfc;cher: &quot; +game.omniSenseAudio.amount +&quot;x&quot; " type="code"/>
+                            </Property>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

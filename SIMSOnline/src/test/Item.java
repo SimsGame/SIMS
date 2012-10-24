@@ -185,6 +185,21 @@ public class Item {
         price.setText(""+value);
     }
     
+    /*
+     * Added by Julia
+     * @param item label in the planning phase that will be updated
+     * @param it item that will be updated
+     */
+     public void updateInventoryPlanningPhase(JLabel item, Item it){
+       if (it.name.equals("OMNI Sense Audiobuch")) {
+           item.setText("OmniSense Bücher: " +it.amount +"x" );
+       }
+       else{
+       
+        item.setText(it.name +": " +it.amount+"x");
+       }
+     }
+    
     /**
      * Manages everything if a player klicks an item in the shop.
      * @param item   The item that the player clicked.

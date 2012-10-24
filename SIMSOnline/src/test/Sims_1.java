@@ -577,15 +577,15 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_ItemStorage.add(jLabel8);
         jLabel8.setBounds(10, 10, 120, 20);
 
-        jLab_Redbull.setText("Redbull: 5");
+        jLab_Redbull.setText(game.redBull.name +": " +game.redBull.amount +"x" );
         jPan_ItemStorage.add(jLab_Redbull);
         jLab_Redbull.setBounds(10, 40, 90, 14);
 
-        jLab_Duplo.setText("Duplo: 3");
+        jLab_Duplo.setText(game.duplo.name +": " +game.duplo.amount +"x");
         jPan_ItemStorage.add(jLab_Duplo);
         jLab_Duplo.setBounds(10, 60, 90, 14);
 
-        jLab_OMNI.setText("OMNI Sense Buch: 1");
+        jLab_OMNI.setText("OmniSense Bücher: " +game.omniSenseAudio.amount +"x" );
         jPan_ItemStorage.add(jLab_OMNI);
         jLab_OMNI.setBounds(10, 80, 140, 14);
 
@@ -1399,6 +1399,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         else{
             item.updateInventroy(label_item1Amount, game.redBull, creditsShop, game.credits);
+            item.updateInventoryPlanningPhase(jLab_Redbull, game.redBull);
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
@@ -1410,6 +1411,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         else{
             item.updateInventroy(label_item2Amount, game.duplo, creditsShop, game.credits);
+            item.updateInventoryPlanningPhase(jLab_Duplo, game.duplo);
         }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
@@ -1432,6 +1434,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         else{
             item.updateInventroy(label_item3Amount, game.omniSenseAudio, ucoinsShop, game.ucoins);
+            item.updateInventoryPlanningPhase(jLab_OMNI, game.omniSenseAudio);
         }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
 
