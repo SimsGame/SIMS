@@ -110,7 +110,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rEmail1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="E-Mail"/>
+            <Property name="text" type="java.lang.String" value="E-Mail@.c"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_rEmail1ActionPerformed"/>
@@ -119,7 +119,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textfield_rEmail2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="E-Mail"/>
+            <Property name="text" type="java.lang.String" value="E-Mail@.c"/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_rEmail2FocusGained"/>
@@ -143,7 +143,7 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="password_rPass1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PW"/>
+            <Property name="text" type="java.lang.String" value="aaaaa"/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="password_rPass1FocusGained"/>
@@ -151,7 +151,7 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="password_rPass2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PW"/>
+            <Property name="text" type="java.lang.String" value="aaaaa"/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="password_rPass2FocusGained"/>
@@ -172,16 +172,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="button_Login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                           <Component id="button_Register" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="textfield_Password" min="-2" max="-2" attributes="0"/>
-                      <Component id="textfield_Kontoname" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="password_Pass" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="textfield_Kontoname" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
@@ -192,9 +194,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="textfield_Kontoname" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="textfield_Password" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="password_Pass" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="button_Login" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="button_Register" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -210,15 +212,13 @@
             <Property name="text" type="java.lang.String" value="Kontoname"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textfield_Password">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Passwort"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="button_Login">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_LoginActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="button_Register">
           <Properties>
@@ -227,6 +227,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_RegisterActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="password_Pass">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -6,6 +6,8 @@ package test;
 
 import java.awt.Color;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +15,12 @@ import javax.swing.JOptionPane;
  * @author rusinda
  */
 public class StartScreen extends javax.swing.JFrame {
+
+    public final String _dataFolderName = "data";
+    public final String _profileFileName = "profile.txt";
+    public final String _gameFileName = "game.txt";
+    public final String _inventoryFileName = "inventory.txt";
+    public final String _usersFileName = "users.csv";
 
     private boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
         int i;
@@ -61,7 +69,7 @@ public class StartScreen extends javax.swing.JFrame {
 
     private boolean checkGlobUser(String str) {
         try {
-            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV("users.csv");
+            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(_usersFileName);
             for (java.util.LinkedList sublist : list) {
                 if (sublist.contains(str)) {
                     return true;
@@ -73,7 +81,7 @@ public class StartScreen extends javax.swing.JFrame {
         return false;
     }
 
-    private void checkRegister() {
+    private boolean checkRegister() {
         boolean check = true;
         if (textfield_rKontoname.getText().length() < 5 | textfield_rKontoname.getText().length() > 15 | checkGlobUser(textfield_rKontoname.getText())) {
             textfield_rKontoname.setBackground(Color.red);
@@ -125,11 +133,67 @@ public class StartScreen extends javax.swing.JFrame {
         }
 
         if (check) {
-            createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+            return createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
         }
+        return false;
     }
 
-    private void createUser(String accountname, char[] password, String email, String first_name, String last_name) {
+    private boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
+        String str[] = new String[9];
+        str[0] = accountname;
+        str[1] = new String(password);
+        str[2] = email;
+        str[3] = first_name;
+        str[4] = last_name;
+        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("dd-MM-y");
+        str[5] = format.format(new java.util.Date());
+        str[6] = "";
+        str[7] = "0";
+        str[8] = "0";
+        java.util.LinkedList users = new java.util.LinkedList<>();
+        try {
+            CSVHandling.writeCSV(str, _dataFolderName + "/" + accountname + "/" + _profileFileName);
+            CSVHandling.writeFile("", _dataFolderName + "/" + accountname + "/" + _inventoryFileName);
+            CSVHandling.writeFile("", _dataFolderName + "/" + accountname + "/" + _gameFileName);
+            try {
+                users = CSVHandling.readCSV(_usersFileName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            java.util.LinkedList newUser;
+            users.add(newUser = new java.util.LinkedList<String>());
+            newUser.add(accountname);
+            newUser.add(email);
+            CSVHandling.writeCSV(users, _usersFileName);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean logIn(String accountname, char[] password) {
+        String userlist = "";
+        try {
+            userlist = CSVHandling.readCSVString(_usersFileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (userlist.contains(accountname)) {
+            String userPw = "";
+            try {
+                userPw = CSVHandling.readCSVStringArr(_dataFolderName + "/" + accountname + "/" + _profileFileName)[1];
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (userPw.contentEquals(new String(password))) {
+                System.out.println("User " + accountname + " ist eingelogged und wird ins Hauptmenü geleitet");
+                return true;
+            }
+        }
+        System.out.println("Falscher Benutzername oder falsches Passwort!");
+        return false;
     }
 
     /**
@@ -138,13 +202,6 @@ public class StartScreen extends javax.swing.JFrame {
     public StartScreen() {
         initComponents();
         panel_Register.setVisible(false);
-//        String[] str = new String[2];
-//        str[0] = "hallo";
-//        str[1] = "hier";
-//        try{
-//        CSVHandling.writeFile(str, "testtest.csv");
-//        } catch (Exception e){
-//        e.printStackTrace();}
     }
 
     /**
@@ -167,9 +224,9 @@ public class StartScreen extends javax.swing.JFrame {
         button_rRegister = new javax.swing.JButton();
         panel_Login = new javax.swing.JPanel();
         textfield_Kontoname = new javax.swing.JTextField();
-        textfield_Password = new javax.swing.JTextField();
         button_Login = new javax.swing.JButton();
         button_Register = new javax.swing.JToggleButton();
+        password_Pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,7 +237,7 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
-        textfield_rEmail1.setText("E-Mail");
+        textfield_rEmail1.setText("E-Mail@.c");
         textfield_rEmail1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_rEmail1ActionPerformed(evt);
@@ -192,7 +249,7 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
-        textfield_rEmail2.setText("E-Mail");
+        textfield_rEmail2.setText("E-Mail@.c");
         textfield_rEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textfield_rEmail2FocusGained(evt);
@@ -213,14 +270,14 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
-        password_rPass1.setText("PW");
+        password_rPass1.setText("aaaaa");
         password_rPass1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_rPass1FocusGained(evt);
             }
         });
 
-        password_rPass2.setText("PW");
+        password_rPass2.setText("aaaaa");
         password_rPass2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_rPass2FocusGained(evt);
@@ -274,9 +331,12 @@ public class StartScreen extends javax.swing.JFrame {
 
         textfield_Kontoname.setText("Kontoname");
 
-        textfield_Password.setText("Passwort");
-
         button_Login.setText("Login");
+        button_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_LoginActionPerformed(evt);
+            }
+        });
 
         button_Register.setText("Registrieren");
         button_Register.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +344,8 @@ public class StartScreen extends javax.swing.JFrame {
                 button_RegisterActionPerformed(evt);
             }
         });
+
+        password_Pass.setText("jPasswordField1");
 
         javax.swing.GroupLayout panel_LoginLayout = new javax.swing.GroupLayout(panel_Login);
         panel_Login.setLayout(panel_LoginLayout);
@@ -296,8 +358,9 @@ public class StartScreen extends javax.swing.JFrame {
                         .addComponent(button_Login)
                         .addGap(65, 65, 65)
                         .addComponent(button_Register))
-                    .addComponent(textfield_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(password_Pass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(textfield_Kontoname, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(244, Short.MAX_VALUE))
         );
         panel_LoginLayout.setVerticalGroup(
@@ -305,9 +368,9 @@ public class StartScreen extends javax.swing.JFrame {
             .addGroup(panel_LoginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(textfield_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_Login)
                     .addComponent(button_Register))
@@ -349,7 +412,10 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rEmail1ActionPerformed
 
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
-        checkRegister();
+        if (checkRegister()) {
+            panel_Login.setVisible(true);
+            panel_Register.setVisible(false);
+        }
     }//GEN-LAST:event_button_rRegisterActionPerformed
 
     private void button_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterActionPerformed
@@ -391,6 +457,10 @@ public class StartScreen extends javax.swing.JFrame {
         password_rPass2.requestFocus();
         password_rPass2.selectAll();
     }//GEN-LAST:event_password_rPass2FocusGained
+
+    private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
+        logIn(textfield_Kontoname.getText(), password_Pass.getPassword());
+    }//GEN-LAST:event_button_LoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -443,10 +513,10 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton button_rRegister;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Register;
+    private javax.swing.JPasswordField password_Pass;
     private javax.swing.JPasswordField password_rPass1;
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JTextField textfield_Kontoname;
-    private javax.swing.JTextField textfield_Password;
     private javax.swing.JTextField textfield_rEmail1;
     private javax.swing.JTextField textfield_rEmail2;
     private javax.swing.JTextField textfield_rKontoname;
