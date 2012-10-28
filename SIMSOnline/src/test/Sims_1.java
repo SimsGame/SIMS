@@ -612,6 +612,14 @@ public class Sims_1 extends javax.swing.JFrame {
         Navi.setBounds(0, 110, 150, 550);
 
         StudField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        StudField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StudFieldMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                StudFieldMouseEntered(evt);
+            }
+        });
         StudField.setLayout(null);
 
         jBut_Dozent.setText("Dozent");
@@ -622,6 +630,12 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBut_1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_1MouseEntered(evt);
             }
         });
         jBut_1.addActionListener(new java.awt.event.ActionListener() {
@@ -637,6 +651,9 @@ public class Sims_1 extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_2MouseEntered(evt);
+            }
         });
         StudField.add(jBut_2);
         jBut_2.setBounds(210, 10, 110, 50);
@@ -645,6 +662,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_3MouseEntered(evt);
             }
         });
         StudField.add(jBut_3);
@@ -655,6 +675,9 @@ public class Sims_1 extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_4MouseEntered(evt);
+            }
         });
         StudField.add(jBut_4);
         jBut_4.setBounds(510, 10, 110, 50);
@@ -663,6 +686,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_5MouseEntered(evt);
             }
         });
         StudField.add(jBut_5);
@@ -1292,7 +1318,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }    
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        PlanningPhase phase1 = new PlanningPhase();  // added by Tobias, Yulyia
+        PlanningPhase phase1 = new PlanningPhase(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);  // added by Tobias, Yulyia
     }//GEN-LAST:event_loadGameActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1489,41 +1515,70 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
         // TODO add your handling code here:
-            // start method StudInfo() which shows knowledge, motivation and tiredness 
-            // of the student which was clicked
-        StudInfo x = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-       
-        
+     
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
-        // TODO add your handling code here:
-            // start method StudInfo() which shows knowledge, motivation and tiredness 
-            // of the student which was clicked
-        StudInfo x = new StudInfo(1,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
+
+    }//GEN-LAST:event_jBut_3MouseClicked
+
+    private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
+
+    }//GEN-LAST:event_jBut_4MouseClicked
+
+    private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
+
+    }//GEN-LAST:event_jBut_5MouseClicked
+
+    private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
         // TODO add your handling code here:
         
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
+        StudInfo z = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        System.out.println("But1");
+    }//GEN-LAST:event_jBut_1MouseEntered
+
+    private void jBut_1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_1MouseExited
+
+    private void StudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseEntered
+        // TODO add your handling code here:
+        System.out.println("StudField");
+        StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+    }//GEN-LAST:event_StudFieldMouseEntered
+
+    private void StudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseClicked
+        // TODO add your handling code here:
+       // StudInfo x = new StudInfo();
+        
+        
+    }//GEN-LAST:event_StudFieldMouseClicked
+
+    private void jBut_2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseEntered
+        // TODO add your handling code here:
+        StudInfo x = new StudInfo(1,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+    }//GEN-LAST:event_jBut_2MouseEntered
+
+    private void jBut_3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseEntered
+        // TODO add your handling code here:
         StudInfo x = new StudInfo(2,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-    }//GEN-LAST:event_jBut_3MouseClicked
+    }//GEN-LAST:event_jBut_3MouseEntered
 
-    private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
+    private void jBut_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseEntered
         // TODO add your handling code here:
-            // start method StudInfo() which shows knowledge, motivation and tiredness 
-            // of the student which was clicked
         StudInfo x = new StudInfo(3,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-    }//GEN-LAST:event_jBut_4MouseClicked
+    }//GEN-LAST:event_jBut_4MouseEntered
 
-    private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
+    private void jBut_5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseEntered
         // TODO add your handling code here:
-            // start method StudInfo() which shows knowledge, motivation and tiredness 
-            // of the student which was clicked
         StudInfo x = new StudInfo(4,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-    }//GEN-LAST:event_jBut_5MouseClicked
+    }//GEN-LAST:event_jBut_5MouseEntered
 
     /**
      * @param args the command line arguments

@@ -8,7 +8,7 @@ package test;
  *
  * @author Tobi
  */
-public class StudInfo {
+public class StudInfo{
         // position number of a student (0-29) which is needed for the StudenArray()
     private int stud_nr;
     
@@ -17,14 +17,30 @@ public class StudInfo {
     private int motivation;
     private int tiredness;
     
+    private double knowledge_H  = 0.0;
+    private double motivation_H = 0.0;
+    private double tiredness_H  = 0.0;
+    
         // initializing of the progress bars
-    private javax.swing.JProgressBar KnowledgeBar;
-    private javax.swing.JProgressBar MotivationBar;
-    private javax.swing.JProgressBar TirednessBar;
+     private javax.swing.JProgressBar KnowledgeBar;
+     private javax.swing.JProgressBar MotivationBar;
+     private javax.swing.JProgressBar TirednessBar; 
         
         // current StudentArray 
     private  StudentArray StudArr = new StudentArray();   // muss StudArray laden!! sonst wird immer ein neuer erstellt
     
+   public StudInfo(javax.swing.JProgressBar jProgB_Knowledge, 
+                    javax.swing.JProgressBar jProgB_Motivation, 
+                    javax.swing.JProgressBar jProgB_Tiredness){
+       
+       this.KnowledgeBar = jProgB_Knowledge;
+       this.MotivationBar = jProgB_Motivation;
+       this.TirednessBar = jProgB_Tiredness;
+       
+      StudInfoAverage();
+  
+       
+   }
    
         // Constructor when Student-button is clicked
         // student position and the 3 progress bars 
@@ -39,7 +55,6 @@ public class StudInfo {
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
-
         this.knowledge =    (int) StudArr.getArray()[stud_nr].getKnowledge();
         this.motivation =   (int) StudArr.getArray()[stud_nr].getMotivation();
         this.tiredness =    (int) StudArr.getArray()[stud_nr].getTiredness();
@@ -47,7 +62,24 @@ public class StudInfo {
         StudInfoMain();
     }
     
-    private void StudInfoMain(){
+
+    
+    private void StudInfoAverage(){
+    for (int i=0; i<30; i++){
+            this.knowledge_H  = this.knowledge_H  +   StudArr.getArray()[2].getKnowledge();
+            this.motivation_H = this.motivation_H +   StudArr.getArray()[2].getMotivation();
+            this.tiredness_H  = this.tiredness_H  +   StudArr.getArray()[2].getTiredness();
+       }
+       
+       this.knowledge =  (int) (this.knowledge_H/30);
+       this.motivation = (int) (this.motivation_H/30);
+       this.tiredness =  (int) (this.tiredness_H/30);
+       //PlanningPhase.class knowledge_PlP=5;
+       
+       StudInfoMain();
+    }
+    
+        private void StudInfoMain(){
 //        System.out.println(stud_nr);
 //        System.out.println("id = "+knowledge);
 //        System.out.println("id = "+motivation);
@@ -62,8 +94,7 @@ public class StudInfo {
          
         TirednessBar.setValue(tiredness); 
          TirednessBar.repaint();
-        
-        
+
     }
     
 }

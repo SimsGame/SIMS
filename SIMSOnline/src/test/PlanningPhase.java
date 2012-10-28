@@ -12,12 +12,28 @@ package test;
 public class PlanningPhase {
 //     double id;
 //     double intelligence;
-//     double knowledge;
-//     double motivation;
-//     double tiredness;
+      int knowledge_PlP;
+      int motivation_PlP = 3;
+      int tiredness_PlP;
 //     static StudentArray StudArr;
+     
+//     // initializing of the progress bars
+//     public javax.swing.JProgressBar KnowledgeBar;
+//     public javax.swing.JProgressBar MotivationBar;
+//     public javax.swing.JProgressBar TirednessBar;
     
-    public PlanningPhase(){
+     public PlanningPhase (){
+     
+     }
+     
+    public PlanningPhase(javax.swing.JProgressBar jProgB_Knowledge, 
+                    javax.swing.JProgressBar jProgB_Motivation, 
+                    javax.swing.JProgressBar jProgB_Tiredness){
+        
+//        this.KnowledgeBar = jProgB_Knowledge;
+//        this.MotivationBar = jProgB_Motivation;
+//        this.TirednessBar = jProgB_Tiredness;
+
        
 //        StudArr = new StudentArray();
 //        
@@ -44,6 +60,7 @@ public class PlanningPhase {
 //        System.out.println("id = "+motivation);
 //        System.out.println("id = "+tiredness);
         
+      //  StudInfo xx = new StudInfo(1);
 
     }
     
