@@ -39,6 +39,13 @@ public class Game {
         }
     }
     
+     public void updateArray (double factor1, double factor2){
+       for (int i = 0; i < 30; i++) {
+       studentArray[i].changeMotivation(factor1);
+       studentArray[i].changeTiredness(factor2);
+       studentArray[i].updateKnowledge();
+       }
+    }    
     /**
      * Receives data (Item Objects) from Item.java and
      * stores them in the fitting Item Objects in this class.
