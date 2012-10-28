@@ -68,7 +68,17 @@ public class Student {
         this.knowledge = this.knowledge + this.knowledgeIncreasement;
         
     }
-
+     
+    void changeTiredness(double factor)
+    {
+       this.tiredness = this.tiredness+1*factor;
+    }
+     
+    void changeMotivation(double factor)
+    {
+       this.motivation = this.motivation+1*factor;
+    }
+    
     /**
      *
      * @return the id attribute of the student is returned
