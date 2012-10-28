@@ -26,7 +26,6 @@ public class Timer extends Thread {
                 //do nothing
             }
             timer--;
-            
             String timerText=(timer / 60) + ":";
             if((timer % 60)<10){
                 timerText+="0";

@@ -12,7 +12,7 @@ package test;
 public class ActivityPhase {
 
     private javax.swing.JLabel label_timer;
-      private javax.swing.JProgressBar KnowledgeBar;
+    private javax.swing.JProgressBar KnowledgeBar;
 
     public ActivityPhase(javax.swing.JLabel jLabel_timer, javax.swing.JProgressBar jKnowledgeBar) {
         this.label_timer = jLabel_timer;
