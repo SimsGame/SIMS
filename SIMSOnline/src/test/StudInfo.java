@@ -6,7 +6,7 @@ package test;
 
 /**
  *
- * @author Tobi
+ * @author Tobias Mauritz
  */
 public class StudInfo{
         // position number of a student (0-29) which is needed for the StudenArray()

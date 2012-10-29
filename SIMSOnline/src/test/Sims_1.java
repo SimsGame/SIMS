@@ -1647,6 +1647,10 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
         // TODO add your handling code here:
+        
+        /**
+         * @author Tobias Mauritz
+         */
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
         PlanningPhase.studInfo.StudInfoAttr(0);
