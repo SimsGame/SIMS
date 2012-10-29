@@ -12,26 +12,15 @@ public class Timer extends Thread {
 
     public static int timer; // changed to public by nadir to use in updatebars
     private javax.swing.JLabel label_timer;
-    public Game game = new Game();
-    private double averageMotivation;
-    private double averageTiredness;
+    public Game game;
+    public static double averageMotivation;
+    public static double averageTiredness;
 
-   public Timer(javax.swing.JLabel jLabel_timer) {
+   public Timer(javax.swing.JLabel jLabel_timer, Game game) {
         this.label_timer = jLabel_timer;
         initTimer();
-        game.initArray();
+        this.game=game;
     }
-
-   private void changeAttributes(){
-       game.updateArray(0.1, -0.1);
-       for(int i=0;i<30;i++){
-           averageMotivation+=game.studentArray[i].getMotivation();
-           averageTiredness+=game.studentArray[i].getTiredness();
-       }
-       averageMotivation/=30;
-       averageTiredness/=30;
-       System.out.println("Motivation: "+averageMotivation+"\tTiredness: "+averageTiredness);
-   }
    
     @Override
     public void run() {
@@ -48,7 +37,7 @@ public class Timer extends Thread {
             timerText+=timer % 60;
             label_timer.setText(timerText);
             
-            changeAttributes();
+            game.updateArray(-1.5, 1.5);
             
         }
     }
