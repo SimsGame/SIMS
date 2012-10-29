@@ -1649,25 +1649,26 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
-        StudInfo curStud = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(0);
+            //StudInfo curStud = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
         System.out.println("Student 1");
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(1,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(1);
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        StudInfo curStud = new StudInfo(2,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(2);
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        StudInfo curStud = new StudInfo(3,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(3);
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        StudInfo curStud = new StudInfo(4,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(4);
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
@@ -1690,7 +1691,8 @@ public class Sims_1 extends javax.swing.JFrame {
        
         System.out.println("StudField");
             // 
-        StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAverage();
+        //StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
         
     }//GEN-LAST:event_StudFieldMouseClicked
 
@@ -1717,151 +1719,151 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(5,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(5);
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(6,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(6);
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(7,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(7);
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(8,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(8);
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(9,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(9);
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(10,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(10);
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(11,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(11);
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(12,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(12);
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(13,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(13);
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(14,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(14);
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(15,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(15);
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(16,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(16);
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(17,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(17);
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(18,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(18);
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(19,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(19);
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(20,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(20);
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(21,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(21);
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(22,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(22);
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(23,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(23);
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(24,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(24);
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(25,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(25);
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(26,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(26);
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(27,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(27);
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(28,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(28);
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // TODO add your handling code here:
             // functionality: see comment at jBut_1MouseClicked
-        StudInfo curStud = new StudInfo(29,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+        PlanningPhase.studInfo.StudInfoAttr(29);
     }//GEN-LAST:event_jBut_30MouseClicked
 
     /**
