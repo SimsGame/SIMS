@@ -17,10 +17,10 @@ public class PlanningPhase {
       int tiredness_PlP;
 //     static StudentArray StudArr;
      
-//     // initializing of the progress bars
-//     public javax.swing.JProgressBar KnowledgeBar;
-//     public javax.swing.JProgressBar MotivationBar;
-//     public javax.swing.JProgressBar TirednessBar;
+     // initializing of the progress bars
+     private javax.swing.JProgressBar KnowledgeBar;
+     private javax.swing.JProgressBar MotivationBar;
+     private javax.swing.JProgressBar TirednessBar;
     
      public PlanningPhase (){
      
@@ -30,9 +30,9 @@ public class PlanningPhase {
                     javax.swing.JProgressBar jProgB_Motivation, 
                     javax.swing.JProgressBar jProgB_Tiredness){
         
-//        this.KnowledgeBar = jProgB_Knowledge;
-//        this.MotivationBar = jProgB_Motivation;
-//        this.TirednessBar = jProgB_Tiredness;
+        this.KnowledgeBar = jProgB_Knowledge;
+        this.MotivationBar = jProgB_Motivation;
+        this.TirednessBar = jProgB_Tiredness;
 
        
 //        StudArr = new StudentArray();
@@ -60,7 +60,7 @@ public class PlanningPhase {
 //        System.out.println("id = "+motivation);
 //        System.out.println("id = "+tiredness);
         
-      //  StudInfo xx = new StudInfo(1);
+        StudInfo xx = new StudInfo(KnowledgeBar,MotivationBar,TirednessBar);
 
     }
     
