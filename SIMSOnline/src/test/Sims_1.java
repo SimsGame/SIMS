@@ -351,6 +351,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
+        Menu_overlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         startNewGame.setText("Neues Spiel");
