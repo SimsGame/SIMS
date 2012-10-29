@@ -18,6 +18,7 @@ public class CSVHandling {
 
     /**
      * reads a CSV-File
+     *
      * @param filename the filename of the CSV-file, eg. "Test.csv"
      * @param separator the separator, usually ","
      * @return returns a chained list containing of chained lists containing the
@@ -51,17 +52,61 @@ public class CSVHandling {
         return (readCSV(filename, ","));
     }
 
-/**
- * (re)writes a CSV-FIle
- * @param list list with list containing the content of the file
- * @param filename filename of the file to write
- * @param separator separator between the content i a row
- * @throws Exception 
- */
+    static public String readCSVString(String filename, String separator) throws Exception {
+        LinkedList<LinkedList> list = readCSV(filename, separator);
+        String content = "";
+        while (!list.isEmpty()) {
+            LinkedList<String> sublist = list.pop();
+            if (!sublist.isEmpty()) {
+                content += sublist.pop();
+            }
+            while (!sublist.isEmpty()) {
+                content += separator + sublist.pop();
+            }
+            content += "\n";
+        }
+        return content;
+    }
+    
+    static public String readCSVString(String filename) throws Exception {
+        return readCSVString(filename, ",");
+    }
+    
+    static public String[] readCSVStringArr(String filename, String separator) throws Exception {
+        LinkedList<LinkedList> list = readCSV(filename, separator);
+        String[] content = new String[list.size()];
+        int i = 0;
+        while (!list.isEmpty()) {
+            content[i] = new String("");
+            LinkedList<String> sublist = list.pop();
+            if (!sublist.isEmpty()) {
+                content[i] += sublist.pop();
+            }
+            while (!sublist.isEmpty()) {
+                content[i] += separator + sublist.pop();
+            }
+            i++;
+            
+        }
+        
+        return content;
+    }
+    
+    static public String[] readCSVStringArr(String filename) throws Exception {
+        return readCSVStringArr(filename, ",");
+    }
+
+    /**
+     * (re)writes a CSV-FIle
+     *
+     * @param list list with list containing the content of the file
+     * @param filename filename of the file to write
+     * @param separator separator between the content i a row
+     * @throws Exception
+     */
     static public void writeCSV(LinkedList<LinkedList> list, String filename, String separator) throws Exception {
 
 //        BufferedWriter CSVFile = new BufferedWriter(new FileWriter(filename));
-        System.out.println(list.getClass());
         String dataRow = "";
         while (!list.isEmpty()) {
             LinkedList sublist = list.pop();
@@ -69,9 +114,7 @@ public class CSVHandling {
                 dataRow += sublist.pop();
             }
             while (!sublist.isEmpty()) {
-//                System.out.println(sublist.getFirst());
                 dataRow += separator + sublist.pop();
-                System.out.println(dataRow);
 
             }
             dataRow += "\n";
@@ -85,44 +128,52 @@ public class CSVHandling {
         writeCSV(list, filename, ",");
     }
 
-/**
- * takes a 2-dimensional string-array instead of a linked list
- * @param str 2d string array with the content to write
- * @param filename filename of the file to write
- * @param separator separator between the content i a row
- * @throws Exception 
- */
-    static public void writeCSV(String[][] str, String filename, String separator) throws Exception{
+    /**
+     * takes a 2-dimensional string-array instead of a linked list
+     *
+     * @param str 2d string array with the content to write
+     * @param filename filename of the file to write
+     * @param separator separator between the content i a row
+     * @throws Exception
+     */
+    static public void writeCSV(String[][] str, String filename, String separator) throws Exception {
         int i;
         LinkedList<LinkedList> list = new LinkedList();
-        for(i=0; i<str.length; i++){
+        for (i = 0; i < str.length; i++) {
             LinkedList<String> sublist = new LinkedList<>();
             sublist.addAll(Arrays.asList(str[i]));
             list.add(sublist);
         }
         writeCSV(list, filename, separator);
     }
-    
-    static public void writeCSV(String[][] str, String filename) throws Exception{
+
+    static public void writeCSV(String[][] str, String filename) throws Exception {
         writeCSV(str, filename, ",");
     }
-    
-    static public void writeCSV(String[] text, String filename) throws Exception{
+
+    static public void writeCSV(String[] text, String filename) throws Exception {
         writeFile(text, filename);
     }
-    
-    static public void writeFile(String[] text, String filename) throws Exception{
+
+    static public void writeFile(String[] text, String filename) throws Exception {
         String[][] str = new String[text.length][1];
         int i;
-        for(i = 0; i < text.length; i++){
+        for (i = 0; i < text.length; i++) {
             str[i][0] = text[i];
         }
         writeCSV(str, filename);
     }
-    
-    static public void writeFile(String text, String filename) throws Exception{
-        BufferedWriter file = new BufferedWriter(new FileWriter(filename));
-        file.write(text);
-        file.close();        
+
+    static public void writeFile(String text, String filename) throws Exception {
+        String[] str = filename.split("/");
+        String dirs = new String();
+        for (int i = 0; i < str.length - 1; i++) {
+            dirs += str[i] + "/";
+        }
+        File file = new File(dirs);
+        file.mkdirs();
+        BufferedWriter fileWriter = new BufferedWriter(new FileWriter(filename));
+        fileWriter.write(text);
+        fileWriter.close();
     }
 }
