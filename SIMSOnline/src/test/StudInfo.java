@@ -27,6 +27,7 @@ public class StudInfo{
      private javax.swing.JProgressBar TirednessBar; 
         
         // current StudentArray 
+    //private StudentArray StudArr = Game.studentArray;
     private  StudentArray StudArr = new StudentArray();   // muss StudArray laden!! sonst wird immer ein neuer erstellt
    
    
