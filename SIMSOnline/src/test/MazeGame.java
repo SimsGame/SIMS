@@ -87,7 +87,7 @@ public class MazeGame extends javax.swing.JFrame {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         //System.out.print(evt.getKeyCode()+"\n");
         switch(evt.getKeyCode()){
-            case 37:{ if(checkPosition(label_auto.getX(),  label_auto.getY()) == false){
+            case 37:{ if(checkPosition(label_auto.getLocationOnScreen()) == false){
                          System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n");
                          break;
                       }else{ 
@@ -115,12 +115,12 @@ public class MazeGame extends javax.swing.JFrame {
         formKeyPressed(evt);
     }//GEN-LAST:event_formKeyTyped
 
-    public boolean checkPosition(int x, int y){
+    public boolean checkPosition(Point labelPoint){
         //if(x > label_wall.getX() && y < label_wall.getY() ){
             try {
                 Robot test = new Robot();
-                    System.out.print("X: "+x+" Y :"+y);
-                    Color color = test.getPixelColor(x, y);
+                    //System.out.print("X: "+x+" Y :"+y);
+                    Color color = test.getPixelColor(labelPoint.x, labelPoint.y);
                     //System.out.print("RGB: "+color.getRGB()+"\n");
                     System.out.print("Red: "+color.getRed()+"\n");
                     System.out.print("Green: "+color.getGreen()+"\n");

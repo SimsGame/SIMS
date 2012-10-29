@@ -16,7 +16,6 @@ public class Item {
     /**
      * Public attributes to have an easier access from other classes.
      * @param name           Item name.
-     * @param image          Item image.
      * @param price          Price for item in shop.
      * @param amount         Item in inventory.
      * @param availibility   Which semester is needed to get this item.
@@ -24,11 +23,13 @@ public class Item {
      */
     
     public String name;
-    public String image;
     public int price;
     public String currency;
     public int amount;
     public int availibility;
+    public int motivation;
+    public int tiredness;
+    public int knowledge;
     
     //public Item item;
     public Item(){
@@ -38,16 +39,14 @@ public class Item {
     /**
      * Creates a new Item and stores it in the Game.java file.
      * @param name
-     * @param image
      * @param price
      * @param currency
      * @param amount
      * @param availibility 
      */
     
-    public Item(String name, String image, int price, String currency, int amount, int availibility){
+    public Item(String name, int price, String currency, int amount, int availibility){
             this.name = name;
-            this.image = image;
             this.price = price;
             this.currency = currency;
             this.amount = amount;
