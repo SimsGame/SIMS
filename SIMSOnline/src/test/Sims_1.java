@@ -1694,15 +1694,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(2);
+        PlanningPhase.StudButtonFunctions(2);
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(3);
+        PlanningPhase.StudButtonFunctions(3);
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(4);
+        PlanningPhase.StudButtonFunctions(4);
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
@@ -1912,7 +1912,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_SwitchStudMouseClicked
         // TODO add your handling code here:
-        PlanningPhase.startStudSwitch();
+        PlanningPhase.startStudSwitch(jLab_StudCounter);
     }//GEN-LAST:event_jBut_SwitchStudMouseClicked
 
     private void jBut_SwitchStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_SwitchStudActionPerformed
