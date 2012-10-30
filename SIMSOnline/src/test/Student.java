@@ -20,7 +20,7 @@ public class Student {
     /**
      * 
      * @param id 
-     */
+     */   
     public Student(int id){
         this.id=id;
         initTiredness();

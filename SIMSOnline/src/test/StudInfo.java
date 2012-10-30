@@ -27,8 +27,8 @@ public class StudInfo{
      private javax.swing.JProgressBar TirednessBar; 
         
         // current StudentArray 
-    //private StudentArray StudArr = Game.studentArray;
-    private  StudentArray StudArr = new StudentArray();   // muss StudArray laden!! sonst wird immer ein neuer erstellt
+        // current form the PlanningPhase
+    private  Student[] studArr = PlanningPhase.studArr;
    
    
         // constructor which expects the three progress bars
@@ -68,9 +68,9 @@ public class StudInfo{
         // initializes the attributes of the selected student
     public void StudInfoAttr(int stud_nr){
         
-        this.knowledge =    (int) StudArr.getArray()[stud_nr].getKnowledge();
-        this.motivation =   (int) StudArr.getArray()[stud_nr].getMotivation();
-        this.tiredness =    (int) StudArr.getArray()[stud_nr].getTiredness();
+        this.knowledge =    (int) studArr[stud_nr].getKnowledge();
+        this.motivation =   (int) studArr[stud_nr].getMotivation();
+        this.tiredness =    (int) studArr[stud_nr].getTiredness();
         
         StudInfoSetBars();
     }
@@ -83,9 +83,9 @@ public class StudInfo{
         
         // iterates the studentArray and sum up the attribute values
     for (int i=0; i<30; i++){
-            this.knowledge_H  = this.knowledge_H  +   StudArr.getArray()[2].getKnowledge();
-            this.motivation_H = this.motivation_H +   StudArr.getArray()[2].getMotivation();
-            this.tiredness_H  = this.tiredness_H  +   StudArr.getArray()[2].getTiredness();
+            this.knowledge_H  = this.knowledge_H  +   studArr[i].getKnowledge();
+            this.motivation_H = this.motivation_H +   studArr[i].getMotivation();
+            this.tiredness_H  = this.tiredness_H  +   studArr[i].getTiredness();
        }
        
        this.knowledge =  (int) (this.knowledge_H/30);
