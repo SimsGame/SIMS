@@ -146,16 +146,22 @@ public class NumberGame extends javax.swing.JFrame {
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				one.setText("");
+                                one.setOpaque(false);
 				one.setBounds(new RandGenerator().getRand(900)/*243*/, new RandGenerator().getRand(600)/*153*/, 77, 40);
 				two.setText("");
+                                two.setOpaque(false);
 				two.setBounds(new RandGenerator().getRand(900)/*433*/, new RandGenerator().getRand(600)/*53*/, 65, 40);
 				three.setText("");
+                                three.setOpaque(false);
 				three.setBounds(new RandGenerator().getRand(900)/*116*/, new RandGenerator().getRand(600)/*403*/, 77, 40);
 				four.setText("");
+                                four.setOpaque(false);
 				four.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
                                 five.setText("");
+                                five.setOpaque(false);
 				five.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
 				counter = 0;
+                                updatePoints();
 			}
 		});
 		btnReset.setBounds(560, 270, 110, 43);

@@ -19,7 +19,7 @@ public class Attributes {
      * @param noise                     Denotes how loud it is in the room - bound to room
      */
     
-    private Student[] changeArray=getArray();
+    private Student[] changeArray;
     
     public double changeTiredness(int i, double factor)
     {
