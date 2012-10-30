@@ -5,6 +5,7 @@
 package test;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -21,6 +22,52 @@ public class User {
     private Date last_login = new Date();
     private int ucoins = 0;
     private int time_played = 0;
+    
+    @Override public String toString(){
+        String output = "accountname = " + accountname + "\n" +
+                "password = " + password + "\n" +
+                "email = " + email + "\n" +
+                "first_name = " + first_name + "\n" +
+                "last_name = " + last_name + "\n" +
+                "reg_date = " + reg_date + "\n" +
+                "last_login = " + last_login + "\n" +
+                "ucoins = " + ucoins + "\n" +
+                "time_plyed = " + time_played;
+               
+        return output;
+    }
+
+    public User() {
+        accountname = "blubb";
+        password = "blubb";
+        email = "blubb@blubb.com";
+        first_name = "Blubb";
+        last_name = "Blubber";
+        ucoins = 500;
+    }
+
+    public User(String accname) {
+        String[] userData = null;
+        try {
+            userData = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accname + "/" + Sims_1._profileFileName);
+            accountname = userData[0];
+            password = userData[1];
+            email = userData[2];
+            first_name = userData[3];
+            last_name = userData[4];
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-y");
+            reg_date = (Date) formatter.parse(userData[5]);
+            if (userData[6].equals("")) {
+                last_login = null;
+            } else {
+                last_login = (Date) formatter.parse(userData[6]);
+            }
+            ucoins = Integer.parseInt(userData[7]);
+            time_played = Integer.parseInt(userData[8]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * creates a new user on the local system, needed for registration
@@ -35,16 +82,19 @@ public class User {
     public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
         String str[] = new String[9];
         str[0] = accountname;
-        str[1] = new String(password);      /*swing.password-fields return a 1-dim char-array, it's easier to work with a string here */
+        str[1] = new String(password);      /*
+         * swing.password-fields return a 1-dim char-array, it's easier to work
+         * with a string here
+         */
         str[2] = email;
         str[3] = first_name;
         str[4] = last_name;
-        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("dd-MM-y");      //set format for the date (eg. 24.10.2012)
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-y");      //set format for the date (eg. 24.10.2012)
         str[5] = format.format(new java.util.Date());       //get the current date with the set format
         str[6] = "";    //last login: never happened yet
         str[7] = "0";   //time played
         str[8] = "0";   //UCoins
-        
+
         //ready to create the user-files
         java.util.LinkedList users = new java.util.LinkedList<>();      //needed for updating the userlist
         try {
