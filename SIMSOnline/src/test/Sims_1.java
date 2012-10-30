@@ -2453,7 +2453,7 @@ public class Sims_1 extends javax.swing.JFrame {
          */
        
             int currTerm=PlanningPhase.getTerm(); // aktuelles Semester
-            int eingesetzt2=0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
+            int eingesetzt2=1; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
             int eingesetzt3=0;
             int eingesetzt4=0;
             int eingesetzt5=0;
@@ -2470,13 +2470,17 @@ public class Sims_1 extends javax.swing.JFrame {
                 ((currTerm==4)&&(eingesetzt4==0))|| 
                 ((currTerm==5)&&(eingesetzt5==0))||
                 ((currTerm==6)&&(eingesetzt6==0))  
-               )
+               ){
             PlanningPhase.setCheatFlag();
+            System.out.println("setCheatFlag");
+            System.out.println("currTerm " +currTerm +" und eingesetzt4= " +eingesetzt4 );
+            
         }
-        else 
-        {
+            else {
             System.out.println("Du kannst in dem " +currTerm +" Semester den Spicker nicht mehr einsetzen");
+            }
         }
+        
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
     /**
