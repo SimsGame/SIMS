@@ -16,12 +16,6 @@ import javax.swing.JOptionPane;
  */
 public class StartScreen extends javax.swing.JFrame {
 
-    public final String _dataFolderName = "data";
-    public final String _profileFileName = "profile.txt";
-    public final String _gameFileName = "game.txt";
-    public final String _inventoryFileName = "inventory.txt";
-    public final String _usersFileName = "users.csv";
-
     private boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
         int i;
         for (i = 0; i < str.length; i++) {
@@ -69,7 +63,7 @@ public class StartScreen extends javax.swing.JFrame {
 
     private boolean checkGlobUser(String str) {
         try {
-            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(_usersFileName);
+            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
                 if (sublist.contains(str)) {
                     return true;
@@ -133,49 +127,17 @@ public class StartScreen extends javax.swing.JFrame {
         }
 
         if (check) {
-            return createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+            return User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
         }
         return false;
     }
 
-    private boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
-        String str[] = new String[9];
-        str[0] = accountname;
-        str[1] = new String(password);
-        str[2] = email;
-        str[3] = first_name;
-        str[4] = last_name;
-        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("dd-MM-y");
-        str[5] = format.format(new java.util.Date());
-        str[6] = "";
-        str[7] = "0";
-        str[8] = "0";
-        java.util.LinkedList users = new java.util.LinkedList<>();
-        try {
-            CSVHandling.writeCSV(str, _dataFolderName + "/" + accountname + "/" + _profileFileName);
-            CSVHandling.writeFile("", _dataFolderName + "/" + accountname + "/" + _inventoryFileName);
-            CSVHandling.writeFile("", _dataFolderName + "/" + accountname + "/" + _gameFileName);
-            try {
-                users = CSVHandling.readCSV(_usersFileName);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            java.util.LinkedList newUser;
-            users.add(newUser = new java.util.LinkedList<String>());
-            newUser.add(accountname);
-            newUser.add(email);
-            CSVHandling.writeCSV(users, _usersFileName);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+    
 
     private boolean logIn(String accountname, char[] password) {
         String userlist = "";
         try {
-            userlist = CSVHandling.readCSVString(_usersFileName);
+            userlist = CSVHandling.readCSVString(Sims_1._usersFileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -183,7 +145,7 @@ public class StartScreen extends javax.swing.JFrame {
         if (userlist.contains(accountname)) {
             String userPw = "";
             try {
-                userPw = CSVHandling.readCSVStringArr(_dataFolderName + "/" + accountname + "/" + _profileFileName)[1];
+                userPw = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName)[1];
             } catch (Exception e) {
                 e.printStackTrace();
             }
