@@ -52,6 +52,8 @@ public class Sims_1 extends javax.swing.JFrame {
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog_error.setSize(400, 320);
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warning.setSize(400, 320);
+        warning.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jPanel2.setVisible(false);                  //changes by Dawid
         startPlanningGame.setVisible(false);
         panel_Register.setVisible(false);
@@ -87,6 +89,11 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage1 = new javax.swing.JLabel();
         label_shopMessage2 = new javax.swing.JLabel();
         button_shopMessageOk = new javax.swing.JButton();
+        warning = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jBut_JA = new javax.swing.JButton();
+        jBut_NEIN = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
         Menu_overlay = new javax.swing.JLabel();
@@ -396,6 +403,51 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
         button_shopMessageOk.setBounds(170, 210, 47, 23);
+
+        jLabel16.setText("Wichtig! Den Spickzettel kann man nur ein mal pro Semester anwenden");
+
+        jLabel17.setText("blabla");
+
+        jBut_JA.setText("ja");
+        jBut_JA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_JAMouseClicked(evt);
+            }
+        });
+
+        jBut_NEIN.setText("nein");
+
+        javax.swing.GroupLayout warningLayout = new javax.swing.GroupLayout(warning.getContentPane());
+        warning.getContentPane().setLayout(warningLayout);
+        warningLayout.setHorizontalGroup(
+            warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(warningLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jBut_JA, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBut_NEIN, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, warningLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
+        );
+        warningLayout.setVerticalGroup(
+            warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningLayout.createSequentialGroup()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBut_JA)
+                    .addComponent(jBut_NEIN))
+                .addGap(0, 70, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 700));
@@ -2116,7 +2168,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.StudButtonFunctions(1);
-
+        
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
 //            PlanningPhase.studInfo.StudInfoAttr(1);
@@ -2131,6 +2183,9 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
         PlanningPhase.StudButtonFunctions(2);
+        if (PlanningPhase.getCheatFlag()==1) {
+            warning.setVisible(true);
+        }
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
@@ -2483,6 +2538,11 @@ public class Sims_1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
+    private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jBut_JAMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2588,6 +2648,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_ChangeLector;
     private javax.swing.JButton jBut_ComboB_useItem;
     private javax.swing.JButton jBut_Dozent;
+    private javax.swing.JButton jBut_JA;
+    private javax.swing.JButton jBut_NEIN;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_SwitchStud;
     private javax.swing.JButton jBut_startShop;
@@ -2618,6 +2680,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2762,6 +2826,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_swapperCredits;
     private javax.swing.JTextField textfield_swapperUcoins;
     private javax.swing.JLabel ucoinsShop;
+    private javax.swing.JDialog warning;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid

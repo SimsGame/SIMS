@@ -25,7 +25,7 @@ public class PlanningPhase {
     private static int switchFlag = 0;
     private static int switchCounter = 5;
     private static int studCounter = 0;
-    private static int cheatFlag = 0;
+    private static int cheatFlag = 0; 
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
@@ -160,7 +160,8 @@ public class PlanningPhase {
            
             //die if-Abrage muss hier stehen,um Überlappungen mit dem Studententausch zu vermeiden
             //d.h. der Spicker kann nur dann eingesetzt werden, wenn der UmtauschButton nicht angeklickt ist(switchFlag=0)
-            if (cheatFlag == 1){
+            /*if (cheatFlag == 1){
+                
             //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt, beim Abbrechen cheatFlag auf 0 setzen     
             System.out.println("Beim Student " +studArr[stud_nr].getId() +"wird der Spicker-Flag gesetzt"); //-> wird später den Flag in game.txt setzen
             cheatFlag=0;
@@ -185,7 +186,7 @@ public class PlanningPhase {
                 default:
                     break;
             }
-             }
+             }*/
          // switchFlag == 1 --> SwitchButton clicked
         } else if (switchFlag == 1) {
             System.out.println("TauschFlag = 1");
@@ -279,6 +280,11 @@ public class PlanningPhase {
                 return 0;
         }
                   
+    }
+    
+    //Für Dialog-Fenster
+    public static int getCheatFlag(){
+        return cheatFlag;
     }
     
 }
