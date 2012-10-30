@@ -929,6 +929,7 @@
                             <Property name="text" type="java.lang.String" value="SPIELEN"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_PlayMouseClicked"/>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBut_PlayActionPerformed"/>
                           </Events>
                           <Constraints>

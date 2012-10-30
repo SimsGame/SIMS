@@ -146,7 +146,8 @@ public class PlanningPhase {
     }
 
     public static void StudButtonFunctions(int stud_nr) {
-
+      // !!! ExmatrikulationsFlag abfragen
+            // switchFlag == 0 --> SwitchButton not clickeds
         if (switchFlag == 0) {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
@@ -154,11 +155,14 @@ public class PlanningPhase {
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
             studInfo.StudInfoAttr(stud_nr);
-
-        } else {
+            // switchFlag == 1 --> SwitchButton clicked
+        } else if (switchFlag == 1) {
             System.out.println("TauschFlag = 1");
             storeStud(stud_nr);
-        }
+        } //else if (JuliaVar == X){
+        
+        //} else { // nichts passiert   --> z.B.
+        //}
     }
 
     /*

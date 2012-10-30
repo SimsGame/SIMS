@@ -615,6 +615,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_Play.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jBut_Play.setText("SPIELEN");
+        jBut_Play.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_PlayMouseClicked(evt);
+            }
+        });
         jBut_Play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBut_PlayActionPerformed(evt);
@@ -1918,6 +1923,21 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_SwitchStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_SwitchStudActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_SwitchStudActionPerformed
+
+    private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
+        // TODO add your handling code here:
+        if(jPanel2.isVisible() == false){
+            jPanel2.setVisible(true);
+        }    
+        cl.show(jPanel2, "card2");
+        startPlanningGame.setVisible(false);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  "+game.ucoins);
+        label_creditsInv.setText("Credits:   "+game.credits);
+        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar,TirednessBar);
+    }//GEN-LAST:event_jBut_PlayMouseClicked
 
     /**
      * @param args the command line arguments
