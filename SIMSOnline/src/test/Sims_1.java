@@ -2453,7 +2453,7 @@ public class Sims_1 extends javax.swing.JFrame {
          */
        
             int currTerm=PlanningPhase.getTerm(); // aktuelles Semester
-            int eingesetzt2=1; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
+            int eingesetzt2=0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
             int eingesetzt3=0;
             int eingesetzt4=0;
             int eingesetzt5=0;
@@ -2473,7 +2473,7 @@ public class Sims_1 extends javax.swing.JFrame {
                ){
             PlanningPhase.setCheatFlag();
             System.out.println("setCheatFlag");
-            System.out.println("currTerm " +currTerm +" und eingesetzt4= " +eingesetzt4 );
+            System.out.println("currTerm " +currTerm +" und eingesetzt2= " +eingesetzt2 );
             
         }
             else {

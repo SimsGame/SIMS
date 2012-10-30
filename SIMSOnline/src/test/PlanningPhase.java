@@ -168,7 +168,7 @@ public class PlanningPhase {
             int currTerm=PlanningPhase.getTerm();
             switch (currTerm){
                 case 2:
-                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen
+                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)
                     break;
                 case 3:
                     // Spicker wurde im 3 Sem. eingesetzt - Spickerwert fürs 3 Sem. auf 1 setzen
