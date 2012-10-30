@@ -31,8 +31,8 @@ public class PlanningPhase {
     private static int stud2_nr;
     //deklaration of the variables that are needed for the lector-change function
     protected static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
-    protected static boolean lectorChanged1 = false;  //flag is set if the lector was already changed in this month
-    protected static boolean lectorChanged4 = false;
+     
+    protected static boolean lectorChanged4 = false; //flag is set if the lector was already changed in this month
     protected static boolean lectorChanged7 = false;
     protected static boolean lectorChanged10 = false;
     protected static boolean lectorChanged13 = false;
@@ -49,7 +49,8 @@ public class PlanningPhase {
 
     public PlanningPhase(javax.swing.JProgressBar jProgB_Knowledge,
             javax.swing.JProgressBar jProgB_Motivation,
-            javax.swing.JProgressBar jProgB_Tiredness, javax.swing.JLabel jLab_DozCounter) {
+            javax.swing.JProgressBar jProgB_Tiredness, 
+            javax.swing.JLabel jLab_DozCounter) {
 
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
@@ -110,7 +111,7 @@ public class PlanningPhase {
 
         }
 
-        if (studCounter == 0) {
+        else if (studCounter == 0) {
             studCounter++;
             System.out.println("studCounter = " + studCounter);
             stud1 = studArr[stud_nr];
@@ -174,7 +175,7 @@ public class PlanningPhase {
     public static boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
         lectorCounter = jLab_DozCounter;
-        if ((actMonth == 1 && !lectorChanged1) || (actMonth == 4 && !lectorChanged4)
+        if ( (actMonth == 4 && !lectorChanged4)
                 || (actMonth == 7 && !lectorChanged7) || (actMonth == 10 && !lectorChanged10)
                 || (actMonth == 13 && !lectorChanged13) || (actMonth == 16 && !lectorChanged16)) {
             validated = true;
@@ -195,10 +196,8 @@ public class PlanningPhase {
     public static void changeLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
         lectorCounter = jLab_DozCounter;
-        if (actMonth == 1) {
-            lectorChanged1 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actMonth == 4) {
+        
+         if (actMonth == 4) {
             lectorChanged4 = true;
             lectorValue = (int) Math.round(Math.random() * 100 + 1);
         } else if (actMonth == 7) {
