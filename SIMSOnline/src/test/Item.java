@@ -82,6 +82,12 @@ public class Item {
         int itemAmountWidth = 80;
         int itemAmountHeight = 20;
         
+        switch(item.name){
+            case "Red Bull":{
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullPainting80x80.png")));
+            }
+        }
+        
         name.setText(item.name);
         name.setHorizontalAlignment(name.CENTER);
         amount.setText(String.valueOf(item.amount)+" x");
