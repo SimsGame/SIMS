@@ -641,6 +641,11 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_ItemSelect.setLayout(null);
 
         jComboB_Items.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "wähle Item", "Spicker" }));
+        jComboB_Items.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboB_ItemsActionPerformed(evt);
+            }
+        });
         jPan_ItemSelect.add(jComboB_Items);
         jComboB_Items.setBounds(10, 20, 130, 30);
 
@@ -2441,6 +2446,38 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(true);
         System.out.println(_mainuser);
     }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
+
+    private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
+        /*
+         * lokale Variablen für diese Methode, momentan zu Testzwecken
+         */
+       
+            int currTerm=PlanningPhase.getTerm(); // aktuelles Semester
+            int eingesetzt2=0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
+            int eingesetzt3=0;
+            int eingesetzt4=0;
+            int eingesetzt5=0;
+            int eingesetzt6=0;
+        
+        javax.swing.JComboBox box = (javax.swing.JComboBox)evt.getSource();
+        String selected = (String)box.getSelectedItem();
+        System.out.println("Right now " + selected);
+        if (selected.equals("Spicker")){
+            System.out.println("Spicker selected :)");
+            
+            if (((currTerm==2)&&(eingesetzt2==0))|| //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
+                ((currTerm==3)&&(eingesetzt3==0))|| //Wenn nicht, dann wird der Cheat Flag gesetzt
+                ((currTerm==4)&&(eingesetzt4==0))|| 
+                ((currTerm==5)&&(eingesetzt5==0))||
+                ((currTerm==6)&&(eingesetzt6==0))  
+               )
+            PlanningPhase.setCheatFlag();
+        }
+        else 
+        {
+            System.out.println("Du kannst in dem " +currTerm +" Semester den Spicker nicht mehr einsetzen");
+        }
+    }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
     /**
      * @param args the command line arguments

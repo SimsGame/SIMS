@@ -25,6 +25,7 @@ public class PlanningPhase {
     private static int switchFlag = 0;
     private static int switchCounter = 5;
     private static int studCounter = 0;
+    private static int cheatFlag = 0;
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
@@ -63,7 +64,7 @@ public class PlanningPhase {
         studArr = game.getArray();
 
         PlanningPhaseMain();
-
+        //updates label "Dozenten tauschen
         validateLector(jLab_DozCounter);
     }
 
@@ -156,11 +157,19 @@ public class PlanningPhase {
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
             studInfo.StudInfoAttr(stud_nr);
-            // switchFlag == 1 --> SwitchButton clicked
+           
+            //die if-Abrage muss hier stehen,um Überlappungen mit dem Studententausch zu vermeiden
+            //d.h. der Spicker kann nur dann eingesetzt werden, wenn der UmtauschButton nicht angeklickt ist(switchFlag=0)
+            if (cheatFlag == 1){
+            //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt     
+            System.out.println("Beim Student " +studArr[stud_nr].getId() +"wird der Spicker-Flag gesetzt"); //-> wird später den Flag in game.txt setzen
+            cheatFlag=0;
+        }
+         // switchFlag == 1 --> SwitchButton clicked
         } else if (switchFlag == 1) {
             System.out.println("TauschFlag = 1");
             storeStud(stud_nr);
-        } //else if (JuliaVar == X){
+        }  
         
         //} else { // nichts passiert   --> z.B.
         //}
@@ -217,4 +226,37 @@ public class PlanningPhase {
         lectorCounter.setText("0x");
         lectorCounter.repaint();
     }
+    
+    public static void setCheatFlag() {
+        if (cheatFlag == 0) {
+            cheatFlag = 1;
+        }
+    }
+    //methode, die aktuelles Semester berechnet
+    public static int getTerm(){
+        switch (actMonth) {
+            case 1: case 2: case3:
+                return 1;
+                
+            case 4: case 5: case6:               
+                return 2;
+                
+            case 7: case 8: case9:            
+                return 3;
+                
+            case 10: case 11: case12:                
+                return 4;
+                
+            case 13: case 14: case15:            
+                return 5;
+                
+            case 16: case 17: case18:                
+                return 6;
+                
+            default:
+                return 0;
+        }
+                  
+    }
+    
 }
