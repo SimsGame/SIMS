@@ -52,7 +52,7 @@ public class Sims_1 extends javax.swing.JFrame {
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog_error.setSize(400, 320);
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        warning.setSize(400, 320);
+        warning.setSize(400, 320); //added  by Julia
         warning.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jPanel2.setVisible(false);                  //changes by Dawid
         startPlanningGame.setVisible(false);
