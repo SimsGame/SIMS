@@ -161,10 +161,31 @@ public class PlanningPhase {
             //die if-Abrage muss hier stehen,um Überlappungen mit dem Studententausch zu vermeiden
             //d.h. der Spicker kann nur dann eingesetzt werden, wenn der UmtauschButton nicht angeklickt ist(switchFlag=0)
             if (cheatFlag == 1){
-            //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt     
+            //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt, beim Abbrechen cheatFlag auf 0 setzen     
             System.out.println("Beim Student " +studArr[stud_nr].getId() +"wird der Spicker-Flag gesetzt"); //-> wird später den Flag in game.txt setzen
             cheatFlag=0;
-        }
+            //Spicker-Wert für das jeweilige Semester updaten:
+            int currTerm=PlanningPhase.getTerm();
+            switch (currTerm){
+                case 2:
+                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen
+                    break;
+                case 3:
+                    // Spicker wurde im 3 Sem. eingesetzt - Spickerwert fürs 3 Sem. auf 1 setzen
+                    break;
+                case 4:
+                    // Spicker wurde im 4 Sem. eingesetzt - Spickerwert fürs 4 Sem. auf 1 setzen
+                    break;
+                case 5:
+                    // Spicker wurde im 5 Sem. eingesetzt - Spickerwert fürs 5 Sem. auf 1 setzen
+                    break;
+                case 6:
+                    // Spicker wurde im 6 Sem. eingesetzt - Spickerwert fürs 6 Sem. auf 1 setzen
+                    break;
+                default:
+                    break;
+            }
+             }
          // switchFlag == 1 --> SwitchButton clicked
         } else if (switchFlag == 1) {
             System.out.println("TauschFlag = 1");
@@ -184,9 +205,10 @@ public class PlanningPhase {
     public static boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
         lectorCounter = jLab_DozCounter;
-        if ( (actMonth == 4 && !lectorChanged4)
-                || (actMonth == 7 && !lectorChanged7) || (actMonth == 10 && !lectorChanged10)
-                || (actMonth == 13 && !lectorChanged13) || (actMonth == 16 && !lectorChanged16)) {
+        if ( (actMonth == 4 && !lectorChanged4)  || (actMonth == 7 && !lectorChanged7) || 
+             (actMonth == 10 && !lectorChanged10)|| (actMonth == 13 && !lectorChanged13)||
+             (actMonth == 16 && !lectorChanged16)) {
+            
             validated = true;
             lectorCounter.setText("1x");
             lectorCounter.repaint();
