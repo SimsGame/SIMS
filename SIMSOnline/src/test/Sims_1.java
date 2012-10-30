@@ -201,26 +201,30 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel21 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
-        label_redBullOverlay = new javax.swing.JLabel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
         label_duploOverlay = new javax.swing.JLabel();
+        label_redBullOverlay = new javax.swing.JLabel();
         panel_redBull = new javax.swing.JPanel();
         label_redBullName = new javax.swing.JLabel();
         label_redBullAmount = new javax.swing.JLabel();
         label_redBullLocked = new javax.swing.JLabel();
-        jPanel23 = new javax.swing.JPanel();
+        label_redBullImage = new javax.swing.JLabel();
+        panel_omniSense = new javax.swing.JPanel();
         label_omniName = new javax.swing.JLabel();
         label_omniLocked = new javax.swing.JLabel();
         label_omniAmount = new javax.swing.JLabel();
+        label_omniAudioImage = new javax.swing.JLabel();
         panel_duplo = new javax.swing.JPanel();
         label_duploName = new javax.swing.JLabel();
         label_duploAmount = new javax.swing.JLabel();
         label_duploLocked = new javax.swing.JLabel();
+        label_duploImage = new javax.swing.JLabel();
         panel_cheatSheet = new javax.swing.JPanel();
         label_cheatSheetName = new javax.swing.JLabel();
         label_cheatSheetLocked = new javax.swing.JLabel();
         label_cheatSheetAmount = new javax.swing.JLabel();
+        label_cheatSheetImage = new javax.swing.JLabel();
         gamePlaying = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -1180,15 +1184,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel22.setLayout(null);
 
-        label_redBullOverlay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        label_redBullOverlay.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_redBullOverlayMouseClicked(evt);
-            }
-        });
-        jPanel22.add(label_redBullOverlay);
-        label_redBullOverlay.setBounds(100, 40, 230, 220);
-
         label_cheatSheetOverlay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_cheatSheetOverlay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1216,69 +1211,118 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel22.add(label_duploOverlay);
         label_duploOverlay.setBounds(510, 40, 230, 220);
 
+        label_redBullOverlay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label_redBullOverlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_redBullOverlayMouseClicked(evt);
+            }
+        });
+        jPanel22.add(label_redBullOverlay);
+        label_redBullOverlay.setBounds(100, 40, 230, 220);
+
         panel_redBull.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_redBull.setName("panel_redBull"); // NOI18N
         panel_redBull.setLayout(null);
 
-        label_redBullName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_redBullName.setBackground(new java.awt.Color(0, 0, 0));
+        label_redBullName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_redBullName.setForeground(new java.awt.Color(255, 255, 255));
         label_redBullName.setText("Red Bull");
+        label_redBullName.setOpaque(true);
         panel_redBull.add(label_redBullName);
         label_redBullName.setBounds(0, 130, 230, 30);
 
-        label_redBullAmount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_redBullAmount.setBackground(new java.awt.Color(0, 0, 0));
+        label_redBullAmount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_redBullAmount.setForeground(new java.awt.Color(255, 255, 255));
         label_redBullAmount.setText("100 Credits");
+        label_redBullAmount.setOpaque(true);
         panel_redBull.add(label_redBullAmount);
-        label_redBullAmount.setBounds(0, 150, 230, 50);
+        label_redBullAmount.setBounds(0, 160, 230, 30);
 
+        label_redBullLocked.setBackground(new java.awt.Color(0, 0, 0));
         label_redBullLocked.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label_redBullLocked.setForeground(new java.awt.Color(204, 51, 0));
+        label_redBullLocked.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_redBullLocked.setText("GESPERRT");
+        label_redBullLocked.setOpaque(true);
         panel_redBull.add(label_redBullLocked);
-        label_redBullLocked.setBounds(50, 10, 230, 110);
+        label_redBullLocked.setBounds(0, 50, 230, 50);
+
+        label_redBullImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullShop230x220.png"))); // NOI18N
+        label_redBullImage.setText("jLabel12");
+        panel_redBull.add(label_redBullImage);
+        label_redBullImage.setBounds(0, 0, 230, 220);
 
         jPanel22.add(panel_redBull);
         panel_redBull.setBounds(100, 40, 230, 220);
 
-        jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel23.setLayout(null);
+        panel_omniSense.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_omniSense.setLayout(null);
 
+        label_omniName.setBackground(new java.awt.Color(0, 0, 0));
         label_omniName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_omniName.setForeground(new java.awt.Color(255, 255, 255));
         label_omniName.setText("Verfügbar ab Semester 4");
-        jPanel23.add(label_omniName);
-        label_omniName.setBounds(0, 120, 230, 50);
+        label_omniName.setOpaque(true);
+        panel_omniSense.add(label_omniName);
+        label_omniName.setBounds(0, 130, 230, 30);
 
+        label_omniLocked.setBackground(new java.awt.Color(0, 0, 0));
         label_omniLocked.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label_omniLocked.setForeground(new java.awt.Color(204, 51, 0));
+        label_omniLocked.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_omniLocked.setText("GESPERRT");
-        jPanel23.add(label_omniLocked);
-        label_omniLocked.setBounds(50, 20, 230, 110);
+        label_omniLocked.setOpaque(true);
+        panel_omniSense.add(label_omniLocked);
+        label_omniLocked.setBounds(0, 50, 230, 50);
 
+        label_omniAmount.setBackground(new java.awt.Color(0, 0, 0));
         label_omniAmount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_omniAmount.setForeground(new java.awt.Color(255, 255, 255));
         label_omniAmount.setText("5 UCoins");
-        jPanel23.add(label_omniAmount);
-        label_omniAmount.setBounds(0, 150, 230, 50);
+        label_omniAmount.setOpaque(true);
+        panel_omniSense.add(label_omniAmount);
+        label_omniAmount.setBounds(0, 160, 230, 30);
 
-        jPanel22.add(jPanel23);
-        jPanel23.setBounds(510, 300, 230, 220);
+        label_omniAudioImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/OMNISenseAudioShop230x220.png"))); // NOI18N
+        panel_omniSense.add(label_omniAudioImage);
+        label_omniAudioImage.setBounds(0, 0, 230, 220);
+
+        jPanel22.add(panel_omniSense);
+        panel_omniSense.setBounds(510, 300, 230, 220);
 
         panel_duplo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_duplo.setLayout(null);
 
+        label_duploName.setBackground(new java.awt.Color(0, 0, 0));
         label_duploName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_duploName.setForeground(new java.awt.Color(255, 255, 255));
         label_duploName.setText("Duplo");
+        label_duploName.setOpaque(true);
         panel_duplo.add(label_duploName);
         label_duploName.setBounds(0, 130, 230, 30);
 
+        label_duploAmount.setBackground(new java.awt.Color(0, 0, 0));
         label_duploAmount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_duploAmount.setForeground(new java.awt.Color(255, 255, 255));
         label_duploAmount.setText("100 Credits");
+        label_duploAmount.setOpaque(true);
         panel_duplo.add(label_duploAmount);
-        label_duploAmount.setBounds(0, 150, 230, 50);
+        label_duploAmount.setBounds(0, 160, 230, 30);
 
+        label_duploLocked.setBackground(new java.awt.Color(0, 0, 0));
         label_duploLocked.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label_duploLocked.setForeground(new java.awt.Color(204, 51, 0));
+        label_duploLocked.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_duploLocked.setText("GESPERRT");
+        label_duploLocked.setOpaque(true);
         panel_duplo.add(label_duploLocked);
-        label_duploLocked.setBounds(50, 10, 230, 110);
+        label_duploLocked.setBounds(0, 50, 230, 50);
+
+        label_duploImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/FerreroDuploShop230x220.png"))); // NOI18N
+        panel_duplo.add(label_duploImage);
+        label_duploImage.setBounds(0, 0, 230, 220);
 
         jPanel22.add(panel_duplo);
         panel_duplo.setBounds(510, 40, 230, 220);
@@ -1286,21 +1330,34 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_cheatSheet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_cheatSheet.setLayout(null);
 
+        label_cheatSheetName.setBackground(new java.awt.Color(0, 0, 0));
         label_cheatSheetName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_cheatSheetName.setForeground(new java.awt.Color(255, 255, 255));
         label_cheatSheetName.setText("Spicker");
+        label_cheatSheetName.setOpaque(true);
         panel_cheatSheet.add(label_cheatSheetName);
         label_cheatSheetName.setBounds(0, 130, 230, 30);
 
+        label_cheatSheetLocked.setBackground(new java.awt.Color(0, 0, 0));
         label_cheatSheetLocked.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         label_cheatSheetLocked.setForeground(new java.awt.Color(204, 51, 0));
+        label_cheatSheetLocked.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_cheatSheetLocked.setText("GESPERRT");
+        label_cheatSheetLocked.setOpaque(true);
         panel_cheatSheet.add(label_cheatSheetLocked);
-        label_cheatSheetLocked.setBounds(50, 10, 230, 110);
+        label_cheatSheetLocked.setBounds(0, 50, 230, 50);
 
+        label_cheatSheetAmount.setBackground(new java.awt.Color(0, 0, 0));
         label_cheatSheetAmount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_cheatSheetAmount.setForeground(new java.awt.Color(255, 255, 255));
         label_cheatSheetAmount.setText("5 UCoins");
+        label_cheatSheetAmount.setOpaque(true);
         panel_cheatSheet.add(label_cheatSheetAmount);
-        label_cheatSheetAmount.setBounds(0, 150, 230, 50);
+        label_cheatSheetAmount.setBounds(0, 160, 230, 30);
+
+        label_cheatSheetImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/SpickzettelShop230x220.png"))); // NOI18N
+        panel_cheatSheet.add(label_cheatSheetImage);
+        label_cheatSheetImage.setBounds(0, 0, 230, 220);
 
         jPanel22.add(panel_cheatSheet);
         panel_cheatSheet.setBounds(100, 300, 230, 220);
@@ -2559,7 +2616,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel4;
@@ -2572,12 +2628,14 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JProgressBar jProgressBar6;
     private javax.swing.JLabel label_cheatSheetAmount;
+    private javax.swing.JLabel label_cheatSheetImage;
     private javax.swing.JLabel label_cheatSheetLocked;
     private javax.swing.JLabel label_cheatSheetName;
     private javax.swing.JLabel label_cheatSheetOverlay;
     private javax.swing.JLabel label_creditsInv;
     private javax.swing.JLabel label_currentExchange;
     private javax.swing.JLabel label_duploAmount;
+    private javax.swing.JLabel label_duploImage;
     private javax.swing.JLabel label_duploLocked;
     private javax.swing.JLabel label_duploName;
     private javax.swing.JLabel label_duploOverlay;
@@ -2605,6 +2663,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_item4Name;
     private javax.swing.JLabel label_lErr;
     private javax.swing.JLabel label_omniAmount;
+    private javax.swing.JLabel label_omniAudioImage;
     private javax.swing.JLabel label_omniLocked;
     private javax.swing.JLabel label_omniName;
     private javax.swing.JLabel label_omniOverlay;
@@ -2623,6 +2682,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_rPass2;
     private javax.swing.JLabel label_rSecondName;
     private javax.swing.JLabel label_redBullAmount;
+    private javax.swing.JLabel label_redBullImage;
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
@@ -2643,6 +2703,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_Register;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
+    private javax.swing.JPanel panel_omniSense;
     private javax.swing.JPanel panel_redBull;
     private javax.swing.JPasswordField password_Pass;
     private javax.swing.JPasswordField password_rPass1;

@@ -58,10 +58,14 @@ public class Game {
         if(item.name.equals("Duplo")){
             this.duplo = item;
             this.duplo.amount = 4;
+            this.duplo.tiredness = -5;
+            this.duplo.motivation = 15;
         }
         if(item.name.equals("Red Bull")){
             this.redBull = item;
             this.redBull.amount = 5;
+            this.redBull.tiredness = -20;
+            this.redBull.motivation = 5;
         }
         if(item.name.equals("Spickzettel")){
             this.cheatSheet = item;
@@ -70,6 +74,7 @@ public class Game {
         if(item.name.equals("OMNI Sense Audiobuch")){
             this.omniSenseAudio = item;
             this.omniSenseAudio.amount = 6;
+            this.omniSenseAudio.knowledge = 20;
         }
       }
         public Student[] getArray(){
