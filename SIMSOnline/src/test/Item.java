@@ -3,6 +3,8 @@
  */
 package test;
 
+import java.awt.Color;
+import java.awt.event.MouseMotionAdapter;
 import javax.swing.JLabel;
 
 /**
@@ -82,10 +84,44 @@ public class Item {
         int itemAmountWidth = 80;
         int itemAmountHeight = 20;
         
-        name.setText(item.name);
+        switch(item.name){
+            case "Red Bull":{
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullPainting80x80.png")));
+                field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-1);
+                name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-10);
+                break;
+            }
+            case "Duplo":{
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/FerreroDuploPainting80x80.png")));
+                field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-2);
+                name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-11);
+                break;
+            }
+            case "OMNI Sense Audiobuch":{
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/OMNISenseAudioPainting80x80.png")));
+                field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-3);
+                name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-12);
+                break;
+            }
+            case "Spickzettel":{
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/SpickzettelPainting80x80.png")));
+                field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-4);
+                name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-13);
+                break;
+            } 
+        }
+        
+        //name.setText(item.name);
+        name.setText("");
         name.setHorizontalAlignment(name.CENTER);
+        name.setBackground(Color.black);
+        name.setForeground(Color.white);
+        //name.setOpaque(true);
         amount.setText(String.valueOf(item.amount)+" x");
         amount.setHorizontalAlignment(name.CENTER);
+        amount.setBackground(Color.black);
+        amount.setForeground(Color.white);
+        amount.setOpaque(true);
         
         //The following part displays the container on the right position 
         
