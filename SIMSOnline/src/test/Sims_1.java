@@ -5,6 +5,7 @@
 package test;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,20 +16,27 @@ import javax.swing.JDialog;
  * @author Stazzer
  */
 public class Sims_1 extends javax.swing.JFrame {
-    
-    /*****************************************************************
-     *******************Section of constants: start*******************
-     ****************************************************************/
+
+    //**************************************************************  //by Dawid
+    //*******************Section of constants: start****************
+    //**************************************************************
     public static final String _dataFolderName = "data";
     public static final String _profileFileName = "profile.txt";
     public static final String _gameFileName = "game.txt";
     public static final String _inventoryFileName = "inventory.txt";
     public static final String _usersFileName = "users.csv";
-    
-    /*****************************************************************
-     *******************Section of constants: end*********************
-     ****************************************************************/
-    
+    //***************************************************************
+    //***************Section of constants: end***********************
+    //***************************************************************
+    //###############################################################
+    //***************************************************************  //by Dawid
+    //**************Section of global vars: start********************
+    //***************************************************************
+    public User _mainuser;
+    public Game _maingame;
+    //***************************************************************
+    //***************Section of global vars: end*********************
+    //***************************************************************
     /**
      * Creates new form Sims
      */
@@ -36,7 +44,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public Game game;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
-    
+
     public Sims_1() {
         initComponents();
         setSize(1000, 700);
@@ -44,8 +52,12 @@ public class Sims_1 extends javax.swing.JFrame {
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog_error.setSize(400, 320);
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        jPanel2.setVisible(false);
-        cl = (CardLayout)(jPanel2.getLayout());
+        jPanel2.setVisible(false);                  //changes by Dawid
+        startPlanningGame.setVisible(false);
+        panel_Register.setVisible(false);
+        panel_Login.setVisible(true);
+        label_lErr.setText("");
+        cl = (CardLayout) (jPanel2.getLayout());
     }
 
     /**
@@ -252,6 +264,41 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
+        panel_Login = new javax.swing.JPanel();
+        panel_Register = new javax.swing.JPanel();
+        textfield_rKontoname = new javax.swing.JTextField();
+        textfield_rEmail1 = new javax.swing.JTextField();
+        textfield_rEmail2 = new javax.swing.JTextField();
+        textfield_rName = new javax.swing.JTextField();
+        textfield_rSurename = new javax.swing.JTextField();
+        password_rPass1 = new javax.swing.JPasswordField();
+        password_rPass2 = new javax.swing.JPasswordField();
+        button_rRegister = new javax.swing.JButton();
+        label_rKontoname = new javax.swing.JLabel();
+        label_rPass1 = new javax.swing.JLabel();
+        label_rPass2 = new javax.swing.JLabel();
+        label_rEmail1 = new javax.swing.JLabel();
+        label_rEmail2 = new javax.swing.JLabel();
+        label_rFirstName = new javax.swing.JLabel();
+        label_rSecondName = new javax.swing.JLabel();
+        button_cancel = new javax.swing.JButton();
+        label_rErrAccname = new javax.swing.JLabel();
+        label_rErrPass1 = new javax.swing.JLabel();
+        label_rErrPass2 = new javax.swing.JLabel();
+        label_rErrEmail1 = new javax.swing.JLabel();
+        label_rErrEmail2 = new javax.swing.JLabel();
+        label_rErrFirstName = new javax.swing.JLabel();
+        label_rErrLastName = new javax.swing.JLabel();
+        textfield_Kontoname = new javax.swing.JTextField();
+        button_Login = new javax.swing.JButton();
+        button_Register = new javax.swing.JToggleButton();
+        password_Pass = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        label_lErr = new javax.swing.JLabel();
+        button_lDevAcessMenue = new javax.swing.JButton();
 
         buyCoins.getContentPane().setLayout(null);
 
@@ -1506,24 +1553,339 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 768));
 
+        panel_Login.setMaximumSize(new java.awt.Dimension(1000, 700));
+        panel_Login.setMinimumSize(new java.awt.Dimension(1000, 700));
+        panel_Login.setPreferredSize(new java.awt.Dimension(1000, 700));
+
+        panel_Register.setMaximumSize(new java.awt.Dimension(500, 700));
+        panel_Register.setMinimumSize(new java.awt.Dimension(500, 700));
+        panel_Register.setPreferredSize(new java.awt.Dimension(500, 700));
+
+        textfield_rKontoname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_rKontonameActionPerformed(evt);
+            }
+        });
+        textfield_rKontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rKontonameFocusGained(evt);
+            }
+        });
+
+        textfield_rEmail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_rEmail1ActionPerformed(evt);
+            }
+        });
+        textfield_rEmail1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rEmail1FocusGained(evt);
+            }
+        });
+
+        textfield_rEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rEmail2FocusGained(evt);
+            }
+        });
+
+        textfield_rName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rNameFocusGained(evt);
+            }
+        });
+
+        textfield_rSurename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_rSurenameFocusGained(evt);
+            }
+        });
+
+        password_rPass1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_rPass1FocusGained(evt);
+            }
+        });
+
+        password_rPass2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_rPass2FocusGained(evt);
+            }
+        });
+
+        button_rRegister.setText("Registrieren");
+        button_rRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_rRegisterActionPerformed(evt);
+            }
+        });
+
+        label_rKontoname.setText("Kontoname:");
+
+        label_rPass1.setText("Passwort:");
+
+        label_rPass2.setText("Passwort wiederholen:");
+
+        label_rEmail1.setText("Email:");
+
+        label_rEmail2.setText("Email wiederholen:");
+
+        label_rFirstName.setText("Vorname:");
+
+        label_rSecondName.setText("Nachname:");
+
+        button_cancel.setText("Abbrechen");
+        button_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancelActionPerformed(evt);
+            }
+        });
+
+        label_rErrAccname.setText("Fehler?");
+        label_rErrAccname.setName("label_rErrAccname");
+
+        label_rErrPass1.setText("Fehler?");
+        label_rErrPass1.setName("label_rErrPass1");
+
+        label_rErrPass2.setText("Fehler?");
+
+        label_rErrEmail1.setText("Fehler?");
+
+        label_rErrEmail2.setText("Fehler?");
+
+        label_rErrFirstName.setText("Fehler?");
+
+        label_rErrLastName.setText("Fehler?");
+
+        javax.swing.GroupLayout panel_RegisterLayout = new javax.swing.GroupLayout(panel_Register);
+        panel_Register.setLayout(panel_RegisterLayout);
+        panel_RegisterLayout.setHorizontalGroup(
+            panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_RegisterLayout.createSequentialGroup()
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_RegisterLayout.createSequentialGroup()
+                        .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_rKontoname, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rPass1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rPass2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rEmail1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rEmail2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_rSecondName, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textfield_rKontoname)
+                            .addComponent(password_rPass1)
+                            .addComponent(password_rPass2)
+                            .addComponent(textfield_rEmail1)
+                            .addComponent(textfield_rEmail2)
+                            .addComponent(textfield_rName)
+                            .addComponent(textfield_rSurename, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_RegisterLayout.createSequentialGroup()
+                        .addComponent(button_rRegister)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button_cancel)
+                        .addGap(6, 6, 6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_rErrAccname)
+                    .addComponent(label_rErrPass1)
+                    .addComponent(label_rErrPass2)
+                    .addComponent(label_rErrEmail1)
+                    .addComponent(label_rErrEmail2)
+                    .addComponent(label_rErrFirstName)
+                    .addComponent(label_rErrLastName))
+                .addGap(0, 253, Short.MAX_VALUE))
+        );
+        panel_RegisterLayout.setVerticalGroup(
+            panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_RegisterLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_rKontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rKontoname)
+                    .addComponent(label_rErrAccname))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password_rPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rPass1)
+                    .addComponent(label_rErrPass1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password_rPass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rPass2)
+                    .addComponent(label_rErrPass2))
+                .addGap(6, 6, 6)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_rEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rEmail1)
+                    .addComponent(label_rErrEmail1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_rEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rEmail2)
+                    .addComponent(label_rErrEmail2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_rName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rFirstName)
+                    .addComponent(label_rErrFirstName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_rSurename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_rSecondName)
+                    .addComponent(label_rErrLastName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_rRegister)
+                    .addComponent(button_cancel))
+                .addContainerGap(567, Short.MAX_VALUE))
+        );
+
+        label_rKontoname.getAccessibleContext().setAccessibleName("label_rKontoname");
+        label_rPass1.getAccessibleContext().setAccessibleName("label_rPass1");
+        label_rPass2.getAccessibleContext().setAccessibleName("label_rPass2");
+        label_rEmail1.getAccessibleContext().setAccessibleName("label_rEmail1");
+        label_rEmail2.getAccessibleContext().setAccessibleName("label_rEmail2");
+        label_rFirstName.getAccessibleContext().setAccessibleName("label_rFirstName");
+        label_rSecondName.getAccessibleContext().setAccessibleName("label_rSecondName");
+        button_cancel.getAccessibleContext().setAccessibleName("button_rCancel");
+        label_rErrAccname.getAccessibleContext().setAccessibleName("label_rErrAccname");
+        label_rErrPass1.getAccessibleContext().setAccessibleName("label_rErrPass1");
+        label_rErrPass2.getAccessibleContext().setAccessibleName("label_rErrPass2");
+        label_rErrEmail1.getAccessibleContext().setAccessibleName("label_rErrEmail1");
+        label_rErrEmail2.getAccessibleContext().setAccessibleName("label_rErrEmail2");
+        label_rErrFirstName.getAccessibleContext().setAccessibleName("label_rErrFirstName");
+        label_rErrLastName.getAccessibleContext().setAccessibleName("label_rErrSecondName");
+        label_rErrLastName.getAccessibleContext().setAccessibleDescription("");
+
+        textfield_Kontoname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_KontonameActionPerformed(evt);
+            }
+        });
+
+        button_Login.setText("Login");
+        button_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_LoginActionPerformed(evt);
+            }
+        });
+
+        button_Register.setText("Registrieren");
+        button_Register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_RegisterActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Kontoname:");
+
+        jLabel15.setText("Passwort:");
+
+        jCheckBox1.setText("Kontoname und Passwort speichern");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox2.setText("Automatisch einloggen");
+
+        label_lErr.setText("Fehler?");
+
+        button_lDevAcessMenue.setText("Devs, click here to go to main menu!!!");
+        button_lDevAcessMenue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_lDevAcessMenueActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_LoginLayout = new javax.swing.GroupLayout(panel_Login);
+        panel_Login.setLayout(panel_LoginLayout);
+        panel_LoginLayout.setHorizontalGroup(
+            panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_LoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_Register, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_lErr)
+                    .addGroup(panel_LoginLayout.createSequentialGroup()
+                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(password_Pass)
+                            .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(button_lDevAcessMenue)
+                        .addGroup(panel_LoginLayout.createSequentialGroup()
+                            .addComponent(button_Login)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCheckBox1)
+                                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(button_Register)
+                                    .addComponent(jCheckBox2))))))
+                .addGap(117, 117, 117))
+        );
+        panel_LoginLayout.setVerticalGroup(
+            panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_LoginLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_lErr)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_LoginLayout.createSequentialGroup()
+                        .addComponent(jCheckBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBox2))
+                    .addComponent(button_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(button_Register)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(button_lDevAcessMenue, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_LoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panel_Register, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jLabel12.getAccessibleContext().setAccessibleName("label_lUsername");
+        jLabel15.getAccessibleContext().setAccessibleName("label_lPassword");
+        jCheckBox1.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
+        jCheckBox2.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
+
+        jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
+
         getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void startNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startNewGameActionPerformed
         // TODO add your handling code here:
-        if(jPanel2.isVisible() == false){
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
-        }    
+        }
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
         item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
         item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  "+game.ucoins);
-        label_creditsInv.setText("Credits:   "+game.credits);
-        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar,TirednessBar); // added by Jörg, Nadir
+        label_ucoinsInv.setText("UCoins:  " + game.ucoins);
+        label_creditsInv.setText("Credits:   " + game.credits);
+        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -1533,12 +1895,12 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void loadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadGameActionPerformed
         // TODO add your handling code here:
-        if(jPanel2.isVisible() == false){
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
-        }    
+        }
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        PlanningPhase Phase = new PlanningPhase(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter);  // added by Tobias, Yulyia
+        PlanningPhase Phase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter);  // added by Tobias, Yulyia
     }//GEN-LAST:event_loadGameActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1554,19 +1916,19 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
-       int parseResult = 0;
-       int result = 1;
-        try{
+        int parseResult = 0;
+        int result = 1;
+        try {
             parseResult = Integer.parseInt(textfield_swapperUcoins.getText());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             textfield_swapperUcoins.setText("");
         }
-        if(parseResult >= 0)
+        if (parseResult >= 0) {
             result = exchange.ucoinsToCredits(parseResult, 1, textfield_swapperCredits);
-        if(result == 0){
-            label_swapperCreditsAmount.setText(""+game.credits);
-            label_swapperUcoinsAmount.setText(""+game.ucoins);
+        }
+        if (result == 0) {
+            label_swapperCreditsAmount.setText("" + game.credits);
+            label_swapperUcoinsAmount.setText("" + game.ucoins);
             OpenShop labels = new OpenShop();
             labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
             textfield_swapperUcoins.setText("");
@@ -1603,8 +1965,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        label_swapperCreditsAmount.setText(""+game.credits);
-        label_swapperUcoinsAmount.setText(""+game.ucoins);
+        label_swapperCreditsAmount.setText("" + game.credits);
+        label_swapperUcoinsAmount.setText("" + game.ucoins);
         buyCoins.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -1619,13 +1981,13 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String test = jButton1.getText();
-       if(test.equals("Fenster : AUF")){
-           jButton1.setText("Fenster : ZU");
-       }
-       if(test.equals("Fenster : ZU")){
-           jButton1.setText("Fenster : AUF");
-       }
+        String test = jButton1.getText();
+        if (test.equals("Fenster : AUF")) {
+            jButton1.setText("Fenster : ZU");
+        }
+        if (test.equals("Fenster : ZU")) {
+            jButton1.setText("Fenster : AUF");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
@@ -1638,7 +2000,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_startShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_startShopActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jBut_startShopActionPerformed
 
     private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
@@ -1663,11 +2024,10 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
         int result = item.managePurchase(game.redBull, label_redBullLocked);
-        if(result != 0){
+        if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
-        }
-        else{
+        } else {
             item.updateInventroy(label_item1Amount, game.redBull, creditsShop, game.credits);
             item.updateInventoryPlanningPhase(jLab_Redbull, game.redBull);
         }
@@ -1675,11 +2035,10 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
         int result = item.managePurchase(game.duplo, label_duploLocked);
-        if(result != 0){
+        if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
-        }
-        else{
+        } else {
             item.updateInventroy(label_item2Amount, game.duplo, creditsShop, game.credits);
             item.updateInventoryPlanningPhase(jLab_Duplo, game.duplo);
         }
@@ -1687,22 +2046,20 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
         int result = item.managePurchase(game.cheatSheet, label_cheatSheetLocked);
-        if(result != 0){
+        if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
-        }
-        else{
+        } else {
             item.updateInventroy(label_item4Amount, game.cheatSheet, ucoinsShop, game.ucoins);
         }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
         int result = item.managePurchase(game.omniSenseAudio, label_omniLocked);
-        if(result != 0){
+        if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
-        }
-        else{
+        } else {
             item.updateInventroy(label_item3Amount, game.omniSenseAudio, ucoinsShop, game.ucoins);
             item.updateInventoryPlanningPhase(jLab_OMNI, game.omniSenseAudio);
         }
@@ -1711,7 +2068,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_shopMessageOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopMessageOkActionPerformed
         dialog_error.setVisible(false);
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
-    
 
     private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
         // TODO add your handling code here:
@@ -1719,19 +2075,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void textfield_swapperUcoinsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_swapperUcoinsKeyReleased
         int parseResult = 0;
-        try{
+        try {
             parseResult = Integer.parseInt(textfield_swapperUcoins.getText());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             textfield_swapperUcoins.setText("");
         }
-        if(parseResult >= 0)
+        if (parseResult >= 0) {
             exchange.ucoinsToCredits(parseResult, 0, textfield_swapperCredits);
+        }
     }//GEN-LAST:event_textfield_swapperUcoinsKeyReleased
 
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
         // TODO add your handling code here:
-        
+
         /**
          * @author Tobias Mauritz
          */
@@ -1753,9 +2109,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
-            // functionality: see comment at jBut_1MouseClicked
-            PlanningPhase.StudButtonFunctions(1);
-            
+        // functionality: see comment at jBut_1MouseClicked
+        PlanningPhase.StudButtonFunctions(1);
+
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
 //            PlanningPhase.studInfo.StudInfoAttr(1);
@@ -1782,8 +2138,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
         // TODO add your handling code here:
-        
-            
     }//GEN-LAST:event_jBut_1MouseEntered
 
     private void jBut_1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseExited
@@ -1792,197 +2146,193 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void StudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseEntered
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_StudFieldMouseEntered
 
     private void StudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseClicked
         // TODO add your handling code here:
-       
+
         System.out.println("StudField");
-            // 
+        // 
         PlanningPhase.studInfo.StudInfoAverage();
         //StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-        
+
     }//GEN-LAST:event_StudFieldMouseClicked
 
     private void jBut_2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseEntered
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jBut_2MouseEntered
 
     private void jBut_3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseEntered
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jBut_3MouseEntered
 
     private void jBut_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseEntered
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jBut_4MouseEntered
 
     private void jBut_5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseEntered
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jBut_5MouseEntered
 
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(5);
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(6);
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(7);
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(8);
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(9);
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(10);
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(11);
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(12);
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(13);
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(14);
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(15);
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(16);
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(17);
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(18);
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(19);
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(20);
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(21);
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(22);
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(23);
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(24);
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(25);
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(26);
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(27);
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(28);
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // TODO add your handling code here:
-            // functionality: see comment at jBut_1MouseClicked
+        // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.studInfo.StudInfoAttr(29);
     }//GEN-LAST:event_jBut_30MouseClicked
 
     private void jBut_ChangeLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorMouseClicked
         // TODO add your handling code here:
-       //check if can change lector. If so - do this, else - error 
-       boolean allowed =  PlanningPhase.validateLector(jLab_DozCounter);
-      if (allowed) {
-         PlanningPhase.changeLector(jLab_DozCounter);
-      }
-          else System.out.println("You are not allowed to change lector"); // muss später ein JFrame mit diesem Text anzeigen
+        //check if can change lector. If so - do this, else - error 
+        boolean allowed = PlanningPhase.validateLector(jLab_DozCounter);
+        if (allowed) {
+            PlanningPhase.changeLector(jLab_DozCounter);
+        } else {
+            System.out.println("You are not allowed to change lector"); // muss später ein JFrame mit diesem Text anzeigen
+        }
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
     private void jBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_SwitchStudMouseClicked
@@ -1996,18 +2346,101 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // TODO add your handling code here:
-        if(jPanel2.isVisible() == false){
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
-        }    
+        }
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
         item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
         item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  "+game.ucoins);
-        label_creditsInv.setText("Credits:   "+game.credits);
-        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar,TirednessBar);
+        label_ucoinsInv.setText("UCoins:  " + game.ucoins);
+        label_creditsInv.setText("Credits:   " + game.credits);
+        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
     }//GEN-LAST:event_jBut_PlayMouseClicked
+
+    private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
+        textfield_rKontoname.requestFocus();  //by Dawid
+        textfield_rKontoname.selectAll();
+    }//GEN-LAST:event_textfield_rKontonameFocusGained
+
+    private void textfield_rEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rEmail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_rEmail1ActionPerformed
+
+    private void textfield_rEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail1FocusGained
+        textfield_rEmail1.requestFocus();  //by Dawid
+        textfield_rEmail1.selectAll();
+    }//GEN-LAST:event_textfield_rEmail1FocusGained
+
+    private void textfield_rEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail2FocusGained
+        textfield_rEmail2.requestFocus();  //by Dawid
+        textfield_rEmail2.selectAll();
+    }//GEN-LAST:event_textfield_rEmail2FocusGained
+
+    private void textfield_rNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rNameFocusGained
+        textfield_rName.requestFocus();  //by Dawid
+        textfield_rName.selectAll();
+    }//GEN-LAST:event_textfield_rNameFocusGained
+
+    private void textfield_rSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rSurenameFocusGained
+        textfield_rSurename.requestFocus();  //by Dawid
+        textfield_rSurename.selectAll();
+    }//GEN-LAST:event_textfield_rSurenameFocusGained
+
+    private void password_rPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass1FocusGained
+        password_rPass1.requestFocus();  //by Dawid
+        password_rPass1.selectAll();
+    }//GEN-LAST:event_password_rPass1FocusGained
+
+    private void password_rPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_rPass2FocusGained
+        password_rPass2.requestFocus();  //by Dawid
+        password_rPass2.selectAll();
+    }//GEN-LAST:event_password_rPass2FocusGained
+
+    private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
+        if (checkRegister()) {  //by Dawid
+            panel_Login.setVisible(true);
+            panel_Register.setVisible(false);
+        }
+    }//GEN-LAST:event_button_rRegisterActionPerformed
+
+    private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
+        if (logIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
+            _mainuser = new User(textfield_Kontoname.getText());
+            panel_Login.setVisible(false);
+            startPlanningGame.setVisible(true);
+            System.out.println(_mainuser);
+        }
+    }//GEN-LAST:event_button_LoginActionPerformed
+
+    private void button_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterActionPerformed
+        initRegister();  //by Dawid
+        panel_Register.setVisible(true);
+    }//GEN-LAST:event_button_RegisterActionPerformed
+
+    private void textfield_KontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_KontonameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_KontonameActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void textfield_rKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rKontonameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_rKontonameActionPerformed
+
+    private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
+        panel_Register.setVisible(false);  //by Dawid
+    }//GEN-LAST:event_button_cancelActionPerformed
+
+    private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
+        _mainuser = new User();  //by Dawid
+        panel_Login.setVisible(false);
+        startPlanningGame.setVisible(true);
+        System.out.println(_mainuser);
+    }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2067,6 +2500,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JButton button_Login;
+    private javax.swing.JToggleButton button_Register;
+    private javax.swing.JButton button_cancel;
+    private javax.swing.JButton button_lDevAcessMenue;
+    private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_swapperAbord;
     private javax.swing.JButton button_swapperExchange;
@@ -2120,6 +2558,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -2133,8 +2573,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2219,11 +2661,26 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_item4;
     private javax.swing.JLabel label_item4Amount;
     private javax.swing.JLabel label_item4Name;
+    private javax.swing.JLabel label_lErr;
     private javax.swing.JLabel label_omniAmount;
     private javax.swing.JLabel label_omniAudioImage;
     private javax.swing.JLabel label_omniLocked;
     private javax.swing.JLabel label_omniName;
     private javax.swing.JLabel label_omniOverlay;
+    private javax.swing.JLabel label_rEmail1;
+    private javax.swing.JLabel label_rEmail2;
+    private javax.swing.JLabel label_rErrAccname;
+    private javax.swing.JLabel label_rErrEmail1;
+    private javax.swing.JLabel label_rErrEmail2;
+    private javax.swing.JLabel label_rErrFirstName;
+    private javax.swing.JLabel label_rErrLastName;
+    private javax.swing.JLabel label_rErrPass1;
+    private javax.swing.JLabel label_rErrPass2;
+    private javax.swing.JLabel label_rFirstName;
+    private javax.swing.JLabel label_rKontoname;
+    private javax.swing.JLabel label_rPass1;
+    private javax.swing.JLabel label_rPass2;
+    private javax.swing.JLabel label_rSecondName;
     private javax.swing.JLabel label_redBullAmount;
     private javax.swing.JLabel label_redBullImage;
     private javax.swing.JLabel label_redBullLocked;
@@ -2242,16 +2699,247 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
     private javax.swing.JButton loadGame;
+    private javax.swing.JPanel panel_Login;
+    private javax.swing.JPanel panel_Register;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
     private javax.swing.JPanel panel_omniSense;
     private javax.swing.JPanel panel_redBull;
+    private javax.swing.JPasswordField password_Pass;
+    private javax.swing.JPasswordField password_rPass1;
+    private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
     private javax.swing.JPanel shop;
     private javax.swing.JButton startNewGame;
     private javax.swing.JPanel startPlanningGame;
+    private javax.swing.JTextField textfield_Kontoname;
+    private javax.swing.JTextField textfield_rEmail1;
+    private javax.swing.JTextField textfield_rEmail2;
+    private javax.swing.JTextField textfield_rKontoname;
+    private javax.swing.JTextField textfield_rName;
+    private javax.swing.JTextField textfield_rSurename;
     private javax.swing.JTextField textfield_swapperCredits;
     private javax.swing.JTextField textfield_swapperUcoins;
     private javax.swing.JLabel ucoinsShop;
     // End of variables declaration//GEN-END:variables
+
+    //***********************************************************************  /by Dawid
+    //*****************LogIn/Register: start*********************************
+    //***********************************************************************
+    private void initRegister() {
+        label_rErrAccname.setText("");
+        label_rErrEmail1.setText("");
+        label_rErrEmail2.setText("");
+        label_rErrFirstName.setText("");
+        label_rErrPass1.setText("");
+        label_rErrPass2.setText("");
+        label_rErrLastName.setText("");
+
+        textfield_rEmail1.setText("");
+        textfield_rEmail2.setText("");
+        textfield_rKontoname.setText("");
+        textfield_rName.setText("");
+        textfield_rSurename.setText("");
+        password_rPass1.setText("");
+        password_rPass2.setText("");
+
+        textfield_rEmail1.setBackground(Color.white);
+        textfield_rEmail2.setBackground(Color.white);
+        textfield_rKontoname.setBackground(Color.white);
+        textfield_rName.setBackground(Color.white);
+        textfield_rSurename.setBackground(Color.white);
+        password_rPass1.setBackground(Color.white);
+        password_rPass2.setBackground(Color.white);
+    }
+
+    private boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
+        int i;
+        for (i = 0; i < str.length; i++) {
+            if (!(Character.isDigit(str[i]) | Character.isLetter(str[i]))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkEmail(String str) {
+        int i;
+        boolean atChar = false;
+        if (!str.contains(".")) {
+            return false;
+        }
+        for (i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '@') {
+                if (atChar) {
+                    return false;
+                } else {
+                    atChar = true;
+                }
+            }
+        }
+        if (atChar) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean checkName(String str) {
+        if (str.equals("")) {
+            return false;
+        }
+        int i;
+        for (i = 0; i < str.length(); i++) {
+            if (!(Character.isLetter(str.charAt(i)) | str.charAt(i) == '-')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkGlobUser(String str) {
+        try {
+            java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
+            for (java.util.LinkedList sublist : list) {
+                if (sublist.contains(str)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
+    private boolean checkRegister() {
+        boolean check = true;
+        if (textfield_rKontoname.getText().length() < 5) {
+            textfield_rKontoname.setBackground(Color.red);
+            label_rErrAccname.setText("Kontoname zu kurz! (5-15 Zeichen)");
+            check = false;
+        } else if (textfield_rKontoname.getText().length() > 15) {
+            textfield_rKontoname.setBackground(Color.red);
+            label_rErrAccname.setText("Kontoname zu lang! (5-15 Zeichen)");
+            check = false;
+        } else if (checkGlobUser(textfield_rKontoname.getText())) {
+            textfield_rKontoname.setBackground(Color.red);
+            label_rErrAccname.setText("Kontoname schon vergeben!");
+            check = false;
+        } else if (!checkAlphaNumm(textfield_rKontoname.getText().toCharArray())) {
+            textfield_rKontoname.setBackground(Color.red);
+            label_rErrAccname.setText("Kontoname verwendet Sonderzeichen!");
+        } else {
+            textfield_rKontoname.setBackground(Color.white);
+            label_rErrAccname.setText("");
+        }
+
+        if (password_rPass1.getPassword().length < 5) {
+            password_rPass1.setBackground(Color.red);
+            password_rPass2.setText("");
+            label_rErrPass1.setText("Passwort zu kurz! (5-15 Zeichen)");
+            check = false;
+        } else if (password_rPass1.getPassword().length > 15) {
+            password_rPass1.setBackground(Color.red);
+            password_rPass2.setText("");
+            label_rErrPass1.setText("Passwort zu lang! (5-15 Zeichen)");
+            check = false;
+        } else if (!checkAlphaNumm(password_rPass1.getPassword())) {
+            password_rPass1.setBackground(Color.red);
+            password_rPass2.setText("");
+            label_rErrPass1.setText("Passwort verwendet !onderzeichen!");
+            check = false;
+        } else {
+            password_rPass1.setBackground(Color.white);
+            label_rErrPass1.setText("");
+
+
+            if (!new String(password_rPass1.getPassword()).equals(new String(password_rPass2.getPassword()))) {
+                password_rPass1.setBackground(Color.red);
+                password_rPass2.setBackground(Color.red);
+                label_rErrPass2.setText("Passwörter stimmen nicht überein!");
+                check = false;
+            } else {
+                password_rPass1.setBackground(Color.white);
+                password_rPass2.setBackground(Color.white);
+                label_rErrPass2.setText("");
+            }
+        }
+
+        if (textfield_rEmail1.getText().length() < 5 | !checkEmail(textfield_rEmail1.getText()) | checkGlobUser(textfield_rEmail1.getText())) {
+            textfield_rEmail1.setBackground(Color.red);
+            check = false;
+            label_rErrEmail1.setText("Ungültige Adresse!");
+            textfield_rEmail2.setText("");
+        } else {
+            textfield_rEmail1.setBackground(Color.white);
+            label_rErrEmail1.setText("");
+
+
+            if (!textfield_rEmail1.getText().equals(textfield_rEmail2.getText())) {
+                textfield_rEmail1.setBackground(Color.red);
+                textfield_rEmail2.setBackground(Color.red);
+                label_rErrEmail2.setText("Emails stimmen nicht überein!");
+                check = false;
+            } else {
+                textfield_rEmail1.setBackground(Color.white);
+                textfield_rEmail2.setBackground(Color.white);
+                label_rErrEmail2.setText("");
+            }
+        }
+
+        if (!checkName(textfield_rName.getText())) {
+            textfield_rName.setBackground(Color.red);
+            label_rErrFirstName.setText("Kein gültiger Name!");
+            check = false;
+        } else {
+            textfield_rName.setBackground(Color.white);
+            label_rErrFirstName.setText("");
+        }
+
+        if (!checkName(textfield_rSurename.getText())) {
+            textfield_rSurename.setBackground(Color.red);
+            label_rErrLastName.setText("Kein gültiger Nachname!");
+            check = false;
+        } else {
+            label_rErrLastName.setText("");
+            textfield_rSurename.setBackground(Color.white);
+        }
+
+        if (check) {
+            return User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+        }
+        return false;
+    }
+
+    private boolean logIn(String accountname, char[] password) {
+
+        if (accountname.equals("")) {
+            label_lErr.setText("Falscher Benutzername oder falsches Passwort!");
+            return false;
+        }
+        String userlist = "";
+        try {
+            userlist = CSVHandling.readCSVString(Sims_1._usersFileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (userlist.contains(accountname)) {
+            String userPw = "";
+            try {
+                userPw = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName)[1];
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (userPw.contentEquals(new String(password))) {
+                System.out.println("User " + accountname + " ist eingelogged und wird ins Hauptmenü geleitet");
+                return true;
+            }
+        }
+        label_lErr.setText("Falscher Benutzername oder falsches Passwort!");
+        return false;
+    }
+    //***********************************************************************  /by Dawid
+    //*****************LogIn/Register: end***********************************
+    //***********************************************************************
 }
