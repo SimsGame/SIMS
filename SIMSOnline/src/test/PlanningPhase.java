@@ -30,15 +30,15 @@ public class PlanningPhase {
     private static int stud1_nr;
     private static int stud2_nr;
     //deklaration of the variables that are needed for the lector-change function
-    protected static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
+    private static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
      
-    protected static boolean lectorChanged4 = false; //flag is set if the lector was already changed in this month
-    protected static boolean lectorChanged7 = false;
-    protected static boolean lectorChanged10 = false;
-    protected static boolean lectorChanged13 = false;
-    protected static boolean lectorChanged16 = false;
-    protected static int actMonth = 1;  // variable for actual month (from game-file)
-    protected static boolean validated;
+    private static boolean lectorChanged4 = false; //flag is set if the lector was already changed in this month
+    private static boolean lectorChanged7 = false;
+    private static boolean lectorChanged10 = false;
+    private static boolean lectorChanged13 = false;
+    private static boolean lectorChanged16 = false;
+    private static boolean validated;
+    protected static int actMonth = 4;  // variable for actual month (from game-file)    
     protected static int lectorValue; //  variable that changes lector value (also from game file)
 
     public PlanningPhase() {
