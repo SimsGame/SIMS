@@ -17,7 +17,7 @@ public class Game {
     public static int credits;
     public static int points;
     public int semester = 4;
-    public Student[] studentArray; //added by Jörg
+    public static Student[] studentArray; //added by Jörg
     
     /**
      * Items are public to have an easy access from every class
@@ -77,5 +77,8 @@ public class Game {
             this.omniSenseAudio.knowledge = 20;
         }
       }
+        public Student[] getArray(){
+        return studentArray;
+    }
     
 }

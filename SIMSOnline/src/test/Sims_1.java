@@ -16,6 +16,19 @@ import javax.swing.JDialog;
  */
 public class Sims_1 extends javax.swing.JFrame {
     
+    /*****************************************************************
+     *******************Section of constants: start*******************
+     ****************************************************************/
+    public static final String _dataFolderName = "data";
+    public static final String _profileFileName = "profile.txt";
+    public static final String _gameFileName = "game.txt";
+    public static final String _inventoryFileName = "inventory.txt";
+    public static final String _usersFileName = "users.csv";
+    
+    /*****************************************************************
+     *******************Section of constants: end*********************
+     ****************************************************************/
+    
     /**
      * Creates new form Sims
      */
@@ -93,7 +106,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
         jLab_StudCounter = new javax.swing.JLabel();
-        jBut_BackG = new javax.swing.JButton();
+        jBut_SwitchStud = new javax.swing.JButton();
         jPan_DozSwitch = new javax.swing.JPanel();
         jLab_DozSwitch = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
@@ -142,6 +155,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_28 = new javax.swing.JButton();
         jBut_29 = new javax.swing.JButton();
         jBut_30 = new javax.swing.JButton();
+        jLab_DozSwitch1 = new javax.swing.JLabel();
         shop = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
@@ -519,14 +533,19 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_StudSwitch.add(jLab_StudCounter);
         jLab_StudCounter.setBounds(60, 60, 30, 24);
 
-        jBut_BackG.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jBut_BackG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBut_BackGActionPerformed(evt);
+        jBut_SwitchStud.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_SwitchStudMouseClicked(evt);
             }
         });
-        jPan_StudSwitch.add(jBut_BackG);
-        jBut_BackG.setBounds(10, 10, 130, 90);
+        jBut_SwitchStud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_SwitchStudActionPerformed(evt);
+            }
+        });
+        jPan_StudSwitch.add(jBut_SwitchStud);
+        jBut_SwitchStud.setBounds(10, 10, 130, 90);
 
         Navi.add(jPan_StudSwitch);
         jPan_StudSwitch.setBounds(0, 0, 150, 110);
@@ -609,6 +628,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_Play.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jBut_Play.setText("SPIELEN");
+        jBut_Play.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_PlayMouseClicked(evt);
+            }
+        });
         jBut_Play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBut_PlayActionPerformed(evt);
@@ -936,6 +960,8 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         StudField.add(jBut_30);
         jBut_30.setBounds(660, 360, 110, 50);
+        StudField.add(jLab_DozSwitch1);
+        jLab_DozSwitch1.setBounds(0, 0, 150, 110);
 
         gamePlanning.add(StudField);
         StudField.setBounds(150, 110, 830, 550);
@@ -1545,10 +1571,6 @@ public class Sims_1 extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jBut_BackGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_BackGActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBut_BackGActionPerformed
-
     private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_ChangeLectorActionPerformed
@@ -1656,28 +1678,49 @@ public class Sims_1 extends javax.swing.JFrame {
         /**
          * @author Tobias Mauritz
          */
-            // start method StudInfo() which shows knowledge, motivation and tiredness 
-            // of the student which was clicked
-        PlanningPhase.studInfo.StudInfoAttr(0);
-            //StudInfo curStud = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
-        System.out.println("Student 1");
+        PlanningPhase.StudButtonFunctions(0);
+        // !!! kann nicht funzen!! wir brauchen akutelles Objekt von PLanningPhase, hier ist nur das generelle!
+        // --> alles auslagern in Planungsphasen-Mehtode
+//        if (PlanningPhase.getSwitchFlag() == 0){
+//            
+//            // start method StudInfo() which shows knowledge, motivation and tiredness 
+//            // of the student which was clicked
+//        PlanningPhase.studInfo.StudInfoAttr(0);
+//            //StudInfo curStud = new StudInfo(0,jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
+//        //System.out.println("Student 1 = "+PlanningPhase.StudArr[0].getId());
+//        
+//        } else {
+//            System.out.println("TauschFlag = 1");
+//            PlanningPhase.storeStud(1);
+//        }
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
             // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(1);
+            PlanningPhase.StudButtonFunctions(1);
+            
+//        if (PlanningPhase.getSwitchFlag() == 0){
+//            
+//            PlanningPhase.studInfo.StudInfoAttr(1);
+//            //System.out.println("Student 2 = "+PlanningPhase.StudArr[1].getId());
+//      
+//        } else {
+//            System.out.println("TauschFlag = 1");
+//            PlanningPhase.storeStud(2);
+//            
+//        }
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(2);
+        PlanningPhase.StudButtonFunctions(2);
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(3);
+        PlanningPhase.StudButtonFunctions(3);
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(4);
+        PlanningPhase.StudButtonFunctions(4);
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
@@ -1885,6 +1928,30 @@ public class Sims_1 extends javax.swing.JFrame {
           else System.out.println("You are not allowed to change lector"); // muss später ein JFrame mit diesem Text anzeigen
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
+    private void jBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_SwitchStudMouseClicked
+        // TODO add your handling code here:
+        PlanningPhase.startStudSwitch(jLab_StudCounter);
+    }//GEN-LAST:event_jBut_SwitchStudMouseClicked
+
+    private void jBut_SwitchStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_SwitchStudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_SwitchStudActionPerformed
+
+    private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
+        // TODO add your handling code here:
+        if(jPanel2.isVisible() == false){
+            jPanel2.setVisible(true);
+        }    
+        cl.show(jPanel2, "card2");
+        startPlanningGame.setVisible(false);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  "+game.ucoins);
+        label_creditsInv.setText("Credits:   "+game.credits);
+        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar,TirednessBar);
+    }//GEN-LAST:event_jBut_PlayMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1982,11 +2049,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_7;
     private javax.swing.JButton jBut_8;
     private javax.swing.JButton jBut_9;
-    private javax.swing.JButton jBut_BackG;
     private javax.swing.JButton jBut_ChangeLector;
     private javax.swing.JButton jBut_ComboB_useItem;
     private javax.swing.JButton jBut_Dozent;
     private javax.swing.JButton jBut_Play;
+    private javax.swing.JButton jBut_SwitchStud;
     private javax.swing.JButton jBut_startShop;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
@@ -1999,6 +2066,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
+    private javax.swing.JLabel jLab_DozSwitch1;
     private javax.swing.JLabel jLab_Duplo;
     private javax.swing.JLabel jLab_Logo;
     private javax.swing.JLabel jLab_OMNI;
