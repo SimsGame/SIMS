@@ -91,10 +91,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage2 = new javax.swing.JLabel();
         button_shopMessageOk = new javax.swing.JButton();
         warning = new javax.swing.JDialog();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jBut_JA = new javax.swing.JButton();
         jBut_NEIN = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
         Menu_overlay = new javax.swing.JLabel();
@@ -405,9 +405,11 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.getContentPane().add(button_shopMessageOk);
         button_shopMessageOk.setBounds(170, 210, 47, 23);
 
-        jLabel16.setText("Wichtig! Den Spickzettel kann man nur ein mal pro Semester anwenden");
-
-        jLabel17.setText("blabla");
+        warning.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                warningWindowClosed(evt);
+            }
+        });
 
         jBut_JA.setText("ja");
         jBut_JA.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -417,37 +419,45 @@ public class Sims_1 extends javax.swing.JFrame {
         });
 
         jBut_NEIN.setText("nein");
+        jBut_NEIN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_NEINMouseClicked(evt);
+            }
+        });
+        jBut_NEIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_NEINActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setEditable(false);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("\t\tAchtung!  \nSpicker ist ein mal im Semester einstzbarer\nJocker. Du kannst den nur EIN MAL pro Semester\neinem beliebigen Studenten schenken.\nDann wird er die Klausuren auf jeden Fall\nbestehen. \n\nWillst du wirklich den Spicker einsetzen?\nWenn ja, klicke auf \"JA\" Button und wähle\ndanach deinen Lieblingsstudenten.");
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout warningLayout = new javax.swing.GroupLayout(warning.getContentPane());
         warning.getContentPane().setLayout(warningLayout);
         warningLayout.setHorizontalGroup(
             warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(warningLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-            .addGroup(warningLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jBut_JA, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBut_NEIN, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, warningLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(26, 26, 26)
+                .addComponent(jBut_JA, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jBut_NEIN, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+            .addComponent(jScrollPane1)
         );
         warningLayout.setVerticalGroup(
             warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(warningLayout.createSequentialGroup()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addGroup(warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBut_JA)
-                    .addComponent(jBut_NEIN))
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGroup(warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBut_JA, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                    .addComponent(jBut_NEIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2183,9 +2193,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        if (PlanningPhase.getCheatFlag()==1) {
-            warning.setVisible(true);
-        }
+        
         PlanningPhase.StudButtonFunctions(2);
        
     }//GEN-LAST:event_jBut_3MouseClicked
@@ -2523,21 +2531,25 @@ public class Sims_1 extends javax.swing.JFrame {
             int eingesetzt4=0;
             int eingesetzt5=0;
             int eingesetzt6=0;
+            int amount=1; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
         
         javax.swing.JComboBox box = (javax.swing.JComboBox)evt.getSource();
         String selected = (String)box.getSelectedItem();
         System.out.println("Right now " + selected);
         if (selected.equals("Spicker")){
-            System.out.println("Spicker selected :)");
-            
-            if (((currTerm==2)&&(eingesetzt2==0))|| //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
-                ((currTerm==3)&&(eingesetzt3==0))|| //Wenn nicht, dann wird der Cheat Flag gesetzt
-                ((currTerm==4)&&(eingesetzt4==0))|| 
-                ((currTerm==5)&&(eingesetzt5==0))||
-                ((currTerm==6)&&(eingesetzt6==0))  
-               ){
-            PlanningPhase.setCheatFlag(1);
-            System.out.println("setCheatFlag");
+            if (amount<0){
+                System.out.println("Kein Spicker verfügbar");
+            }
+            else{ System.out.println("Spicker selected :)");            
+                    if (((currTerm==2)&&(eingesetzt2==0))|| //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
+                        ((currTerm==3)&&(eingesetzt3==0))|| //Wenn nicht, dann wird der Cheat Flag gesetzt
+                        ((currTerm==4)&&(eingesetzt4==0))|| // 
+                        ((currTerm==5)&&(eingesetzt5==0))||
+                        ((currTerm==6)&&(eingesetzt6==0))  
+                        ){
+           // PlanningPhase.setCheatFlag(1);
+             warning.setVisible(true);
+            System.out.println("show warning");
            // System.out.println("currTerm " +currTerm +" und eingesetzt2= " +eingesetzt2 );
             
         }
@@ -2545,13 +2557,31 @@ public class Sims_1 extends javax.swing.JFrame {
             System.out.println("Du kannst in dem " +currTerm +" Semester den Spicker nicht mehr einsetzen");
             }
         }
-        
+        }
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
         // TODO add your handling code here:
+        PlanningPhase.setCheatFlag(1);
+        warning.setVisible(false);
         
     }//GEN-LAST:event_jBut_JAMouseClicked
+
+    private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
+        // TODO add your handling code here:
+        PlanningPhase.setCheatFlag(0);
+        warning.setVisible(false);
+    }//GEN-LAST:event_jBut_NEINMouseClicked
+
+    private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
+        // TODO add your handling code here:
+         PlanningPhase.setCheatFlag(0);
+         warning.setVisible(false);
+    }//GEN-LAST:event_warningWindowClosed
+
+    private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_NEINActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2684,8 +2714,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2736,6 +2764,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgB_Wissen;
     private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JProgressBar jProgressBar6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel label_cheatSheetAmount;
     private javax.swing.JLabel label_cheatSheetImage;
     private javax.swing.JLabel label_cheatSheetLocked;
