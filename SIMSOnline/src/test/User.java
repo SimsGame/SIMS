@@ -21,6 +21,14 @@ public class User {
     private Date reg_date = new Date();
     private Date last_login = new Date();
     private int ucoins = 0;
+
+    public void setUcoins(int ucoins) {
+        this.ucoins = ucoins;
+    }
+
+    public int getUcoins() {
+        return ucoins;
+    }
     private int time_played = 0;
     
     @Override public String toString(){

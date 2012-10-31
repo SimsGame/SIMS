@@ -38,7 +38,7 @@ public class CSVRead {
   
   // Filles the items with data
   for(int j=0; j<4; j++){
-    Item item = new Item(data[j], Integer.parseInt(data[j+column]), data[j+2*column], Integer.parseInt(data[j+3*column]), Integer.parseInt(data[j+4*column]));
+    Sims_1._maingame.putItem(data[j], Integer.parseInt(data[j+column]),Integer.parseInt(data[j+2*column]));
   }
  } 
 }

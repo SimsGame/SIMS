@@ -34,8 +34,8 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************  //by Dawid
     //**************Section of global vars: start********************
     //***************************************************************
-    public User _mainuser;
-    public Game1 _maingame;
+    public static User _mainuser;
+    public static Game1 _maingame;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -43,7 +43,6 @@ public class Sims_1 extends javax.swing.JFrame {
      * Creates new form Sims
      */
     public CardLayout cl;
-    public Game game;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
 
@@ -718,15 +717,15 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_ItemStorage.add(jLabel8);
         jLabel8.setBounds(10, 10, 120, 20);
 
-        jLab_Redbull.setText(game.redBull.name +": " +game.redBull.amount +"x" );
+        jLab_Redbull.setText("Text");
         jPan_ItemStorage.add(jLab_Redbull);
         jLab_Redbull.setBounds(10, 40, 90, 14);
 
-        jLab_Duplo.setText(game.duplo.name +": " +game.duplo.amount +"x");
+        jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
         jLab_Duplo.setBounds(10, 60, 90, 14);
 
-        jLab_OMNI.setText("OmniSense Bücher: " +game.omniSenseAudio.amount +"x" );
+        jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
         jLab_OMNI.setBounds(10, 80, 140, 14);
 
@@ -1939,11 +1938,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
-        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
-        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
-        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  " + game.ucoins);
-        label_creditsInv.setText("Credits:   " + game.credits);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
+        label_creditsInv.setText("Credits:   " + _maingame.credits);
         ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
     }//GEN-LAST:event_startNewGameActionPerformed
 
@@ -1986,8 +1985,8 @@ public class Sims_1 extends javax.swing.JFrame {
             result = exchange.ucoinsToCredits(parseResult, 1, textfield_swapperCredits);
         }
         if (result == 0) {
-            label_swapperCreditsAmount.setText("" + game.credits);
-            label_swapperUcoinsAmount.setText("" + game.ucoins);
+            label_swapperCreditsAmount.setText("" + _maingame.credits);
+            label_swapperUcoinsAmount.setText("" + _mainuser.getUcoins());
             OpenShop labels = new OpenShop();
             labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
             textfield_swapperUcoins.setText("");
@@ -2024,8 +2023,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        label_swapperCreditsAmount.setText("" + game.credits);
-        label_swapperUcoinsAmount.setText("" + game.ucoins);
+        label_swapperCreditsAmount.setText("" + _maingame.credits);
+        label_swapperUcoinsAmount.setText("" + _mainuser.getUcoins());
         buyCoins.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -2071,56 +2070,56 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(false);
         OpenShop labels = new OpenShop();
         labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
-        item.createItemInventory(label_item1, label_item1Name, label_item1Amount, game.redBull);
-        item.createItemInventory(label_item2, label_item2Name, label_item2Amount, game.duplo);
-        item.createItemInventory(label_item3, label_item3Name, label_item3Amount, game.omniSenseAudio);
-        item.createItemInventory(label_item4, label_item4Name, label_item4Amount, game.cheatSheet);
-        item.createItemShop(label_redBullName, label_redBullAmount, label_redBullLocked, game.redBull);
-        item.createItemShop(label_duploName, label_duploAmount, label_duploLocked, game.duplo);
-        item.createItemShop(label_cheatSheetName, label_cheatSheetAmount, label_cheatSheetLocked, game.cheatSheet);
-        item.createItemShop(label_omniName, label_omniAmount, label_omniLocked, game.omniSenseAudio);
+        item.createItemInventory(label_item1, label_item1Name, label_item1Amount, _maingame.redBull);
+        item.createItemInventory(label_item2, label_item2Name, label_item2Amount, _maingame.duplo);
+        item.createItemInventory(label_item3, label_item3Name, label_item3Amount, _maingame.omniSenseAudio);
+        item.createItemInventory(label_item4, label_item4Name, label_item4Amount, _maingame.cheatSheet);
+        item.createItemShop(label_redBullName, label_redBullAmount, label_redBullLocked, _maingame.redBull);
+        item.createItemShop(label_duploName, label_duploAmount, label_duploLocked, _maingame.duplo);
+        item.createItemShop(label_cheatSheetName, label_cheatSheetAmount, label_cheatSheetLocked, _maingame.cheatSheet);
+        item.createItemShop(label_omniName, label_omniAmount, label_omniLocked, _maingame.omniSenseAudio);
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
-        int result = item.managePurchase(game.redBull, label_redBullLocked);
+        int result = item.managePurchase(_maingame.redBull, label_redBullLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item1Amount, game.redBull, creditsShop, game.credits);
-            item.updateInventoryPlanningPhase(jLab_Redbull, game.redBull);
+            item.updateInventroy(label_item1Amount, _maingame.redBull, creditsShop, _maingame.credits);
+            item.updateInventoryPlanningPhase(jLab_Redbull, _maingame.redBull);
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
-        int result = item.managePurchase(game.duplo, label_duploLocked);
+        int result = item.managePurchase(_maingame.duplo, label_duploLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item2Amount, game.duplo, creditsShop, game.credits);
-            item.updateInventoryPlanningPhase(jLab_Duplo, game.duplo);
+            item.updateInventroy(label_item2Amount, _maingame.duplo, creditsShop, _maingame.credits);
+            item.updateInventoryPlanningPhase(jLab_Duplo, _maingame.duplo);
         }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
-        int result = item.managePurchase(game.cheatSheet, label_cheatSheetLocked);
+        int result = item.managePurchase(_maingame.cheatSheet, label_cheatSheetLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item4Amount, game.cheatSheet, ucoinsShop, game.ucoins);
+            item.updateInventroy(label_item4Amount, _maingame.cheatSheet, ucoinsShop, _mainuser.getUcoins());
         }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
-        int result = item.managePurchase(game.omniSenseAudio, label_omniLocked);
+        int result = item.managePurchase(_maingame.omniSenseAudio, label_omniLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item3Amount, game.omniSenseAudio, ucoinsShop, game.ucoins);
-            item.updateInventoryPlanningPhase(jLab_OMNI, game.omniSenseAudio);
+            item.updateInventroy(label_item3Amount, _maingame.omniSenseAudio, ucoinsShop, _mainuser.getUcoins());
+            item.updateInventoryPlanningPhase(jLab_OMNI, _maingame.omniSenseAudio);
         }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
 
@@ -2413,11 +2412,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card2");
         startPlanningGame.setVisible(false);
-        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, game.redBull);
-        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, game.duplo);
-        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, game.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  " + game.ucoins);
-        label_creditsInv.setText("Credits:   " + game.credits);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
+        label_creditsInv.setText("Credits:   " + _maingame.credits);
         ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
@@ -2501,6 +2500,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
         _mainuser = new User();  //by Dawid
         _maingame = new Game1();
+        CSVRead read = new CSVRead();
+        try {
+            read.readCSV();
+        } catch (Exception ex) {
+            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         panel_Login.setVisible(false);
         startPlanningGame.setVisible(true);
         System.out.println(_mainuser);
@@ -2577,12 +2582,6 @@ public class Sims_1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Sims.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        CSVRead read = new CSVRead();
-        try {
-            read.readCSV();
-        } catch (Exception ex) {
-            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
         /*
          * Create and display the form
@@ -2674,7 +2673,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLab_Duplo;
     private javax.swing.JLabel jLab_Logo;
     private javax.swing.JLabel jLab_OMNI;
-    private javax.swing.JLabel jLab_Redbull;
+    private static javax.swing.JLabel jLab_Redbull;
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
     private javax.swing.JLabel jLabel1;

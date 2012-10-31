@@ -13,48 +13,112 @@ import javax.swing.JLabel;
  */
 public class Item {
     
-    Game game = new Game();
-    
+    public static final String _redBullName = "Red Bull";
+    public static final int _redBullPrice = 30;
+    public static final String _redBullCurrency = Sims_1._creditsName;
+    public static final int _redBullMotivation = 0;
+    public static final int _redBullTiredness = -30;
+    public static final int _redBullKnowledge = 0;
+    public static final String _duploName = "Duplo";
+    public static final int _duploPrice = 30;
+    public static final String _duploCurrency = Sims_1._creditsName;
+    public static final int _duploMotivation = 30;
+    public static final int _duploTiredness = 0;
+    public static final int _duploKnowledge = 0;
+    public static final String _omniSenseName = "OMNI Sense Audiobuch";
+    public static final int _omniSensePrice = 100;
+    public static final String _omniSenseCurrency = Sims_1._UCoinsName;
+    public static final int _omniSenseMotivation = 0;
+    public static final int _omniSenseTiredness = 0;
+    public static final int _omniSenseKnowledge = 20;
+    public static final String _spickerName = "Spickzettel";
+    public static final int _spickerPrice = 100;
+    public static final String _spickerCurrency = Sims_1._UCoinsName;
+    public static final int _spickerMotivation = 0;
+    public static final int _spickerTiredness = 0;
+    public static final int _spickerKnowledge = 0;
     /**
      * Public attributes to have an easier access from other classes.
-     * @param name           Item name.
-     * @param price          Price for item in shop.
-     * @param amount         Item in inventory.
-     * @param availibility   Which semester is needed to get this item.
-     * @param currency       Either UCoins or Credits. 
+     *
+     * @param name Item name.
+     * @param price Price for item in shop.
+     * @param amount Item in inventory.
+     * @param availibility Which semester is needed to get this item.
+     * @param currency Either UCoins or Credits.
      */
-    
     public String name;
     public int price;
     public String currency;
     public int amount;
-    public int availibility;
+    public int available;
     public int motivation;
     public int tiredness;
     public int knowledge;
-    
+
     //public Item item;
-    public Item(){
-        
+    public Item() {
     }
-    
+
     /**
      * Creates a new Item and stores it in the Game.java file.
+     *
      * @param name
      * @param price
      * @param currency
      * @param amount
-     * @param availibility 
+     * @param availibility
      */
-    
-    public Item(String name, int price, String currency, int amount, int availibility){
-            this.name = name;
-            this.price = price;
-            this.currency = currency;
-            this.amount = amount;
-            this.availibility = availibility;
-            //System.out.print(duplo.name);
-            game.putItem(this);
+    public Item(String name) {
+        this(name, 0, 5);
+    }
+
+    public Item(String name, int amount, int available) {
+        switch (name) {
+            case _redBullName:
+                this.name = _redBullName;
+                this.price = _redBullPrice;
+                this.currency = _redBullCurrency;
+                this.amount = amount;
+                this.available = available;
+                this.motivation = _redBullMotivation;
+                this.tiredness = _redBullTiredness;
+                this.knowledge = _redBullKnowledge;
+                break;
+            case _duploName:
+                this.name = _duploName;
+                this.price = _duploPrice;
+                this.currency = _duploCurrency;
+                this.amount = amount;
+                this.available = available;
+                this.motivation = _duploMotivation;
+                this.tiredness = _duploTiredness;
+                this.knowledge = _duploKnowledge;
+                System.out.print("duplo");
+                //Sims_1._maingame.putItem(this);
+                break;
+            case _spickerName:
+                this.name = _spickerName;
+                this.price = _spickerPrice;
+                this.currency = _spickerCurrency;
+                this.amount = amount;
+                this.available = available;
+                this.motivation = _spickerMotivation;
+                this.tiredness = _spickerTiredness;
+                this.knowledge = _spickerKnowledge;
+                //Sims_1._maingame.putItem(this);
+                break;
+            case _omniSenseName:
+                this.name = _omniSenseName;
+                this.price = _omniSensePrice;
+                this.currency = _omniSenseCurrency;
+                this.amount = amount;
+                this.available = available;
+                this.motivation = _omniSenseMotivation;
+                this.tiredness = _omniSenseTiredness;
+                this.knowledge = _omniSenseKnowledge;
+                //Sims_1._maingame.putItem(this);
+                break;
+        }
     }
     
     /**
@@ -130,7 +194,7 @@ public class Item {
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
-        if(item.name.equals("Duplo") && game.redBull.amount != 0){
+        if(item.name.equals("Duplo") && Sims_1._maingame.redBull.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
@@ -140,38 +204,38 @@ public class Item {
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
-        if(item.name.equals("OMNI Sense Audiobuch") && game.redBull.amount != 0 && game.duplo.amount != 0){
+        if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+2*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+2*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+2*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.redBull.amount != 0 || item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount != 0 && game.redBull.amount == 0){
+        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.redBull.amount == 0){
+        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
         
-        if(item.name.equals("Spickzettel") && game.redBull.amount != 0 && game.duplo.amount != 0 && game.omniSenseAudio.amount != 0){
+        if(item.name.equals("Spickzettel") && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+3*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+3*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+3*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("Spickzettel") && game.duplo.amount != 0 && game.redBull.amount != 0 && game.omniSenseAudio.amount == 0  || item.name.equals("Spickzettel") && game.duplo.amount != 0 && game.redBull.amount == 0 && game.omniSenseAudio.amount != 0 || item.name.equals("Spickzettel") && game.duplo.amount == 0 && game.redBull.amount != 0 && game.omniSenseAudio.amount != 0){
+        else if(item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount == 0  || item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount != 0 || item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+2*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+2*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+2*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.omniSenseAudio.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.redBull.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && game.redBull.amount == 0 && game.omniSenseAudio.amount == 0){
+        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
         }
-         else if(item.name.equals("OMNI Sense Audiobuch") && game.duplo.amount == 0 && game.omniSenseAudio.amount == 0 && game.redBull.amount == 0){
+         else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
@@ -192,13 +256,13 @@ public class Item {
      * @param item    The item that shall be displayed.
      */
     
-    public void createItemShop(JLabel name, JLabel price, JLabel locked, Item item){
+    public static void createItemShop(JLabel name, JLabel price, JLabel locked, Item item){
         
         name.setHorizontalAlignment(JLabel.CENTER);
         price.setHorizontalAlignment(JLabel.CENTER);
         
-        if(item.availibility > game.semester){
-            name.setText("Verfügbar ab Semester "+item.availibility);
+        if(item.available > Sims_1._maingame.semester){
+            name.setText("Verfügbar ab Semester "+item.available);
             price.setVisible(false);
         }else{
             locked.setVisible(false);
@@ -215,7 +279,7 @@ public class Item {
      * @param value  The new value of coins after the buy.
      */
     
-    public void updateInventroy(JLabel item, Item it, JLabel price, int value){
+    public static void updateInventroy(JLabel item, Item it, JLabel price, int value){
         item.setText(""+it.amount+" x");
         price.setText(""+value);
     }
@@ -225,37 +289,37 @@ public class Item {
      * @param item label in the planning phase that will be updated
      * @param it item that will be updated
      */
-     public void updateInventoryPlanningPhase(JLabel item, Item it){
+     public static void updateInventoryPlanningPhase(JLabel item, Item it){
        if (it.name.equals("OMNI Sense Audiobuch")) {
            item.setText("OmniSense Bücher: " +it.amount +"x" );
        }
        else{
-       
+
         item.setText(it.name +": " +it.amount+"x");
        }
      }
     
     /**
-     * Manages everything if a player klicks an item in the shop.
+     * Manages everything if a player clicks an item in the shop.
      * @param item   The item that the player clicked.
      * @param locked Looks if the player is allowed to buy this item.
      * @return 
      */
     
-    public int managePurchase(Item item, JLabel locked){
+    public static int managePurchase(Item item, JLabel locked){
         if(locked.isVisible() == true){
             return 1;
         }
         
-        if(item.currency.equals("Credits") && game.credits<item.price || item.currency.equals("UCoins") && game.ucoins<item.price){
-            return 1;
+        if(item.currency.equals("Credits") && Sims_1._maingame.credits<item.price || item.currency.equals("UCoins") && Sims_1._mainuser.getUcoins()<item.price){
+            return 1; 
         }
         else{
             item.amount += 1;
             if(item.currency.equals("Credits"))
-                game.credits = game.credits-item.price;
+                Sims_1._maingame.credits = Sims_1._maingame.credits-item.price;
             else
-                game.ucoins = game.ucoins-item.price;
+                Sims_1._mainuser.setUcoins(Sims_1._mainuser.getUcoins()-item.price);
             return 0;
         }
     }

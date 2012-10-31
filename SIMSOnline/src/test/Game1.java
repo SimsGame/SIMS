@@ -51,30 +51,24 @@ public class Game1 {
      * stores them in the fitting Item Objects in this class.
      * That's how each item can becalled by name.
      */
-    public void putItem(Item item){
+    public void putItem(String name, int amount, int available){
         this.points = 700;
         this.ucoins = 50;
         this.credits = 400;
-        if(item.name.equals("Duplo")){
-            this.duplo = item;
+        if(name.equals("Duplo")){
+            this.duplo = new Item(name, amount, available);
             this.duplo.amount = 4;
-            this.duplo.tiredness = -5;
-            this.duplo.motivation = 15;
         }
-        if(item.name.equals("Red Bull")){
-            this.redBull = item;
+        if(name.equals("Red Bull")){
+            this.redBull = new Item(name, amount, available);
             this.redBull.amount = 5;
-            this.redBull.tiredness = -20;
-            this.redBull.motivation = 5;
         }
-        if(item.name.equals("Spickzettel")){
-            this.cheatSheet = item;
+        if(name.equals("Spickzettel")){
+            this.cheatSheet = new Item(name, amount, available);
             this.cheatSheet.amount = 1;
         }
-        if(item.name.equals("OMNI Sense Audiobuch")){
-            this.omniSenseAudio = item;
-            this.omniSenseAudio.amount = 6;
-            this.omniSenseAudio.knowledge = 20;
+        if(name.equals("OMNI Sense Audiobuch")){
+            this.omniSenseAudio = new Item(name, amount, available);
         }
       }
         public Student[] getArray(){
