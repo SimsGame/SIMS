@@ -55,6 +55,12 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         warning.setSize(400, 320); //added  by Julia
         warning.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        lectorChangedDialog.setSize(400, 320); //added by Julia
+        lectorChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        lectorNotChangedDialog.setSize(400,320);
+        lectorNotChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
+        cheatUsedDialog.setSize(400, 320); //added by Julia
+        cheatUsedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
         jPanel2.setVisible(false);                  //changes by Dawid
         startPlanningGame.setVisible(false);
         panel_Register.setVisible(false);
@@ -95,6 +101,18 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_NEIN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        lectorChangedDialog = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jBut_OKlector = new javax.swing.JButton();
+        cheatUsedDialog = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jBut_OKcheat = new javax.swing.JButton();
+        lectorNotChangedDialog = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jBut_OKnotchanged = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
         Menu_overlay = new javax.swing.JLabel();
@@ -417,6 +435,11 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_JAMouseClicked(evt);
             }
         });
+        jBut_JA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_JAActionPerformed(evt);
+            }
+        });
 
         jBut_NEIN.setText("nein");
         jBut_NEIN.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -458,6 +481,116 @@ public class Sims_1 extends javax.swing.JFrame {
                     .addComponent(jBut_JA, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(jBut_NEIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 31, Short.MAX_VALUE))
+        );
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setEditable(false);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("\t\n\n\tDu hast jetzt deinen \n\tDozenten getauscht!");
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jBut_OKlector.setText("OK");
+        jBut_OKlector.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_OKlectorMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout lectorChangedDialogLayout = new javax.swing.GroupLayout(lectorChangedDialog.getContentPane());
+        lectorChangedDialog.getContentPane().setLayout(lectorChangedDialogLayout);
+        lectorChangedDialogLayout.setHorizontalGroup(
+            lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lectorChangedDialogLayout.createSequentialGroup()
+                .addGroup(lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lectorChangedDialogLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lectorChangedDialogLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(jBut_OKlector, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        lectorChangedDialogLayout.setVerticalGroup(
+            lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lectorChangedDialogLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jBut_OKlector, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setEditable(false);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("\t\n\tDu hast den Spicker\n\teingesetzt!");
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jBut_OKcheat.setText("OK");
+        jBut_OKcheat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_OKcheatMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cheatUsedDialogLayout = new javax.swing.GroupLayout(cheatUsedDialog.getContentPane());
+        cheatUsedDialog.getContentPane().setLayout(cheatUsedDialogLayout);
+        cheatUsedDialogLayout.setHorizontalGroup(
+            cheatUsedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cheatUsedDialogLayout.createSequentialGroup()
+                .addGroup(cheatUsedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cheatUsedDialogLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cheatUsedDialogLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jBut_OKcheat, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        cheatUsedDialogLayout.setVerticalGroup(
+            cheatUsedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cheatUsedDialogLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jBut_OKcheat, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("Du darfst den Dozenten \nmomentan nicht wechseln!");
+        jScrollPane4.setViewportView(jTextArea4);
+
+        jBut_OKnotchanged.setText("OK");
+        jBut_OKnotchanged.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_OKnotchangedMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout lectorNotChangedDialogLayout = new javax.swing.GroupLayout(lectorNotChangedDialog.getContentPane());
+        lectorNotChangedDialog.getContentPane().setLayout(lectorNotChangedDialogLayout);
+        lectorNotChangedDialogLayout.setHorizontalGroup(
+            lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                .addGroup(lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        lectorNotChangedDialogLayout.setVerticalGroup(
+            lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2400,8 +2533,9 @@ public class Sims_1 extends javax.swing.JFrame {
         boolean allowed = PlanningPhase.validateLector(jLab_DozCounter);
         if (allowed) {
             PlanningPhase.changeLector(jLab_DozCounter);
+            lectorChangedDialog.setVisible(true);
         } else {
-            System.out.println("You are not allowed to change lector"); // muss später ein JFrame mit diesem Text anzeigen
+            lectorNotChangedDialog.setVisible(true); 
         }
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
@@ -2524,39 +2658,30 @@ public class Sims_1 extends javax.swing.JFrame {
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
          */
-       
-            int currTerm=PlanningPhase.getTerm(); // aktuelles Semester
-            int eingesetzt2=0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
-            int eingesetzt3=0;
-            int eingesetzt4=0;
-            int eingesetzt5=0;
-            int eingesetzt6=0;
-            int amount=1; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
-        
-        javax.swing.JComboBox box = (javax.swing.JComboBox)evt.getSource();
-        String selected = (String)box.getSelectedItem();
-        System.out.println("Right now " + selected);
-        if (selected.equals("Spicker")){
-            if (amount<0){
+        int currTerm = PlanningPhase.getTerm(); // aktuelles Semester
+        int eingesetzt2 = 0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
+        int eingesetzt3 = 0;
+        int eingesetzt4 = 0;
+        int eingesetzt5 = 0;
+        int eingesetzt6 = 0;
+        int amount = 0; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
+
+        javax.swing.JComboBox box = (javax.swing.JComboBox) evt.getSource();
+        String selected = (String) box.getSelectedItem();
+        System.out.println("Right now selected " + selected);
+        if (selected.equals("Spicker")) {
+            if (amount <= 0) {
                 System.out.println("Kein Spicker verfügbar");
+            } else if (((currTerm == 2) && (eingesetzt2 == 0)) || //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
+                       ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt
+                       ((currTerm == 4) && (eingesetzt4 == 0)) || // 
+                       ((currTerm == 5) && (eingesetzt5 == 0)) ||
+                       ((currTerm == 6) && (eingesetzt6 == 0))) {
+                warning.setVisible(true);
+                System.out.println("show warning");
+            } else {
+                System.out.println("Du kannst in dem " + currTerm + " Semester den Spicker nicht mehr einsetzen");
             }
-            else{ System.out.println("Spicker selected :)");            
-                    if (((currTerm==2)&&(eingesetzt2==0))|| //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
-                        ((currTerm==3)&&(eingesetzt3==0))|| //Wenn nicht, dann wird der Cheat Flag gesetzt
-                        ((currTerm==4)&&(eingesetzt4==0))|| // 
-                        ((currTerm==5)&&(eingesetzt5==0))||
-                        ((currTerm==6)&&(eingesetzt6==0))  
-                        ){
-           // PlanningPhase.setCheatFlag(1);
-             warning.setVisible(true);
-            System.out.println("show warning");
-           // System.out.println("currTerm " +currTerm +" und eingesetzt2= " +eingesetzt2 );
-            
-        }
-            else {
-            System.out.println("Du kannst in dem " +currTerm +" Semester den Spicker nicht mehr einsetzen");
-            }
-        }
         }
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
@@ -2582,6 +2707,26 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_NEINActionPerformed
+
+    private void jBut_JAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_JAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_JAActionPerformed
+
+    private void jBut_OKlectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKlectorMouseClicked
+        // TODO add your handling code here:
+        lectorChangedDialog.setVisible(false);
+    }//GEN-LAST:event_jBut_OKlectorMouseClicked
+
+    private void jBut_OKcheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKcheatMouseClicked
+        // TODO add your handling code here:
+        cheatUsedDialog.setVisible(false);
+    }//GEN-LAST:event_jBut_OKcheatMouseClicked
+
+    private void jBut_OKnotchangedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotchangedMouseClicked
+          // TODO add your handling code here:
+        
+        lectorNotChangedDialog.setVisible(false);
+    }//GEN-LAST:event_jBut_OKnotchangedMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2644,6 +2789,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_swapperAbord;
     private javax.swing.JButton button_swapperExchange;
     private javax.swing.JDialog buyCoins;
+    private javax.swing.JDialog cheatUsedDialog;
     private javax.swing.JLabel creditsShop;
     private javax.swing.JDialog dialog_error;
     private javax.swing.JButton exit;
@@ -2684,6 +2830,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_Dozent;
     private javax.swing.JButton jBut_JA;
     private javax.swing.JButton jBut_NEIN;
+    private javax.swing.JButton jBut_OKcheat;
+    private javax.swing.JButton jBut_OKlector;
+    private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_SwitchStud;
     private javax.swing.JButton jBut_startShop;
@@ -2765,7 +2914,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JProgressBar jProgressBar6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JLabel label_cheatSheetAmount;
     private javax.swing.JLabel label_cheatSheetImage;
     private javax.swing.JLabel label_cheatSheetLocked;
@@ -2837,6 +2992,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_swapperUcoinsAmount;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
+    private javax.swing.JDialog lectorChangedDialog;
+    private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JButton loadGame;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Register;
