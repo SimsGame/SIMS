@@ -2184,10 +2184,11 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        PlanningPhase.StudButtonFunctions(2);
         if (PlanningPhase.getCheatFlag()==1) {
             warning.setVisible(true);
         }
+        PlanningPhase.StudButtonFunctions(2);
+       
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked

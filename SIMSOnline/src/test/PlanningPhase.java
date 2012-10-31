@@ -22,14 +22,21 @@ public class PlanningPhase {
     public static Student[] studArr;
     // declaration of an studInfo instance
     protected static StudInfo studInfo;
+    
+    //Flags deklaration
     private static int switchFlag = 0;
     private static int switchCounter = 5;
     private static int studCounter = 0;
-    private static int cheatFlag = 0; 
+    private static int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
+                                       //(before will be checked if the user can use this cheat)
+   
+    // Studenten zum Testen?
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
     private static int stud2_nr;
+    
+    
     //deklaration of the variables that are needed for the lector-change function
     private static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
      
@@ -168,7 +175,7 @@ public class PlanningPhase {
                useCheat(stud_nr);
               }
                else 
-                  System.out.println("Spiker-Flag bei diesem Studenten ist nicht gesetzt");
+                  System.out.println("Dieser Student bekommt keinen Spicker");
             
              
          // switchFlag == 1 --> SwitchButton clicked
@@ -234,10 +241,6 @@ public class PlanningPhase {
         lectorCounter.repaint();
     }
     
-    public static void setCheatFlag(int Flag) {
-          cheatFlag = Flag;
-        
-    }
     //methode, die aktuelles Semester berechnet
     public static int getTerm(){
         switch (actMonth) {
@@ -270,9 +273,21 @@ public class PlanningPhase {
         return cheatFlag;
     }
     
+    public static void setCheatFlag(int Flag) {
+          cheatFlag = Flag;
+        
+    }
+    
+    
+    /**
+     * this method will be applied if a cheatFlag is set to 1 and we have selected one of a student.
+     * also updates Spicker-value in game-file
+     * @param stud_nr 
+     */
     public static void useCheat(int stud_nr){
-        System.out.println("Beim Student " +studArr[stud_nr].getId() +"wird der Spicker-Flag gesetzt"); //-> wird später den Flag in game.txt setzen
+        System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
             cheatFlag=0;
+            System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
             //Spicker-Wert für das jeweilige Semester updaten:
             int currTerm=PlanningPhase.getTerm();
             switch (currTerm){
