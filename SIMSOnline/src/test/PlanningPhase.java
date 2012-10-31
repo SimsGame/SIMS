@@ -22,14 +22,21 @@ public class PlanningPhase {
     public static Student[] studArr;
     // declaration of an studInfo instance
     protected static StudInfo studInfo;
+    
+    //Flags deklaration
     private static int switchFlag = 0;
     private static int switchCounter = 5;
     private static int studCounter = 0;
-    private static int cheatFlag = 0; 
+    private static int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
+                                       //(before will be checked if the user can use this cheat)
+   
+    // Studenten zum Testen?
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
     private static int stud2_nr;
+    
+    
     //deklaration of the variables that are needed for the lector-change function
     private static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
      
@@ -160,33 +167,17 @@ public class PlanningPhase {
            
             //die if-Abrage muss hier stehen,um Überlappungen mit dem Studententausch zu vermeiden
             //d.h. der Spicker kann nur dann eingesetzt werden, wenn der UmtauschButton nicht angeklickt ist(switchFlag=0)
-            /*if (cheatFlag == 1){
-                
-            //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt, beim Abbrechen cheatFlag auf 0 setzen     
-            System.out.println("Beim Student " +studArr[stud_nr].getId() +"wird der Spicker-Flag gesetzt"); //-> wird später den Flag in game.txt setzen
-            cheatFlag=0;
-            //Spicker-Wert für das jeweilige Semester updaten:
-            int currTerm=PlanningPhase.getTerm();
-            switch (currTerm){
-                case 2:
-                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)
-                    break;
-                case 3:
-                    // Spicker wurde im 3 Sem. eingesetzt - Spickerwert fürs 3 Sem. auf 1 setzen
-                    break;
-                case 4:
-                    // Spicker wurde im 4 Sem. eingesetzt - Spickerwert fürs 4 Sem. auf 1 setzen
-                    break;
-                case 5:
-                    // Spicker wurde im 5 Sem. eingesetzt - Spickerwert fürs 5 Sem. auf 1 setzen
-                    break;
-                case 6:
-                    // Spicker wurde im 6 Sem. eingesetzt - Spickerwert fürs 6 Sem. auf 1 setzen
-                    break;
-                default:
-                    break;
-            }
-             }*/
+            
+              
+              if (cheatFlag == 1){
+                  
+              //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt useCheat methode ausführen, beim Abbrechen cheatFlag auf 0 setzen 
+               useCheat(stud_nr);
+              }
+               else 
+                  System.out.println("Dieser Student bekommt keinen Spicker");
+            
+             
          // switchFlag == 1 --> SwitchButton clicked
         } else if (switchFlag == 1) {
             System.out.println("TauschFlag = 1");
@@ -250,11 +241,6 @@ public class PlanningPhase {
         lectorCounter.repaint();
     }
     
-    public static void setCheatFlag() {
-        if (cheatFlag == 0) {
-            cheatFlag = 1;
-        }
-    }
     //methode, die aktuelles Semester berechnet
     public static int getTerm(){
         switch (actMonth) {
@@ -287,4 +273,42 @@ public class PlanningPhase {
         return cheatFlag;
     }
     
+    public static void setCheatFlag(int Flag) {
+          cheatFlag = Flag;
+        
+    }
+    
+    
+    /**
+     * this method will be applied if a cheatFlag is set to 1 and we have selected one of a student.
+     * also updates Spicker-value in game-file
+     * @param stud_nr 
+     */
+    public static void useCheat(int stud_nr){
+        System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
+            cheatFlag=0;
+            System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
+            //Spicker-Wert für das jeweilige Semester updaten:
+            int currTerm=PlanningPhase.getTerm();
+            switch (currTerm){
+                case 2:
+                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)
+                    break;
+                case 3:
+                    // Spicker wurde im 3 Sem. eingesetzt - Spickerwert fürs 3 Sem. auf 1 setzen
+                    break;
+                case 4:
+                    // Spicker wurde im 4 Sem. eingesetzt - Spickerwert fürs 4 Sem. auf 1 setzen
+                    break;
+                case 5:
+                    // Spicker wurde im 5 Sem. eingesetzt - Spickerwert fürs 5 Sem. auf 1 setzen
+                    break;
+                case 6:
+                    // Spicker wurde im 6 Sem. eingesetzt - Spickerwert fürs 6 Sem. auf 1 setzen
+                    break;
+                default:
+                    break;
+            }
+    
+}
 }
