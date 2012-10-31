@@ -25,6 +25,8 @@ public class Sims_1 extends javax.swing.JFrame {
     public static final String _gameFileName = "game.txt";
     public static final String _inventoryFileName = "inventory.txt";
     public static final String _usersFileName = "users.csv";
+    public static final String _UCoinsName = "UCoins";
+    public static final String _creditsName = "credits";
     //***************************************************************
     //***************Section of constants: end***********************
     //***************************************************************
@@ -33,7 +35,7 @@ public class Sims_1 extends javax.swing.JFrame {
     //**************Section of global vars: start********************
     //***************************************************************
     public User _mainuser;
-    public Game _maingame;
+    public Game1 _maingame;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -2468,6 +2470,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
         if (logIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
             _mainuser = new User(textfield_Kontoname.getText());
+            _maingame = new Game1();
             panel_Login.setVisible(false);
             startPlanningGame.setVisible(true);
             System.out.println(_mainuser);
@@ -2497,6 +2500,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
         _mainuser = new User();  //by Dawid
+        _maingame = new Game1();
         panel_Login.setVisible(false);
         startPlanningGame.setVisible(true);
         System.out.println(_mainuser);
