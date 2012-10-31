@@ -10,24 +10,19 @@ import javax.swing.JTextField;
  * @author Jannik
  */
 public class CoinExchange {
-    Game game = new Game();
     
     public int ucoinsToCredits(int ucoins, int swap, JTextField credit){
-        if(ucoins>game.ucoins){
+        if(ucoins>Sims_1._mainuser.getUcoins()){
             return 1;
         }
         else{
             credit.setText(""+ucoins*100);
             if(swap == 1){
-                game.credits += ucoins*100;
-                game.ucoins -= ucoins;
+                Sims_1._maingame.credits += ucoins*100;
+                Sims_1._mainuser.setUcoins(Sims_1._mainuser.getUcoins()-ucoins);
                 return 0;
             }
             return 0;
         }  
     }
-    
-    /*public int creditsToUcoins(int credits, int current){
-        return 0;
-    }*/
 }

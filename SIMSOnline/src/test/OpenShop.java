@@ -12,8 +12,6 @@ import javax.swing.JLabel;
  */
 public class OpenShop{
     
-    Game game = new Game();
-    
     public OpenShop(){
         
     }
@@ -24,8 +22,8 @@ public class OpenShop{
      */
     
     public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){
-        credits.setText(""+game.credits);
-        points.setText(""+game.points);
-        ucoins.setText(""+game.ucoins);
+        credits.setText(""+Sims_1._maingame.credits);
+        points.setText(""+Sims_1._maingame.points);
+        ucoins.setText(""+Sims_1._mainuser.getUcoins());
     }
 }

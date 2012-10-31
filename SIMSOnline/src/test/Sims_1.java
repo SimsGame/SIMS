@@ -410,7 +410,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage1.setBounds(10, 110, 380, 70);
 
         label_shopMessage2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins um das Item zu kaufen");
+        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins!");
         dialog_error.getContentPane().add(label_shopMessage2);
         label_shopMessage2.setBounds(10, 80, 380, 70);
 
@@ -860,7 +860,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_ItemStorage.add(jLabel8);
         jLabel8.setBounds(10, 10, 120, 20);
 
-        jLab_Redbull.setText("Text");
+        jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
         jLab_Redbull.setBounds(10, 40, 90, 14);
 
@@ -2102,6 +2102,9 @@ public class Sims_1 extends javax.swing.JFrame {
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
         PlanningPhase Phase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter);  // added by Tobias, Yulyia
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
     }//GEN-LAST:event_loadGameActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

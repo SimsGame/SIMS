@@ -53,7 +53,6 @@ public class Game1 {
      */
     public void putItem(String name, int amount, int available){
         this.points = 700;
-        this.ucoins = 50;
         this.credits = 400;
         if(name.equals("Duplo")){
             this.duplo = new Item(name, amount, available);

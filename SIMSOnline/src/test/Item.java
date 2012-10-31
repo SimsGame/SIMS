@@ -93,8 +93,6 @@ public class Item {
                 this.motivation = _duploMotivation;
                 this.tiredness = _duploTiredness;
                 this.knowledge = _duploKnowledge;
-                System.out.print("duplo");
-                //Sims_1._maingame.putItem(this);
                 break;
             case _spickerName:
                 this.name = _spickerName;
