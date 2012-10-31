@@ -2530,9 +2530,9 @@ public class Sims_1 extends javax.swing.JFrame {
                 ((currTerm==5)&&(eingesetzt5==0))||
                 ((currTerm==6)&&(eingesetzt6==0))  
                ){
-            PlanningPhase.setCheatFlag();
+            PlanningPhase.setCheatFlag(1);
             System.out.println("setCheatFlag");
-            System.out.println("currTerm " +currTerm +" und eingesetzt2= " +eingesetzt2 );
+           // System.out.println("currTerm " +currTerm +" und eingesetzt2= " +eingesetzt2 );
             
         }
             else {
