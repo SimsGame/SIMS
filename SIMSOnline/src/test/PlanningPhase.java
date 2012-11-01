@@ -286,7 +286,9 @@ public class PlanningPhase {
      */
     public static void useCheat(int stud_nr){
         System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
-        System.out.println("Spicker Anzahl im Inventar um 1 verringern"); // -> wird später  Spicker.amount um 1 verringern;
+        System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
+        Sims_1._maingame.cheatSheet.amount-=1;
+        System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " +Sims_1._maingame.cheatSheet.amount); // -> wird später  Spicker.amount um 1 verringern;
             cheatFlag=0;
             System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
             //Spicker-Wert für das jeweilige Semester updaten:

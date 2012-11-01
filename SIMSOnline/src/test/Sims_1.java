@@ -2667,13 +2667,13 @@ public class Sims_1 extends javax.swing.JFrame {
         int eingesetzt4 = 0;
         int eingesetzt5 = 0;
         int eingesetzt6 = 0;
-        int amount = 0; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
+        int amount = 1; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
 
         javax.swing.JComboBox box = (javax.swing.JComboBox) evt.getSource();
         String selected = (String) box.getSelectedItem();
         System.out.println("Right now selected " + selected);
         if (selected.equals("Spicker")) {
-            if (amount <= 0) {
+            if (Sims_1._maingame.cheatSheet.amount <= 0) {
                 System.out.println("Kein Spicker verfügbar");
             } else if (((currTerm == 2) && (eingesetzt2 == 0)) || //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
                        ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt
