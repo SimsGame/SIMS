@@ -43,12 +43,7 @@ public class UpdateBars extends Thread {
     @Override
     public void run() {
         while(timer>0){
-             updateAvrg();
-         KnowledgeBar.setValue((int)(avrgknowledge*250)); 
-         MotivationBar.setValue((int)avrgmotivation); 
-         TirednessBar.setValue((int)avrgtiredness); 
-         KnowledgeBar.repaint();
-         MotivationBar.repaint();
+             
          TirednessBar.repaint();
         try{Thread.sleep(0);} //Sleep 50 milliseconds
                 catch (InterruptedException err){}
