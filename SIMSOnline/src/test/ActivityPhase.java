@@ -29,10 +29,8 @@ public class ActivityPhase {
     }
     
     private void activityPhaseMain(){
-        Thread runTimer = new Thread(new Timer(label_timer, game));
-        Thread updateBars = new Thread(new UpdateBars(KnowledgeBar, MotivationBar,TirednessBar, game));
-        runTimer.start();
-        updateBars.start();
+        Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar, MotivationBar,TirednessBar));
+        runTimer.start();  
     }
 
 }
