@@ -2232,7 +2232,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item1Amount, _maingame.redBull, creditsShop, _maingame.credits);
+            item.updateInventroy(label_item1Amount, _maingame.redBull, creditsShop, _maingame.credits, label_item1);
             item.updateInventoryPlanningPhase(jLab_Redbull, _maingame.redBull);
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
@@ -2243,7 +2243,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item2Amount, _maingame.duplo, creditsShop, _maingame.credits);
+            item.updateInventroy(label_item2Amount, _maingame.duplo, creditsShop, _maingame.credits, label_item2);
             item.updateInventoryPlanningPhase(jLab_Duplo, _maingame.duplo);
         }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
@@ -2254,7 +2254,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item4Amount, _maingame.cheatSheet, ucoinsShop, _mainuser.getUcoins());
+            item.updateInventroy(label_item4Amount, _maingame.cheatSheet, ucoinsShop, _mainuser.getUcoins(), label_item4);
         }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
@@ -2264,7 +2264,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item3Amount, _maingame.omniSenseAudio, ucoinsShop, _mainuser.getUcoins());
+            item.updateInventroy(label_item3Amount, _maingame.omniSenseAudio, ucoinsShop, _mainuser.getUcoins(), label_item3);
             item.updateInventoryPlanningPhase(jLab_OMNI, _maingame.omniSenseAudio);
         }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
@@ -2673,7 +2673,7 @@ public class Sims_1 extends javax.swing.JFrame {
         String selected = (String) box.getSelectedItem();
         System.out.println("Right now selected " + selected);
         if (selected.equals("Spicker")) {
-            if (Sims_1._maingame.cheatSheet.amount <= 0) {
+            if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
             } else if (((currTerm == 2) && (eingesetzt2 == 0)) || //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
                        ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt

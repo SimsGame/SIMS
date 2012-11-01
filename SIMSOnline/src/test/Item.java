@@ -277,7 +277,11 @@ public class Item {
      * @param value  The new value of coins after the buy.
      */
     
-    public static void updateInventroy(JLabel item, Item it, JLabel price, int value){
+    public static void updateInventroy(JLabel item, Item it, JLabel price, int value, JLabel field){
+        if(item.isVisible() == false){
+            item.setVisible(true);
+            field.setVisible(true);
+        }
         item.setText(""+it.amount+" x");
         price.setText(""+value);
     }
