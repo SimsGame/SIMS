@@ -1,9 +1,3 @@
-/**
- * Provides static methods to read and write CSV-Files (can also be used for
- * normal text files)
- *
- * @author Dawid Rusin
- */
 package test;
 
 import java.io.*;
@@ -11,6 +5,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
+ * Provides static methods to read and write CSV-Files (can also be used for
+ * normal text files)
  *
  * @author Dawid Rusin
  */

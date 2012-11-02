@@ -19,6 +19,38 @@ public class User {
     private String first_name = "";
     private String last_name = "";
     private Date reg_date = new Date();
+
+    public String getAccountname() {
+        return accountname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public Date getLast_login() {
+        return last_login;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Date getReg_date() {
+        return reg_date;
+    }
+
+    public int getTime_played() {
+        return time_played;
+    }
     private Date last_login = new Date();
     private int ucoins = 0;
 
@@ -88,9 +120,12 @@ public class User {
      * @return true if the user could be created, false otherwise
      */
     public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
+        
+        //set up an array with the user-data to write:
         String str[] = new String[9];
         str[0] = accountname;
-        str[1] = new String(password);      /*
+        str[1] = new String(password);      
+        /*
          * swing.password-fields return a 1-dim char-array, it's easier to work
          * with a string here
          */
@@ -104,7 +139,7 @@ public class User {
         str[8] = "0";   //UCoins
 
         //ready to create the user-files
-        java.util.LinkedList users = new java.util.LinkedList<>();      //needed for updating the userlist
+        java.util.LinkedList users = new java.util.LinkedList<>();      //needed for updating the userlist-file
         try {
             //create the userfolder (automatically through through writeCSV()) and create the needed userfiles
             CSVHandling.writeCSV(str, Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);

@@ -40,6 +40,7 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     public static User _mainuser;
     public static Game1 _maingame;
+    public static Admin _mainadmin;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -330,6 +331,9 @@ public class Sims_1 extends javax.swing.JFrame {
         check_autoLogin = new javax.swing.JCheckBox();
         label_lErr = new javax.swing.JLabel();
         button_lDevAcessMenue = new javax.swing.JButton();
+        buton_enterAdmin = new javax.swing.JButton();
+        panel_Admin = new javax.swing.JPanel();
+        button_aCancel = new javax.swing.JButton();
 
         buyCoins.getContentPane().setLayout(null);
 
@@ -2018,6 +2022,13 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
 
+        buton_enterAdmin.setText("enter Admin-Data");
+        buton_enterAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton_enterAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_LoginLayout = new javax.swing.GroupLayout(panel_Login);
         panel_Login.setLayout(panel_LoginLayout);
         panel_LoginLayout.setHorizontalGroup(
@@ -2028,14 +2039,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_lErr)
-                    .addGroup(panel_LoginLayout.createSequentialGroup()
-                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(password_Pass)
-                            .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(button_lDevAcessMenue)
                         .addGroup(panel_LoginLayout.createSequentialGroup()
@@ -2045,13 +2048,25 @@ public class Sims_1 extends javax.swing.JFrame {
                                 .addComponent(check_saveUser)
                                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(button_Register)
-                                    .addComponent(check_autoLogin))))))
+                                    .addComponent(check_autoLogin)))))
+                    .addGroup(panel_LoginLayout.createSequentialGroup()
+                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buton_enterAdmin)
+                            .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(password_Pass)
+                                .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(117, 117, 117))
         );
         panel_LoginLayout.setVerticalGroup(
             panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_LoginLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(36, 36, 36)
+                .addComponent(buton_enterAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
@@ -2084,6 +2099,38 @@ public class Sims_1 extends javax.swing.JFrame {
         check_autoLogin.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
 
         jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
+
+        panel_Admin.setMaximumSize(new java.awt.Dimension(1000, 700));
+        panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
+
+        button_aCancel.setText("Abbrechen");
+        button_aCancel.setMaximumSize(new java.awt.Dimension(300, 50));
+        button_aCancel.setMinimumSize(new java.awt.Dimension(300, 50));
+        button_aCancel.setPreferredSize(new java.awt.Dimension(300, 50));
+        button_aCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_aCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_AdminLayout = new javax.swing.GroupLayout(panel_Admin);
+        panel_Admin.setLayout(panel_AdminLayout);
+        panel_AdminLayout.setHorizontalGroup(
+            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_AdminLayout.createSequentialGroup()
+                .addGap(313, 313, 313)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(387, Short.MAX_VALUE))
+        );
+        panel_AdminLayout.setVerticalGroup(
+            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
+                .addContainerGap(618, Short.MAX_VALUE)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        jPanel1.add(panel_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1);
 
@@ -2746,6 +2793,16 @@ public class Sims_1 extends javax.swing.JFrame {
         password_Pass.selectAll();
     }//GEN-LAST:event_password_PassFocusGained
 
+    private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
+        textfield_Kontoname.setText(_adminName);
+        password_Pass.setText(_adminPass);
+    }//GEN-LAST:event_buton_enterAdminActionPerformed
+
+    private void button_aCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aCancelActionPerformed
+        panel_Admin.setVisible(false);
+        panel_Login.setVisible(true);
+    }//GEN-LAST:event_button_aCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2798,8 +2855,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JButton buton_enterAdmin;
     private javax.swing.JButton button_Login;
     private javax.swing.JToggleButton button_Register;
+    private javax.swing.JButton button_aCancel;
     private javax.swing.JButton button_cancel;
     private javax.swing.JButton button_lDevAcessMenue;
     private javax.swing.JButton button_rRegister;
@@ -3013,6 +3072,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JDialog lectorChangedDialog;
     private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JButton loadGame;
+    private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Register;
     private javax.swing.JPanel panel_cheatSheet;
@@ -3269,6 +3329,11 @@ public class Sims_1 extends javax.swing.JFrame {
      * @return true if the login-data is correct, false otherwise
      */
     private boolean checkLogIn(String accountname, char[] password) {
+        
+        if (accountname.equals(_adminName)  & new String(password).equals(_adminPass)){
+            adminLogin();
+            return false;
+        }
 
         if (accountname.equals("")) {
             label_lErr.setText("Falscher Benutzername oder falsches Passwort!");
@@ -3354,7 +3419,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private void autoLogin() {
         try {
             String[] loginArr = CSVHandling.readCSVStringArr(_loginFileName);
-            System.out.println(Arrays.toString(loginArr));
             if (!loginArr[0].equals("")) {
                 check_saveUser.setSelected(true);
             }
@@ -3372,7 +3436,14 @@ public class Sims_1 extends javax.swing.JFrame {
         }
 
     }
+    
+    private void adminLogin(){
+        panel_Login.setVisible(false);
+        panel_Admin.setVisible(true);
+        _mainadmin = new Admin(panel_Admin);
+    }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
+    
 }
