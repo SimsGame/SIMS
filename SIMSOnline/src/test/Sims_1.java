@@ -40,6 +40,7 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     public static User _mainuser;
     public static Game1 _maingame;
+    public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     //***************************************************************
     //***************Section of global vars: end*********************
@@ -2499,6 +2500,16 @@ public class Sims_1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
+        textfield_Kontoname.setText(_adminName);
+        password_Pass.setText(_adminPass);
+    }//GEN-LAST:event_buton_enterAdminActionPerformed
+
+    private void button_aCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aCancelActionPerformed
+        panel_Admin.setVisible(false);
+        panel_Login.setVisible(true);
+    }//GEN-LAST:event_button_aCancelActionPerformed
+
     private void startNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startNewGameActionPerformed
         // TODO add your handling code here:
         if (jPanel2.isVisible() == false) {
@@ -3316,37 +3327,37 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_StudField1MouseEntered
 
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
-        if(activityPhase.redBullPressed==false){
-        activityPhase.redBullPressed=true;
-        activityPhase.duploPressed=false;
-        activityPhase.OmniSensePressed=false;
-        System.out.println("redBull on!");
-        }else{
-            activityPhase.redBullPressed=false;
+        if (activityPhase.redBullPressed == false) {
+            activityPhase.redBullPressed = true;
+            activityPhase.duploPressed = false;
+            activityPhase.OmniSensePressed = false;
+            System.out.println("redBull on!");
+        } else {
+            activityPhase.redBullPressed = false;
             System.out.println("redBull off!");
         }
     }//GEN-LAST:event_label_item1InvMouseClicked
 
     private void label_item2InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item2InvMouseClicked
-        if(activityPhase.duploPressed==false){
-        activityPhase.redBullPressed=false;
-        activityPhase.duploPressed=true;
-        activityPhase.OmniSensePressed=false;
-        System.out.println("duplo on!");
-        }else{
-            activityPhase.duploPressed=false;
+        if (activityPhase.duploPressed == false) {
+            activityPhase.redBullPressed = false;
+            activityPhase.duploPressed = true;
+            activityPhase.OmniSensePressed = false;
+            System.out.println("duplo on!");
+        } else {
+            activityPhase.duploPressed = false;
             System.out.println("duplo off!");
         }
     }//GEN-LAST:event_label_item2InvMouseClicked
 
     private void label_item3InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item3InvMouseClicked
-        if(activityPhase.redBullPressed==false){
-        activityPhase.redBullPressed=false;
-        activityPhase.duploPressed=false;
-        activityPhase.OmniSensePressed=true;
-        System.out.println("OmniSense on!");
-        }else{
-            activityPhase.redBullPressed=false;
+        if (activityPhase.redBullPressed == false) {
+            activityPhase.redBullPressed = false;
+            activityPhase.duploPressed = false;
+            activityPhase.OmniSensePressed = true;
+            System.out.println("OmniSense on!");
+        } else {
+            activityPhase.redBullPressed = false;
             System.out.println("OmniSense off!");
         }
     }//GEN-LAST:event_label_item3InvMouseClicked
@@ -3909,8 +3920,8 @@ public class Sims_1 extends javax.swing.JFrame {
      * @return true if the login-data is correct, false otherwise
      */
     private boolean checkLogIn(String accountname, char[] password) {
-        
-        if (accountname.equals(_adminName)  & new String(password).equals(_adminPass)){
+
+        if (accountname.equals(_adminName) & new String(password).equals(_adminPass)) {
             adminLogin();
             return false;
         }
@@ -4016,8 +4027,8 @@ public class Sims_1 extends javax.swing.JFrame {
         }
 
     }
-    
-    private void adminLogin(){
+
+    private void adminLogin() {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
         _mainadmin = new Admin(panel_Admin);
@@ -4025,5 +4036,4 @@ public class Sims_1 extends javax.swing.JFrame {
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
-    
 }
