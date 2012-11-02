@@ -87,14 +87,26 @@ public class Student {
         return this.id;
     }
     
-    /**
+       /**
      *
      * @return the knowledge attribute of the student is returned
      */
     public double getKnowledge() {
         return this.knowledge;
     }
-    
+
+    /**
+     *
+     * @param value
+     */
+    public void setKnowledge(double value) {
+        if(value<0){
+            this.knowledge= 0;
+        }else{
+            this.knowledge = value;
+        }
+    }
+
     /**
      *
      * @return the intelligence attribute of the student is returned
@@ -102,7 +114,7 @@ public class Student {
     public double getIntelligence() {
         return this.intelligence;
     }
-    
+
     /**
      *
      * @return the tiredness attribute of the student is returned
@@ -110,12 +122,36 @@ public class Student {
     public double getTiredness() {
         return this.tiredness;
     }
-    
+
+    /**
+     *
+     * @param value
+     */
+    public void setTiredness(double value) {
+                if(value<0){
+            this.tiredness= 0;
+        }else{
+            this.tiredness = value;
+        }
+    }
+
     /**
      *
      * @return the motivation attribute of the student is returned
      */
     public double getMotivation() {
         return this.motivation;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    public void setMotivation(double value) {
+                if(value<0){
+            this.motivation= 0;
+        }else{
+            this.motivation = value;
+        }
     }
 }

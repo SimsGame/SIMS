@@ -40,6 +40,7 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     public static User _mainuser;
     public static Game1 _maingame;
+    public ActivityPhase activityPhase;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -1635,6 +1636,11 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel11.setBounds(30, 0, 120, 40);
 
         label_item3Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label_item3Inv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_item3InvMouseClicked(evt);
+            }
+        });
         jPanel4.add(label_item3Inv);
         label_item3Inv.setBounds(30, 250, 80, 80);
 
@@ -1659,6 +1665,11 @@ public class Sims_1 extends javax.swing.JFrame {
         label_ucoinsInv.setBounds(10, 380, 130, 17);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_item2InvMouseClicked(evt);
+            }
+        });
         jPanel4.add(label_item2Inv);
         label_item2Inv.setBounds(30, 150, 80, 80);
 
@@ -1675,6 +1686,11 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item3InvAmount.setBounds(30, 300, 80, 17);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_item1InvMouseClicked(evt);
+            }
+        });
         jPanel4.add(label_item1Inv);
         label_item1Inv.setBounds(30, 50, 80, 80);
 
@@ -2449,7 +2465,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -2926,7 +2942,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        ActivityPhase phase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -3094,7 +3110,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_PassFocusGained
 
     private void button_stud1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(0);
     }//GEN-LAST:event_button_stud1MouseClicked
 
     private void button_stud1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseExited
@@ -3110,7 +3126,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud1ActionPerformed
 
     private void button_stud2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(1);
     }//GEN-LAST:event_button_stud2MouseClicked
 
     private void button_stud2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseEntered
@@ -3118,7 +3134,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud2MouseEntered
 
     private void button_stud3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(2);
     }//GEN-LAST:event_button_stud3MouseClicked
 
     private void button_stud3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseEntered
@@ -3126,7 +3142,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud3MouseEntered
 
     private void button_stud4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(3);
     }//GEN-LAST:event_button_stud4MouseClicked
 
     private void button_stud4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseEntered
@@ -3134,7 +3150,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud4MouseEntered
 
     private void button_stud5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(4);
     }//GEN-LAST:event_button_stud5MouseClicked
 
     private void button_stud5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseEntered
@@ -3142,51 +3158,51 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud5MouseEntered
 
     private void button_stud6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud6MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(5);
     }//GEN-LAST:event_button_stud6MouseClicked
 
     private void button_stud7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud7MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(6);
     }//GEN-LAST:event_button_stud7MouseClicked
 
     private void button_stud8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud8MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(7);
     }//GEN-LAST:event_button_stud8MouseClicked
 
     private void button_stud9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud9MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(8);
     }//GEN-LAST:event_button_stud9MouseClicked
 
     private void button_stud10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud10MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(9);
     }//GEN-LAST:event_button_stud10MouseClicked
 
     private void button_stud11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud11MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(10);
     }//GEN-LAST:event_button_stud11MouseClicked
 
     private void button_stud12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud12MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(11);
     }//GEN-LAST:event_button_stud12MouseClicked
 
     private void button_stud13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud13MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(12);
     }//GEN-LAST:event_button_stud13MouseClicked
 
     private void button_stud14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud14MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(13);
     }//GEN-LAST:event_button_stud14MouseClicked
 
     private void button_stud15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud15MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(14);
     }//GEN-LAST:event_button_stud15MouseClicked
 
     private void button_stud16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud16MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(15);
     }//GEN-LAST:event_button_stud16MouseClicked
 
     private void button_stud17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud17MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(16);
     }//GEN-LAST:event_button_stud17MouseClicked
 
     private void button_stud17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud17ActionPerformed
@@ -3194,55 +3210,55 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud17ActionPerformed
 
     private void button_stud18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud18MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(17);
     }//GEN-LAST:event_button_stud18MouseClicked
 
     private void button_stud19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud19MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(18);
     }//GEN-LAST:event_button_stud19MouseClicked
 
     private void button_stud20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud20MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(19);
     }//GEN-LAST:event_button_stud20MouseClicked
 
     private void button_stud21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud21MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(20);
     }//GEN-LAST:event_button_stud21MouseClicked
 
     private void button_stud22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud22MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(21);
     }//GEN-LAST:event_button_stud22MouseClicked
 
     private void button_stud23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud23MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(22);
     }//GEN-LAST:event_button_stud23MouseClicked
 
     private void button_stud24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud24MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(23);
     }//GEN-LAST:event_button_stud24MouseClicked
 
     private void button_stud25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud25MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(24);
     }//GEN-LAST:event_button_stud25MouseClicked
 
     private void button_stud26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud26MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(25);
     }//GEN-LAST:event_button_stud26MouseClicked
 
     private void button_stud27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud27MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(26);
     }//GEN-LAST:event_button_stud27MouseClicked
 
     private void button_stud28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud28MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(27);
     }//GEN-LAST:event_button_stud28MouseClicked
 
     private void button_stud29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud29MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(28);
     }//GEN-LAST:event_button_stud29MouseClicked
 
     private void button_stud30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud30MouseClicked
-        // TODO add your handling code here:
+        activityPhase.StudentClicked(29);
     }//GEN-LAST:event_button_stud30MouseClicked
 
     private void StudField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseClicked
@@ -3252,6 +3268,42 @@ public class Sims_1 extends javax.swing.JFrame {
     private void StudField1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_StudField1MouseEntered
+
+    private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
+        if(activityPhase.redBullPressed==false){
+        activityPhase.redBullPressed=true;
+        activityPhase.duploPressed=false;
+        activityPhase.OmniSensePressed=false;
+        System.out.println("redBull on!");
+        }else{
+            activityPhase.redBullPressed=false;
+            System.out.println("redBull off!");
+        }
+    }//GEN-LAST:event_label_item1InvMouseClicked
+
+    private void label_item2InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item2InvMouseClicked
+        if(activityPhase.duploPressed==false){
+        activityPhase.redBullPressed=false;
+        activityPhase.duploPressed=true;
+        activityPhase.OmniSensePressed=false;
+        System.out.println("duplo on!");
+        }else{
+            activityPhase.duploPressed=false;
+            System.out.println("duplo off!");
+        }
+    }//GEN-LAST:event_label_item2InvMouseClicked
+
+    private void label_item3InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item3InvMouseClicked
+        if(activityPhase.redBullPressed==false){
+        activityPhase.redBullPressed=false;
+        activityPhase.duploPressed=false;
+        activityPhase.OmniSensePressed=true;
+        System.out.println("OmniSense on!");
+        }else{
+            activityPhase.redBullPressed=false;
+            System.out.println("OmniSense off!");
+        }
+    }//GEN-LAST:event_label_item3InvMouseClicked
 
     /**
      * @param args the command line arguments
