@@ -7,13 +7,14 @@ package test;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik, Yulia, Tobias, Nadir, Jörg, Dawid
  */
 public class Sims_1 extends javax.swing.JFrame {
 
@@ -27,6 +28,9 @@ public class Sims_1 extends javax.swing.JFrame {
     public static final String _usersFileName = "users.csv";
     public static final String _UCoinsName = "UCoins";
     public static final String _creditsName = "credits";
+    public static final String _loginFileName = "login.txt";
+    public static final String _adminName = "administr4t0r";
+    public static final String _adminPass = "p4ssw0rd";
     //***************************************************************
     //***************Section of constants: end***********************
     //***************************************************************
@@ -57,16 +61,17 @@ public class Sims_1 extends javax.swing.JFrame {
         warning.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         lectorChangedDialog.setSize(400, 320); //added by Julia
         lectorChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        lectorNotChangedDialog.setSize(400,320);
-        lectorNotChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
+        lectorNotChangedDialog.setSize(400, 320);
+        lectorNotChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cheatUsedDialog.setSize(400, 320); //added by Julia
-        cheatUsedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
+        cheatUsedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jPanel2.setVisible(false);                  //changes by Dawid
         startPlanningGame.setVisible(false);
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
         label_lErr.setText("");
         cl = (CardLayout) (jPanel2.getLayout());
+        autoLogin();
     }
 
     /**
@@ -321,8 +326,8 @@ public class Sims_1 extends javax.swing.JFrame {
         password_Pass = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        check_saveUser = new javax.swing.JCheckBox();
+        check_autoLogin = new javax.swing.JCheckBox();
         label_lErr = new javax.swing.JLabel();
         button_lDevAcessMenue = new javax.swing.JButton();
 
@@ -1965,6 +1970,11 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_KontonameActionPerformed(evt);
             }
         });
+        textfield_Kontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_KontonameFocusGained(evt);
+            }
+        });
 
         button_Login.setText("Login");
         button_Login.addActionListener(new java.awt.event.ActionListener() {
@@ -1980,18 +1990,24 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
 
+        password_Pass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_PassFocusGained(evt);
+            }
+        });
+
         jLabel12.setText("Kontoname:");
 
         jLabel15.setText("Passwort:");
 
-        jCheckBox1.setText("Kontoname und Passwort speichern");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        check_saveUser.setText("Kontoname und Passwort speichern");
+        check_saveUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                check_saveUserActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Automatisch einloggen");
+        check_autoLogin.setText("Automatisch einloggen");
 
         label_lErr.setText("Fehler?");
 
@@ -2026,10 +2042,10 @@ public class Sims_1 extends javax.swing.JFrame {
                             .addComponent(button_Login)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckBox1)
+                                .addComponent(check_saveUser)
                                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(button_Register)
-                                    .addComponent(jCheckBox2))))))
+                                    .addComponent(check_autoLogin))))))
                 .addGap(117, 117, 117))
         );
         panel_LoginLayout.setVerticalGroup(
@@ -2048,9 +2064,9 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel_LoginLayout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(check_saveUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox2))
+                        .addComponent(check_autoLogin))
                     .addComponent(button_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(button_Register)
@@ -2064,8 +2080,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel12.getAccessibleContext().setAccessibleName("label_lUsername");
         jLabel15.getAccessibleContext().setAccessibleName("label_lPassword");
-        jCheckBox1.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
-        jCheckBox2.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
+        check_saveUser.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
+        check_autoLogin.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
 
         jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
 
@@ -2315,7 +2331,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         PlanningPhase.StudButtonFunctions(1);
-        
+
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
 //            PlanningPhase.studInfo.StudInfoAttr(1);
@@ -2329,9 +2345,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        
+
         PlanningPhase.StudButtonFunctions(2);
-       
+
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
@@ -2538,7 +2554,7 @@ public class Sims_1 extends javax.swing.JFrame {
             PlanningPhase.changeLector(jLab_DozCounter);
             lectorChangedDialog.setVisible(true);
         } else {
-            lectorNotChangedDialog.setVisible(true); 
+            lectorNotChangedDialog.setVisible(true);
         }
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
@@ -2609,21 +2625,19 @@ public class Sims_1 extends javax.swing.JFrame {
         if (checkRegister()) {  //by Dawid
             panel_Login.setVisible(true);
             panel_Register.setVisible(false);
+            button_Register.setSelected(false);
         }
     }//GEN-LAST:event_button_rRegisterActionPerformed
 
     private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
-        if (logIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
-            _mainuser = new User(textfield_Kontoname.getText());
-            _maingame = new Game1();
-            panel_Login.setVisible(false);
-            startPlanningGame.setVisible(true);
-            System.out.println(_mainuser);
+        if (checkLogIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
+            logIn(textfield_Kontoname.getText());
         }
     }//GEN-LAST:event_button_LoginActionPerformed
 
     private void button_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterActionPerformed
         initRegister();  //by Dawid
+        button_Register.setSelected(true);
         panel_Register.setVisible(true);
     }//GEN-LAST:event_button_RegisterActionPerformed
 
@@ -2631,9 +2645,9 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_KontonameActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void check_saveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_saveUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_check_saveUserActionPerformed
 
     private void textfield_rKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rKontonameActionPerformed
         // TODO add your handling code here:
@@ -2641,20 +2655,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
         panel_Register.setVisible(false);  //by Dawid
+        button_Register.setSelected(false);
     }//GEN-LAST:event_button_cancelActionPerformed
 
     private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
-        _mainuser = new User();  //by Dawid
-        _maingame = new Game1();
-        CSVRead read = new CSVRead();
-        try {
-            read.readCSV();
-        } catch (Exception ex) {
-            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        panel_Login.setVisible(false);
-        startPlanningGame.setVisible(true);
-        System.out.println(_mainuser);
+        logIn();
     }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
 
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
@@ -2676,10 +2681,10 @@ public class Sims_1 extends javax.swing.JFrame {
             if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
             } else if (((currTerm == 2) && (eingesetzt2 == 0)) || //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
-                       ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt
-                       ((currTerm == 4) && (eingesetzt4 == 0)) || // 
-                       ((currTerm == 5) && (eingesetzt5 == 0)) ||
-                       ((currTerm == 6) && (eingesetzt6 == 0))) {
+                    ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt
+                    ((currTerm == 4) && (eingesetzt4 == 0)) || // 
+                    ((currTerm == 5) && (eingesetzt5 == 0))
+                    || ((currTerm == 6) && (eingesetzt6 == 0))) {
                 warning.setVisible(true);
                 System.out.println("show warning");
             } else {
@@ -2692,7 +2697,7 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         PlanningPhase.setCheatFlag(1);
         warning.setVisible(false);
-        
+
     }//GEN-LAST:event_jBut_JAMouseClicked
 
     private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
@@ -2703,8 +2708,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
         // TODO add your handling code here:
-         PlanningPhase.setCheatFlag(0);
-         warning.setVisible(false);
+        PlanningPhase.setCheatFlag(0);
+        warning.setVisible(false);
     }//GEN-LAST:event_warningWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
@@ -2726,10 +2731,20 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_OKcheatMouseClicked
 
     private void jBut_OKnotchangedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotchangedMouseClicked
-          // TODO add your handling code here:
-        
+        // TODO add your handling code here:
+
         lectorNotChangedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotchangedMouseClicked
+
+    private void textfield_KontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_KontonameFocusGained
+        textfield_Kontoname.requestFocus();
+        textfield_Kontoname.selectAll();
+    }//GEN-LAST:event_textfield_KontonameFocusGained
+
+    private void password_PassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_PassFocusGained
+        password_Pass.requestFocus();
+        password_Pass.selectAll();
+    }//GEN-LAST:event_password_PassFocusGained
 
     /**
      * @param args the command line arguments
@@ -2793,6 +2808,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_swapperExchange;
     private javax.swing.JDialog buyCoins;
     private javax.swing.JDialog cheatUsedDialog;
+    private javax.swing.JCheckBox check_autoLogin;
+    private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
     private javax.swing.JDialog dialog_error;
     private javax.swing.JButton exit;
@@ -2847,8 +2864,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -3026,6 +3041,9 @@ public class Sims_1 extends javax.swing.JFrame {
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: start*********************************
     //***********************************************************************
+    /**
+     * Initializes the fields and labels for the register-form
+     */
     private void initRegister() {
         label_rErrAccname.setText("");
         label_rErrEmail1.setText("");
@@ -3052,6 +3070,12 @@ public class Sims_1 extends javax.swing.JFrame {
         password_rPass2.setBackground(Color.white);
     }
 
+    /**
+     * Checks if the value consists of letters and/or numbers
+     *
+     * @param str character-array to get checked
+     * @return true if there are only letters and/or numbers, false otherwise
+     */
     private boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
         int i;
         for (i = 0; i < str.length; i++) {
@@ -3062,6 +3086,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    /**
+     * Checks if the passed value is a valid email-address (syntax-wise)
+     *
+     * @param str String with the email-address to check
+     * @return true if the email-address is correct, false otherwise
+     */
     private boolean checkEmail(String str) {
         int i;
         boolean atChar = false;
@@ -3084,6 +3114,13 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Checks if the passed value is a valid name: -not empty -only letters and
+     * "-" allowed
+     *
+     * @param str String containing the name to check
+     * @return true if it is a valid name, false otherwise
+     */
     private boolean checkName(String str) {
         if (str.equals("")) {
             return false;
@@ -3097,6 +3134,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    /**
+     * Checks in the global user-file if the user already exists
+     *
+     * @param str String with the name of the user to check
+     * @return true if user already exists, false otherwise
+     */
     private boolean checkGlobUser(String str) {
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
@@ -3111,6 +3154,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return false;
     }
 
+    /**
+     * Checks all text-fields in the register-for for valid output; user gets
+     * feedback to the invalid input after this function is called
+     *
+     * @return true if all fields have valid values in them, false otherwise
+     */
     private boolean checkRegister() {
         boolean check = true;
         if (textfield_rKontoname.getText().length() < 5) {
@@ -3121,7 +3170,7 @@ public class Sims_1 extends javax.swing.JFrame {
             textfield_rKontoname.setBackground(Color.red);
             label_rErrAccname.setText("Kontoname zu lang! (5-15 Zeichen)");
             check = false;
-        } else if (checkGlobUser(textfield_rKontoname.getText())) {
+        } else if (checkGlobUser(textfield_rKontoname.getText()) | textfield_rKontoname.getText().equals(_adminName)) {
             textfield_rKontoname.setBackground(Color.red);
             label_rErrAccname.setText("Kontoname schon vergeben!");
             check = false;
@@ -3211,7 +3260,15 @@ public class Sims_1 extends javax.swing.JFrame {
         return false;
     }
 
-    private boolean logIn(String accountname, char[] password) {
+    /**
+     * Checks if the entered login-data is correct; user gets feedback to the
+     * invalid input after this function is called
+     *
+     * @param accountname String containing the username
+     * @param password Character-array containing the password
+     * @return true if the login-data is correct, false otherwise
+     */
+    private boolean checkLogIn(String accountname, char[] password) {
 
         if (accountname.equals("")) {
             label_lErr.setText("Falscher Benutzername oder falsches Passwort!");
@@ -3238,6 +3295,82 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         label_lErr.setText("Falscher Benutzername oder falsches Passwort!");
         return false;
+    }
+
+    /**
+     * Logs the user into the program; writes the login-file used to save the
+     * user or enable auto-login
+     *
+     * @param accountname String with the username
+     */
+    private void logIn(String accountname) {
+        String[] strArr = new String[3];
+        if (check_saveUser.isSelected()) {
+            strArr[0] = textfield_Kontoname.getText();
+            strArr[1] = new String(password_Pass.getPassword());
+            if (check_autoLogin.isSelected()) {
+                strArr[2] = "1";
+            } else {
+                strArr[2] = "0";
+            }
+        } else {
+            strArr[0] = "";
+            strArr[1] = "";
+            strArr[2] = "0";
+        }
+        try {
+            CSVHandling.writeCSV(strArr, _loginFileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        _mainuser = new User(accountname);
+        _maingame = new Game1();
+        panel_Login.setVisible(false);
+        startPlanningGame.setVisible(true);
+        System.out.println(_mainuser);
+    }
+
+    /**
+     * Standardized login with a fictional user, just for dev-purposes
+     */
+    private void logIn() {
+        _mainuser = new User();  //by Dawid
+        _maingame = new Game1();
+        CSVRead read = new CSVRead();
+        try {
+            read.readCSV();
+        } catch (Exception ex) {
+            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        panel_Login.setVisible(false);
+        startPlanningGame.setVisible(true);
+        System.out.println(_mainuser);
+    }
+
+    /**
+     * Reads the login file and writes the saved values into the login-fields;
+     * if the auto-login-flag is set logIn(username) is called
+     */
+    private void autoLogin() {
+        try {
+            String[] loginArr = CSVHandling.readCSVStringArr(_loginFileName);
+            System.out.println(Arrays.toString(loginArr));
+            if (!loginArr[0].equals("")) {
+                check_saveUser.setSelected(true);
+            }
+            textfield_Kontoname.setText(loginArr[0]);
+            password_Pass.setText(loginArr[1]);
+            if (loginArr[2].matches("1")) {
+                check_autoLogin.setSelected(true);
+                if (checkLogIn(loginArr[0], loginArr[1].toCharArray())) {
+                    logIn(loginArr[0]);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
