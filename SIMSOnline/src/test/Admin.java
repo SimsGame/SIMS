@@ -4,6 +4,7 @@
  */
 package test;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -19,9 +20,18 @@ public class Admin {
     LinkedList<User> users = new LinkedList();
     JButton[] userButtons;
     JPanel adminpanel;
+    JPanel userpanel;
+    JTextField[] userdata;
+    JCheckBox spicker;
+    JSlider months;
+    User currentuser;
 
-    public Admin(JPanel adminpanel) {
+    public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JCheckBox spicker, JSlider months) {
         this.adminpanel = adminpanel;
+        this.userpanel = userpanel;
+        this.months = months;
+        this.userdata = userdata;
+        this.spicker = spicker;
         String[][] userList = null;
         try {
             userList = CSVHandling.readCSVStringArr2(Sims_1._usersFileName);
@@ -51,10 +61,78 @@ public class Admin {
 
     }
 
-    public void getUser(int index) {
-        System.out.println(users.get(index));
+    private void getUser(int index) {
+        
+        currentuser = users.get(index);
+        userdata[0].setText(currentuser.getAccountname());
+        userdata[1].setText(currentuser.getPassword());
+        userdata[2].setText(currentuser.getEmail());
+        userdata[3].setText(currentuser.getFirst_name());
+        userdata[4].setText(currentuser.getLast_name());
+        userdata[5].setText(Integer.toString(currentuser.getUcoins()));
+        userdata[6].setText("aus Spielstand");
+        userdata[7].setText("aus Spielstand");
+        userdata[8].setText("aus Spielstand");
+        userdata[9].setText("aus Spielstand");
+        spicker.setSelected(false);     //aus Spielstand
+        months.setValue(4);             //aus Spielstand
+                
+        adminpanel.setVisible(false);
+        userpanel.setVisible(true);        
+    }
+    
+    public boolean checkChanges(){
+        
+        if(!Sims_1.checkAlphaNumm(userdata[0].getText().toCharArray()) | userdata[0].getText().length() < 5 | userdata[0].getText().length() > 15){
+            userdata[0].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[0].setBackground(Color.white);
+        }
+        if(!Sims_1.checkAlphaNumm(userdata[1].getText().toCharArray()) | userdata[1].getText().length() < 5 | userdata[1].getText().length() > 15){
+            userdata[1].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[1].setBackground(Color.white);
+        }
+        if(!Sims_1.checkEmail(userdata[2].getText())){
+            userdata[2].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[2].setBackground(Color.white);
+        }
+        if(!Sims_1.checkName(userdata[3].getText())){
+            userdata[3].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[3].setBackground(Color.white);
+        }
+        if(!Sims_1.checkName(userdata[4].getText())){
+            userdata[4].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[4].setBackground(Color.white);
+        }
+        if(new Integer(userdata[5].getText()) < 0){
+            userdata[5].setBackground(Color.red);
+            return false;
+        } else {
+            userdata[5].setBackground(Color.white);
+        }
+        return true;
     }
 
+    public void saveChages(){
+        currentuser.setAccountname(userdata[0].getText());
+        currentuser.setPassword(userdata[1].getText());
+        currentuser.setEmail(userdata[2].getText());
+        currentuser.setFirst_name(userdata[3].getText());
+        currentuser.setLast_name(userdata[4].getText());
+        currentuser.setUcoins(new Integer(userdata[5].getText()));
+        
+        User.createUser(currentuser);
+    }
+    
     private class AdminActionListener implements ActionListener {
 
         int index;

@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
+import javax.swing.JTextField;
 
 /**
  *
@@ -72,6 +73,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
         label_lErr.setText("");
+        panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
         autoLogin();
     }
@@ -367,6 +369,36 @@ public class Sims_1 extends javax.swing.JFrame {
         buton_enterAdmin = new javax.swing.JButton();
         panel_Admin = new javax.swing.JPanel();
         button_aCancel = new javax.swing.JButton();
+        panel_adminUser = new javax.swing.JPanel();
+        button_aSave = new javax.swing.JButton();
+        label_aAccname = new javax.swing.JLabel();
+        label_aPass = new javax.swing.JLabel();
+        textfield_aKontoname = new javax.swing.JTextField();
+        textfield_aEmail = new javax.swing.JTextField();
+        label_aEmail = new javax.swing.JLabel();
+        button_auCancel1 = new javax.swing.JButton();
+        label_aFirstName = new javax.swing.JLabel();
+        textfield_aSurename = new javax.swing.JTextField();
+        label_aLastName = new javax.swing.JLabel();
+        textfield_aName = new javax.swing.JTextField();
+        lable_aProfil = new javax.swing.JLabel();
+        textfield_aUCoins = new javax.swing.JTextField();
+        label_aUCions = new javax.swing.JLabel();
+        textfield_aCredits = new javax.swing.JTextField();
+        label_aCredits = new javax.swing.JLabel();
+        textfield_aDuplo = new javax.swing.JTextField();
+        label_aDuplo = new javax.swing.JLabel();
+        textfield_aRedBull = new javax.swing.JTextField();
+        textfield_aOMNI = new javax.swing.JTextField();
+        label_aRedBull = new javax.swing.JLabel();
+        label_aOMNI = new javax.swing.JLabel();
+        check_aSpicker = new javax.swing.JCheckBox();
+        label_aSpicker = new javax.swing.JLabel();
+        slider_aMonth = new javax.swing.JSlider();
+        label_aMonth = new javax.swing.JLabel();
+        label_aGame = new javax.swing.JLabel();
+        textfield_aPass = new javax.swing.JTextField();
+        label_aMonthVal = new javax.swing.JLabel();
 
         buyCoins.getContentPane().setLayout(null);
 
@@ -415,7 +447,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 29);
+        button_swapperExchange.setBounds(50, 220, 130, 23);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +456,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 29);
+        button_swapperAbord.setBounds(210, 220, 130, 23);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -433,11 +465,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 8, 17);
+        label_swapperArrow1.setBounds(190, 130, 8, 14);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 17);
+        label_swapperArrow3.setBounds(190, 140, 40, 14);
 
         dialog_error.getContentPane().setLayout(null);
 
@@ -463,7 +495,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 34, 29);
+        button_shopMessageOk.setBounds(170, 210, 47, 23);
 
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -811,7 +843,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel4.setText("umsetzen");
         jPan_StudSwitch.add(jLabel4);
-        jLabel4.setBounds(40, 40, 70, 17);
+        jLabel4.setBounds(40, 40, 70, 14);
 
         jLabel90.setText("Studenten");
         jPan_StudSwitch.add(jLabel90);
@@ -820,7 +852,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 22);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
         jBut_SwitchStud.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -889,7 +921,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_ComboB_useItem.setText("Benutzen");
         jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 29);
+        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -904,15 +936,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 17);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 17);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 17);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1291,19 +1323,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 17);
+        jLabel58.setBounds(10, 450, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 17);
+        jLabel59.setBounds(80, 450, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 17);
+        jLabel60.setBounds(10, 470, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 17);
+        jLabel61.setBounds(80, 470, 60, 14);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item4);
@@ -1320,27 +1352,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         jPanel19.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 51, 17);
+        label_item1Name.setBounds(60, 80, 34, 14);
 
         label_item1Amount.setText("jLabel4");
         jPanel19.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 51, 17);
+        label_item1Amount.setBounds(60, 100, 34, 14);
 
         label_item2Name.setText("jLabel4");
         jPanel19.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 51, 17);
+        label_item2Name.setBounds(60, 190, 34, 14);
 
         label_item2Amount.setText("jLabel4");
         jPanel19.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 51, 17);
+        label_item2Amount.setBounds(60, 210, 34, 14);
 
         label_item3Name.setText("jLabel4");
         jPanel19.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 51, 17);
+        label_item3Name.setBounds(60, 380, 34, 14);
 
         label_item3Amount.setText("jLabel26");
         jPanel19.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 60, 17);
+        label_item3Amount.setBounds(60, 400, 40, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1348,11 +1380,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         jPanel19.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 51, 17);
+        label_item4Name.setBounds(60, 280, 34, 14);
 
         label_item4Amount.setText("jLabel26");
         jPanel19.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 60, 17);
+        label_item4Amount.setBounds(60, 300, 40, 14);
 
         shop.add(jPanel19);
         jPanel19.setBounds(0, 110, 150, 550);
@@ -1650,23 +1682,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 450, 80, 17);
+        jLabel18.setBounds(10, 450, 80, 14);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 450, 50, 17);
+        jLabel19.setBounds(80, 450, 50, 14);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 470, 80, 17);
+        jLabel20.setBounds(10, 470, 80, 14);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 470, 60, 17);
+        jLabel21.setBounds(80, 470, 60, 14);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 17);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1679,7 +1711,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 17);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -1687,7 +1719,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 17);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1718,11 +1750,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 17);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 17);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -1760,7 +1792,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 29);
+        jButton1.setBounds(350, 10, 120, 23);
 
         jButton4.setText("Gruppenarbeit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -1769,11 +1801,11 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 29);
+        jButton4.setBounds(350, 40, 120, 23);
 
         jButton5.setText("Pause");
         jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 29);
+        jButton5.setBounds(350, 80, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2268,7 +2300,7 @@ public class Sims_1 extends javax.swing.JFrame {
                     .addComponent(label_rErrEmail2)
                     .addComponent(label_rErrFirstName)
                     .addComponent(label_rErrLastName))
-                .addGap(0, 166, Short.MAX_VALUE))
+                .addGap(0, 253, Short.MAX_VALUE))
         );
         panel_RegisterLayout.setVerticalGroup(
             panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2312,7 +2344,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_rRegister)
                     .addComponent(button_cancel))
-                .addContainerGap(512, Short.MAX_VALUE))
+                .addContainerGap(567, Short.MAX_VALUE))
         );
 
         label_rKontoname.getAccessibleContext().setAccessibleName("label_rKontoname");
@@ -2399,7 +2431,7 @@ public class Sims_1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_LoginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panel_Register, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_lErr)
                     .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2494,6 +2526,225 @@ public class Sims_1 extends javax.swing.JFrame {
         );
 
         jPanel1.add(panel_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        panel_adminUser.setMaximumSize(new java.awt.Dimension(1000, 700));
+        panel_adminUser.setMinimumSize(new java.awt.Dimension(1000, 700));
+
+        button_aSave.setText("Übernehmen");
+        button_aSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_aSaveActionPerformed(evt);
+            }
+        });
+
+        label_aAccname.setText("Kontoname:");
+
+        label_aPass.setText("Passwort:");
+
+        textfield_aKontoname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_aKontonameActionPerformed(evt);
+            }
+        });
+        textfield_aKontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_aKontonameFocusGained(evt);
+            }
+        });
+
+        textfield_aEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_aEmailActionPerformed(evt);
+            }
+        });
+        textfield_aEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_aEmailFocusGained(evt);
+            }
+        });
+
+        label_aEmail.setText("Email:");
+
+        button_auCancel1.setText("Abbrechen");
+        button_auCancel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_auCancel1ActionPerformed(evt);
+            }
+        });
+
+        label_aFirstName.setText("Vorname:");
+
+        textfield_aSurename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_aSurenameFocusGained(evt);
+            }
+        });
+
+        label_aLastName.setText("Nachname:");
+
+        textfield_aName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_aNameFocusGained(evt);
+            }
+        });
+
+        lable_aProfil.setText("Profil:");
+
+        label_aUCions.setText("UCoins:");
+
+        label_aCredits.setText("Credits:");
+
+        label_aDuplo.setText("Duplo:");
+
+        label_aRedBull.setText("RedBull:");
+
+        label_aOMNI.setText("OMNI-Sense:");
+
+        label_aSpicker.setText("Spicker:");
+
+        slider_aMonth.setMaximum(18);
+        slider_aMonth.setMinimum(1);
+        slider_aMonth.setSnapToTicks(true);
+        slider_aMonth.setValue(9);
+        slider_aMonth.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slider_aMonthStateChanged(evt);
+            }
+        });
+
+        label_aMonth.setText("Monat");
+
+        label_aGame.setText("Spielstand:");
+
+        label_aMonthVal.setText("2");
+
+        javax.swing.GroupLayout panel_adminUserLayout = new javax.swing.GroupLayout(panel_adminUser);
+        panel_adminUser.setLayout(panel_adminUserLayout);
+        panel_adminUserLayout.setHorizontalGroup(
+            panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                    .addGap(69, 69, 69)
+                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label_aAccname)
+                                        .addComponent(label_aPass)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_adminUserLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(label_aEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label_aFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label_aLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(label_aUCions, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lable_aProfil)
+                            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textfield_aUCoins)
+                                    .addComponent(textfield_aKontoname)
+                                    .addComponent(textfield_aEmail)
+                                    .addComponent(textfield_aName)
+                                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(textfield_aPass))
+                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                                .addGap(138, 138, 138)
+                                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                                            .addGap(33, 33, 33)
+                                                            .addComponent(label_aDuplo))
+                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                                            .addGap(25, 25, 25)
+                                                            .addComponent(label_aRedBull))
+                                                        .addComponent(label_aOMNI))
+                                                    .addComponent(label_aCredits)))
+                                            .addComponent(label_aSpicker, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(check_aSpicker)
+                                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(textfield_aCredits)
+                                                .addComponent(textfield_aDuplo)
+                                                .addComponent(textfield_aRedBull)
+                                                .addComponent(textfield_aOMNI, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                                            .addComponent(label_aGame)))
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGap(157, 157, 157)
+                                        .addComponent(label_aMonth)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(29, 29, 29))))
+                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(button_aSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_auCancel1)))
+                .addContainerGap(318, Short.MAX_VALUE))
+        );
+        panel_adminUserLayout.setVerticalGroup(
+            panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lable_aProfil)
+                    .addComponent(label_aGame))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_aKontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aAccname)
+                    .addComponent(textfield_aCredits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aCredits))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_aPass)
+                    .addComponent(textfield_aDuplo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aDuplo)
+                    .addComponent(textfield_aPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_aRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aRedBull)
+                    .addComponent(textfield_aEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aEmail))
+                .addGap(6, 6, 6)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfield_aOMNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aOMNI)
+                    .addComponent(textfield_aName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aFirstName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(check_aSpicker)
+                    .addComponent(label_aSpicker)
+                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aLastName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_aMonthVal)
+                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_aMonth)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textfield_aUCoins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label_aUCions))
+                            .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(button_auCancel1)
+                            .addComponent(button_aSave))))
+                .addContainerGap(394, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(panel_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1);
 
@@ -3362,6 +3613,47 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_item3InvMouseClicked
 
+    private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
+        if(_mainadmin.checkChanges()){
+            _mainadmin.saveChages();
+            panel_adminUser.setVisible(false);
+            panel_Admin.setVisible(true);
+        }
+    }//GEN-LAST:event_button_aSaveActionPerformed
+
+    private void textfield_aKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aKontonameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aKontonameActionPerformed
+
+    private void textfield_aKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aKontonameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aKontonameFocusGained
+
+    private void textfield_aEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aEmailActionPerformed
+
+    private void textfield_aEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aEmailFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aEmailFocusGained
+
+    private void button_auCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_auCancel1ActionPerformed
+        panel_Admin.setVisible(true);
+        panel_adminUser.setVisible(false);
+    }//GEN-LAST:event_button_auCancel1ActionPerformed
+
+    private void textfield_aSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aSurenameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aSurenameFocusGained
+
+    private void textfield_aNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aNameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_aNameFocusGained
+
+    private void slider_aMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slider_aMonthStateChanged
+        label_aMonthVal.setText(Integer.toString(slider_aMonth.getValue()));
+    }//GEN-LAST:event_slider_aMonthStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -3419,6 +3711,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_Login;
     private javax.swing.JToggleButton button_Register;
     private javax.swing.JButton button_aCancel;
+    private javax.swing.JButton button_aSave;
+    private javax.swing.JButton button_auCancel1;
     private javax.swing.JButton button_cancel;
     private javax.swing.JButton button_lDevAcessMenue;
     private javax.swing.JButton button_rRegister;
@@ -3457,6 +3751,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_swapperExchange;
     private javax.swing.JDialog buyCoins;
     private javax.swing.JDialog cheatUsedDialog;
+    private javax.swing.JCheckBox check_aSpicker;
     private javax.swing.JCheckBox check_autoLogin;
     private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
@@ -3589,6 +3884,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JLabel label_aAccname;
+    private javax.swing.JLabel label_aCredits;
+    private javax.swing.JLabel label_aDuplo;
+    private javax.swing.JLabel label_aEmail;
+    private javax.swing.JLabel label_aFirstName;
+    private javax.swing.JLabel label_aGame;
+    private javax.swing.JLabel label_aLastName;
+    private javax.swing.JLabel label_aMonth;
+    private javax.swing.JLabel label_aMonthVal;
+    private javax.swing.JLabel label_aOMNI;
+    private javax.swing.JLabel label_aPass;
+    private javax.swing.JLabel label_aRedBull;
+    private javax.swing.JLabel label_aSpicker;
+    private javax.swing.JLabel label_aUCions;
     private javax.swing.JLabel label_cheatSheetAmount;
     private javax.swing.JLabel label_cheatSheetImage;
     private javax.swing.JLabel label_cheatSheetLocked;
@@ -3660,12 +3969,14 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_swapperUcoinsAmount;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
+    private javax.swing.JLabel lable_aProfil;
     private javax.swing.JDialog lectorChangedDialog;
     private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JButton loadGame;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Register;
+    private javax.swing.JPanel panel_adminUser;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
     private javax.swing.JPanel panel_omniSense;
@@ -3675,9 +3986,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
     private javax.swing.JPanel shop;
+    private javax.swing.JSlider slider_aMonth;
     private javax.swing.JButton startNewGame;
     private javax.swing.JPanel startPlanningGame;
     private javax.swing.JTextField textfield_Kontoname;
+    private javax.swing.JTextField textfield_aCredits;
+    private javax.swing.JTextField textfield_aDuplo;
+    private javax.swing.JTextField textfield_aEmail;
+    private javax.swing.JTextField textfield_aKontoname;
+    private javax.swing.JTextField textfield_aName;
+    private javax.swing.JTextField textfield_aOMNI;
+    private javax.swing.JTextField textfield_aPass;
+    private javax.swing.JTextField textfield_aRedBull;
+    private javax.swing.JTextField textfield_aSurename;
+    private javax.swing.JTextField textfield_aUCoins;
     private javax.swing.JTextField textfield_rEmail1;
     private javax.swing.JTextField textfield_rEmail2;
     private javax.swing.JTextField textfield_rKontoname;
@@ -3727,7 +4049,7 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str character-array to get checked
      * @return true if there are only letters and/or numbers, false otherwise
      */
-    private boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
+    public static boolean checkAlphaNumm(char[] str) {     //checks if a string contains only of numbers and letters
         int i;
         for (i = 0; i < str.length; i++) {
             if (!(Character.isDigit(str[i]) | Character.isLetter(str[i]))) {
@@ -3743,7 +4065,7 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str String with the email-address to check
      * @return true if the email-address is correct, false otherwise
      */
-    private boolean checkEmail(String str) {
+    public static boolean checkEmail(String str) {
         int i;
         boolean atChar = false;
         if (!str.contains(".")) {
@@ -3772,7 +4094,7 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str String containing the name to check
      * @return true if it is a valid name, false otherwise
      */
-    private boolean checkName(String str) {
+    public static boolean checkName(String str) {
         if (str.equals("")) {
             return false;
         }
@@ -4031,7 +4353,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private void adminLogin() {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
-        _mainadmin = new Admin(panel_Admin);
+        panel_adminUser.setVisible(false);
+        JTextField[] textFieldHelp =  {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth);
+    }
+    
+    private void saveUserChanges(){
+        
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************

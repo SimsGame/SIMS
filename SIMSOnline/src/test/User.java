@@ -19,7 +19,35 @@ public class User {
     private String first_name = "";
     private String last_name = "";
     private Date reg_date = new Date();
+    private Date last_login = new Date();
+    private int ucoins = 0;
 
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_login(Date last_login) {
+        this.last_login = last_login;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
+    
     public String getAccountname() {
         return accountname;
     }
@@ -51,8 +79,6 @@ public class User {
     public int getTime_played() {
         return time_played;
     }
-    private Date last_login = new Date();
-    private int ucoins = 0;
 
     public void setUcoins(int ucoins) {
         this.ucoins = ucoins;
@@ -62,18 +88,19 @@ public class User {
         return ucoins;
     }
     private int time_played = 0;
-    
-    @Override public String toString(){
-        String output = "accountname = " + accountname + "\n" +
-                "password = " + password + "\n" +
-                "email = " + email + "\n" +
-                "first_name = " + first_name + "\n" +
-                "last_name = " + last_name + "\n" +
-                "reg_date = " + reg_date + "\n" +
-                "last_login = " + last_login + "\n" +
-                "ucoins = " + ucoins + "\n" +
-                "time_plyed = " + time_played;
-               
+
+    @Override
+    public String toString() {
+        String output = "accountname = " + accountname + "\n"
+                + "password = " + password + "\n"
+                + "email = " + email + "\n"
+                + "first_name = " + first_name + "\n"
+                + "last_name = " + last_name + "\n"
+                + "reg_date = " + reg_date + "\n"
+                + "last_login = " + last_login + "\n"
+                + "ucoins = " + ucoins + "\n"
+                + "time_plyed = " + time_played;
+
         return output;
     }
 
@@ -119,12 +146,21 @@ public class User {
      * @param last_name string
      * @return true if the user could be created, false otherwise
      */
-    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
-        
+    
+    public static boolean createUser(User user){
+        return createUser(user.getAccountname(), user.getPassword().toCharArray(), user.getEmail(), user.getFirst_name(), user.getLast_name(), user.getReg_date(), user.getLast_login(), user.getTime_played(), user.getUcoins());
+    }
+    
+    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name){
+        return createUser(accountname, password, email, first_name, last_name, new Date(), new Date(), 0, 0);
+    }
+    
+    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name, Date registerDate, Date lastLogin, int timePlayed, int UCoins) {
+
         //set up an array with the user-data to write:
         String str[] = new String[9];
         str[0] = accountname;
-        str[1] = new String(password);      
+        str[1] = new String(password);
         /*
          * swing.password-fields return a 1-dim char-array, it's easier to work
          * with a string here
@@ -133,10 +169,10 @@ public class User {
         str[3] = first_name;
         str[4] = last_name;
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-y");      //set format for the date (eg. 24.10.2012)
-        str[5] = format.format(new java.util.Date());       //get the current date with the set format
-        str[6] = "";    //last login: never happened yet
-        str[7] = "0";   //time played
-        str[8] = "0";   //UCoins
+        str[5] = format.format(registerDate);       //get the current date with the set format
+        str[6] = format.format(lastLogin);    //last login
+        str[7] = Integer.toString(timePlayed);   //time played
+        str[8] = Integer.toString(UCoins);   //UCoins
 
         //ready to create the user-files
         java.util.LinkedList users = new java.util.LinkedList<>();      //needed for updating the userlist-file
