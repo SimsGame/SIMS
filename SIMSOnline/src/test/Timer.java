@@ -13,7 +13,7 @@ public class Timer extends Thread {
 
     public static int timer; // changed to public by nadir to use in updatebars
     private javax.swing.JLabel label_timer;
-    public Game game;
+    public Game1 game;
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
@@ -21,7 +21,7 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
 
-   public Timer(javax.swing.JLabel jLabel_timer, Game game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar) {
+   public Timer(javax.swing.JLabel jLabel_timer, Game1 game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game=game;
@@ -33,9 +33,9 @@ public class Timer extends Thread {
    
    private void updateAvrg(){
        for(int i=0;i<30;i++){
-           averageKnowledge+=Game.studentArray[i].getKnowledge();
-           averageMotivation+=Game.studentArray[i].getMotivation();
-           averageTiredness+=Game.studentArray[i].getTiredness();
+           averageKnowledge+=game.studentArray[i].getKnowledge();
+           averageMotivation+=game.studentArray[i].getMotivation();
+           averageTiredness+=game.studentArray[i].getTiredness();
        }
        averageKnowledge/=30;
        averageMotivation/=30;
