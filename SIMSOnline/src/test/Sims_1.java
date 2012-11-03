@@ -362,6 +362,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_rErrEmail2 = new javax.swing.JLabel();
         label_rErrFirstName = new javax.swing.JLabel();
         label_rErrLastName = new javax.swing.JLabel();
+        background_register = new javax.swing.JLabel();
         textfield_Kontoname = new javax.swing.JTextField();
         button_Login = new javax.swing.JButton();
         button_Register = new javax.swing.JToggleButton();
@@ -373,6 +374,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_lErr = new javax.swing.JLabel();
         button_lDevAcessMenue = new javax.swing.JButton();
         buton_enterAdmin = new javax.swing.JButton();
+        login_background = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         button_aCancel = new javax.swing.JButton();
         panel_adminUser = new javax.swing.JPanel();
@@ -675,7 +677,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
-        setMaximumSize(new java.awt.Dimension(1000, 700));
         setMinimumSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -2168,10 +2169,12 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.setMaximumSize(new java.awt.Dimension(1000, 700));
         panel_Login.setMinimumSize(new java.awt.Dimension(1000, 700));
         panel_Login.setPreferredSize(new java.awt.Dimension(1000, 700));
+        panel_Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_Register.setMaximumSize(new java.awt.Dimension(500, 700));
         panel_Register.setMinimumSize(new java.awt.Dimension(500, 700));
         panel_Register.setPreferredSize(new java.awt.Dimension(500, 700));
+        panel_Register.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textfield_rKontoname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2183,6 +2186,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_rKontonameFocusGained(evt);
             }
         });
+        panel_Register.add(textfield_rKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 149, -1));
 
         textfield_rEmail1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2194,36 +2198,47 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_rEmail1FocusGained(evt);
             }
         });
+        panel_Register.add(textfield_rEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 149, -1));
 
         textfield_rEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textfield_rEmail2FocusGained(evt);
             }
         });
+        panel_Register.add(textfield_rEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 149, -1));
 
+        textfield_rName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_rNameActionPerformed(evt);
+            }
+        });
         textfield_rName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textfield_rNameFocusGained(evt);
             }
         });
+        panel_Register.add(textfield_rName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 149, -1));
 
         textfield_rSurename.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textfield_rSurenameFocusGained(evt);
             }
         });
+        panel_Register.add(textfield_rSurename, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 149, -1));
 
         password_rPass1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_rPass1FocusGained(evt);
             }
         });
+        panel_Register.add(password_rPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 149, -1));
 
         password_rPass2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_rPass2FocusGained(evt);
             }
         });
+        panel_Register.add(password_rPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 149, -1));
 
         button_rRegister.setText("Registrieren");
         button_rRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -2231,20 +2246,43 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_rRegisterActionPerformed(evt);
             }
         });
+        panel_Register.add(button_rRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
 
+        label_rKontoname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rKontoname.setText("Kontoname:");
+        panel_Register.add(label_rKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
+        label_rKontoname.getAccessibleContext().setAccessibleName("label_rKontoname");
 
+        label_rPass1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rPass1.setText("Passwort:");
+        panel_Register.add(label_rPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        label_rPass1.getAccessibleContext().setAccessibleName("label_rPass1");
 
+        label_rPass2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rPass2.setText("Passwort wiederholen:");
+        panel_Register.add(label_rPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        label_rPass2.getAccessibleContext().setAccessibleName("label_rPass2");
 
+        label_rEmail1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_rEmail1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label_rEmail1.setText("Email:");
+        panel_Register.add(label_rEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        label_rEmail1.getAccessibleContext().setAccessibleName("label_rEmail1");
 
+        label_rEmail2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rEmail2.setText("Email wiederholen:");
+        panel_Register.add(label_rEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        label_rEmail2.getAccessibleContext().setAccessibleName("label_rEmail2");
 
+        label_rFirstName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rFirstName.setText("Vorname:");
+        panel_Register.add(label_rFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        label_rFirstName.getAccessibleContext().setAccessibleName("label_rFirstName");
 
+        label_rSecondName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_rSecondName.setText("Nachname:");
+        panel_Register.add(label_rSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        label_rSecondName.getAccessibleContext().setAccessibleName("label_rSecondName");
 
         button_cancel.setText("Abbrechen");
         button_cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -2252,124 +2290,52 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_cancelActionPerformed(evt);
             }
         });
+        panel_Register.add(button_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
+        button_cancel.getAccessibleContext().setAccessibleName("button_rCancel");
 
+        label_rErrAccname.setForeground(new java.awt.Color(204, 0, 0));
         label_rErrAccname.setText("Fehler?");
         label_rErrAccname.setName("label_rErrAccname"); // NOI18N
+        panel_Register.add(label_rErrAccname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
+        label_rErrAccname.getAccessibleContext().setAccessibleName("label_rErrAccname");
 
+        label_rErrPass1.setForeground(new java.awt.Color(204, 0, 0));
         label_rErrPass1.setText("Fehler?");
         label_rErrPass1.setName("label_rErrPass1"); // NOI18N
-
-        label_rErrPass2.setText("Fehler?");
-
-        label_rErrEmail1.setText("Fehler?");
-
-        label_rErrEmail2.setText("Fehler?");
-
-        label_rErrFirstName.setText("Fehler?");
-
-        label_rErrLastName.setText("Fehler?");
-
-        javax.swing.GroupLayout panel_RegisterLayout = new javax.swing.GroupLayout(panel_Register);
-        panel_Register.setLayout(panel_RegisterLayout);
-        panel_RegisterLayout.setHorizontalGroup(
-            panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_RegisterLayout.createSequentialGroup()
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_RegisterLayout.createSequentialGroup()
-                        .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_rKontoname, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rPass1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rPass2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rEmail1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rEmail2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label_rSecondName, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textfield_rKontoname)
-                            .addComponent(password_rPass1)
-                            .addComponent(password_rPass2)
-                            .addComponent(textfield_rEmail1)
-                            .addComponent(textfield_rEmail2)
-                            .addComponent(textfield_rName)
-                            .addComponent(textfield_rSurename, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_RegisterLayout.createSequentialGroup()
-                        .addComponent(button_rRegister)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(button_cancel)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_rErrAccname)
-                    .addComponent(label_rErrPass1)
-                    .addComponent(label_rErrPass2)
-                    .addComponent(label_rErrEmail1)
-                    .addComponent(label_rErrEmail2)
-                    .addComponent(label_rErrFirstName)
-                    .addComponent(label_rErrLastName))
-                .addGap(0, 253, Short.MAX_VALUE))
-        );
-        panel_RegisterLayout.setVerticalGroup(
-            panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_RegisterLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_rKontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rKontoname)
-                    .addComponent(label_rErrAccname))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password_rPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rPass1)
-                    .addComponent(label_rErrPass1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password_rPass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rPass2)
-                    .addComponent(label_rErrPass2))
-                .addGap(6, 6, 6)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_rEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rEmail1)
-                    .addComponent(label_rErrEmail1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_rEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rEmail2)
-                    .addComponent(label_rErrEmail2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_rName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rFirstName)
-                    .addComponent(label_rErrFirstName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_rSurename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_rSecondName)
-                    .addComponent(label_rErrLastName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_rRegister)
-                    .addComponent(button_cancel))
-                .addContainerGap(567, Short.MAX_VALUE))
-        );
-
-        label_rKontoname.getAccessibleContext().setAccessibleName("label_rKontoname");
-        label_rPass1.getAccessibleContext().setAccessibleName("label_rPass1");
-        label_rPass2.getAccessibleContext().setAccessibleName("label_rPass2");
-        label_rEmail1.getAccessibleContext().setAccessibleName("label_rEmail1");
-        label_rEmail2.getAccessibleContext().setAccessibleName("label_rEmail2");
-        label_rFirstName.getAccessibleContext().setAccessibleName("label_rFirstName");
-        label_rSecondName.getAccessibleContext().setAccessibleName("label_rSecondName");
-        button_cancel.getAccessibleContext().setAccessibleName("button_rCancel");
-        label_rErrAccname.getAccessibleContext().setAccessibleName("label_rErrAccname");
+        panel_Register.add(label_rErrPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
         label_rErrPass1.getAccessibleContext().setAccessibleName("label_rErrPass1");
+
+        label_rErrPass2.setForeground(new java.awt.Color(204, 0, 0));
+        label_rErrPass2.setText("Fehler?");
+        panel_Register.add(label_rErrPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
         label_rErrPass2.getAccessibleContext().setAccessibleName("label_rErrPass2");
+
+        label_rErrEmail1.setForeground(new java.awt.Color(204, 0, 0));
+        label_rErrEmail1.setText("Fehler?");
+        panel_Register.add(label_rErrEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
         label_rErrEmail1.getAccessibleContext().setAccessibleName("label_rErrEmail1");
+
+        label_rErrEmail2.setForeground(new java.awt.Color(204, 0, 0));
+        label_rErrEmail2.setText("Fehler?");
+        panel_Register.add(label_rErrEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
         label_rErrEmail2.getAccessibleContext().setAccessibleName("label_rErrEmail2");
+
+        label_rErrFirstName.setForeground(new java.awt.Color(204, 0, 0));
+        label_rErrFirstName.setText("Fehler?");
+        panel_Register.add(label_rErrFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
         label_rErrFirstName.getAccessibleContext().setAccessibleName("label_rErrFirstName");
+
+        label_rErrLastName.setForeground(new java.awt.Color(204, 0, 0));
+        label_rErrLastName.setText("Fehler?");
+        panel_Register.add(label_rErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
         label_rErrLastName.getAccessibleContext().setAccessibleName("label_rErrSecondName");
         label_rErrLastName.getAccessibleContext().setAccessibleDescription("");
+
+        background_register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/loginscreen2_00000.png"))); // NOI18N
+        background_register.setText("jLabel17");
+        panel_Register.add(background_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        panel_Login.add(panel_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 870));
 
         textfield_Kontoname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2381,6 +2347,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_KontonameFocusGained(evt);
             }
         });
+        panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 70, 145, -1));
 
         button_Login.setText("Login");
         button_Login.addActionListener(new java.awt.event.ActionListener() {
@@ -2388,6 +2355,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_LoginActionPerformed(evt);
             }
         });
+        panel_Login.add(button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 147, -1, 46));
 
         button_Register.setText("Registrieren");
         button_Register.addActionListener(new java.awt.event.ActionListener() {
@@ -2395,16 +2363,22 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_RegisterActionPerformed(evt);
             }
         });
+        panel_Login.add(button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 211, -1, -1));
 
         password_Pass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_PassFocusGained(evt);
             }
         });
+        panel_Login.add(password_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 96, 145, -1));
 
         jLabel12.setText("Kontoname:");
+        panel_Login.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 73, -1, -1));
+        jLabel12.getAccessibleContext().setAccessibleName("label_lUsername");
 
         jLabel15.setText("Passwort:");
+        panel_Login.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 99, -1, -1));
+        jLabel15.getAccessibleContext().setAccessibleName("label_lPassword");
 
         check_saveUser.setText("Kontoname und Passwort speichern");
         check_saveUser.addActionListener(new java.awt.event.ActionListener() {
@@ -2412,10 +2386,16 @@ public class Sims_1 extends javax.swing.JFrame {
                 check_saveUserActionPerformed(evt);
             }
         });
+        panel_Login.add(check_saveUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 147, -1, -1));
+        check_saveUser.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
 
         check_autoLogin.setText("Automatisch einloggen");
+        panel_Login.add(check_autoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 170, -1, -1));
+        check_autoLogin.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
 
+        label_lErr.setForeground(new java.awt.Color(204, 0, 0));
         label_lErr.setText("Fehler?");
+        panel_Login.add(label_lErr, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 122, -1, -1));
 
         button_lDevAcessMenue.setText("Devs, click here to go to main menu!!!");
         button_lDevAcessMenue.addActionListener(new java.awt.event.ActionListener() {
@@ -2423,6 +2403,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_lDevAcessMenueActionPerformed(evt);
             }
         });
+        panel_Login.add(button_lDevAcessMenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 245, -1, 171));
 
         buton_enterAdmin.setText("enter Admin-Data");
         buton_enterAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -2430,75 +2411,11 @@ public class Sims_1 extends javax.swing.JFrame {
                 buton_enterAdminActionPerformed(evt);
             }
         });
+        panel_Login.add(buton_enterAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 36, -1, -1));
 
-        javax.swing.GroupLayout panel_LoginLayout = new javax.swing.GroupLayout(panel_Login);
-        panel_Login.setLayout(panel_LoginLayout);
-        panel_LoginLayout.setHorizontalGroup(
-            panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_LoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel_Register, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_lErr)
-                    .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(button_lDevAcessMenue)
-                        .addGroup(panel_LoginLayout.createSequentialGroup()
-                            .addComponent(button_Login)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(check_saveUser)
-                                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(button_Register)
-                                    .addComponent(check_autoLogin)))))
-                    .addGroup(panel_LoginLayout.createSequentialGroup()
-                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buton_enterAdmin)
-                            .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(password_Pass)
-                                .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(117, 117, 117))
-        );
-        panel_LoginLayout.setVerticalGroup(
-            panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_LoginLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(buton_enterAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfield_Kontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password_Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_lErr)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel_LoginLayout.createSequentialGroup()
-                        .addComponent(check_saveUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(check_autoLogin))
-                    .addComponent(button_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(button_Register)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(button_lDevAcessMenue, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_LoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panel_Register, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jLabel12.getAccessibleContext().setAccessibleName("label_lUsername");
-        jLabel15.getAccessibleContext().setAccessibleName("label_lPassword");
-        check_saveUser.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
-        check_autoLogin.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
+        login_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/loginscreen2_00000.png"))); // NOI18N
+        login_background.setText("jLabel16");
+        panel_Login.add(login_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
 
@@ -3660,6 +3577,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aMonthVal.setText(Integer.toString(slider_aMonth.getValue()));
     }//GEN-LAST:event_slider_aMonthStateChanged
 
+    private void textfield_rNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_rNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3713,6 +3634,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel StudField;
     private javax.swing.JPanel StudField1;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JLabel background_register;
     private javax.swing.JButton buton_enterAdmin;
     private javax.swing.JButton button_Login;
     private javax.swing.JToggleButton button_Register;
@@ -3979,6 +3901,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JDialog lectorChangedDialog;
     private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JButton loadGame;
+    private javax.swing.JLabel login_background;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Register;
