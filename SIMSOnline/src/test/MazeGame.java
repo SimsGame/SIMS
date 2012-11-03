@@ -1,25 +1,37 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This game is the second minigame. The goal is to reach the center of the maze as fast as possible. 
  */
 package test;
 
 import java.awt.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class MazeGame extends javax.swing.JFrame {
 
     /**
-     * Creates new form MazeGame
+     * Creates new form MazeGame and sets the car to one of the four starting positions.
      */
+    static long startTime = 0;
+    static long endTime = 0;
+    
     public MazeGame() {
         initComponents();
         setSize(1000, 700);
+        int spawn = new RandGenerator().getRand(4);
+        switch(spawn){
+            case 0:{label_auto.setLocation(label_spawn1.getX()+30, label_spawn1.getY()+20);break;} 
+            case 1:{label_auto.setLocation(label_spawn2.getX()+30, label_spawn2.getY()+20);break;}
+            case 2:{label_auto.setLocation(label_spawn3.getX()+30, label_spawn3.getY()+20);break;}
+            case 3:{label_auto.setLocation(label_spawn4.getX()+30, label_spawn4.getY()+20);break;}
+        }
+        startTime = System.currentTimeMillis();
     }
 
     /**
@@ -232,7 +244,7 @@ public class MazeGame extends javax.swing.JFrame {
         label_wall197 = new javax.swing.JLabel();
         label_wall198 = new javax.swing.JLabel();
         label_wall199 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        label_goal = new javax.swing.JLabel();
         label_wall200 = new javax.swing.JLabel();
         label_wall201 = new javax.swing.JLabel();
         label_wall202 = new javax.swing.JLabel();
@@ -308,6 +320,10 @@ public class MazeGame extends javax.swing.JFrame {
         label_wall272 = new javax.swing.JLabel();
         label_wall273 = new javax.swing.JLabel();
         label_wall274 = new javax.swing.JLabel();
+        label_spawn1 = new javax.swing.JLabel();
+        label_spawn2 = new javax.swing.JLabel();
+        label_spawn3 = new javax.swing.JLabel();
+        label_spawn4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1130,10 +1146,10 @@ public class MazeGame extends javax.swing.JFrame {
         getContentPane().add(label_wall199);
         label_wall199.setBounds(890, 100, 2, 20);
 
-        jLabel1.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(440, 240, 100, 70);
+        label_goal.setBackground(new java.awt.Color(255, 0, 0));
+        label_goal.setOpaque(true);
+        getContentPane().add(label_goal);
+        label_goal.setBounds(440, 240, 100, 70);
 
         label_wall200.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(label_wall200);
@@ -1434,13 +1450,20 @@ public class MazeGame extends javax.swing.JFrame {
         label_wall274.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(label_wall274);
         label_wall274.setBounds(380, 250, 2, 60);
+        getContentPane().add(label_spawn1);
+        label_spawn1.setBounds(850, 570, 80, 60);
+        getContentPane().add(label_spawn2);
+        label_spawn2.setBounds(40, 20, 80, 60);
+        getContentPane().add(label_spawn3);
+        label_spawn3.setBounds(40, 570, 80, 60);
+        getContentPane().add(label_spawn4);
+        label_spawn4.setBounds(860, 20, 80, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        //System.out.print(evt.getKeyCode()+"\n");
-        switch(evt.getKeyCode()){
+          switch(evt.getKeyCode()){
             case 37:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
                          System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n");
                          break;
@@ -1478,13 +1501,20 @@ public class MazeGame extends javax.swing.JFrame {
         formKeyPressed(evt);
     }//GEN-LAST:event_formKeyTyped
 
+    /**
+     * This function is called whenever the car-label is moved.
+     * It takes the current position and looks if the next pixel is either black or red.
+     * If it is red, there is a collision. If it is red, the game is finished. 
+     * 
+     * @param labelPoint    the paint where the car label is at the moment
+     * @param lookaheadX    the next x position where the car would go
+     * @param lookaheadY    the next y position where the car would go
+     * @return              returns if the car is allowed to go there or if there is a collision
+     */
     public boolean checkPosition(Point labelPoint, int lookaheadX, int lookaheadY){
-        //if(x > label_wall.getX() && y < label_wall.getY() ){
             try {
                 Robot test = new Robot();
-                    //System.out.print("X: "+x+" Y :"+y);
                     Color color = test.getPixelColor(labelPoint.x+lookaheadX, labelPoint.y+lookaheadY);
-                    //System.out.print("RGB: "+color.getRGB()+"\n");
                     System.out.print("Red: "+color.getRed()+"\n");
                     System.out.print("Green: "+color.getGreen()+"\n");
                     System.out.print("Blue: "+color.getBlue()+"\n");
@@ -1492,7 +1522,18 @@ public class MazeGame extends javax.swing.JFrame {
                         return false;
                     }
                     if(color.getRed() == 255 && color.getGreen() == 0 && color.getBlue() == 0){
-                        System.out.print("Gewonnen!");
+                        endTime = System.currentTimeMillis();
+                        long finalTime = (endTime - startTime)/1000;
+                        JDialog endDialog = new JDialog();
+                        endDialog.setBounds(getWidth()/2, getHeight()/2, 400, 200);
+                        JLabel win = new JLabel("GEWONNEN!");
+                        win.setHorizontalAlignment(JLabel.CENTER);
+                        JLabel time = new JLabel("Zeit: "+finalTime+" Sekunden.");
+                        time.setHorizontalAlignment(JLabel.CENTER);
+                        time.setBounds(endDialog.getWidth()/2, endDialog.getHeight()/2+10, 20, 40);
+                        endDialog.add(win);
+                        endDialog.add(time);
+                        endDialog.setVisible(true);
                     }
             } catch (AWTException ex) {
                 Logger.getLogger(MazeGame.class.getName()).log(Level.SEVERE, null, ex);
@@ -1541,8 +1582,12 @@ public class MazeGame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel label_auto;
+    private javax.swing.JLabel label_goal;
+    private javax.swing.JLabel label_spawn1;
+    private javax.swing.JLabel label_spawn2;
+    private javax.swing.JLabel label_spawn3;
+    private javax.swing.JLabel label_spawn4;
     private javax.swing.JLabel label_wall;
     private javax.swing.JLabel label_wall1;
     private javax.swing.JLabel label_wall10;

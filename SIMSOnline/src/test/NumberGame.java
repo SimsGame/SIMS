@@ -27,12 +27,15 @@ public class NumberGame extends javax.swing.JFrame {
     public JLabel label_points;
     public int counter = 0, nextNumber = counter+1;
     public final int maxNumbers = 5;
+    static long startTime = 0;
+    static long endTime = 0;
     
     /**
      * Creates new form NumberGame
      */
     public NumberGame() {
         initComponents();
+        startTime = System.currentTimeMillis();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 700);
 		contentPane = new JPanel();
@@ -198,6 +201,8 @@ public class NumberGame extends javax.swing.JFrame {
                                     label_door.setVisible(true);
                                     btnWeiter.setVisible(true);
                                     btnReset.setVisible(true);
+                                    endTime = System.currentTimeMillis();
+                                    System.out.print("Gewonnen! Zeit: "+(endTime-startTime)/1000+" Sekunden.");
                                 }
 			}
 		});
