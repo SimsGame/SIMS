@@ -6,10 +6,13 @@ package test;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 
@@ -75,6 +78,9 @@ public class Sims_1 extends javax.swing.JFrame {
         label_lErr.setText("");
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
+        setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); 
+        setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
         autoLogin();
     }
 
@@ -2247,10 +2253,10 @@ public class Sims_1 extends javax.swing.JFrame {
         });
 
         label_rErrAccname.setText("Fehler?");
-        label_rErrAccname.setName("label_rErrAccname");
+        label_rErrAccname.setName("label_rErrAccname"); // NOI18N
 
         label_rErrPass1.setText("Fehler?");
-        label_rErrPass1.setName("label_rErrPass1");
+        label_rErrPass1.setName("label_rErrPass1"); // NOI18N
 
         label_rErrPass2.setText("Fehler?");
 
@@ -2681,14 +2687,13 @@ public class Sims_1 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(29, 29, 29))))
+                                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
                         .addGap(313, 313, 313)
                         .addComponent(button_aSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button_auCancel1)))
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         panel_adminUserLayout.setVerticalGroup(
             panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

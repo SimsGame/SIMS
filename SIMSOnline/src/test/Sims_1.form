@@ -542,7 +542,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -555,7 +555,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Neues Spiel"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -598,7 +598,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spiel Laden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -614,7 +614,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Credits"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -630,7 +630,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -646,7 +646,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abmelden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -662,7 +662,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Statistik"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -3778,7 +3778,7 @@
                 <Component class="javax.swing.JLabel" name="label_rErrAccname">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Fehler?"/>
-                    <Property name="name" type="java.lang.String" value="label_rErrAccname"/>
+                    <Property name="name" type="java.lang.String" value="label_rErrAccname" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="label_rErrAccname"/>
@@ -3787,7 +3787,7 @@
                 <Component class="javax.swing.JLabel" name="label_rErrPass1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Fehler?"/>
-                    <Property name="name" type="java.lang.String" value="label_rErrPass1"/>
+                    <Property name="name" type="java.lang.String" value="label_rErrPass1" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="label_rErrPass1"/>
@@ -4072,7 +4072,6 @@
                                               <Component id="label_aMonthVal" min="-2" pref="20" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -4083,7 +4082,7 @@
                               <Component id="button_auCancel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
+                      <EmptySpace pref="347" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
