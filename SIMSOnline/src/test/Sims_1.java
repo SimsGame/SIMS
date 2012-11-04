@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This is the main form of the SIMS game. Each form element is created here.
+ * From here different functions are called.
  */
 package test;
 
@@ -8,13 +8,13 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
@@ -49,15 +49,28 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
-    /**
-     * Creates new form Sims
-     */
+    
+    
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
-
+    private JPanel mazeMinigame = new JPanel();
+    public JDialog miniGameFinished = new JDialog();
+    
+    /**
+     * Sets up and initializes each component and some additional settings.
+     * The auto login function is called from here as well. 
+     */
+    
     public Sims_1() {
+        mazeMinigame = new MinigameMazegame(jPanel2);
+        button_afterGame = new JButton("Game");
+        button_afterGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                goToNextPage();}});
+        miniGameFinished.add(button_afterGame);
         initComponents();
+        jPanel2.add(mazeMinigame, "card5");
         setSize(1000, 700);
         buyCoins.setSize(400, 320);
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -79,7 +92,6 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); 
         setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
         autoLogin();
     }
@@ -135,7 +147,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         loadGame = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        button_credits = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
@@ -234,13 +246,13 @@ public class Sims_1 extends javax.swing.JFrame {
         ucoinsShop = new javax.swing.JLabel();
         creditsShop = new javax.swing.JLabel();
         punkteShop = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        button_startExchange = new javax.swing.JButton();
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel85 = new javax.swing.JLabel();
         jPanel21 = new javax.swing.JPanel();
-        jLabel54 = new javax.swing.JLabel();
+        label_returnToPlanningPhase = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
@@ -739,14 +751,14 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         startPlanningGame.add(loadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
 
-        jButton6.setText("Credits");
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        button_credits.setText("Credits");
+        button_credits.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_credits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                button_creditsActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
+        startPlanningGame.add(button_credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
 
         jButton7.setText("Profil");
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1426,14 +1438,14 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel20.add(punkteShop);
         punkteShop.setBounds(80, 70, 70, 17);
 
-        jButton12.setText("UCoins Tauschen");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        button_startExchange.setText("UCoins Tauschen");
+        button_startExchange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                button_startExchangeActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton12);
-        jButton12.setBounds(230, 10, 160, 90);
+        jPanel20.add(button_startExchange);
+        button_startExchange.setBounds(230, 10, 160, 90);
 
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel70.setText("UCoins:");
@@ -1461,16 +1473,16 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel21.setLayout(null);
 
-        jLabel54.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel54.setText("SPIEL");
-        jLabel54.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_returnToPlanningPhase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        label_returnToPlanningPhase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_returnToPlanningPhase.setText("SPIEL");
+        label_returnToPlanningPhase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel54MouseClicked(evt);
+                label_returnToPlanningPhaseMouseClicked(evt);
             }
         });
-        jPanel21.add(jLabel54);
-        jLabel54.setBounds(0, 0, 130, 110);
+        jPanel21.add(label_returnToPlanningPhase);
+        label_returnToPlanningPhase.setBounds(0, 0, 130, 110);
 
         shop.add(jPanel21);
         jPanel21.setBounds(850, 0, 130, 110);
@@ -2684,7 +2696,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void goToNextPage(){
+        // Flipes to the planning phase after a minigame.
+        cl.show(jPanel2, "card3");
+    }
+    
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
@@ -2696,7 +2712,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_aCancelActionPerformed
 
     private void startNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startNewGameActionPerformed
-        // TODO add your handling code here:
+        // Starts a new game with initial values from the game_1.java. 
         if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
@@ -2711,12 +2727,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_startNewGameActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // TODO add your handling code here:
+        // Closes the entire game.
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
     private void loadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadGameActionPerformed
-        // TODO add your handling code here:
+        // Loads and existing game which always starts with a planning phase.
         if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
@@ -2728,9 +2744,13 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
     }//GEN-LAST:event_loadGameActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void button_creditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_creditsActionPerformed
+         if (jPanel2.isVisible() == false) {
+            jPanel2.setVisible(true);
+        }
+        cl.show(jPanel2, "card5");
+        startPlanningGame.setVisible(false);
+    }//GEN-LAST:event_button_creditsActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -2741,6 +2761,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
+        // This function is called from the shop, after the coin exchanger was opened and
+        // the amount that shall be swapped was entered.
+        // To finish the exchange the exchange button has to be pressed. After that the ucoins are reduced and
+        // the credits increased.
         int parseResult = 0;
         int result = 1;
         try {
@@ -2762,7 +2786,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_swapperExchangeActionPerformed
 
     private void button_swapperAbordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperAbordActionPerformed
-        // TODO add your handling code here:
+        // This function closes the exchange window if the user does not want to exchange more.
         buyCoins.setVisible(false);
     }//GEN-LAST:event_button_swapperAbordActionPerformed
 
@@ -2782,18 +2806,18 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(true);
     }//GEN-LAST:event_jLabel55MouseClicked
 
-    private void jLabel54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel54MouseClicked
-        // TODO add your handling code here:
+    private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
+        // Returns from the shop back to the planning phase
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-    }//GEN-LAST:event_jLabel54MouseClicked
+    }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+    private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
+        // Starts the exchange dialog in the shop
         label_swapperCreditsAmount.setText("" + _maingame.credits);
         label_swapperUcoinsAmount.setText("" + _mainuser.getUcoins());
         buyCoins.setVisible(true);
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_button_startExchangeActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
@@ -2832,7 +2856,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_17ActionPerformed
 
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
-        // TODO add your handling code here:
+        // This function is called after the shop button from the planning phase was pressed.
+        // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(jPanel2, "card4");
         startPlanningGame.setVisible(false);
         OpenShop labels = new OpenShop();
@@ -2848,6 +2873,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
+        // On click Red Bull can be bought if the user has enough credits 
         int result = item.managePurchase(_maingame.redBull, label_redBullLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -2859,6 +2885,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
+        // On click Duplo can be bought if the user has enough credits 
         int result = item.managePurchase(_maingame.duplo, label_duploLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -2870,6 +2897,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
+        // On click the cheat sheet can be bought if the user has enough ucoins 
         int result = item.managePurchase(_maingame.cheatSheet, label_cheatSheetLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -2880,6 +2908,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
+        // On click the OMNI Sense audiobook can be bought if the user has enough ucoins 
         int result = item.managePurchase(_maingame.omniSenseAudio, label_omniLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -2899,6 +2928,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_1ActionPerformed
 
     private void textfield_swapperUcoinsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_swapperUcoinsKeyReleased
+        // If the user types something in the exchange dialog the changed
+        // amount is displayed directly.
         int parseResult = 0;
         try {
             parseResult = Integer.parseInt(textfield_swapperUcoins.getText());
@@ -3173,7 +3204,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_SwitchStudActionPerformed
 
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
-        // TODO add your handling code here:
+        // Starts the action phase and the inventory. 
         if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
@@ -3593,7 +3624,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void textfield_rNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_rNameActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -3635,7 +3666,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
     }
-    //private javax.swing.JLabel label_timer;
+    public static JButton button_afterGame; // Button used after a minigame added by Jannik
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Header;
     private javax.swing.JProgressBar KnowledgeBar;
@@ -3655,9 +3686,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_aSave;
     private javax.swing.JButton button_auCancel1;
     private javax.swing.JButton button_cancel;
+    private javax.swing.JButton button_credits;
     private javax.swing.JButton button_lDevAcessMenue;
     private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_shopMessageOk;
+    private javax.swing.JButton button_startExchange;
     private javax.swing.JButton button_stud1;
     private javax.swing.JButton button_stud10;
     private javax.swing.JButton button_stud11;
@@ -3743,11 +3776,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_SwitchStud;
     private javax.swing.JButton jBut_startShop;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboB_Items;
@@ -3780,7 +3811,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -3898,6 +3928,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
+    private javax.swing.JLabel label_returnToPlanningPhase;
     private javax.swing.JLabel label_shopMessage;
     private javax.swing.JLabel label_shopMessage1;
     private javax.swing.JLabel label_shopMessage2;
