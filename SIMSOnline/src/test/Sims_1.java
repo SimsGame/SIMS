@@ -82,6 +82,7 @@ public class Sims_1 extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); 
         setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
         autoLogin();
+        panel_Admin.setVisible(false); // change by Nadir
     }
 
     /**
