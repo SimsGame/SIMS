@@ -408,6 +408,9 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_aPass = new javax.swing.JTextField();
         label_aMonthVal = new javax.swing.JLabel();
 
+        buyCoins.setLocationByPlatform(true);
+        buyCoins.setModal(true);
+        buyCoins.setName("dialog_buyCoins");
         buyCoins.getContentPane().setLayout(null);
 
         label_swapper.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -479,6 +482,7 @@ public class Sims_1 extends javax.swing.JFrame {
         buyCoins.getContentPane().add(label_swapperArrow3);
         label_swapperArrow3.setBounds(190, 140, 40, 14);
 
+        dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
 
         label_shopMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -505,6 +509,7 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.getContentPane().add(button_shopMessageOk);
         button_shopMessageOk.setBounds(170, 210, 47, 23);
 
+        warning.setModal(true);
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 warningWindowClosed(evt);
@@ -565,6 +570,8 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(0, 31, Short.MAX_VALUE))
         );
 
+        lectorChangedDialog.setModal(true);
+
         jTextArea2.setColumns(20);
         jTextArea2.setEditable(false);
         jTextArea2.setRows(5);
@@ -602,6 +609,8 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
+        cheatUsedDialog.setModal(true);
+
         jTextArea3.setColumns(20);
         jTextArea3.setEditable(false);
         jTextArea3.setRows(5);
@@ -638,6 +647,8 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addComponent(jBut_OKcheat, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
+
+        lectorNotChangedDialog.setModal(true);
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
@@ -3254,6 +3265,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
         logIn();
+        buton_enterAdmin.setVisible(false); //added by Jannik
+        button_aCancel.setVisible(false);   //added by Jannik
     }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
 
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
