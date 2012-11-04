@@ -21,27 +21,23 @@ import javax.swing.*;
  *
  * @author Stazzer
  */
-public class NumberGame extends javax.swing.JFrame {
+public class MinigameNumbergame extends javax.swing.JPanel {
 
-    private JPanel contentPane;
     public JLabel label_points;
     public int counter = 0, nextNumber = counter+1;
     public final int maxNumbers = 5;
     static long startTime = 0;
     static long endTime = 0;
-    
+
     /**
-     * Creates new form NumberGame
+     * Creates new form MinigameNumbergame
      */
-    public NumberGame() {
+    public MinigameNumbergame() {
         initComponents();
         startTime = System.currentTimeMillis();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 700);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(null);
 		
                 label_points = new JLabel();
                 label_points.setText(" Gefundene Zahlen: 0/"+maxNumbers);
@@ -50,7 +46,7 @@ public class NumberGame extends javax.swing.JFrame {
                 label_points.setOpaque(true);
                 label_points.setBackground(Color.black);
                 label_points.setBounds(0, 0, 170, 30);
-                contentPane.add(label_points);
+                add(label_points);
                 
 		/** Field one, the first field that has to be clicked.
                  *
@@ -68,7 +64,7 @@ public class NumberGame extends javax.swing.JFrame {
 			}
 		});
 		one.setBounds(new RandGenerator().getRand(900)/*243*/, new RandGenerator().getRand(600)/*153*/, 77, 40);
-		contentPane.add(one);
+		add(one);
 		
 		/** Field two, the second field that has to be clicked
 		 * If it was not entered after the first one
@@ -85,7 +81,7 @@ public class NumberGame extends javax.swing.JFrame {
 			}
 		});
 		two.setBounds(new RandGenerator().getRand(900)/*433*/, new RandGenerator().getRand(600)/*53*/, 65, 40);
-		contentPane.add(two);
+		add(two);
 		
 		/** Field three, the third field that has to be clicked
 		 * If it was not entered after the second one
@@ -102,7 +98,7 @@ public class NumberGame extends javax.swing.JFrame {
 			}
 		});
 		three.setBounds(new RandGenerator().getRand(900)/*116*/, new RandGenerator().getRand(600)/*403*/, 77, 40);
-		contentPane.add(three);
+		add(three);
 		
 		/** Field four, the fourth field that has to be clicked
 		 * If it was not entered after the third one
@@ -119,7 +115,7 @@ public class NumberGame extends javax.swing.JFrame {
 			}
 		});
 		four.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
-		contentPane.add(four);
+		add(four);
                 
                 /** Field five, the fifth field that has to be clicked
 		 * If it was not entered after the fourth one
@@ -136,7 +132,7 @@ public class NumberGame extends javax.swing.JFrame {
 			}
 		});
 		five.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
-		contentPane.add(five);
+		add(five);
 		
                 final JLabel label_door = new JLabel("");
                 label_door.setBackground(Color.black);
@@ -176,6 +172,7 @@ public class NumberGame extends javax.swing.JFrame {
 		btnWeiter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
                              System.out.print("Lvl.1 Geschafft!");
+                             Sims_1.button_afterGame.doClick();  // Flips to the planning phase!
 			}
 		});
 		btnWeiter.setBounds(560, 200, 110, 43);/*890, 620*/
@@ -210,17 +207,17 @@ public class NumberGame extends javax.swing.JFrame {
                 /**
                  * Section for adding labels to pane.
                  */     
-                contentPane.add(btnReset);
-		contentPane.add(btnWeiter);
-                contentPane.add(label_door);
-                contentPane.add(lblNewLabel);
+                add(btnReset);
+		add(btnWeiter);
+                add(label_door);
+                add(lblNewLabel);
                 
     }
 
     public void updatePoints(){
         label_points.setText(" Gefundene Zahlen: "+counter+"/"+maxNumbers);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -230,10 +227,8 @@ public class NumberGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
@@ -242,51 +237,7 @@ public class NumberGame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /*
-         * Set the Nimbus look and feel
-         */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NumberGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NumberGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NumberGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NumberGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /*
-         * Create and display the form
-         */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new NumberGame().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
