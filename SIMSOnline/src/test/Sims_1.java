@@ -54,7 +54,8 @@ public class Sims_1 extends javax.swing.JFrame {
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
-    private JPanel mazeMinigame = new JPanel();
+    private JPanel panel_mazeMinigame = new JPanel();
+    private JPanel panel_numberMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
     
     /**
@@ -63,14 +64,16 @@ public class Sims_1 extends javax.swing.JFrame {
      */
     
     public Sims_1() {
-        mazeMinigame = new MinigameMazegame(jPanel2);
+        panel_mazeMinigame = new MinigameMazegame();
+        panel_numberMinigame = new MinigameNumbergame();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 goToNextPage();}});
         miniGameFinished.add(button_afterGame);
         initComponents();
-        jPanel2.add(mazeMinigame, "card5");
+        jPanel2.add(panel_numberMinigame, "card6");
+        jPanel2.add(panel_mazeMinigame, "card5");
         setSize(1000, 700);
         buyCoins.setSize(400, 320);
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -150,7 +153,7 @@ public class Sims_1 extends javax.swing.JFrame {
         button_credits = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        button_statistic = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         gamePlanning = new javax.swing.JPanel();
         Logo = new javax.swing.JPanel();
@@ -778,14 +781,14 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         startPlanningGame.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 40));
 
-        jButton13.setText("Statistik");
-        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        button_statistic.setText("Statistik");
+        button_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_statistic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                button_statisticActionPerformed(evt);
             }
         });
-        startPlanningGame.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 160, 40));
+        startPlanningGame.add(button_statistic, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 160, 40));
 
         jPanel1.add(startPlanningGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
@@ -2825,9 +2828,13 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void button_statisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statisticActionPerformed
+        if (jPanel2.isVisible() == false) {
+            jPanel2.setVisible(true);
+        }
+        cl.show(jPanel2, "card6");
+        startPlanningGame.setVisible(false);
+    }//GEN-LAST:event_button_statisticActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String test = jButton1.getText();
@@ -3691,6 +3698,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_startExchange;
+    private javax.swing.JButton button_statistic;
     private javax.swing.JButton button_stud1;
     private javax.swing.JButton button_stud10;
     private javax.swing.JButton button_stud11;
@@ -3776,7 +3784,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_SwitchStud;
     private javax.swing.JButton jBut_startShop;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;

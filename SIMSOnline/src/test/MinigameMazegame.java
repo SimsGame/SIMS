@@ -19,7 +19,6 @@ public class MinigameMazegame extends javax.swing.JPanel {
    /**
      * Creates new form MazeGame and sets the car to one of the four starting positions.
      */
-    private JPanel cardPanel;
     public JDialog endDialog = new JDialog();
     static long startTime = 0;
     static long endTime = 0;
@@ -307,8 +306,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
     private javax.swing.JLabel label_wall99;
     // End of variables declaration            
     
-    public MinigameMazegame(JPanel panel) {
-        this.cardPanel = panel;
+    public MinigameMazegame() {
         initComponents1();
         setSize(1000, 700);
         int spawn = new RandGenerator().getRand(4);
