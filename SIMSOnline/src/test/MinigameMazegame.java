@@ -4,6 +4,7 @@
 package test;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
@@ -1765,26 +1766,26 @@ public class MinigameMazegame extends javax.swing.JPanel {
             timerflag = 1;
         }
           switch(evt.getKeyCode()){
-            case 37:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
+            case KeyEvent.VK_LEFT:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX()-1, label_auto.getY());
                          break;
                       }
                     }
-            case 38:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
+            case KeyEvent.VK_UP:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX(), label_auto.getY()-1); break;
                       }
                     }
-            case 39:{ if(checkPosition(label_auto.getLocationOnScreen(), label_auto.getWidth()+2, 0) == false){
+            case KeyEvent.VK_RIGHT:{ if(checkPosition(label_auto.getLocationOnScreen(), label_auto.getWidth()+2, 0) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX()+1, label_auto.getY()); break;
                       }
                     }
-            case 40:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, label_auto.getHeight()+2) == false){
+            case KeyEvent.VK_DOWN:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, label_auto.getHeight()+2) == false){
                          break;
                       }else{ 
                           label_auto.setLocation(label_auto.getX(), label_auto.getY()+1); break;
