@@ -91,6 +91,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(false);
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
+        panel_adminUser.setVisible(false);
         label_lErr.setText("");
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
@@ -391,8 +392,6 @@ public class Sims_1 extends javax.swing.JFrame {
         button_lDevAcessMenue = new javax.swing.JButton();
         buton_enterAdmin = new javax.swing.JButton();
         login_background = new javax.swing.JLabel();
-        panel_Admin = new javax.swing.JPanel();
-        button_aCancel = new javax.swing.JButton();
         panel_adminUser = new javax.swing.JPanel();
         button_aSave = new javax.swing.JButton();
         label_aAccname = new javax.swing.JLabel();
@@ -423,10 +422,13 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aGame = new javax.swing.JLabel();
         textfield_aPass = new javax.swing.JTextField();
         label_aMonthVal = new javax.swing.JLabel();
+        button_aDelete = new javax.swing.JButton();
+        panel_Admin = new javax.swing.JPanel();
+        button_aCancel = new javax.swing.JButton();
 
         buyCoins.setLocationByPlatform(true);
         buyCoins.setModal(true);
-        buyCoins.setName("dialog_buyCoins");
+        buyCoins.setName("dialog_buyCoins"); // NOI18N
         buyCoins.getContentPane().setLayout(null);
 
         label_swapper.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -704,6 +706,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
+        setMaximumSize(new java.awt.Dimension(1000, 700));
         setMinimumSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -2446,38 +2449,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
 
-        panel_Admin.setMaximumSize(new java.awt.Dimension(1000, 700));
-        panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
-
-        button_aCancel.setText("Abbrechen");
-        button_aCancel.setMaximumSize(new java.awt.Dimension(300, 50));
-        button_aCancel.setMinimumSize(new java.awt.Dimension(300, 50));
-        button_aCancel.setPreferredSize(new java.awt.Dimension(300, 50));
-        button_aCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_aCancelActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel_AdminLayout = new javax.swing.GroupLayout(panel_Admin);
-        panel_Admin.setLayout(panel_AdminLayout);
-        panel_AdminLayout.setHorizontalGroup(
-            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_AdminLayout.createSequentialGroup()
-                .addGap(313, 313, 313)
-                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(387, Short.MAX_VALUE))
-        );
-        panel_AdminLayout.setVerticalGroup(
-            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
-                .addContainerGap(618, Short.MAX_VALUE)
-                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-
-        jPanel1.add(panel_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         panel_adminUser.setMaximumSize(new java.awt.Dimension(1000, 700));
         panel_adminUser.setMinimumSize(new java.awt.Dimension(1000, 700));
 
@@ -2569,6 +2540,13 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_aMonthVal.setText("2");
 
+        button_aDelete.setText("Profil löschen");
+        button_aDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_aDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_adminUserLayout = new javax.swing.GroupLayout(panel_adminUser);
         panel_adminUser.setLayout(panel_adminUserLayout);
         panel_adminUserLayout.setHorizontalGroup(
@@ -2594,13 +2572,14 @@ public class Sims_1 extends javax.swing.JFrame {
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lable_aProfil)
                             .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textfield_aUCoins)
-                                    .addComponent(textfield_aKontoname)
-                                    .addComponent(textfield_aEmail)
-                                    .addComponent(textfield_aName)
-                                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(textfield_aPass))
+                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(button_aDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textfield_aUCoins, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textfield_aKontoname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textfield_aEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textfield_aName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(textfield_aPass, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panel_adminUserLayout.createSequentialGroup()
                                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2634,10 +2613,10 @@ public class Sims_1 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(button_aSave)
+                        .addGap(257, 257, 257)
+                        .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_auCancel1)))
+                        .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(347, Short.MAX_VALUE))
         );
         panel_adminUserLayout.setVerticalGroup(
@@ -2687,14 +2666,49 @@ public class Sims_1 extends javax.swing.JFrame {
                                 .addComponent(textfield_aUCoins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(label_aUCions))
                             .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button_aDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_auCancel1)
-                            .addComponent(button_aSave))))
-                .addContainerGap(394, Short.MAX_VALUE))
+                            .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         jPanel1.add(panel_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        panel_Admin.setMaximumSize(new java.awt.Dimension(1000, 700));
+        panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
+        panel_Admin.setPreferredSize(new java.awt.Dimension(1000, 700));
+
+        button_aCancel.setText("Abbrechen");
+        button_aCancel.setMaximumSize(new java.awt.Dimension(300, 50));
+        button_aCancel.setMinimumSize(new java.awt.Dimension(300, 50));
+        button_aCancel.setPreferredSize(new java.awt.Dimension(300, 50));
+        button_aCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_aCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_AdminLayout = new javax.swing.GroupLayout(panel_Admin);
+        panel_Admin.setLayout(panel_AdminLayout);
+        panel_AdminLayout.setHorizontalGroup(
+            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
+                .addContainerGap(359, Short.MAX_VALUE)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(341, 341, 341))
+        );
+        panel_AdminLayout.setVerticalGroup(
+            panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
+                .addContainerGap(619, Short.MAX_VALUE)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+
+        jPanel1.add(panel_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1);
 
@@ -2709,11 +2723,6 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
     }//GEN-LAST:event_buton_enterAdminActionPerformed
-
-    private void button_aCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aCancelActionPerformed
-        panel_Admin.setVisible(false);
-        panel_Login.setVisible(true);
-    }//GEN-LAST:event_button_aCancelActionPerformed
 
     private void startNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startNewGameActionPerformed
         // Starts a new game with initial values from the game_1.java. 
@@ -3304,8 +3313,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
         logIn();
-        buton_enterAdmin.setVisible(false); //added by Jannik
-        button_aCancel.setVisible(false);   //added by Jannik
+//        buton_enterAdmin.setVisible(false); //added by Jannik
+//        button_aCancel.setVisible(false);   //added by Jannik
     }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
 
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
@@ -3591,8 +3600,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
         if(_mainadmin.checkChanges()){
             _mainadmin.saveChages();
-            panel_adminUser.setVisible(false);
-            panel_Admin.setVisible(true);
+            adminLogin();
         }
     }//GEN-LAST:event_button_aSaveActionPerformed
 
@@ -3632,6 +3640,18 @@ public class Sims_1 extends javax.swing.JFrame {
     private void textfield_rNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_rNameActionPerformed
+
+    private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION){
+            _mainadmin.delSpecUser();
+            adminLogin();
+        }
+    }//GEN-LAST:event_button_aDeleteActionPerformed
+
+    private void button_aCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aCancelActionPerformed
+        panel_Admin.setVisible(false);
+        panel_Login.setVisible(true);
+    }//GEN-LAST:event_button_aCancelActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3691,6 +3711,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_Login;
     private javax.swing.JToggleButton button_Register;
     private javax.swing.JButton button_aCancel;
+    private javax.swing.JButton button_aDelete;
     private javax.swing.JButton button_aSave;
     private javax.swing.JButton button_auCancel1;
     private javax.swing.JButton button_cancel;
@@ -4302,6 +4323,8 @@ public class Sims_1 extends javax.swing.JFrame {
             Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
         }
         panel_Login.setVisible(false);
+        panel_Admin.setVisible(false);
+        panel_adminUser.setVisible(false);
         startPlanningGame.setVisible(true);
         System.out.println(_mainuser);
     }
@@ -4328,7 +4351,6 @@ public class Sims_1 extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private void adminLogin() {
@@ -4337,10 +4359,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         JTextField[] textFieldHelp =  {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
         _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth);
-    }
-    
-    private void saveUserChanges(){
-        
+        panel_Admin.add(button_aCancel);
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
