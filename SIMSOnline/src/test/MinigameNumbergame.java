@@ -28,13 +28,13 @@ public class MinigameNumbergame extends javax.swing.JPanel {
     public final int maxNumbers = 5;
     static long startTime = 0;
     static long endTime = 0;
+    private static int timerflag = 0; 
 
     /**
      * Creates new form MinigameNumbergame
      */
     public MinigameNumbergame() {
         initComponents();
-        startTime = System.currentTimeMillis();
 		setBounds(0, 0, 1000, 700);
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(null);
@@ -160,6 +160,8 @@ public class MinigameNumbergame extends javax.swing.JPanel {
                                 five.setOpaque(false);
 				five.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
 				counter = 0;
+                                startTime = 0;
+                                endTime = 0;
                                 updatePoints();
 			}
 		});
@@ -171,8 +173,11 @@ public class MinigameNumbergame extends javax.swing.JPanel {
                 btnWeiter.setFont(new Font("Weiter", 1,18));
 		btnWeiter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-                             System.out.print("Lvl.1 Geschafft!");
                              btnReset.doClick();
+                             timerflag = 0;
+                             btnWeiter.setVisible(false);
+                             btnReset.setVisible(false);
+                             label_door.setVisible(false);
                              Sims_1.button_afterGame.doClick();  // Flips to the planning phase!
 			}
 		});
@@ -185,6 +190,10 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		lblNewLabel.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
+                                if(timerflag == 0){
+                                    startTime = System.currentTimeMillis();
+                                    timerflag = 1;
+                                }
 				if(one.getText().equals("1") || two.getText().equals("2") || three.getText().equals("3") || four.getText().equals("4") || five.getText().equals("5")) {
 					one.setText(""); one.setOpaque(false);
 					two.setText(""); two.setOpaque(false);
@@ -194,7 +203,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 					counter = 0;
                                         updatePoints();
 				}
-                                if(counter==5){
+                                if(counter==5 && timerflag == 1){
                                     updatePoints();
                                     label_door.setVisible(true);
                                     btnWeiter.setVisible(true);

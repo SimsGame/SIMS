@@ -22,6 +22,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
     public JDialog endDialog = new JDialog();
     static long startTime = 0;
     static long endTime = 0;
+    private int timerflag = 0; 
     // Variables declaration - do not modify                     
     private javax.swing.JLabel label_auto;
     private javax.swing.JLabel label_goal;
@@ -309,14 +310,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
     public MinigameMazegame() {
         initComponents1();
         setSize(1000, 700);
-        int spawn = new RandGenerator().getRand(4);
-        switch(spawn){
-            case 0:{label_auto.setLocation(label_spawn1.getX()+30, label_spawn1.getY()+20);break;} 
-            case 1:{label_auto.setLocation(label_spawn2.getX()+30, label_spawn2.getY()+20);break;}
-            case 2:{label_auto.setLocation(label_spawn3.getX()+30, label_spawn3.getY()+20);break;}
-            case 3:{label_auto.setLocation(label_spawn4.getX()+30, label_spawn4.getY()+20);break;}
-        }
-        startTime = System.currentTimeMillis();
+        startSetup();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1766,13 +1760,16 @@ public class MinigameMazegame extends javax.swing.JPanel {
     }
     
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
+        if(timerflag == 0){
+            startTime = System.currentTimeMillis();
+            timerflag = 1;
+        }
           switch(evt.getKeyCode()){
             case 37:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
-                         System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n");
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX()-1, label_auto.getY());
-                         System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n"); break;
+                         break;
                       }
                     }
             case 38:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
@@ -1835,11 +1832,24 @@ public class MinigameMazegame extends javax.swing.JPanel {
                         endDialog.add(win);
                         endDialog.add(time);
                         endDialog.setVisible(true);
+                        startSetup();
                         Sims_1.button_afterGame.doClick();  // Flips to the planning phase!
                     }
             } catch (AWTException ex) {
                 Logger.getLogger(MinigameMazegame.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+    }
+    
+    public void startSetup(){
+        startTime = 0;
+        endTime = 0;
+        int spawn = new RandGenerator().getRand(4);
+        switch(spawn){
+            case 0:{label_auto.setLocation(label_spawn1.getX()+30, label_spawn1.getY()+20);break;} 
+            case 1:{label_auto.setLocation(label_spawn2.getX()+30, label_spawn2.getY()+20);break;}
+            case 2:{label_auto.setLocation(label_spawn3.getX()+30, label_spawn3.getY()+20);break;}
+            case 3:{label_auto.setLocation(label_spawn4.getX()+30, label_spawn4.getY()+20);break;}
+        }
     }
 }
