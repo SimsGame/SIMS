@@ -56,6 +56,7 @@ public class Sims_1 extends javax.swing.JFrame {
     CoinExchange exchange = new CoinExchange();
     private JPanel panel_mazeMinigame = new JPanel();
     private JPanel panel_numberMinigame = new JPanel();
+    private JPanel panel_snakeMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
     
     /**
@@ -66,6 +67,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public Sims_1() {
         panel_mazeMinigame = new MinigameMazegame();
         panel_numberMinigame = new MinigameNumbergame();
+        panel_snakeMinigame = new Board();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +75,7 @@ public class Sims_1 extends javax.swing.JFrame {
         miniGameFinished.add(button_afterGame);
         initComponents();
         jPanel2.add(panel_numberMinigame, "card6");
-        jPanel2.add(panel_mazeMinigame, "card5");
+        jPanel2.add(panel_snakeMinigame, "card5");
         setSize(1000, 700);
         buyCoins.setSize(400, 320);
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
