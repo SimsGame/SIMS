@@ -4,19 +4,13 @@
  */
 package test;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.Timer;
 
 /**
@@ -25,11 +19,12 @@ import javax.swing.Timer;
  */
 public class Board extends javax.swing.JPanel implements ActionListener {
 
-   private final int WIDTH = 1000;
+    private final int WIDTH = 1000;
     private final int HEIGHT = 700;
     private final int DOT_SIZE = 10;
-    private final int ALL_DOTS = 900;
-    private final int RAND_POS = 29;
+    private final int ALL_DOTS = 1500;
+    private final int RAND_POS_X = 63;
+    private final int RAND_POS_Y = 63;
     private final int DELAY = 140;
 
     private int x[] = new int[ALL_DOTS];
@@ -50,6 +45,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
     private Image apple;
     private Image head;
     
+    public JDialog endDialog = new JDialog();
+    static long startTime = 0;
+    static long endTime = 0;
+    private int endCounter = 0;
     
    public Board() {
         addKeyListener(new TAdapter());
@@ -80,7 +79,9 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
 
         locateApple();
-
+        
+        startTime = System.currentTimeMillis();
+        
         timer = new Timer(DELAY, this);
         timer.start();
     }
@@ -115,15 +116,22 @@ public class Board extends javax.swing.JPanel implements ActionListener {
 
         g.setColor(Color.white);
         g.setFont(small);
-        g.drawString(msg, (WIDTH - metr.stringWidth(msg)) / 2,
-                     HEIGHT / 2);
+        g.drawString(msg, (WIDTH - metr.stringWidth(msg)) / 2, HEIGHT / 2);
+        endTime = System.currentTimeMillis();
+        long finalTime = (endTime - startTime)/1000;
+        if(endCounter == 0){
+            gameEnd(finalTime, g);
+        }
+        if(endCounter == 1){
+            Sims_1.button_afterGame.doClick();
+        }
     }
 
 
     public void checkApple() {
 
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
-            dots++;
+            dots += 4;
             locateApple();
         }
     }
@@ -178,12 +186,13 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         if (x[0] < 0) {
             inGame = false;
         }
+        
     }
 
     public void locateApple() {
-        int r = (int) (Math.random() * RAND_POS);
+        int r = (int) (Math.random() * RAND_POS_X);
         apple_x = ((r * DOT_SIZE));
-        r = (int) (Math.random() * RAND_POS);
+        r = (int) (Math.random() * RAND_POS_Y);
         apple_y = ((r * DOT_SIZE));
     }
 
@@ -229,6 +238,65 @@ public class Board extends javax.swing.JPanel implements ActionListener {
                 left = false;
             }
         }
+    }
+    
+    public void gameEnd(long time, final Graphics g){
+        int points;
+        int credits;
+        JPanel endGameBackground = new JPanel();
+        endGameBackground.setBounds(0, 0, 500, 300);
+        endGameBackground.setLayout(null);
+        endGameBackground.setBackground(Color.black);
+        endGameBackground.setOpaque(true);
+        endDialog.setTitle("Snake - Gewonnen");
+        endDialog.setBounds(getWidth()/2-40, 220, 500, 300);
+        endDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        endDialog.setLayout(null);
+        endDialog.setResizable(false);
+        endDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        JLabel label_headline = new JLabel("Gewonnen!");
+        JLabel label_gameTime = new JLabel("Zeit: " + time + " Sekunden!");
+        JLabel label_Punkte = new JLabel();
+        JLabel label_credits = new JLabel();
+        JButton button_dismissGameLabel = new JButton();
+        button_dismissGameLabel.setText("Weiter");
+        button_dismissGameLabel.setBounds(210, 200, 100, 40);
+        button_dismissGameLabel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                endDialog.setVisible(false);
+                endCounter = 1;
+                gameOver(g);
+            }});
+        label_headline.setFont(new Font("Text", 1,20));
+        label_headline.setBounds(0, 10, 500, 20);
+        label_headline.setForeground(Color.green);
+        label_headline.setHorizontalAlignment(JLabel.CENTER);
+        label_gameTime.setFont(new Font("Text", 1,20));
+        label_gameTime.setBounds(0, 50, 500, 20);
+        label_gameTime.setHorizontalAlignment(JLabel.CENTER);
+        label_gameTime.setForeground(Color.green);
+        label_Punkte.setFont(new Font("Text", 1,20));
+        label_Punkte.setBounds(0, 90, 500, 20);
+        label_Punkte.setHorizontalAlignment(JLabel.CENTER);
+        label_Punkte.setForeground(Color.green);
+        points = dots * 6;
+        credits = dots * 2;
+        Sims_1._maingame.points += points;
+        Sims_1._maingame.credits += credits;
+        label_Punkte.setText("Punkte: " + points + "   Neuer Punktestand: " + Sims_1._maingame.points);
+        label_credits.setFont(new Font("Text", 1,20));
+        label_credits.setBounds(0, 130, 500, 20);
+        label_credits.setHorizontalAlignment(JLabel.CENTER);
+        label_credits.setForeground(Color.green);
+        label_credits.setText("Credits: " + credits + "   Neuer Punktestand: " + Sims_1._maingame.credits);
+        endGameBackground.add(button_dismissGameLabel);
+        endGameBackground.add(label_headline);
+        endGameBackground.add(label_gameTime);
+        endGameBackground.add(label_Punkte);
+        endGameBackground.add(label_credits);
+        endDialog.add(endGameBackground);
+        endDialog.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
