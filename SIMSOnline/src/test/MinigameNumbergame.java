@@ -172,6 +172,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		btnWeiter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
                              System.out.print("Lvl.1 Geschafft!");
+                             btnReset.doClick();
                              Sims_1.button_afterGame.doClick();  // Flips to the planning phase!
 			}
 		});
