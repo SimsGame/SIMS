@@ -10,8 +10,6 @@ package test;
  */
 public class StudInfo {
 
-    // position number of a student (0-29) which is needed for the StudenArray()
-    private int stud_nr;
     // int, because the setValue() method of a ProgressBars expects int's and no double
     private int knowledge;
     private int motivation;
@@ -25,7 +23,8 @@ public class StudInfo {
     private javax.swing.JProgressBar TirednessBar;
     // current StudentArray 
     // current form the PlanningPhase
-    private Student[] studArr = PlanningPhase.studArr;
+    private Game1 game;
+    private Student[] studArr;
 
     // constructor which expects the three progress bars
     // called on loading the PlanningPhase
@@ -37,6 +36,12 @@ public class StudInfo {
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
+        
+        game = Sims_1._maingame;
+            // muss globalen Studentenarray bekommen und keine neue Initialisierung
+        game.initArray();
+        // studArr gets the StudentArray of current game
+        this.studArr = game.studentArray;
         // shows average values when PlanningPhase is loaded
         StudInfoAverage();
 
