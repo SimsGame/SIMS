@@ -4,8 +4,11 @@
  */
 package test;
 
+import java.io.File;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  *
@@ -46,8 +49,6 @@ public class User {
         this.password = password;
     }
 
-    
-    
     public String getAccountname() {
         return accountname;
     }
@@ -146,15 +147,49 @@ public class User {
      * @param last_name string
      * @return true if the user could be created, false otherwise
      */
-    
-    public static boolean createUser(User user){
+    public static boolean deleteUser(String accountname, String email) {
+
+        LinkedList<LinkedList> userlist = null;
+        LinkedList<LinkedList> uhelp = null;
+
+        try {
+            userlist = CSVHandling.readCSV(Sims_1._usersFileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < userlist.size(); i++) {
+            if (userlist.get(i).contains(accountname) | userlist.get(i).contains(email)) {
+                userlist.remove(i);
+            }
+        }
+
+        try {
+            CSVHandling.writeCSV(userlist, Sims_1._usersFileName);
+            File fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
+            fileToDelete.delete();
+            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
+            fileToDelete.delete();
+            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
+            fileToDelete.delete();
+            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname);
+            fileToDelete.delete();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public static boolean createUser(User user) {
         return createUser(user.getAccountname(), user.getPassword().toCharArray(), user.getEmail(), user.getFirst_name(), user.getLast_name(), user.getReg_date(), user.getLast_login(), user.getTime_played(), user.getUcoins());
     }
-    
-    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name){
+
+    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
         return createUser(accountname, password, email, first_name, last_name, new Date(), new Date(), 0, 0);
     }
-    
+
     public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name, Date registerDate, Date lastLogin, int timePlayed, int UCoins) {
 
         //set up an array with the user-data to write:

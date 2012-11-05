@@ -4,6 +4,8 @@
  */
 package test;
 
+import java.awt.Color;
+
 /**
  *
  * @author Tobias Mauritz
@@ -16,21 +18,23 @@ public class PlanningPhase {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
     private static javax.swing.JLabel switchCounterLabel;
+    private static javax.swing.JToggleButton switchStudToggleBut;
     // new Game-instance
-    public Game game = new Game();
+    private Game1 game;
     // declaration of the StudentArray
-    public static Student[] studArr;
+    private static Student[] studArr;
     // declaration of an studInfo instance
     protected static StudInfo studInfo;
     
-    //Flags deklaration
-    private static int switchFlag = 0;
-    private static int switchCounter = 5;
-    private static int studCounter = 0;
+    //flags deklaration
+    private static boolean switchFlag = false;
     private static int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
                                        //(before will be checked if the user can use this cheat)
+    // counter
+    private static int switchCounter = 5;
+    private static int studCounter = 0;
    
-    // Studenten zum Testen?
+    // students for the switching function
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
@@ -49,6 +53,7 @@ public class PlanningPhase {
     protected static int actMonth = 4;  // variable for actual month (from game-file)    
     protected static int lectorValue; //  variable that changes lector value (also from game file)
 
+        // PlanningPhase constructor
     public PlanningPhase() {
     }
     // constructor which expects the three progress bars.
@@ -58,53 +63,60 @@ public class PlanningPhase {
     public PlanningPhase(javax.swing.JProgressBar jProgB_Knowledge,
             javax.swing.JProgressBar jProgB_Motivation,
             javax.swing.JProgressBar jProgB_Tiredness, 
-            javax.swing.JLabel jLab_DozCounter) {
+            javax.swing.JLabel jLab_DozCounter,javax.swing.JToggleButton jToggleBut_SwitchStud) {
 
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
+        
+        // initializes the ToggleButton for switching students
+        this.switchStudToggleBut = jToggleBut_SwitchStud;
 
         // StudentArray will be initialized
+        game = Sims_1._maingame;
+            // muss globalen Studentenarray bekommen und keine neue Initialisierung
         game.initArray();
         // studArr gets the StudentArray
-        studArr = game.getArray();
-
-        PlanningPhaseMain();
-        //updates label "Dozenten tauschen
-        validateLector(jLab_DozCounter);
-    }
-
-    public void PlanningPhaseMain() {
+        this.studArr = game.studentArray;
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
-
+        
+        //updates label "Dozenten tauschen
+        validateLector(jLab_DozCounter);
     }
+
 
     // called from SwitchStud-Button on navi
     public static void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
         switchCounterLabel = jLab_SwitchCounter;
+        
+        // declares switchFlag to true/false when ToggleButton is pressed
+        switchFlag = switchStudToggleBut.isSelected();
 
-        if (switchFlag == 0) {
+        if (switchFlag) {
             if (switchCounter > 0) {
+                // is not needed
+                //switchStudToggleBut.setSelected(true);
                 studCounter = 0;
-                switchFlag = 1;
+                //switchFlag = 1;
             } else {
+                switchStudToggleBut.setSelected(false);
                 System.out.println("SwitchCounter (>0?)= " + switchCounter);
                 System.out.println("Du kannst nicht mehr tauschen!");
             }
 
         } else {
+            // not needed
+            //switchStudToggleBut.setSelected(false);
             System.out.println("StudTausch abgebrochen!");
             System.out.println("Aktuelle Werte: ");
-            System.out.println("SwitchFlag (1?) = " + switchFlag);
+            System.out.println("SwitchFlag (true?) = " + switchFlag);
             System.out.println("SwitchCounter (übrige Anzahl Switchs?) = " + switchCounter);
             System.out.println("StudCounter (0?) = " + studCounter);
-
-            switchFlag = 0;
-            System.out.println("SwitchFlag (0?) = " + switchFlag);
+            System.out.println("SwitchFlag (false?) = " + switchFlag);
         }
     }
 
@@ -127,9 +139,6 @@ public class PlanningPhase {
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
             System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
-
-
-
     }
 
     private static void StudSwitch(Student stud1, Student stud2) {
@@ -145,9 +154,11 @@ public class PlanningPhase {
                 + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // initializing the default values switchFlag, studCounter and decrements the switchCounter
-        switchFlag = 0;
+        //switchFlag = 0;
         switchCounter--;
         studCounter = 0;
+        
+        switchStudToggleBut.setSelected(false);
 
         switchCounterLabel.setText(switchCounter + "x");
         switchCounterLabel.repaint();
@@ -157,7 +168,8 @@ public class PlanningPhase {
     public static void StudButtonFunctions(int stud_nr) {
       // !!! ExmatrikulationsFlag abfragen
             // switchFlag == 0 --> SwitchButton not clickeds
-        if (switchFlag == 0) {
+        switchFlag = switchStudToggleBut.isSelected();
+        if (!switchFlag) {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
 
@@ -179,8 +191,8 @@ public class PlanningPhase {
             
              
          // switchFlag == 1 --> SwitchButton clicked
-        } else if (switchFlag == 1) {
-            System.out.println("TauschFlag = 1");
+        } else {
+            System.out.println("SwitchFlag = true");
             storeStud(stud_nr);
         }  
         
