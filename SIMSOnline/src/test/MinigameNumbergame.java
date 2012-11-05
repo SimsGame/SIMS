@@ -28,7 +28,8 @@ public class MinigameNumbergame extends javax.swing.JPanel {
     public final int maxNumbers = 5;
     static long startTime = 0;
     static long endTime = 0;
-    private static int timerflag = 0; 
+    private static int timerflag = 0;
+    private JDialog gameEnd = new JDialog();
 
     /**
      * Creates new form MinigameNumbergame
@@ -226,6 +227,17 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 
     public void updatePoints(){
         label_points.setText(" Gefundene Zahlen: "+counter+"/"+maxNumbers);
+    }
+    
+    public void gameEnd(){
+        gameEnd.setBounds(getWidth()/2, 300, 400, 200);
+        JLabel headline = new JLabel("Gewonnen!");
+        headline.setBounds(200, 10, 50, 20);
+        JLabel time = new JLabel("Zeit");
+        time.setBounds(200, 30, 50, 20);
+        gameEnd.add(headline);
+        gameEnd.add(time);
+        gameEnd.setVisible(true);
     }
 
     /**
