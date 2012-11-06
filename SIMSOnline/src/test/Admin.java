@@ -26,9 +26,14 @@ public class Admin {
     JCheckBox spicker;
     JSlider months;
     User currentuser;
+    JLabel[] errMess;
     
-    public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JCheckBox spicker, JSlider months) {
+    public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JCheckBox spicker, JSlider months, JLabel[] errMess) {
         
+        this.errMess = errMess;
+        for(int i = 0; i< this.errMess.length; i++){
+            this.errMess[i].setText("");
+        }
         this.adminpanel = adminpanel;
         this.adminpanel.removeAll();
         this.userpanel = userpanel;
@@ -84,7 +89,14 @@ public class Admin {
         userpanel.setVisible(true);        
     }
     
-    public boolean checkChanges() {
+    public boolean checkChanges(){
+        JComponent[] toCheck = {userdata[0], new JPasswordField(userdata[1].getText()), new JPasswordField(userdata[1].getText()), userdata[2], userdata[2], userdata[3], userdata[4]};
+        JLabel[] errMessLoc = {errMess[0], errMess[1], errMess[1], errMess[2], errMess[2], errMess[3], errMess[4]};
+        
+        return (Sims_1.checkRegister_(toCheck, errMessLoc));
+    }
+    
+    public boolean checkChanges_() {
         
         if (!Sims_1.checkAlphaNumm(userdata[0].getText().toCharArray()) | userdata[0].getText().length() < 5 | userdata[0].getText().length() > 15) {
             userdata[0].setBackground(Color.red);
@@ -130,7 +142,7 @@ public class Admin {
     }
     
     public void saveChages() {
-        User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
+        delSpecUser();
         
         currentuser.setAccountname(userdata[0].getText());
         currentuser.setPassword(userdata[1].getText());
