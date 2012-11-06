@@ -22,7 +22,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
     private final int WIDTH = 1000;
     private final int HEIGHT = 700;
     private final int DOT_SIZE = 10;
-    private final int ALL_DOTS = 3000;
+    private final int ALL_DOTS = 5000;
     private final int RAND_POS_X = 63;
     private final int RAND_POS_Y = 63;
     private final int DELAY = 40;
