@@ -3049,7 +3049,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLab_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLab_LogoMouseClicked
-        // TODO add your handling code here:
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         jPanel2.setVisible(false);
         startPlanningGame.setVisible(true);
     }//GEN-LAST:event_jLab_LogoMouseClicked
