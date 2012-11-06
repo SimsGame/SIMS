@@ -90,7 +90,7 @@ public class PlanningPhase {
 
 
     // called from SwitchStud-Button on navi
-    public static void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
+    public  void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
         switchCounterLabel = jLab_SwitchCounter;
         
         // declares switchFlag to true/false when ToggleButton is pressed
@@ -120,7 +120,7 @@ public class PlanningPhase {
         }
     }
 
-    public static void storeStud(int stud_nr) {
+    private void storeStud(int stud_nr) {
 
         if (studCounter == 1) {
             stud2 = studArr[stud_nr];
@@ -141,7 +141,7 @@ public class PlanningPhase {
         }
     }
 
-    private static void StudSwitch(Student stud1, Student stud2) {
+    private void StudSwitch(Student stud1, Student stud2) {
 
         System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
                 + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
@@ -165,7 +165,7 @@ public class PlanningPhase {
 
     }
 
-    public static void StudButtonFunctions(int stud_nr) {
+    public void StudButtonFunctions(int stud_nr) {
       // !!! ExmatrikulationsFlag abfragen
             // switchFlag == 0 --> SwitchButton not clickeds
         switchFlag = switchStudToggleBut.isSelected();
@@ -206,7 +206,7 @@ public class PlanningPhase {
      * case - to 0)
      *
      */
-    public static boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
+    public  boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
         lectorCounter = jLab_DozCounter;
         if ( (actMonth == 4 && !lectorChanged4)  || (actMonth == 7 && !lectorChanged7) || 
@@ -228,7 +228,7 @@ public class PlanningPhase {
      * function to change lector, if lector was changed the appropriate flag
      * will be set to true
      */
-    public static void changeLector(javax.swing.JLabel jLab_DozCounter) {
+    public  void changeLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
         lectorCounter = jLab_DozCounter;
         
@@ -254,7 +254,7 @@ public class PlanningPhase {
     }
     
     //methode, die aktuelles Semester berechnet
-    public static int getTerm(){
+    public  int getTerm(){
         switch (actMonth) {
             case 1: case 2: case3:
                 return 1;
@@ -281,11 +281,11 @@ public class PlanningPhase {
     }
     
     //Für Dialog-Fenster
-    public static int getCheatFlag(){
+    public  int getCheatFlag(){
         return cheatFlag;
     }
     
-    public static void setCheatFlag(int Flag) {
+    public  void setCheatFlag(int Flag) {
           cheatFlag = Flag;
         
     }
@@ -296,7 +296,7 @@ public class PlanningPhase {
      * also updates Spicker-value in game-file
      * @param stud_nr 
      */
-    public static void useCheat(int stud_nr){
+    public  void useCheat(int stud_nr){
         System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
         System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
         Sims_1._maingame.cheatSheet.amount-=1;
@@ -305,7 +305,7 @@ public class PlanningPhase {
             System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
             //Spicker-Wert für das jeweilige Semester updaten:
             
-            int currTerm=PlanningPhase.getTerm();
+            int currTerm= getTerm();
             switch (currTerm){
                 case 2:
                 // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)
