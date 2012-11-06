@@ -1129,6 +1129,11 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_ItemSelect.setLayout(null);
 
         jComboB_Items.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "wähle Item", "Spicker" }));
+        jComboB_Items.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboB_ItemsMouseClicked(evt);
+            }
+        });
         jComboB_Items.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboB_ItemsActionPerformed(evt);
@@ -3986,6 +3991,11 @@ public class Sims_1 extends javax.swing.JFrame {
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jBut_DozentMouseClicked
+
+    private void jComboB_ItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboB_ItemsMouseClicked
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+    }//GEN-LAST:event_jComboB_ItemsMouseClicked
     
     /**
      * @param args the command line arguments
