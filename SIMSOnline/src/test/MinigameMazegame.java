@@ -4,6 +4,7 @@
 package test;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
@@ -22,6 +23,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
     public JDialog endDialog = new JDialog();
     static long startTime = 0;
     static long endTime = 0;
+    private int timerflag = 0; 
     // Variables declaration - do not modify                     
     private javax.swing.JLabel label_auto;
     private javax.swing.JLabel label_goal;
@@ -309,14 +311,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
     public MinigameMazegame() {
         initComponents1();
         setSize(1000, 700);
-        int spawn = new RandGenerator().getRand(4);
-        switch(spawn){
-            case 0:{label_auto.setLocation(label_spawn1.getX()+30, label_spawn1.getY()+20);break;} 
-            case 1:{label_auto.setLocation(label_spawn2.getX()+30, label_spawn2.getY()+20);break;}
-            case 2:{label_auto.setLocation(label_spawn3.getX()+30, label_spawn3.getY()+20);break;}
-            case 3:{label_auto.setLocation(label_spawn4.getX()+30, label_spawn4.getY()+20);break;}
-        }
-        startTime = System.currentTimeMillis();
+        startSetup();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1766,28 +1761,31 @@ public class MinigameMazegame extends javax.swing.JPanel {
     }
     
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
+        if(timerflag == 0){
+            startTime = System.currentTimeMillis();
+            timerflag = 1;
+        }
           switch(evt.getKeyCode()){
-            case 37:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
-                         System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n");
+            case KeyEvent.VK_LEFT:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX()-1, label_auto.getY());
-                         System.out.print(label_auto.getX()+" "+label_auto.getY()+"\n"); break;
+                         break;
                       }
                     }
-            case 38:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
+            case KeyEvent.VK_UP:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX(), label_auto.getY()-1); break;
                       }
                     }
-            case 39:{ if(checkPosition(label_auto.getLocationOnScreen(), label_auto.getWidth()+2, 0) == false){
+            case KeyEvent.VK_RIGHT:{ if(checkPosition(label_auto.getLocationOnScreen(), label_auto.getWidth()+2, 0) == false){
                          break;
                       }else{ 
                          label_auto.setLocation(label_auto.getX()+1, label_auto.getY()); break;
                       }
                     }
-            case 40:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, label_auto.getHeight()+2) == false){
+            case KeyEvent.VK_DOWN:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, label_auto.getHeight()+2) == false){
                          break;
                       }else{ 
                           label_auto.setLocation(label_auto.getX(), label_auto.getY()+1); break;
@@ -1827,19 +1825,83 @@ public class MinigameMazegame extends javax.swing.JPanel {
                     if(color.getRed() == 255 && color.getGreen() == 0 && color.getBlue() == 0){
                         endTime = System.currentTimeMillis();
                         long finalTime = (endTime - startTime)/1000;
-                        JLabel win = new JLabel("GEWONNEN!");
-                        win.setHorizontalAlignment(JLabel.CENTER);
-                        JLabel time = new JLabel("Zeit: "+finalTime+" Sekunden.");
-                        time.setHorizontalAlignment(JLabel.CENTER);
-                        time.setBounds(endDialog.getWidth()/2, endDialog.getHeight()/2+10, 20, 40);
-                        endDialog.add(win);
-                        endDialog.add(time);
-                        endDialog.setVisible(true);
+                        gameEnd(finalTime);
+                        startSetup();
                         Sims_1.button_afterGame.doClick();  // Flips to the planning phase!
                     }
             } catch (AWTException ex) {
                 Logger.getLogger(MinigameMazegame.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+    }
+    
+    public void startSetup(){
+        startTime = 0;
+        endTime = 0;
+        int spawn = new RandGenerator().getRand(4);
+        switch(spawn){
+            case 0:{label_auto.setLocation(label_spawn1.getX()+30, label_spawn1.getY()+20);break;} 
+            case 1:{label_auto.setLocation(label_spawn2.getX()+30, label_spawn2.getY()+20);break;}
+            case 2:{label_auto.setLocation(label_spawn3.getX()+30, label_spawn3.getY()+20);break;}
+            case 3:{label_auto.setLocation(label_spawn4.getX()+30, label_spawn4.getY()+20);break;}
+        }
+    }
+    
+    public void gameEnd(long time){
+        int points;
+        int credits;
+        JPanel endGameBackground = new JPanel();
+        endGameBackground.setBounds(0, 0, 500, 200);
+        endGameBackground.setLayout(null);
+        endGameBackground.setBackground(Color.black);
+        endGameBackground.setOpaque(true);
+        endDialog.setTitle("Labyrinth - Gewonnen");
+        endDialog.setBounds(getWidth()/2, 300, 500, 200);
+        endDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        endDialog.setLayout(null);
+        endDialog.setResizable(false);
+        endDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        JLabel label_headline = new JLabel("Gewonnen!");
+        JLabel label_gameTime = new JLabel("Zeit: " + time + " Sekunden!");
+        JLabel label_Punkte = new JLabel();
+        JLabel label_credits = new JLabel();
+        label_headline.setFont(new Font("Text", 1,20));
+        label_headline.setBounds(0, 10, 500, 20);
+        label_headline.setForeground(Color.green);
+        label_headline.setHorizontalAlignment(JLabel.CENTER);
+        label_gameTime.setFont(new Font("Text", 1,20));
+        label_gameTime.setBounds(0, 50, 500, 20);
+        label_gameTime.setHorizontalAlignment(JLabel.CENTER);
+        label_gameTime.setForeground(Color.green);
+        label_Punkte.setFont(new Font("Text", 1,20));
+        label_Punkte.setBounds(0, 90, 500, 20);
+        label_Punkte.setHorizontalAlignment(JLabel.CENTER);
+        label_Punkte.setForeground(Color.green);
+        if(time <= 38){
+            points = 500;
+            credits = 200;
+        }
+        else if(time >= 39 && time <= 60){
+            points = 300;
+            credits = 100;
+        }
+        else{
+            points = 100;
+            credits = 60;
+        }
+        Sims_1._maingame.points += points;
+        Sims_1._maingame.credits += credits;
+        label_Punkte.setText("Punkte: " + points + "   Neuer Punktestand: " + Sims_1._maingame.points);
+        label_credits.setFont(new Font("Text", 1,20));
+        label_credits.setBounds(0, 130, 500, 20);
+        label_credits.setHorizontalAlignment(JLabel.CENTER);
+        label_credits.setForeground(Color.green);
+        label_credits.setText("Credits: " + credits + "   Neuer Punktestand: " + Sims_1._maingame.credits);
+        endGameBackground.add(label_headline);
+        endGameBackground.add(label_gameTime);
+        endGameBackground.add(label_Punkte);
+        endGameBackground.add(label_credits);
+        endDialog.add(endGameBackground);
+        endDialog.setVisible(true);
     }
 }

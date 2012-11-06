@@ -4,6 +4,8 @@
  */
 package test;
 
+import java.awt.Color;
+
 /**
  *
  * @author Tobias Mauritz
@@ -16,21 +18,23 @@ public class PlanningPhase {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
     private static javax.swing.JLabel switchCounterLabel;
+    private static javax.swing.JToggleButton switchStudToggleBut;
     // new Game-instance
-    public Game game = new Game();
+    private Game1 game;
     // declaration of the StudentArray
-    public static Student[] studArr;
+    private static Student[] studArr;
     // declaration of an studInfo instance
     protected static StudInfo studInfo;
     
-    //Flags deklaration
-    private static int switchFlag = 0;
-    private static int switchCounter = 5;
-    private static int studCounter = 0;
+    //flags deklaration
+    private static boolean switchFlag = false;
     private static int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
                                        //(before will be checked if the user can use this cheat)
+    // counter
+    private static int switchCounter = 5;
+    private static int studCounter = 0;
    
-    // Studenten zum Testen?
+    // students for the switching function
     private static Student stud1;
     private static Student stud2;
     private static int stud1_nr;
@@ -49,6 +53,7 @@ public class PlanningPhase {
     protected static int actMonth = 4;  // variable for actual month (from game-file)    
     protected static int lectorValue; //  variable that changes lector value (also from game file)
 
+        // PlanningPhase constructor
     public PlanningPhase() {
     }
     // constructor which expects the three progress bars.
@@ -58,57 +63,64 @@ public class PlanningPhase {
     public PlanningPhase(javax.swing.JProgressBar jProgB_Knowledge,
             javax.swing.JProgressBar jProgB_Motivation,
             javax.swing.JProgressBar jProgB_Tiredness, 
-            javax.swing.JLabel jLab_DozCounter) {
+            javax.swing.JLabel jLab_DozCounter,javax.swing.JToggleButton jToggleBut_SwitchStud) {
 
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
+        
+        // initializes the ToggleButton for switching students
+        this.switchStudToggleBut = jToggleBut_SwitchStud;
 
         // StudentArray will be initialized
+        game = Sims_1._maingame;
+            // muss globalen Studentenarray bekommen und keine neue Initialisierung
         game.initArray();
         // studArr gets the StudentArray
-        studArr = game.getArray();
-
-        PlanningPhaseMain();
-        //updates label "Dozenten tauschen
-        validateLector(jLab_DozCounter);
-    }
-
-    public void PlanningPhaseMain() {
+        this.studArr = game.studentArray;
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
-
+        
+        //updates label "Dozenten tauschen
+        validateLector(jLab_DozCounter);
     }
 
-    // called from SwitchStud-Button on navi
-    public static void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
-        switchCounterLabel = jLab_SwitchCounter;
 
-        if (switchFlag == 0) {
+    // called from SwitchStud-Button on navi
+    public  void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
+        switchCounterLabel = jLab_SwitchCounter;
+        
+        // declares switchFlag to true/false when ToggleButton is pressed
+        switchFlag = switchStudToggleBut.isSelected();
+
+        if (switchFlag) {
             if (switchCounter > 0) {
+                // is not needed
+                //switchStudToggleBut.setSelected(true);
                 studCounter = 0;
-                switchFlag = 1;
+                //switchFlag = 1;
             } else {
+                switchStudToggleBut.setSelected(false);
                 System.out.println("SwitchCounter (>0?)= " + switchCounter);
                 System.out.println("Du kannst nicht mehr tauschen!");
             }
 
         } else {
+            // not needed
+            //switchStudToggleBut.setSelected(false);
             System.out.println("StudTausch abgebrochen!");
             System.out.println("Aktuelle Werte: ");
-            System.out.println("SwitchFlag (1?) = " + switchFlag);
+            System.out.println("SwitchFlag (true?) = " + switchFlag);
             System.out.println("SwitchCounter (übrige Anzahl Switchs?) = " + switchCounter);
             System.out.println("StudCounter (0?) = " + studCounter);
-
-            switchFlag = 0;
-            System.out.println("SwitchFlag (0?) = " + switchFlag);
+            System.out.println("SwitchFlag (false?) = " + switchFlag);
         }
     }
 
-    public static void storeStud(int stud_nr) {
+    private void storeStud(int stud_nr) {
 
         if (studCounter == 1) {
             stud2 = studArr[stud_nr];
@@ -127,12 +139,9 @@ public class PlanningPhase {
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
             System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
-
-
-
     }
 
-    private static void StudSwitch(Student stud1, Student stud2) {
+    private void StudSwitch(Student stud1, Student stud2) {
 
         System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
                 + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
@@ -145,19 +154,22 @@ public class PlanningPhase {
                 + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // initializing the default values switchFlag, studCounter and decrements the switchCounter
-        switchFlag = 0;
+        //switchFlag = 0;
         switchCounter--;
         studCounter = 0;
+        
+        switchStudToggleBut.setSelected(false);
 
         switchCounterLabel.setText(switchCounter + "x");
         switchCounterLabel.repaint();
 
     }
 
-    public static void StudButtonFunctions(int stud_nr) {
+    public void StudButtonFunctions(int stud_nr) {
       // !!! ExmatrikulationsFlag abfragen
             // switchFlag == 0 --> SwitchButton not clickeds
-        if (switchFlag == 0) {
+        switchFlag = switchStudToggleBut.isSelected();
+        if (!switchFlag) {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
 
@@ -179,8 +191,8 @@ public class PlanningPhase {
             
              
          // switchFlag == 1 --> SwitchButton clicked
-        } else if (switchFlag == 1) {
-            System.out.println("TauschFlag = 1");
+        } else {
+            System.out.println("SwitchFlag = true");
             storeStud(stud_nr);
         }  
         
@@ -194,7 +206,7 @@ public class PlanningPhase {
      * case - to 0)
      *
      */
-    public static boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
+    public  boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
         lectorCounter = jLab_DozCounter;
         if ( (actMonth == 4 && !lectorChanged4)  || (actMonth == 7 && !lectorChanged7) || 
@@ -216,7 +228,7 @@ public class PlanningPhase {
      * function to change lector, if lector was changed the appropriate flag
      * will be set to true
      */
-    public static void changeLector(javax.swing.JLabel jLab_DozCounter) {
+    public  void changeLector(javax.swing.JLabel jLab_DozCounter) {
         //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
         lectorCounter = jLab_DozCounter;
         
@@ -242,7 +254,7 @@ public class PlanningPhase {
     }
     
     //methode, die aktuelles Semester berechnet
-    public static int getTerm(){
+    public  int getTerm(){
         switch (actMonth) {
             case 1: case 2: case3:
                 return 1;
@@ -269,11 +281,11 @@ public class PlanningPhase {
     }
     
     //Für Dialog-Fenster
-    public static int getCheatFlag(){
+    public  int getCheatFlag(){
         return cheatFlag;
     }
     
-    public static void setCheatFlag(int Flag) {
+    public  void setCheatFlag(int Flag) {
           cheatFlag = Flag;
         
     }
@@ -284,7 +296,7 @@ public class PlanningPhase {
      * also updates Spicker-value in game-file
      * @param stud_nr 
      */
-    public static void useCheat(int stud_nr){
+    public  void useCheat(int stud_nr){
         System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
         System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
         Sims_1._maingame.cheatSheet.amount-=1;
@@ -293,7 +305,7 @@ public class PlanningPhase {
             System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
             //Spicker-Wert für das jeweilige Semester updaten:
             
-            int currTerm=PlanningPhase.getTerm();
+            int currTerm= getTerm();
             switch (currTerm){
                 case 2:
                 // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)

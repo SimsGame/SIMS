@@ -65,18 +65,23 @@ public class Student {
         this.knowledgeIncreasement = (this.motivation - this.tiredness) * this.intelligence * 0.000375;
         if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge
             this.knowledgeIncreasement = 0;
-        this.knowledge = this.knowledge + this.knowledgeIncreasement;
+        setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
         
     }
      
     void changeTiredness(double factor)
     {
        this.tiredness = this.tiredness+factor;
+       setTiredness(this.tiredness+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
+
     }
      
     void changeMotivation(double factor)
     {
        this.motivation = this.motivation+factor;
+
+       setMotivation(this.motivation+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
+
     }
     
     /**
@@ -102,6 +107,8 @@ public class Student {
     public void setKnowledge(double value) {
         if(value<0){
             this.knowledge= 0;
+        }else if(value>100){
+            this.knowledge=100;
         }else{
             this.knowledge = value;
         }
@@ -128,8 +135,10 @@ public class Student {
      * @param value
      */
     public void setTiredness(double value) {
-                if(value<0){
+        if(value<0){
             this.tiredness= 0;
+        }else if(value>100){
+            this.tiredness=100;
         }else{
             this.tiredness = value;
         }
@@ -148,8 +157,10 @@ public class Student {
      * @param value
      */
     public void setMotivation(double value) {
-                if(value<0){
+        if(value<0){
             this.motivation= 0;
+        }else if(value>100){
+            this.motivation=100;
         }else{
             this.motivation = value;
         }
