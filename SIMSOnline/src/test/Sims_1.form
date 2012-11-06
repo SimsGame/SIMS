@@ -4012,95 +4012,99 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
+                      <Component id="button_aSave" min="-2" pref="149" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="button_auCancel1" min="-2" pref="144" max="-2" attributes="0"/>
+                      <EmptySpace pref="444" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="label_aAccname" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_aPass" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label_aEmail" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_aFirstName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_aLastName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="label_aUCions" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lable_aProfil" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="button_aDelete" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textfield_aUCoins" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textfield_aKontoname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textfield_aEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textfield_aName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textfield_aSurename" alignment="0" pref="149" max="32767" attributes="0"/>
+                                  <Component id="textfield_aPass" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label_aErrAccName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aErrPass" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aErrEmail" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aErrFirstName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aErrLastName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aErrUCoins" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="label_aAccname" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="label_aPass" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                                              <Component id="label_aDuplo" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="label_aEmail" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="label_aFirstName" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="label_aLastName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                                              <Component id="label_aRedBull" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="label_aOMNI" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="label_aCredits" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="label_aUCions" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_aSpicker" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lable_aProfil" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="button_aDelete" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textfield_aUCoins" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textfield_aKontoname" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textfield_aEmail" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textfield_aName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textfield_aSurename" alignment="0" pref="149" max="32767" attributes="0"/>
-                                          <Component id="textfield_aPass" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                                                                  <Component id="label_aDuplo" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                                                                  <Component id="label_aRedBull" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Component id="label_aOMNI" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="label_aCredits" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="label_aSpicker" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="check_aSpicker" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="textfield_aCredits" max="32767" attributes="0"/>
-                                                      <Component id="textfield_aDuplo" max="32767" attributes="0"/>
-                                                      <Component id="textfield_aRedBull" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="textfield_aOMNI" alignment="0" pref="149" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="label_aGame" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                                              <Component id="label_aMonth" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="slider_aMonth" min="-2" pref="150" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="label_aMonthVal" min="-2" pref="20" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Component id="check_aSpicker" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="textfield_aCredits" max="32767" attributes="0"/>
+                                      <Component id="textfield_aDuplo" max="32767" attributes="0"/>
+                                      <Component id="textfield_aRedBull" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="textfield_aOMNI" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="label_aGame" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
-                              <Component id="button_aSave" min="-2" pref="149" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Component id="label_aMonth" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="slider_aMonth" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="button_auCancel1" min="-2" pref="144" max="-2" attributes="0"/>
+                              <Component id="label_aMonthVal" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="347" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4118,6 +4122,7 @@
                           <Component id="label_aAccname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfield_aCredits" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="label_aCredits" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_aErrAccName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4125,6 +4130,7 @@
                           <Component id="textfield_aDuplo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="label_aDuplo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfield_aPass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_aErrPass" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4132,6 +4138,7 @@
                           <Component id="label_aRedBull" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfield_aEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="label_aEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_aErrEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4139,6 +4146,7 @@
                           <Component id="label_aOMNI" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfield_aName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="label_aFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_aErrFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4146,6 +4154,7 @@
                           <Component id="label_aSpicker" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfield_aSurename" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="label_aLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_aErrLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -4156,6 +4165,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="textfield_aUCoins" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="label_aUCions" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label_aErrUCoins" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="slider_aMonth" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -4319,6 +4329,54 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_aDeleteActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrAccName">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrPass">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrEmail">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrFirstName">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrLastName">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="label_aErrUCoins">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Fehler?"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
