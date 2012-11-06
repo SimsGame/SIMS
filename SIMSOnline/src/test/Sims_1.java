@@ -4680,6 +4680,12 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         _mainuser = new User(accountname);
         _maingame = new Game1();
+        CSVRead read = new CSVRead();
+        try {
+            read.readCSV();
+        } catch (Exception ex) {
+            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         panel_Login.setVisible(false);
         startPlanningGame.setVisible(true);
         System.out.println(_mainuser);

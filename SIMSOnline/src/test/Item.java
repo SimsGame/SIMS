@@ -313,12 +313,12 @@ public class Item {
             return 1;
         }
         
-        if(item.currency.equals("Credits") && Sims_1._maingame.credits<item.price || item.currency.equals("UCoins") && Sims_1._mainuser.getUcoins()<item.price){
+        if(item.currency.equals("credits") && Sims_1._maingame.credits<item.price || item.currency.equals("UCoins") && Sims_1._mainuser.getUcoins()<item.price){
             return 1; 
         }
         else{
             item.amount += 1;
-            if(item.currency.equals("Credits"))
+            if(item.currency.equals("credits"))
                 Sims_1._maingame.credits = Sims_1._maingame.credits-item.price;
             else
                 Sims_1._mainuser.setUcoins(Sims_1._mainuser.getUcoins()-item.price);
