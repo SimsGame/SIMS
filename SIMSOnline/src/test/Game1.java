@@ -18,6 +18,8 @@ public class Game1 {
     public int points;
     public int semester = 4;
     public Student[] studentArray; //added by Jörg
+    public double airQuality;
+    public double noise;
     
     /**
      * Items are public to have an easy access from every class
@@ -38,15 +40,37 @@ public class Game1 {
             studentArray[i] = new Student(i);
         }
     }
-    
-     public void updateArray (double factor1, double factor2){
+    /**
+     * @param add1  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a negative value.
+     * @param add2  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a positive value.
+     */
+     public void updateArray (double add1, double add2){
        for (int i = 0; i < 30; i++) {
-       studentArray[i].changeMotivation(factor1);
-       studentArray[i].changeTiredness(factor2);
+       studentArray[i].changeMotivation(add1);
+       studentArray[i].changeTiredness(add2);
        studentArray[i].updateKnowledge();
        }
     }    
-    /**
+
+     /**
+      * initializes the attributes of the room in general
+      */
+     public void initRoom(){
+         this.airQuality=100;
+         this.noise=Math.round(Math.random()*30);
+     }
+     
+     /**
+      * @param factor1  describes how much value AirQuality changes. Regularly a negative value.
+      * @param factor2  describes how much value Noise changes. Regularly a positive value.
+      * 
+      * This function updates the attributes of the room.
+      */
+     public void updateRoom(double factor1, double factor2){
+         this.airQuality = this.airQuality + factor1;
+         this.noise = this.noise + factor2;
+     }
+     /**
      * Receives data (Item Objects) from Item.java and
      * stores them in the fitting Item Objects in this class.
      * That's how each item can becalled by name.
