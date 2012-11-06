@@ -50,8 +50,6 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
-    
-    
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
@@ -59,19 +57,21 @@ public class Sims_1 extends javax.swing.JFrame {
     private JPanel panel_numberMinigame = new JPanel();
     private JPanel panel_snakeMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
-    
+
     /**
-     * Sets up and initializes each component and some additional settings.
-     * The auto login function is called from here as well. 
+     * Sets up and initializes each component and some additional settings. The
+     * auto login function is called from here as well.
      */
-    
     public Sims_1() {
         panel_mazeMinigame = new MinigameMazegame();
         panel_numberMinigame = new MinigameNumbergame();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
-                goToNextPage();}});
+                goToNextPage();
+            }
+        });
         miniGameFinished.add(button_afterGame);
         initComponents();
         jPanel2.add(panel_numberMinigame, "card6");
@@ -93,11 +93,12 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
         panel_adminUser.setVisible(false);
+        panel_Profile.setVisible(false);
         label_lErr.setText("");
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
+        setLocationRelativeTo(null); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
     }
@@ -150,6 +151,31 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
+        panel_Profile = new javax.swing.JPanel();
+        textfield_pKontoname = new javax.swing.JTextField();
+        textfield_pEmail1 = new javax.swing.JTextField();
+        textfield_pEmail2 = new javax.swing.JTextField();
+        textfield_pName = new javax.swing.JTextField();
+        textfield_pSurename = new javax.swing.JTextField();
+        password_pPass1 = new javax.swing.JPasswordField();
+        password_pPass2 = new javax.swing.JPasswordField();
+        button_pSave = new javax.swing.JButton();
+        label_pKontoname = new javax.swing.JLabel();
+        label_pPass1 = new javax.swing.JLabel();
+        label_pPass2 = new javax.swing.JLabel();
+        label_pEmail1 = new javax.swing.JLabel();
+        label_pEmail2 = new javax.swing.JLabel();
+        label_pFirstName = new javax.swing.JLabel();
+        label_pSecondName = new javax.swing.JLabel();
+        button_pCancel = new javax.swing.JButton();
+        label_pErrAccname = new javax.swing.JLabel();
+        label_pErrPass1 = new javax.swing.JLabel();
+        label_pErrPass2 = new javax.swing.JLabel();
+        label_pErrEmail1 = new javax.swing.JLabel();
+        label_pErrEmail2 = new javax.swing.JLabel();
+        label_pErrFirstName = new javax.swing.JLabel();
+        label_pErrLastName = new javax.swing.JLabel();
+        Menu_overlay1 = new javax.swing.JLabel();
         Menu_overlay = new javax.swing.JLabel();
         button_menuStartNewGame = new javax.swing.JButton();
         button_menuExit = new javax.swing.JButton();
@@ -323,7 +349,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar6 = new javax.swing.JProgressBar();
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
-        StudField1 = new javax.swing.JPanel();
+        panel_activityPhaseStudField = new javax.swing.JPanel();
         jBut_Dozent1 = new javax.swing.JButton();
         button_stud1 = new javax.swing.JButton();
         button_stud2 = new javax.swing.JButton();
@@ -391,7 +417,6 @@ public class Sims_1 extends javax.swing.JFrame {
         check_saveUser = new javax.swing.JCheckBox();
         check_autoLogin = new javax.swing.JCheckBox();
         label_lErr = new javax.swing.JLabel();
-        button_lDevAcessMenue = new javax.swing.JButton();
         buton_enterAdmin = new javax.swing.JButton();
         login_background = new javax.swing.JLabel();
         panel_adminUser = new javax.swing.JPanel();
@@ -734,6 +759,157 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setName(""); // NOI18N
         startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_Profile.setMaximumSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setMinimumSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setPreferredSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textfield_pKontoname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pKontonameActionPerformed(evt);
+            }
+        });
+        textfield_pKontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pKontonameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 149, -1));
+
+        textfield_pEmail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pEmail1ActionPerformed(evt);
+            }
+        });
+        textfield_pEmail1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pEmail1FocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 149, -1));
+
+        textfield_pEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pEmail2FocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 149, -1));
+
+        textfield_pName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pNameActionPerformed(evt);
+            }
+        });
+        textfield_pName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pNameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 149, -1));
+
+        textfield_pSurename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pSurenameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pSurename, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 149, -1));
+
+        password_pPass1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_pPass1FocusGained(evt);
+            }
+        });
+        panel_Profile.add(password_pPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 149, -1));
+
+        password_pPass2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_pPass2FocusGained(evt);
+            }
+        });
+        panel_Profile.add(password_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 149, -1));
+
+        button_pSave.setText("Übernehmen");
+        button_pSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_pSaveActionPerformed(evt);
+            }
+        });
+        panel_Profile.add(button_pSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+
+        label_pKontoname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pKontoname.setText("Kontoname:");
+        panel_Profile.add(label_pKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, 20));
+
+        label_pPass1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pPass1.setText("Passwort:");
+        panel_Profile.add(label_pPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        label_pPass2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pPass2.setText("Passwort wiederholen:");
+        panel_Profile.add(label_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+
+        label_pEmail1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pEmail1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label_pEmail1.setText("Email:");
+        panel_Profile.add(label_pEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        label_pEmail2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pEmail2.setText("Email wiederholen:");
+        panel_Profile.add(label_pEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+
+        label_pFirstName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pFirstName.setText("Vorname:");
+        panel_Profile.add(label_pFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+
+        label_pSecondName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pSecondName.setText("Nachname:");
+        panel_Profile.add(label_pSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
+
+        button_pCancel.setText("Abbrechen");
+        button_pCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_pCancelActionPerformed(evt);
+            }
+        });
+        panel_Profile.add(button_pCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, -1, -1));
+
+        label_pErrAccname.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrAccname.setText("Fehler?");
+        label_pErrAccname.setName("label_rErrAccname"); // NOI18N
+        panel_Profile.add(label_pErrAccname, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+
+        label_pErrPass1.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrPass1.setText("Fehler?");
+        label_pErrPass1.setName("label_rErrPass1"); // NOI18N
+        panel_Profile.add(label_pErrPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
+
+        label_pErrPass2.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrPass2.setText("Fehler?");
+        panel_Profile.add(label_pErrPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+
+        label_pErrEmail1.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrEmail1.setText("Fehler?");
+        panel_Profile.add(label_pErrEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
+
+        label_pErrEmail2.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrEmail2.setText("Fehler?");
+        panel_Profile.add(label_pErrEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+
+        label_pErrFirstName.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrFirstName.setText("Fehler?");
+        panel_Profile.add(label_pErrFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+
+        label_pErrLastName.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrLastName.setText("Fehler?");
+        panel_Profile.add(label_pErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
+
+        Menu_overlay1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
+        Menu_overlay1.setText("Overlay_hauptmenü");
+        Menu_overlay1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_Profile.add(Menu_overlay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 870));
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
@@ -1875,19 +2051,19 @@ public class Sims_1 extends javax.swing.JFrame {
         gamePlaying.add(jPanel6);
         jPanel6.setBounds(850, 0, 130, 110);
 
-        StudField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        StudField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        panel_activityPhaseStudField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_activityPhaseStudField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StudField1MouseClicked(evt);
+                panel_activityPhaseStudFieldMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StudField1MouseEntered(evt);
+                panel_activityPhaseStudFieldMouseEntered(evt);
             }
         });
-        StudField1.setLayout(null);
+        panel_activityPhaseStudField.setLayout(null);
 
         jBut_Dozent1.setText("Dozent");
-        StudField1.add(jBut_Dozent1);
+        panel_activityPhaseStudField.add(jBut_Dozent1);
         jBut_Dozent1.setBounds(340, 470, 110, 50);
 
         button_stud1.setText("Platz_1");
@@ -1907,7 +2083,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud1ActionPerformed(evt);
             }
         });
-        StudField1.add(button_stud1);
+        panel_activityPhaseStudField.add(button_stud1);
         button_stud1.setBounds(60, 10, 110, 50);
 
         button_stud2.setText("Platz_2");
@@ -1919,7 +2095,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud2MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud2);
+        panel_activityPhaseStudField.add(button_stud2);
         button_stud2.setBounds(210, 10, 110, 50);
 
         button_stud3.setText("Platz_3");
@@ -1931,7 +2107,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud3MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud3);
+        panel_activityPhaseStudField.add(button_stud3);
         button_stud3.setBounds(360, 10, 110, 50);
 
         button_stud4.setText("Platz_4");
@@ -1943,7 +2119,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud4MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud4);
+        panel_activityPhaseStudField.add(button_stud4);
         button_stud4.setBounds(510, 10, 110, 50);
 
         button_stud5.setText("Platz_5");
@@ -1955,7 +2131,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud5MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud5);
+        panel_activityPhaseStudField.add(button_stud5);
         button_stud5.setBounds(660, 10, 110, 50);
 
         button_stud6.setText("Platz_6");
@@ -1964,7 +2140,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud6MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud6);
+        panel_activityPhaseStudField.add(button_stud6);
         button_stud6.setBounds(60, 80, 110, 50);
 
         button_stud7.setText("Platz_7");
@@ -1973,7 +2149,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud7MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud7);
+        panel_activityPhaseStudField.add(button_stud7);
         button_stud7.setBounds(210, 80, 110, 50);
 
         button_stud8.setText("Platz_8");
@@ -1982,7 +2158,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud8MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud8);
+        panel_activityPhaseStudField.add(button_stud8);
         button_stud8.setBounds(360, 80, 110, 50);
 
         button_stud9.setText("Platz_9");
@@ -1991,7 +2167,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud9MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud9);
+        panel_activityPhaseStudField.add(button_stud9);
         button_stud9.setBounds(510, 80, 110, 50);
 
         button_stud10.setText("Platz_10");
@@ -2000,7 +2176,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud10MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud10);
+        panel_activityPhaseStudField.add(button_stud10);
         button_stud10.setBounds(660, 80, 110, 50);
 
         button_stud11.setText("Platz_11");
@@ -2009,7 +2185,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud11MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud11);
+        panel_activityPhaseStudField.add(button_stud11);
         button_stud11.setBounds(60, 150, 110, 50);
 
         button_stud12.setText("Platz_12");
@@ -2018,7 +2194,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud12MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud12);
+        panel_activityPhaseStudField.add(button_stud12);
         button_stud12.setBounds(210, 150, 110, 50);
 
         button_stud13.setText("Platz_13");
@@ -2027,7 +2203,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud13MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud13);
+        panel_activityPhaseStudField.add(button_stud13);
         button_stud13.setBounds(360, 150, 110, 50);
 
         button_stud14.setText("Platz_14");
@@ -2036,7 +2212,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud14MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud14);
+        panel_activityPhaseStudField.add(button_stud14);
         button_stud14.setBounds(510, 150, 110, 50);
 
         button_stud15.setText("Platz_15");
@@ -2045,7 +2221,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud15MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud15);
+        panel_activityPhaseStudField.add(button_stud15);
         button_stud15.setBounds(660, 150, 110, 50);
 
         button_stud16.setText("Platz_16");
@@ -2054,7 +2230,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud16MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud16);
+        panel_activityPhaseStudField.add(button_stud16);
         button_stud16.setBounds(60, 220, 110, 50);
 
         button_stud17.setText("Platz_17");
@@ -2068,7 +2244,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud17ActionPerformed(evt);
             }
         });
-        StudField1.add(button_stud17);
+        panel_activityPhaseStudField.add(button_stud17);
         button_stud17.setBounds(210, 220, 110, 50);
 
         button_stud18.setText("Platz_18");
@@ -2077,7 +2253,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud18MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud18);
+        panel_activityPhaseStudField.add(button_stud18);
         button_stud18.setBounds(360, 220, 110, 50);
 
         button_stud19.setText("Platz_19");
@@ -2086,7 +2262,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud19MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud19);
+        panel_activityPhaseStudField.add(button_stud19);
         button_stud19.setBounds(510, 220, 110, 50);
 
         button_stud20.setText("Platz_20");
@@ -2095,7 +2271,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud20MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud20);
+        panel_activityPhaseStudField.add(button_stud20);
         button_stud20.setBounds(660, 220, 110, 50);
 
         button_stud21.setText("Platz_21");
@@ -2104,7 +2280,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud21MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud21);
+        panel_activityPhaseStudField.add(button_stud21);
         button_stud21.setBounds(60, 290, 110, 50);
 
         button_stud22.setText("Platz_22");
@@ -2113,7 +2289,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud22MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud22);
+        panel_activityPhaseStudField.add(button_stud22);
         button_stud22.setBounds(210, 290, 110, 50);
 
         button_stud23.setText("Platz_23");
@@ -2122,7 +2298,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud23MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud23);
+        panel_activityPhaseStudField.add(button_stud23);
         button_stud23.setBounds(360, 290, 110, 50);
 
         button_stud24.setText("Platz_24");
@@ -2131,7 +2307,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud24MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud24);
+        panel_activityPhaseStudField.add(button_stud24);
         button_stud24.setBounds(510, 290, 110, 50);
 
         button_stud25.setText("Platz_25");
@@ -2140,7 +2316,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud25MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud25);
+        panel_activityPhaseStudField.add(button_stud25);
         button_stud25.setBounds(660, 290, 110, 50);
 
         button_stud26.setText("Platz_26");
@@ -2149,7 +2325,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud26MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud26);
+        panel_activityPhaseStudField.add(button_stud26);
         button_stud26.setBounds(60, 360, 110, 50);
 
         button_stud27.setText("Platz_27");
@@ -2159,7 +2335,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud27MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud27);
+        panel_activityPhaseStudField.add(button_stud27);
         button_stud27.setBounds(210, 360, 110, 50);
 
         button_stud28.setText("Platz_28");
@@ -2168,7 +2344,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud28MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud28);
+        panel_activityPhaseStudField.add(button_stud28);
         button_stud28.setBounds(360, 360, 110, 50);
 
         button_stud29.setText("Platz_29");
@@ -2177,7 +2353,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud29MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud29);
+        panel_activityPhaseStudField.add(button_stud29);
         button_stud29.setBounds(510, 360, 110, 50);
 
         button_stud30.setText("Platz_30");
@@ -2186,13 +2362,13 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud30MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud30);
+        panel_activityPhaseStudField.add(button_stud30);
         button_stud30.setBounds(660, 360, 110, 50);
-        StudField1.add(jLab_DozSwitch2);
+        panel_activityPhaseStudField.add(jLab_DozSwitch2);
         jLab_DozSwitch2.setBounds(0, 0, 150, 110);
 
-        gamePlaying.add(StudField1);
-        StudField1.setBounds(150, 110, 830, 550);
+        gamePlaying.add(panel_activityPhaseStudField);
+        panel_activityPhaseStudField.setBounds(150, 110, 830, 550);
 
         jPanel2.add(gamePlaying, "card2");
 
@@ -2428,14 +2604,6 @@ public class Sims_1 extends javax.swing.JFrame {
         label_lErr.setForeground(new java.awt.Color(204, 0, 0));
         label_lErr.setText("Fehler?");
         panel_Login.add(label_lErr, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 122, -1, -1));
-
-        button_lDevAcessMenue.setText("Devs, click here to go to main menu!!!");
-        button_lDevAcessMenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_lDevAcessMenueActionPerformed(evt);
-            }
-        });
-        panel_Login.add(button_lDevAcessMenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 245, -1, 171));
 
         buton_enterAdmin.setText("enter Admin-Data");
         buton_enterAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -2749,17 +2917,17 @@ public class Sims_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void goToNextPage(){
+
+    private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
         cl.show(jPanel2, "card3");
     }
-    
-    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt){
+
+    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch(jLab_StudCounter);
-        
+
     }
-    
+
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
@@ -2777,7 +2945,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -2792,14 +2960,14 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter,jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-         if (jPanel2.isVisible() == false) {
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
         panel_snakeMinigame = new Board();
@@ -2809,11 +2977,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
-        // TODO add your handling code here:
+        initProfile();
+        panel_Profile.setVisible(true);
     }//GEN-LAST:event_button_menuProfileActionPerformed
 
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
-        // TODO add your handling code here:
+        logOut();
     }//GEN-LAST:event_button_menuLogOutActionPerformed
 
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
@@ -2916,6 +3085,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_17ActionPerformed
 
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         // This function is called after the shop button from the planning phase was pressed.
         // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(jPanel2, "card4");
@@ -3244,6 +3416,10 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_ChangeLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorMouseClicked
         // TODO add your handling code here:
+        
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         //check if can change lector. If so - do this, else - error 
         boolean allowed = planningPhase.validateLector(jLab_DozCounter);
         if (allowed) {
@@ -3255,6 +3431,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         // Starts the action phase and the inventory. 
         if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
@@ -3266,7 +3445,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -3350,12 +3529,6 @@ public class Sims_1 extends javax.swing.JFrame {
         button_Register.setSelected(false);
     }//GEN-LAST:event_button_cancelActionPerformed
 
-    private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
-        logIn();
-//        buton_enterAdmin.setVisible(false); //added by Jannik
-//        button_aCancel.setVisible(false);   //added by Jannik
-    }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
-
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
@@ -3401,9 +3574,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
     private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
-        // TODO add your handling code here:
-        planningPhase.setCheatFlag(0);
-        warning.setVisible(false);
+//        // TODO add your handling code here:
+//        planningPhase.setCheatFlag(0);
+//        warning.setVisible(false);
     }//GEN-LAST:event_warningWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
@@ -3592,13 +3765,13 @@ public class Sims_1 extends javax.swing.JFrame {
         activityPhase.StudentClicked(29);
     }//GEN-LAST:event_button_stud30MouseClicked
 
-    private void StudField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StudField1MouseClicked
+    private void panel_activityPhaseStudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseClicked
+    activityPhase.doNotPaintFlag= false;
+    }//GEN-LAST:event_panel_activityPhaseStudFieldMouseClicked
 
-    private void StudField1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseEntered
+    private void panel_activityPhaseStudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_StudField1MouseEntered
+    }//GEN-LAST:event_panel_activityPhaseStudFieldMouseEntered
 
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
         if (activityPhase.redBullPressed == false) {
@@ -3637,7 +3810,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_item3InvMouseClicked
 
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
-        if(_mainadmin.checkChanges()){
+        if (_mainadmin.checkChanges()) {
             _mainadmin.saveChages();
             adminLogin();
         }
@@ -3681,7 +3854,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION){
+        if (JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION) {
             _mainadmin.delSpecUser();
             adminLogin();
         }
@@ -3691,7 +3864,72 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.setVisible(false);
         panel_Login.setVisible(true);
     }//GEN-LAST:event_button_aCancelActionPerformed
-    
+
+    private void textfield_pKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pKontonameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pKontonameActionPerformed
+
+    private void textfield_pKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pKontonameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pKontonameFocusGained
+
+    private void textfield_pEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pEmail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail1ActionPerformed
+
+    private void textfield_pEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail1FocusGained
+
+    private void textfield_pEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail2FocusGained
+
+    private void textfield_pNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pNameActionPerformed
+
+    private void textfield_pNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pNameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pNameFocusGained
+
+    private void textfield_pSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pSurenameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pSurenameFocusGained
+
+    private void password_pPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_pPass1FocusGained
+
+    private void password_pPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_pPass2FocusGained
+
+    private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
+
+        JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
+        JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
+        JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
+        JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        JPasswordField inputPw = new JPasswordField();
+        Object[] ob = {inputPw};
+
+        if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
+            if (JOptionPane.showConfirmDialog(null, ob, "Bitte aktuelles Passwort eingeben!", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION & inputPw.getPassword().equals(_mainuser.getPassword().toCharArray())) {
+                if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
+                    User.deleteUser(_mainuser);
+                }
+                User.createUser(textfield_pKontoname.getText(), password_pPass1.getPassword(), textfield_pEmail1.getText(), textfield_pName.getText(), textfield_pSurename.getText(), _mainuser.getReg_date(), _mainuser.getLast_login(), _mainuser.getTime_played(), _mainuser.getUcoins());
+                _mainuser = new User(textfield_pKontoname.getText());
+            }
+            panel_Profile.setVisible(false);
+        }
+    }//GEN-LAST:event_button_pSaveActionPerformed
+
+    private void button_pCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pCancelActionPerformed
+        panel_Profile.setVisible(false);
+    }//GEN-LAST:event_button_pCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3739,11 +3977,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JPanel Logo;
     private javax.swing.JLabel Menu_overlay;
+    private javax.swing.JLabel Menu_overlay1;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JPanel Navi;
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
-    private javax.swing.JPanel StudField1;
     private javax.swing.JProgressBar TirednessBar;
     private javax.swing.JLabel background_admin_overview;
     private javax.swing.JLabel background_register;
@@ -3755,7 +3993,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_aSave;
     private javax.swing.JButton button_auCancel1;
     private javax.swing.JButton button_cancel;
-    private javax.swing.JButton button_lDevAcessMenue;
     private javax.swing.JButton button_menuCredits;
     private javax.swing.JButton button_menuExit;
     private javax.swing.JButton button_menuLoadGame;
@@ -3763,6 +4000,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_menuProfile;
     private javax.swing.JButton button_menuStartNewGame;
     private javax.swing.JButton button_menuStatistic;
+    private javax.swing.JButton button_pCancel;
+    private javax.swing.JButton button_pSave;
     private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_startExchange;
@@ -3987,6 +4226,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_omniLocked;
     private javax.swing.JLabel label_omniName;
     private javax.swing.JLabel label_omniOverlay;
+    private javax.swing.JLabel label_pEmail1;
+    private javax.swing.JLabel label_pEmail2;
+    private javax.swing.JLabel label_pErrAccname;
+    private javax.swing.JLabel label_pErrEmail1;
+    private javax.swing.JLabel label_pErrEmail2;
+    private javax.swing.JLabel label_pErrFirstName;
+    private javax.swing.JLabel label_pErrLastName;
+    private javax.swing.JLabel label_pErrPass1;
+    private javax.swing.JLabel label_pErrPass2;
+    private javax.swing.JLabel label_pFirstName;
+    private javax.swing.JLabel label_pKontoname;
+    private javax.swing.JLabel label_pPass1;
+    private javax.swing.JLabel label_pPass2;
+    private javax.swing.JLabel label_pSecondName;
     private javax.swing.JLabel label_rEmail1;
     private javax.swing.JLabel label_rEmail2;
     private javax.swing.JLabel label_rErrAccname;
@@ -4025,13 +4278,17 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel login_background;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
+    private javax.swing.JPanel panel_Profile;
     private javax.swing.JPanel panel_Register;
+    private javax.swing.JPanel panel_activityPhaseStudField;
     private javax.swing.JPanel panel_adminUser;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
     private javax.swing.JPanel panel_omniSense;
     private javax.swing.JPanel panel_redBull;
     private javax.swing.JPasswordField password_Pass;
+    private javax.swing.JPasswordField password_pPass1;
+    private javax.swing.JPasswordField password_pPass2;
     private javax.swing.JPasswordField password_rPass1;
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
@@ -4049,6 +4306,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_aRedBull;
     private javax.swing.JTextField textfield_aSurename;
     private javax.swing.JTextField textfield_aUCoins;
+    private javax.swing.JTextField textfield_pEmail1;
+    private javax.swing.JTextField textfield_pEmail2;
+    private javax.swing.JTextField textfield_pKontoname;
+    private javax.swing.JTextField textfield_pName;
+    private javax.swing.JTextField textfield_pSurename;
     private javax.swing.JTextField textfield_rEmail1;
     private javax.swing.JTextField textfield_rEmail2;
     private javax.swing.JTextField textfield_rKontoname;
@@ -4156,6 +4418,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    private static boolean checkGlobUserVar(JTextField[] input, JLabel[] errMess) {
+        JTextField[] test1 = {new JTextField("t"), input[1]};
+        JTextField[] test2 = {input[0], new JTextField("t")};
+        return checkGlobUser(test1, errMess) & checkGlobUser(test2, errMess);
+    }
+
     /**
      * Checks in the global user-file if the user already exists
      *
@@ -4164,11 +4432,9 @@ public class Sims_1 extends javax.swing.JFrame {
      */
     private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
 
-        System.out.println("hier");
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
-                System.out.println("hier");
                 if (sublist.contains(input[0].getText())) {
                     errMess[0].setText("Kontoname schon vergeben!");
                     input[0].setBackground(Color.red);
@@ -4332,7 +4598,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             if (userPw.contentEquals(new String(password))) {
-                System.out.println("User " + accountname + " ist eingelogged und wird ins Hauptmenü geleitet");
                 return true;
             }
         }
@@ -4395,6 +4660,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void logOut() {
         _mainuser = null;
         _maingame = null;
+        panel_Profile.setVisible(false);
         check_autoLogin.setSelected(false);
         startPlanningGame.setVisible(false);
         panel_Login.setVisible(true);
@@ -4435,6 +4701,32 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin_overview);
 
+    }
+
+    private void initProfile() {
+        label_pErrEmail1.setText("");
+        label_pErrAccname.setText("");
+        label_pErrEmail2.setText("");
+        label_pErrFirstName.setText("");
+        label_pErrLastName.setText("");
+        label_pErrPass1.setText("");
+        label_pErrPass2.setText("");
+
+        textfield_pKontoname.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        textfield_pEmail1.setBackground(Color.white);
+        textfield_pEmail2.setBackground(Color.white);
+        textfield_pName.setBackground(Color.white);
+        textfield_pSurename.setBackground(Color.white);
+
+        textfield_pKontoname.setText(_mainuser.getAccountname());
+        password_pPass1.setText(_mainuser.getPassword());
+        password_pPass2.setText(_mainuser.getPassword());
+        textfield_pEmail1.setText(_mainuser.getEmail());
+        textfield_pEmail2.setText(_mainuser.getEmail());
+        textfield_pName.setText(_mainuser.getFirst_name());
+        textfield_pSurename.setText(_mainuser.getLast_name());
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
