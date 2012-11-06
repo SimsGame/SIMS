@@ -150,7 +150,6 @@ public class User {
     public static boolean deleteUser(String accountname, String email) {
 
         LinkedList<LinkedList> userlist = null;
-        LinkedList<LinkedList> uhelp = null;
 
         try {
             userlist = CSVHandling.readCSV(Sims_1._usersFileName);
