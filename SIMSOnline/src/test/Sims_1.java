@@ -50,8 +50,6 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
-    
-    
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
@@ -59,19 +57,21 @@ public class Sims_1 extends javax.swing.JFrame {
     private JPanel panel_numberMinigame = new JPanel();
     private JPanel panel_snakeMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
-    
+
     /**
-     * Sets up and initializes each component and some additional settings.
-     * The auto login function is called from here as well. 
+     * Sets up and initializes each component and some additional settings. The
+     * auto login function is called from here as well.
      */
-    
     public Sims_1() {
         panel_mazeMinigame = new MinigameMazegame();
         panel_numberMinigame = new MinigameNumbergame();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
-                goToNextPage();}});
+                goToNextPage();
+            }
+        });
         miniGameFinished.add(button_afterGame);
         initComponents();
         jPanel2.add(panel_numberMinigame, "card6");
@@ -98,7 +98,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
+        setLocationRelativeTo(null); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
     }
@@ -903,7 +903,7 @@ public class Sims_1 extends javax.swing.JFrame {
         Menu_overlay1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_Profile.add(Menu_overlay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 870));
+        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 870));
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
@@ -2916,17 +2916,17 @@ public class Sims_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void goToNextPage(){
+
+    private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
         cl.show(jPanel2, "card3");
     }
-    
-    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt){
+
+    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch(jLab_StudCounter);
-        
+
     }
-    
+
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
@@ -2959,14 +2959,14 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter,jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-         if (jPanel2.isVisible() == false) {
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
         panel_snakeMinigame = new Board();
@@ -2976,11 +2976,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
+        initProfile();
         panel_Profile.setVisible(true);
     }//GEN-LAST:event_button_menuProfileActionPerformed
 
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
-        // TODO add your handling code here:
+        logOut();
     }//GEN-LAST:event_button_menuLogOutActionPerformed
 
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
@@ -3568,9 +3569,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
     private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
-        // TODO add your handling code here:
-        planningPhase.setCheatFlag(0);
-        warning.setVisible(false);
+//        // TODO add your handling code here:
+//        planningPhase.setCheatFlag(0);
+//        warning.setVisible(false);
     }//GEN-LAST:event_warningWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
@@ -3804,7 +3805,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_item3InvMouseClicked
 
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
-        if(_mainadmin.checkChanges()){
+        if (_mainadmin.checkChanges()) {
             _mainadmin.saveChages();
             adminLogin();
         }
@@ -3848,7 +3849,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION){
+        if (JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION) {
             _mainadmin.delSpecUser();
             adminLogin();
         }
@@ -3900,13 +3901,30 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_pPass2FocusGained
 
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
-        // TODO add your handling code here:
+
+        JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
+        JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
+        JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
+        JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        JPasswordField inputPw = new JPasswordField();
+        Object[] ob = {inputPw};
+
+        if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
+            if (JOptionPane.showConfirmDialog(null, ob, "Bitte aktuelles Passwort eingeben!", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION & inputPw.getPassword().equals(_mainuser.getPassword().toCharArray())) {
+                if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
+                    User.deleteUser(_mainuser);
+                }
+                User.createUser(textfield_pKontoname.getText(), password_pPass1.getPassword(), textfield_pEmail1.getText(), textfield_pName.getText(), textfield_pSurename.getText(), _mainuser.getReg_date(), _mainuser.getLast_login(), _mainuser.getTime_played(), _mainuser.getUcoins());
+                _mainuser = new User(textfield_pKontoname.getText());
+            }
+            panel_Profile.setVisible(false);
+        }
     }//GEN-LAST:event_button_pSaveActionPerformed
 
     private void button_pCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pCancelActionPerformed
         panel_Profile.setVisible(false);
     }//GEN-LAST:event_button_pCancelActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -4393,6 +4411,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    private static boolean checkGlobUserVar(JTextField[] input, JLabel[] errMess) {
+        JTextField[] test1 = {new JTextField("t"), input[1]};
+        JTextField[] test2 = {input[0], new JTextField("t")};
+        return checkGlobUser(test1, errMess) & checkGlobUser(test2, errMess);
+    }
+
     /**
      * Checks in the global user-file if the user already exists
      *
@@ -4401,11 +4425,9 @@ public class Sims_1 extends javax.swing.JFrame {
      */
     private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
 
-        System.out.println("hier");
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
-                System.out.println("hier");
                 if (sublist.contains(input[0].getText())) {
                     errMess[0].setText("Kontoname schon vergeben!");
                     input[0].setBackground(Color.red);
@@ -4569,7 +4591,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             if (userPw.contentEquals(new String(password))) {
-                System.out.println("User " + accountname + " ist eingelogged und wird ins Hauptmenü geleitet");
                 return true;
             }
         }
@@ -4632,6 +4653,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void logOut() {
         _mainuser = null;
         _maingame = null;
+        panel_Profile.setVisible(false);
         check_autoLogin.setSelected(false);
         startPlanningGame.setVisible(false);
         panel_Login.setVisible(true);
@@ -4670,6 +4692,32 @@ public class Sims_1 extends javax.swing.JFrame {
         JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
         _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
+    }
+
+    private void initProfile() {
+        label_pErrEmail1.setText("");
+        label_pErrAccname.setText("");
+        label_pErrEmail2.setText("");
+        label_pErrFirstName.setText("");
+        label_pErrLastName.setText("");
+        label_pErrPass1.setText("");
+        label_pErrPass2.setText("");
+
+        textfield_pKontoname.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        textfield_pEmail1.setBackground(Color.white);
+        textfield_pEmail2.setBackground(Color.white);
+        textfield_pName.setBackground(Color.white);
+        textfield_pSurename.setBackground(Color.white);
+
+        textfield_pKontoname.setText(_mainuser.getAccountname());
+        password_pPass1.setText(_mainuser.getPassword());
+        password_pPass2.setText(_mainuser.getPassword());
+        textfield_pEmail1.setText(_mainuser.getEmail());
+        textfield_pEmail2.setText(_mainuser.getEmail());
+        textfield_pName.setText(_mainuser.getFirst_name());
+        textfield_pSurename.setText(_mainuser.getLast_name());
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************

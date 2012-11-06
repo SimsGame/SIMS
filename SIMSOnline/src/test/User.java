@@ -137,16 +137,10 @@ public class User {
         }
     }
 
-    /**
-     * creates a new user on the local system, needed for registration
-     *
-     * @param accountname string
-     * @param password char[]
-     * @param email string
-     * @param first_name string
-     * @param last_name string
-     * @return true if the user could be created, false otherwise
-     */
+    public static boolean deleteUser(User user){
+        return deleteUser(user.getAccountname(), user.getEmail());
+    }
+    
     public static boolean deleteUser(String accountname, String email) {
 
         LinkedList<LinkedList> userlist = null;
