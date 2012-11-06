@@ -51,8 +51,6 @@ public class Sims_1 extends javax.swing.JFrame {
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
-    
-    
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
@@ -60,19 +58,21 @@ public class Sims_1 extends javax.swing.JFrame {
     private JPanel panel_numberMinigame = new JPanel();
     private JPanel panel_snakeMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
-    
+
     /**
-     * Sets up and initializes each component and some additional settings.
-     * The auto login function is called from here as well. 
+     * Sets up and initializes each component and some additional settings. The
+     * auto login function is called from here as well.
      */
-    
     public Sims_1() {
         panel_mazeMinigame = new MinigameMazegame();
         panel_numberMinigame = new MinigameNumbergame();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
-                goToNextPage();}});
+                goToNextPage();
+            }
+        });
         miniGameFinished.add(button_afterGame);
         initComponents();
         jPanel2.add(panel_numberMinigame, "card6");
@@ -99,7 +99,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
+        setLocationRelativeTo(null); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
@@ -149,6 +149,8 @@ public class Sims_1 extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jBut_OKnotchanged = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
         panel_Profile = new javax.swing.JPanel();
@@ -417,7 +419,6 @@ public class Sims_1 extends javax.swing.JFrame {
         check_saveUser = new javax.swing.JCheckBox();
         check_autoLogin = new javax.swing.JCheckBox();
         label_lErr = new javax.swing.JLabel();
-        button_lDevAcessMenue = new javax.swing.JButton();
         buton_enterAdmin = new javax.swing.JButton();
         login_background = new javax.swing.JLabel();
         panel_adminUser = new javax.swing.JPanel();
@@ -458,6 +459,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrLastName = new javax.swing.JLabel();
         label_aErrUCoins = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
+        background_admin_overview = new javax.swing.JLabel();
         button_aCancel = new javax.swing.JButton();
 
         buyCoins.setLocationByPlatform(true);
@@ -510,7 +512,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 29);
+        button_swapperExchange.setBounds(50, 220, 130, 23);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -519,7 +521,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 29);
+        button_swapperAbord.setBounds(210, 220, 130, 23);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -528,11 +530,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 8, 17);
+        label_swapperArrow1.setBounds(190, 130, 8, 14);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 17);
+        label_swapperArrow3.setBounds(190, 140, 40, 14);
 
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
@@ -559,7 +561,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 34, 29);
+        button_shopMessageOk.setBounds(170, 210, 47, 23);
 
         warning.setModal(true);
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -738,6 +740,10 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
+        jLabel1.setText("jLabel1");
+
+        jLabel3.setText("jLabel3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
         setMaximumSize(new java.awt.Dimension(1000, 700));
@@ -905,7 +911,7 @@ public class Sims_1 extends javax.swing.JFrame {
         Menu_overlay1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_Profile.add(Menu_overlay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 870));
+        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 870));
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
@@ -1061,7 +1067,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Planning_unused05.setText("umsetzen");
         jPan_StudSwitch.add(jLab_Planning_unused05);
-        jLab_Planning_unused05.setBounds(40, 40, 70, 17);
+        jLab_Planning_unused05.setBounds(40, 40, 70, 14);
 
         jLab_Planning_unused06.setText("Studenten");
         jPan_StudSwitch.add(jLab_Planning_unused06);
@@ -1070,7 +1076,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 22);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
         jToggleBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1133,7 +1139,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_ComboB_useItem.setText("Benutzen");
         jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 29);
+        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -1148,15 +1154,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 17);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 17);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 17);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1535,19 +1541,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 17);
+        jLabel58.setBounds(10, 450, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 17);
+        jLabel59.setBounds(80, 450, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 17);
+        jLabel60.setBounds(10, 470, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 17);
+        jLabel61.setBounds(80, 470, 60, 14);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item4);
@@ -1564,27 +1570,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         jPanel19.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 51, 17);
+        label_item1Name.setBounds(60, 80, 34, 14);
 
         label_item1Amount.setText("jLabel4");
         jPanel19.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 51, 17);
+        label_item1Amount.setBounds(60, 100, 34, 14);
 
         label_item2Name.setText("jLabel4");
         jPanel19.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 51, 17);
+        label_item2Name.setBounds(60, 190, 34, 14);
 
         label_item2Amount.setText("jLabel4");
         jPanel19.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 51, 17);
+        label_item2Amount.setBounds(60, 210, 34, 14);
 
         label_item3Name.setText("jLabel4");
         jPanel19.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 51, 17);
+        label_item3Name.setBounds(60, 380, 34, 14);
 
         label_item3Amount.setText("jLabel26");
         jPanel19.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 60, 17);
+        label_item3Amount.setBounds(60, 400, 40, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1592,11 +1598,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         jPanel19.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 51, 17);
+        label_item4Name.setBounds(60, 280, 34, 14);
 
         label_item4Amount.setText("jLabel26");
         jPanel19.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 60, 17);
+        label_item4Amount.setBounds(60, 300, 40, 14);
 
         shop.add(jPanel19);
         jPanel19.setBounds(0, 110, 150, 550);
@@ -1894,23 +1900,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 450, 80, 17);
+        jLabel18.setBounds(10, 450, 80, 14);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 450, 50, 17);
+        jLabel19.setBounds(80, 450, 50, 14);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 470, 80, 17);
+        jLabel20.setBounds(10, 470, 80, 14);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 470, 60, 17);
+        jLabel21.setBounds(80, 470, 60, 14);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 17);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1923,7 +1929,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 17);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -1931,7 +1937,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 17);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1962,11 +1968,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 17);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 17);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -2021,7 +2027,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 29);
+        jButton1.setBounds(350, 10, 120, 23);
 
         jButton4.setText("Gruppenarbeit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2030,11 +2036,11 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 29);
+        jButton4.setBounds(350, 40, 120, 23);
 
         jButton5.setText("Pause");
         jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 29);
+        jButton5.setBounds(350, 80, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2618,14 +2624,6 @@ public class Sims_1 extends javax.swing.JFrame {
         label_lErr.setText("Fehler?");
         panel_Login.add(label_lErr, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 122, -1, -1));
 
-        button_lDevAcessMenue.setText("Devs, click here to go to main menu!!!");
-        button_lDevAcessMenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_lDevAcessMenueActionPerformed(evt);
-            }
-        });
-        panel_Login.add(button_lDevAcessMenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 245, -1, 171));
-
         buton_enterAdmin.setText("enter Admin-Data");
         buton_enterAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2902,6 +2900,9 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
         panel_Admin.setPreferredSize(new java.awt.Dimension(1000, 700));
 
+        background_admin_overview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
+        background_admin_overview.setText("jLabel4");
+
         button_aCancel.setText("Abbrechen");
         button_aCancel.setMaximumSize(new java.awt.Dimension(300, 50));
         button_aCancel.setMinimumSize(new java.awt.Dimension(300, 50));
@@ -2916,17 +2917,17 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.setLayout(panel_AdminLayout);
         panel_AdminLayout.setHorizontalGroup(
             panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
-                .addContainerGap(359, Short.MAX_VALUE)
-                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(341, 341, 341))
+            .addComponent(background_admin_overview, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panel_AdminLayout.createSequentialGroup()
+                .addGap(359, 359, 359)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_AdminLayout.setVerticalGroup(
             panel_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AdminLayout.createSequentialGroup()
-                .addContainerGap(619, Short.MAX_VALUE)
-                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+            .addComponent(background_admin_overview)
+            .addGroup(panel_AdminLayout.createSequentialGroup()
+                .addGap(619, 619, 619)
+                .addComponent(button_aCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(panel_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -2935,17 +2936,17 @@ public class Sims_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void goToNextPage(){
+
+    private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
         cl.show(jPanel2, "card3");
     }
-    
-    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt){
+
+    private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch(jLab_StudCounter);
-        
+
     }
-    
+
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
@@ -2978,14 +2979,14 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter,jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-         if (jPanel2.isVisible() == false) {
+        if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
         }
         panel_snakeMinigame = new Board();
@@ -2995,11 +2996,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
+        initProfile();
         panel_Profile.setVisible(true);
     }//GEN-LAST:event_button_menuProfileActionPerformed
 
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
-        // TODO add your handling code here:
+        logOut();
     }//GEN-LAST:event_button_menuLogOutActionPerformed
 
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
@@ -3546,12 +3548,6 @@ public class Sims_1 extends javax.swing.JFrame {
         button_Register.setSelected(false);
     }//GEN-LAST:event_button_cancelActionPerformed
 
-    private void button_lDevAcessMenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lDevAcessMenueActionPerformed
-        logIn();
-//        buton_enterAdmin.setVisible(false); //added by Jannik
-//        button_aCancel.setVisible(false);   //added by Jannik
-    }//GEN-LAST:event_button_lDevAcessMenueActionPerformed
-
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
@@ -3597,9 +3593,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
     private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
-        // TODO add your handling code here:
-        planningPhase.setCheatFlag(0);
-        warning.setVisible(false);
+//        // TODO add your handling code here:
+//        planningPhase.setCheatFlag(0);
+//        warning.setVisible(false);
     }//GEN-LAST:event_warningWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
@@ -3834,7 +3830,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_item3InvMouseClicked
 
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
-        if(_mainadmin.checkChanges()){
+        if (_mainadmin.checkChanges()) {
             _mainadmin.saveChages();
             adminLogin();
         }
@@ -3878,7 +3874,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION){
+        if (JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION) {
             _mainadmin.delSpecUser();
             adminLogin();
         }
@@ -3930,7 +3926,24 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_pPass2FocusGained
 
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
-        // TODO add your handling code here:
+
+        JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
+        JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
+        JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
+        JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        JPasswordField inputPw = new JPasswordField();
+        Object[] ob = {inputPw};
+
+        if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
+            if (JOptionPane.showConfirmDialog(null, ob, "Bitte aktuelles Passwort eingeben!", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION & inputPw.getPassword().equals(_mainuser.getPassword().toCharArray())) {
+                if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
+                    User.deleteUser(_mainuser);
+                }
+                User.createUser(textfield_pKontoname.getText(), password_pPass1.getPassword(), textfield_pEmail1.getText(), textfield_pName.getText(), textfield_pSurename.getText(), _mainuser.getReg_date(), _mainuser.getLast_login(), _mainuser.getTime_played(), _mainuser.getUcoins());
+                _mainuser = new User(textfield_pKontoname.getText());
+            }
+            panel_Profile.setVisible(false);
+        }
     }//GEN-LAST:event_button_pSaveActionPerformed
 
     private void button_pCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pCancelActionPerformed
@@ -4017,6 +4030,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JLabel background_admin_overview;
     private javax.swing.JLabel background_register;
     private javax.swing.JButton buton_enterAdmin;
     private javax.swing.JButton button_Login;
@@ -4026,7 +4040,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_aSave;
     private javax.swing.JButton button_auCancel1;
     private javax.swing.JButton button_cancel;
-    private javax.swing.JButton button_lDevAcessMenue;
     private javax.swing.JButton button_menuCredits;
     private javax.swing.JButton button_menuExit;
     private javax.swing.JButton button_menuLoadGame;
@@ -4144,6 +4157,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private static javax.swing.JLabel jLab_Redbull;
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -4155,6 +4169,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel58;
@@ -4450,19 +4465,23 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    private static boolean checkGlobUserVar(JTextField[] input, JLabel[] errMess) {
+        JTextField[] test1 = {new JTextField("t"), input[1]};
+        JTextField[] test2 = {input[0], new JTextField("t")};
+        return checkGlobUser(test1, errMess) & checkGlobUser(test2, errMess);
+    }
+
     /**
      * Checks in the global user-file if the user already exists
      *
      * @param str String with the name of the user to check
      * @return true if user already exists, false otherwise
      */
-    private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
+    public static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
 
-        System.out.println("hier");
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
-                System.out.println("hier");
                 if (sublist.contains(input[0].getText())) {
                     errMess[0].setText("Kontoname schon vergeben!");
                     input[0].setBackground(Color.red);
@@ -4626,7 +4645,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 e.printStackTrace();
             }
             if (userPw.contentEquals(new String(password))) {
-                System.out.println("User " + accountname + " ist eingelogged und wird ins Hauptmenü geleitet");
                 return true;
             }
         }
@@ -4689,6 +4707,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void logOut() {
         _mainuser = null;
         _maingame = null;
+        panel_Profile.setVisible(false);
         check_autoLogin.setSelected(false);
         startPlanningGame.setVisible(false);
         panel_Login.setVisible(true);
@@ -4725,8 +4744,36 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
         JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
-        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess);
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
         panel_Admin.add(button_aCancel);
+        panel_Admin.add(background_admin_overview);
+
+    }
+
+    private void initProfile() {
+        label_pErrEmail1.setText("");
+        label_pErrAccname.setText("");
+        label_pErrEmail2.setText("");
+        label_pErrFirstName.setText("");
+        label_pErrLastName.setText("");
+        label_pErrPass1.setText("");
+        label_pErrPass2.setText("");
+
+        textfield_pKontoname.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        password_pPass1.setBackground(Color.white);
+        textfield_pEmail1.setBackground(Color.white);
+        textfield_pEmail2.setBackground(Color.white);
+        textfield_pName.setBackground(Color.white);
+        textfield_pSurename.setBackground(Color.white);
+
+        textfield_pKontoname.setText(_mainuser.getAccountname());
+        password_pPass1.setText(_mainuser.getPassword());
+        password_pPass2.setText(_mainuser.getPassword());
+        textfield_pEmail1.setText(_mainuser.getEmail());
+        textfield_pEmail2.setText(_mainuser.getEmail());
+        textfield_pName.setText(_mainuser.getFirst_name());
+        textfield_pSurename.setText(_mainuser.getLast_name());
     }
     
     private javax.swing.JButton[] constructActivityPhaseButtons(){

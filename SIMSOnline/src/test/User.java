@@ -9,6 +9,8 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.LinkedList;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -137,16 +139,10 @@ public class User {
         }
     }
 
-    /**
-     * creates a new user on the local system, needed for registration
-     *
-     * @param accountname string
-     * @param password char[]
-     * @param email string
-     * @param first_name string
-     * @param last_name string
-     * @return true if the user could be created, false otherwise
-     */
+    public static boolean deleteUser(User user) {
+        return deleteUser(user.getAccountname(), user.getEmail());
+    }
+
     public static boolean deleteUser(String accountname, String email) {
 
         LinkedList<LinkedList> userlist = null;
@@ -215,17 +211,21 @@ public class User {
             CSVHandling.writeCSV(str, Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
             CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
             CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
-            try {
-                users = CSVHandling.readCSV(Sims_1._usersFileName);     //try reading the userlist
-            } catch (Exception e) {
-                e.printStackTrace();
+            JTextField[] toCheck = {new JTextField(accountname), new JTextField(email)};
+            JLabel[] placebo = {new JLabel(), new JLabel()};
+            if (!Sims_1.checkGlobUser(toCheck, placebo)) {
+                try {
+                    users = CSVHandling.readCSV(Sims_1._usersFileName);     //try reading the userlist
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                java.util.LinkedList newUser;
+                users.add(newUser = new java.util.LinkedList<String>());
+                newUser.add(accountname);       //add the new username and email to the userlist
+                newUser.add(email);
+                CSVHandling.writeCSV(users, Sims_1._usersFileName);     //rewrite the userlist-file
+                return true;            //end if everything went well
             }
-            java.util.LinkedList newUser;
-            users.add(newUser = new java.util.LinkedList<String>());
-            newUser.add(accountname);       //add the new username and email to the userlist
-            newUser.add(email);
-            CSVHandling.writeCSV(users, Sims_1._usersFileName);     //rewrite the userlist-file
-            return true;            //end if everything went well
         } catch (Exception e) {
             e.printStackTrace();
         }

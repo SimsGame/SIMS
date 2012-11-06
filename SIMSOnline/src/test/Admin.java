@@ -61,7 +61,7 @@ public class Admin {
         for (int i = 0; i < userButtons.length; i++) {
             userButtons[i] = new JButton(usersHelp.pop().getAccountname());
             userButtons[i].setSize(150, 50);
-            userButtons[i].setLocation(10 + 160 * (i /10), 10 + (i % 10) * 60);
+            userButtons[i].setLocation(10 + 160 * (i /9), 80 + (i % 9) * 60);
             userButtons[i].addActionListener(new AdminActionListener(i));
             this.adminpanel.add(userButtons[i]);
             userButtons[i].setVisible(true);
