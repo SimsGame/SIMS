@@ -46,6 +46,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Game1 _maingame;
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
+    public static PlanningPhase planningPhase;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -92,6 +93,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
         panel_adminUser.setVisible(false);
+        panel_Profile.setVisible(false);
         label_lErr.setText("");
         panel_adminUser.setVisible(false);
         cl = (CardLayout) (jPanel2.getLayout());
@@ -147,6 +149,31 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotchanged = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         startPlanningGame = new javax.swing.JPanel();
+        panel_Profile = new javax.swing.JPanel();
+        textfield_pKontoname = new javax.swing.JTextField();
+        textfield_pEmail1 = new javax.swing.JTextField();
+        textfield_pEmail2 = new javax.swing.JTextField();
+        textfield_pName = new javax.swing.JTextField();
+        textfield_pSurename = new javax.swing.JTextField();
+        password_pPass1 = new javax.swing.JPasswordField();
+        password_pPass2 = new javax.swing.JPasswordField();
+        button_pSave = new javax.swing.JButton();
+        label_pKontoname = new javax.swing.JLabel();
+        label_pPass1 = new javax.swing.JLabel();
+        label_pPass2 = new javax.swing.JLabel();
+        label_pEmail1 = new javax.swing.JLabel();
+        label_pEmail2 = new javax.swing.JLabel();
+        label_pFirstName = new javax.swing.JLabel();
+        label_pSecondName = new javax.swing.JLabel();
+        button_pCancel = new javax.swing.JButton();
+        label_pErrAccname = new javax.swing.JLabel();
+        label_pErrPass1 = new javax.swing.JLabel();
+        label_pErrPass2 = new javax.swing.JLabel();
+        label_pErrEmail1 = new javax.swing.JLabel();
+        label_pErrEmail2 = new javax.swing.JLabel();
+        label_pErrFirstName = new javax.swing.JLabel();
+        label_pErrLastName = new javax.swing.JLabel();
+        Menu_overlay1 = new javax.swing.JLabel();
         Menu_overlay = new javax.swing.JLabel();
         button_menuStartNewGame = new javax.swing.JButton();
         button_menuExit = new javax.swing.JButton();
@@ -320,7 +347,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar6 = new javax.swing.JProgressBar();
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
-        StudField1 = new javax.swing.JPanel();
+        panel_activityPhaseStudField = new javax.swing.JPanel();
         jBut_Dozent1 = new javax.swing.JButton();
         button_stud1 = new javax.swing.JButton();
         button_stud2 = new javax.swing.JButton();
@@ -422,6 +449,12 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_aPass = new javax.swing.JTextField();
         label_aMonthVal = new javax.swing.JLabel();
         button_aDelete = new javax.swing.JButton();
+        label_aErrAccName = new javax.swing.JLabel();
+        label_aErrPass = new javax.swing.JLabel();
+        label_aErrEmail = new javax.swing.JLabel();
+        label_aErrFirstName = new javax.swing.JLabel();
+        label_aErrLastName = new javax.swing.JLabel();
+        label_aErrUCoins = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         button_aCancel = new javax.swing.JButton();
 
@@ -475,7 +508,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 23);
+        button_swapperExchange.setBounds(50, 220, 130, 29);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -484,7 +517,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 23);
+        button_swapperAbord.setBounds(210, 220, 130, 29);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -493,11 +526,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 8, 14);
+        label_swapperArrow1.setBounds(190, 130, 8, 17);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 14);
+        label_swapperArrow3.setBounds(190, 140, 40, 17);
 
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
@@ -524,7 +557,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 47, 23);
+        button_shopMessageOk.setBounds(170, 210, 34, 29);
 
         warning.setModal(true);
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -721,6 +754,157 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setPreferredSize(new java.awt.Dimension(1000, 700));
         startPlanningGame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panel_Profile.setMaximumSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setMinimumSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setPreferredSize(new java.awt.Dimension(500, 700));
+        panel_Profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textfield_pKontoname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pKontonameActionPerformed(evt);
+            }
+        });
+        textfield_pKontoname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pKontonameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 149, -1));
+
+        textfield_pEmail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pEmail1ActionPerformed(evt);
+            }
+        });
+        textfield_pEmail1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pEmail1FocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 149, -1));
+
+        textfield_pEmail2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pEmail2FocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 149, -1));
+
+        textfield_pName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_pNameActionPerformed(evt);
+            }
+        });
+        textfield_pName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pNameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 149, -1));
+
+        textfield_pSurename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_pSurenameFocusGained(evt);
+            }
+        });
+        panel_Profile.add(textfield_pSurename, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 149, -1));
+
+        password_pPass1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_pPass1FocusGained(evt);
+            }
+        });
+        panel_Profile.add(password_pPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 149, -1));
+
+        password_pPass2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                password_pPass2FocusGained(evt);
+            }
+        });
+        panel_Profile.add(password_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 149, -1));
+
+        button_pSave.setText("Übernehmen");
+        button_pSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_pSaveActionPerformed(evt);
+            }
+        });
+        panel_Profile.add(button_pSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+
+        label_pKontoname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pKontoname.setText("Kontoname:");
+        panel_Profile.add(label_pKontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, 20));
+
+        label_pPass1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pPass1.setText("Passwort:");
+        panel_Profile.add(label_pPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        label_pPass2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pPass2.setText("Passwort wiederholen:");
+        panel_Profile.add(label_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+
+        label_pEmail1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pEmail1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label_pEmail1.setText("Email:");
+        panel_Profile.add(label_pEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        label_pEmail2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pEmail2.setText("Email wiederholen:");
+        panel_Profile.add(label_pEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+
+        label_pFirstName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pFirstName.setText("Vorname:");
+        panel_Profile.add(label_pFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+
+        label_pSecondName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_pSecondName.setText("Nachname:");
+        panel_Profile.add(label_pSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
+
+        button_pCancel.setText("Abbrechen");
+        button_pCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_pCancelActionPerformed(evt);
+            }
+        });
+        panel_Profile.add(button_pCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, -1, -1));
+
+        label_pErrAccname.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrAccname.setText("Fehler?");
+        label_pErrAccname.setName("label_rErrAccname"); // NOI18N
+        panel_Profile.add(label_pErrAccname, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+
+        label_pErrPass1.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrPass1.setText("Fehler?");
+        label_pErrPass1.setName("label_rErrPass1"); // NOI18N
+        panel_Profile.add(label_pErrPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
+
+        label_pErrPass2.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrPass2.setText("Fehler?");
+        panel_Profile.add(label_pErrPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+
+        label_pErrEmail1.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrEmail1.setText("Fehler?");
+        panel_Profile.add(label_pErrEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
+
+        label_pErrEmail2.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrEmail2.setText("Fehler?");
+        panel_Profile.add(label_pErrEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+
+        label_pErrFirstName.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrFirstName.setText("Fehler?");
+        panel_Profile.add(label_pErrFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+
+        label_pErrLastName.setForeground(new java.awt.Color(204, 0, 0));
+        label_pErrLastName.setText("Fehler?");
+        panel_Profile.add(label_pErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
+
+        Menu_overlay1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
+        Menu_overlay1.setText("Overlay_hauptmenü");
+        Menu_overlay1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_Profile.add(Menu_overlay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 870));
+
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
         Menu_overlay.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -875,7 +1059,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Planning_unused05.setText("umsetzen");
         jPan_StudSwitch.add(jLab_Planning_unused05);
-        jLab_Planning_unused05.setBounds(40, 40, 70, 14);
+        jLab_Planning_unused05.setBounds(40, 40, 70, 17);
 
         jLab_Planning_unused06.setText("Studenten");
         jPan_StudSwitch.add(jLab_Planning_unused06);
@@ -884,7 +1068,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 24);
+        jLab_StudCounter.setBounds(60, 60, 30, 22);
 
         jToggleBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -947,7 +1131,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_ComboB_useItem.setText("Benutzen");
         jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
+        jBut_ComboB_useItem.setBounds(10, 60, 120, 29);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -962,15 +1146,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 14);
+        jLab_Redbull.setBounds(10, 40, 90, 17);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 14);
+        jLab_Duplo.setBounds(10, 60, 90, 17);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 14);
+        jLab_OMNI.setBounds(10, 80, 140, 17);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1349,19 +1533,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 14);
+        jLabel58.setBounds(10, 450, 80, 17);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 14);
+        jLabel59.setBounds(80, 450, 50, 17);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 14);
+        jLabel60.setBounds(10, 470, 80, 17);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 14);
+        jLabel61.setBounds(80, 470, 60, 17);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item4);
@@ -1378,27 +1562,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         jPanel19.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 34, 14);
+        label_item1Name.setBounds(60, 80, 51, 17);
 
         label_item1Amount.setText("jLabel4");
         jPanel19.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 34, 14);
+        label_item1Amount.setBounds(60, 100, 51, 17);
 
         label_item2Name.setText("jLabel4");
         jPanel19.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 34, 14);
+        label_item2Name.setBounds(60, 190, 51, 17);
 
         label_item2Amount.setText("jLabel4");
         jPanel19.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 34, 14);
+        label_item2Amount.setBounds(60, 210, 51, 17);
 
         label_item3Name.setText("jLabel4");
         jPanel19.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 34, 14);
+        label_item3Name.setBounds(60, 380, 51, 17);
 
         label_item3Amount.setText("jLabel26");
         jPanel19.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 40, 14);
+        label_item3Amount.setBounds(60, 400, 60, 17);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1406,11 +1590,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         jPanel19.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 34, 14);
+        label_item4Name.setBounds(60, 280, 51, 17);
 
         label_item4Amount.setText("jLabel26");
         jPanel19.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 40, 14);
+        label_item4Amount.setBounds(60, 300, 60, 17);
 
         shop.add(jPanel19);
         jPanel19.setBounds(0, 110, 150, 550);
@@ -1708,23 +1892,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 450, 80, 14);
+        jLabel18.setBounds(10, 450, 80, 17);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 450, 50, 14);
+        jLabel19.setBounds(80, 450, 50, 17);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 470, 80, 14);
+        jLabel20.setBounds(10, 470, 80, 17);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 470, 60, 14);
+        jLabel21.setBounds(80, 470, 60, 17);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 14);
+        label_ucoinsInv.setBounds(10, 380, 130, 17);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1737,7 +1921,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 14);
+        label_creditsInv.setBounds(10, 360, 140, 17);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -1745,7 +1929,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 14);
+        label_item3InvAmount.setBounds(30, 300, 80, 17);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1776,11 +1960,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 14);
+        label_item2InvAmount.setBounds(30, 190, 80, 17);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 14);
+        label_item1InvAmount.setBounds(30, 110, 80, 17);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -1818,7 +2002,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 23);
+        jButton1.setBounds(350, 10, 120, 29);
 
         jButton4.setText("Gruppenarbeit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -1827,11 +2011,11 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 23);
+        jButton4.setBounds(350, 40, 120, 29);
 
         jButton5.setText("Pause");
         jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 23);
+        jButton5.setBounds(350, 80, 120, 29);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -1861,19 +2045,19 @@ public class Sims_1 extends javax.swing.JFrame {
         gamePlaying.add(jPanel6);
         jPanel6.setBounds(850, 0, 130, 110);
 
-        StudField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        StudField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        panel_activityPhaseStudField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_activityPhaseStudField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StudField1MouseClicked(evt);
+                panel_activityPhaseStudFieldMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StudField1MouseEntered(evt);
+                panel_activityPhaseStudFieldMouseEntered(evt);
             }
         });
-        StudField1.setLayout(null);
+        panel_activityPhaseStudField.setLayout(null);
 
         jBut_Dozent1.setText("Dozent");
-        StudField1.add(jBut_Dozent1);
+        panel_activityPhaseStudField.add(jBut_Dozent1);
         jBut_Dozent1.setBounds(340, 470, 110, 50);
 
         button_stud1.setText("Platz_1");
@@ -1893,7 +2077,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud1ActionPerformed(evt);
             }
         });
-        StudField1.add(button_stud1);
+        panel_activityPhaseStudField.add(button_stud1);
         button_stud1.setBounds(60, 10, 110, 50);
 
         button_stud2.setText("Platz_2");
@@ -1905,7 +2089,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud2MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud2);
+        panel_activityPhaseStudField.add(button_stud2);
         button_stud2.setBounds(210, 10, 110, 50);
 
         button_stud3.setText("Platz_3");
@@ -1917,7 +2101,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud3MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud3);
+        panel_activityPhaseStudField.add(button_stud3);
         button_stud3.setBounds(360, 10, 110, 50);
 
         button_stud4.setText("Platz_4");
@@ -1929,7 +2113,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud4MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud4);
+        panel_activityPhaseStudField.add(button_stud4);
         button_stud4.setBounds(510, 10, 110, 50);
 
         button_stud5.setText("Platz_5");
@@ -1941,7 +2125,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud5MouseEntered(evt);
             }
         });
-        StudField1.add(button_stud5);
+        panel_activityPhaseStudField.add(button_stud5);
         button_stud5.setBounds(660, 10, 110, 50);
 
         button_stud6.setText("Platz_6");
@@ -1950,7 +2134,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud6MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud6);
+        panel_activityPhaseStudField.add(button_stud6);
         button_stud6.setBounds(60, 80, 110, 50);
 
         button_stud7.setText("Platz_7");
@@ -1959,7 +2143,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud7MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud7);
+        panel_activityPhaseStudField.add(button_stud7);
         button_stud7.setBounds(210, 80, 110, 50);
 
         button_stud8.setText("Platz_8");
@@ -1968,7 +2152,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud8MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud8);
+        panel_activityPhaseStudField.add(button_stud8);
         button_stud8.setBounds(360, 80, 110, 50);
 
         button_stud9.setText("Platz_9");
@@ -1977,7 +2161,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud9MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud9);
+        panel_activityPhaseStudField.add(button_stud9);
         button_stud9.setBounds(510, 80, 110, 50);
 
         button_stud10.setText("Platz_10");
@@ -1986,7 +2170,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud10MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud10);
+        panel_activityPhaseStudField.add(button_stud10);
         button_stud10.setBounds(660, 80, 110, 50);
 
         button_stud11.setText("Platz_11");
@@ -1995,7 +2179,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud11MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud11);
+        panel_activityPhaseStudField.add(button_stud11);
         button_stud11.setBounds(60, 150, 110, 50);
 
         button_stud12.setText("Platz_12");
@@ -2004,7 +2188,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud12MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud12);
+        panel_activityPhaseStudField.add(button_stud12);
         button_stud12.setBounds(210, 150, 110, 50);
 
         button_stud13.setText("Platz_13");
@@ -2013,7 +2197,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud13MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud13);
+        panel_activityPhaseStudField.add(button_stud13);
         button_stud13.setBounds(360, 150, 110, 50);
 
         button_stud14.setText("Platz_14");
@@ -2022,7 +2206,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud14MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud14);
+        panel_activityPhaseStudField.add(button_stud14);
         button_stud14.setBounds(510, 150, 110, 50);
 
         button_stud15.setText("Platz_15");
@@ -2031,7 +2215,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud15MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud15);
+        panel_activityPhaseStudField.add(button_stud15);
         button_stud15.setBounds(660, 150, 110, 50);
 
         button_stud16.setText("Platz_16");
@@ -2040,7 +2224,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud16MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud16);
+        panel_activityPhaseStudField.add(button_stud16);
         button_stud16.setBounds(60, 220, 110, 50);
 
         button_stud17.setText("Platz_17");
@@ -2054,7 +2238,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud17ActionPerformed(evt);
             }
         });
-        StudField1.add(button_stud17);
+        panel_activityPhaseStudField.add(button_stud17);
         button_stud17.setBounds(210, 220, 110, 50);
 
         button_stud18.setText("Platz_18");
@@ -2063,7 +2247,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud18MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud18);
+        panel_activityPhaseStudField.add(button_stud18);
         button_stud18.setBounds(360, 220, 110, 50);
 
         button_stud19.setText("Platz_19");
@@ -2072,7 +2256,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud19MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud19);
+        panel_activityPhaseStudField.add(button_stud19);
         button_stud19.setBounds(510, 220, 110, 50);
 
         button_stud20.setText("Platz_20");
@@ -2081,7 +2265,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud20MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud20);
+        panel_activityPhaseStudField.add(button_stud20);
         button_stud20.setBounds(660, 220, 110, 50);
 
         button_stud21.setText("Platz_21");
@@ -2090,7 +2274,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud21MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud21);
+        panel_activityPhaseStudField.add(button_stud21);
         button_stud21.setBounds(60, 290, 110, 50);
 
         button_stud22.setText("Platz_22");
@@ -2099,7 +2283,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud22MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud22);
+        panel_activityPhaseStudField.add(button_stud22);
         button_stud22.setBounds(210, 290, 110, 50);
 
         button_stud23.setText("Platz_23");
@@ -2108,7 +2292,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud23MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud23);
+        panel_activityPhaseStudField.add(button_stud23);
         button_stud23.setBounds(360, 290, 110, 50);
 
         button_stud24.setText("Platz_24");
@@ -2117,7 +2301,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud24MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud24);
+        panel_activityPhaseStudField.add(button_stud24);
         button_stud24.setBounds(510, 290, 110, 50);
 
         button_stud25.setText("Platz_25");
@@ -2126,7 +2310,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud25MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud25);
+        panel_activityPhaseStudField.add(button_stud25);
         button_stud25.setBounds(660, 290, 110, 50);
 
         button_stud26.setText("Platz_26");
@@ -2135,7 +2319,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud26MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud26);
+        panel_activityPhaseStudField.add(button_stud26);
         button_stud26.setBounds(60, 360, 110, 50);
 
         button_stud27.setText("Platz_27");
@@ -2145,7 +2329,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud27MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud27);
+        panel_activityPhaseStudField.add(button_stud27);
         button_stud27.setBounds(210, 360, 110, 50);
 
         button_stud28.setText("Platz_28");
@@ -2154,7 +2338,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud28MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud28);
+        panel_activityPhaseStudField.add(button_stud28);
         button_stud28.setBounds(360, 360, 110, 50);
 
         button_stud29.setText("Platz_29");
@@ -2163,7 +2347,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud29MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud29);
+        panel_activityPhaseStudField.add(button_stud29);
         button_stud29.setBounds(510, 360, 110, 50);
 
         button_stud30.setText("Platz_30");
@@ -2172,13 +2356,13 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud30MouseClicked(evt);
             }
         });
-        StudField1.add(button_stud30);
+        panel_activityPhaseStudField.add(button_stud30);
         button_stud30.setBounds(660, 360, 110, 50);
-        StudField1.add(jLab_DozSwitch2);
+        panel_activityPhaseStudField.add(jLab_DozSwitch2);
         jLab_DozSwitch2.setBounds(0, 0, 150, 110);
 
-        gamePlaying.add(StudField1);
-        StudField1.setBounds(150, 110, 830, 550);
+        gamePlaying.add(panel_activityPhaseStudField);
+        panel_activityPhaseStudField.setBounds(150, 110, 830, 550);
 
         jPanel2.add(gamePlaying, "card2");
 
@@ -2535,77 +2719,101 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
 
+        label_aErrAccName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrAccName.setText("Fehler?");
+
+        label_aErrPass.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrPass.setText("Fehler?");
+
+        label_aErrEmail.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrEmail.setText("Fehler?");
+
+        label_aErrFirstName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrFirstName.setText("Fehler?");
+
+        label_aErrLastName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrLastName.setText("Fehler?");
+
+        label_aErrUCoins.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrUCoins.setText("Fehler?");
+
         javax.swing.GroupLayout panel_adminUserLayout = new javax.swing.GroupLayout(panel_adminUser);
         panel_adminUser.setLayout(panel_adminUserLayout);
         panel_adminUserLayout.setHorizontalGroup(
             panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(444, Short.MAX_VALUE))
+            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_adminUserLayout.createSequentialGroup()
+                            .addGap(69, 69, 69)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aAccname)
+                                .addComponent(label_aPass)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_adminUserLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label_aEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addComponent(label_aUCions, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lable_aProfil)
+                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(button_aDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textfield_aUCoins, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aKontoname, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(textfield_aPass, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_aErrAccName)
+                            .addComponent(label_aErrPass)
+                            .addComponent(label_aErrEmail)
+                            .addComponent(label_aErrFirstName)
+                            .addComponent(label_aErrLastName)
+                            .addComponent(label_aErrUCoins))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                    .addGap(69, 69, 69)
-                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aAccname)
-                                        .addComponent(label_aPass)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_adminUserLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(label_aEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
-                            .addComponent(label_aUCions, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(label_aDuplo))
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addComponent(label_aRedBull))
+                                    .addComponent(label_aOMNI))
+                                .addComponent(label_aCredits))
+                            .addComponent(label_aSpicker, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lable_aProfil)
-                            .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(button_aDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(textfield_aUCoins, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aKontoname, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(textfield_aPass, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                .addGap(138, 138, 138)
-                                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                            .addGap(33, 33, 33)
-                                                            .addComponent(label_aDuplo))
-                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                            .addGap(25, 25, 25)
-                                                            .addComponent(label_aRedBull))
-                                                        .addComponent(label_aOMNI))
-                                                    .addComponent(label_aCredits)))
-                                            .addComponent(label_aSpicker, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(check_aSpicker)
-                                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(textfield_aCredits)
-                                                .addComponent(textfield_aDuplo)
-                                                .addComponent(textfield_aRedBull)
-                                                .addComponent(textfield_aOMNI, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
-                                            .addComponent(label_aGame)))
-                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                        .addGap(157, 157, 157)
-                                        .addComponent(label_aMonth)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(check_aSpicker)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textfield_aCredits)
+                                .addComponent(textfield_aDuplo)
+                                .addComponent(textfield_aRedBull)
+                                .addComponent(textfield_aOMNI, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label_aGame)))
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(label_aMonth)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(347, Short.MAX_VALUE))
+                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(256, 256, 256))
         );
         panel_adminUserLayout.setVerticalGroup(
             panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2619,31 +2827,36 @@ public class Sims_1 extends javax.swing.JFrame {
                     .addComponent(textfield_aKontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aAccname)
                     .addComponent(textfield_aCredits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aCredits))
+                    .addComponent(label_aCredits)
+                    .addComponent(label_aErrAccName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_aPass)
                     .addComponent(textfield_aDuplo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aDuplo)
-                    .addComponent(textfield_aPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textfield_aPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aErrPass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_aRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aRedBull)
                     .addComponent(textfield_aEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aEmail))
+                    .addComponent(label_aEmail)
+                    .addComponent(label_aErrEmail))
                 .addGap(6, 6, 6)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_aOMNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aOMNI)
                     .addComponent(textfield_aName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aFirstName))
+                    .addComponent(label_aFirstName)
+                    .addComponent(label_aErrFirstName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check_aSpicker)
                     .addComponent(label_aSpicker)
                     .addComponent(textfield_aSurename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aLastName))
+                    .addComponent(label_aLastName)
+                    .addComponent(label_aErrLastName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_aMonthVal)
@@ -2652,7 +2865,8 @@ public class Sims_1 extends javax.swing.JFrame {
                             .addComponent(label_aMonth)
                             .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(textfield_aUCoins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_aUCions))
+                                .addComponent(label_aUCions)
+                                .addComponent(label_aErrUCoins))
                             .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button_aDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2709,7 +2923,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }
     
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt){
-        PlanningPhase.startStudSwitch(jLab_StudCounter);
+        planningPhase.startStudSwitch(jLab_StudCounter);
         
     }
     
@@ -2730,7 +2944,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -2745,7 +2959,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(jPanel2, "card3");
         startPlanningGame.setVisible(false);
-        PlanningPhase Phase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter,jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter,jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
@@ -2762,7 +2976,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
-        // TODO add your handling code here:
+        panel_Profile.setVisible(true);
     }//GEN-LAST:event_button_menuProfileActionPerformed
 
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
@@ -2869,6 +3083,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_17ActionPerformed
 
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         // This function is called after the shop button from the planning phase was pressed.
         // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(jPanel2, "card4");
@@ -2960,7 +3177,7 @@ public class Sims_1 extends javax.swing.JFrame {
         /**
          * @author Tobias Mauritz
          */
-        PlanningPhase.StudButtonFunctions(0);
+        planningPhase.StudButtonFunctions(0);
         // !!! kann nicht funzen!! wir brauchen akutelles Objekt von PLanningPhase, hier ist nur das generelle!
         // --> alles auslagern in Planungsphasen-Mehtode
 //        if (PlanningPhase.getSwitchFlag() == 0){
@@ -2979,7 +3196,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.StudButtonFunctions(1);
+        planningPhase.StudButtonFunctions(1);
 
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
@@ -2995,16 +3212,16 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
 
-        PlanningPhase.StudButtonFunctions(2);
+        planningPhase.StudButtonFunctions(2);
 
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        PlanningPhase.StudButtonFunctions(3);
+        planningPhase.StudButtonFunctions(3);
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        PlanningPhase.StudButtonFunctions(4);
+        planningPhase.StudButtonFunctions(4);
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
@@ -3024,7 +3241,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         System.out.println("StudField");
         // 
-        PlanningPhase.studInfo.StudInfoAverage();
+        planningPhase.studInfo.StudInfoAverage();
         //StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
 
     }//GEN-LAST:event_StudFieldMouseClicked
@@ -3048,159 +3265,163 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(5);
+        planningPhase.studInfo.StudInfoAttr(5);
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(6);
+        planningPhase.studInfo.StudInfoAttr(6);
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(7);
+        planningPhase.studInfo.StudInfoAttr(7);
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(8);
+        planningPhase.studInfo.StudInfoAttr(8);
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(9);
+        planningPhase.studInfo.StudInfoAttr(9);
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(10);
+        planningPhase.studInfo.StudInfoAttr(10);
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(11);
+        planningPhase.studInfo.StudInfoAttr(11);
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(12);
+        planningPhase.studInfo.StudInfoAttr(12);
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(13);
+        planningPhase.studInfo.StudInfoAttr(13);
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(14);
+        planningPhase.studInfo.StudInfoAttr(14);
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(15);
+        planningPhase.studInfo.StudInfoAttr(15);
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(16);
+        planningPhase.studInfo.StudInfoAttr(16);
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(17);
+        planningPhase.studInfo.StudInfoAttr(17);
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(18);
+        planningPhase.studInfo.StudInfoAttr(18);
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(19);
+        planningPhase.studInfo.StudInfoAttr(19);
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(20);
+        planningPhase.studInfo.StudInfoAttr(20);
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(21);
+        planningPhase.studInfo.StudInfoAttr(21);
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(22);
+        planningPhase.studInfo.StudInfoAttr(22);
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(23);
+        planningPhase.studInfo.StudInfoAttr(23);
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(24);
+        planningPhase.studInfo.StudInfoAttr(24);
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(25);
+        planningPhase.studInfo.StudInfoAttr(25);
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(26);
+        planningPhase.studInfo.StudInfoAttr(26);
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(27);
+        planningPhase.studInfo.StudInfoAttr(27);
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(28);
+        planningPhase.studInfo.StudInfoAttr(28);
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        PlanningPhase.studInfo.StudInfoAttr(29);
+        planningPhase.studInfo.StudInfoAttr(29);
     }//GEN-LAST:event_jBut_30MouseClicked
 
     private void jBut_ChangeLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorMouseClicked
         // TODO add your handling code here:
+        
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         //check if can change lector. If so - do this, else - error 
-        boolean allowed = PlanningPhase.validateLector(jLab_DozCounter);
+        boolean allowed = planningPhase.validateLector(jLab_DozCounter);
         if (allowed) {
-            PlanningPhase.changeLector(jLab_DozCounter);
+            planningPhase.changeLector(jLab_DozCounter);
             lectorChangedDialog.setVisible(true);
         } else {
             lectorNotChangedDialog.setVisible(true);
@@ -3208,6 +3429,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
 
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
         // Starts the action phase and the inventory. 
         if (jPanel2.isVisible() == false) {
             jPanel2.setVisible(true);
@@ -3219,7 +3443,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar);
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -3262,7 +3486,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_rPass2FocusGained
 
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
-        if (checkRegister()) {  //by Dawid
+        JComponent[] toCheck = {textfield_rKontoname, password_rPass1, password_rPass2, textfield_rEmail1, textfield_rEmail2, textfield_rName, textfield_rSurename};
+        JLabel[] errMess = {label_rErrAccname, label_rErrPass1, label_rErrPass2, label_rErrEmail1, label_rErrEmail2, label_rErrFirstName, label_rErrLastName};
+        JTextField[] accName_eMail = {textfield_rKontoname, textfield_rEmail1};
+        JLabel[] errMess2 = {label_rErrAccname, label_rErrEmail1};
+        if (checkRegister_(toCheck, errMess) & !checkGlobUser(accName_eMail, errMess2)) {  //by Dawid
+            User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
             panel_Login.setVisible(true);
             panel_Register.setVisible(false);
             button_Register.setSelected(false);
@@ -3308,7 +3537,7 @@ public class Sims_1 extends javax.swing.JFrame {
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
          */
-        int currTerm = PlanningPhase.getTerm(); // aktuelles Semester
+        int currTerm = planningPhase.getTerm(); // aktuelles Semester
         int eingesetzt2 = 0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
         int eingesetzt3 = 0;
         int eingesetzt4 = 0;
@@ -3337,20 +3566,20 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
         // TODO add your handling code here:
-        PlanningPhase.setCheatFlag(1);
+        planningPhase.setCheatFlag(1);
         warning.setVisible(false);
 
     }//GEN-LAST:event_jBut_JAMouseClicked
 
     private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
         // TODO add your handling code here:
-        PlanningPhase.setCheatFlag(0);
+        planningPhase.setCheatFlag(0);
         warning.setVisible(false);
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
     private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
         // TODO add your handling code here:
-        PlanningPhase.setCheatFlag(0);
+        planningPhase.setCheatFlag(0);
         warning.setVisible(false);
     }//GEN-LAST:event_warningWindowClosed
 
@@ -3540,13 +3769,13 @@ public class Sims_1 extends javax.swing.JFrame {
         activityPhase.StudentClicked(29);
     }//GEN-LAST:event_button_stud30MouseClicked
 
-    private void StudField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StudField1MouseClicked
+    private void panel_activityPhaseStudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseClicked
+    activityPhase.doNotPaintFlag= false;
+    }//GEN-LAST:event_panel_activityPhaseStudFieldMouseClicked
 
-    private void StudField1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudField1MouseEntered
+    private void panel_activityPhaseStudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_StudField1MouseEntered
+    }//GEN-LAST:event_panel_activityPhaseStudFieldMouseEntered
 
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
         if (activityPhase.redBullPressed == false) {
@@ -3639,6 +3868,54 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.setVisible(false);
         panel_Login.setVisible(true);
     }//GEN-LAST:event_button_aCancelActionPerformed
+
+    private void textfield_pKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pKontonameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pKontonameActionPerformed
+
+    private void textfield_pKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pKontonameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pKontonameFocusGained
+
+    private void textfield_pEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pEmail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail1ActionPerformed
+
+    private void textfield_pEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail1FocusGained
+
+    private void textfield_pEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pEmail2FocusGained
+
+    private void textfield_pNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pNameActionPerformed
+
+    private void textfield_pNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pNameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pNameFocusGained
+
+    private void textfield_pSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pSurenameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_pSurenameFocusGained
+
+    private void password_pPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_pPass1FocusGained
+
+    private void password_pPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_pPass2FocusGained
+
+    private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_pSaveActionPerformed
+
+    private void button_pCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pCancelActionPerformed
+        panel_Profile.setVisible(false);
+    }//GEN-LAST:event_button_pCancelActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3687,11 +3964,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JPanel Logo;
     private javax.swing.JLabel Menu_overlay;
+    private javax.swing.JLabel Menu_overlay1;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JPanel Navi;
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
-    private javax.swing.JPanel StudField1;
     private javax.swing.JProgressBar TirednessBar;
     private javax.swing.JLabel background_register;
     private javax.swing.JButton buton_enterAdmin;
@@ -3710,6 +3987,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_menuProfile;
     private javax.swing.JButton button_menuStartNewGame;
     private javax.swing.JButton button_menuStatistic;
+    private javax.swing.JButton button_pCancel;
+    private javax.swing.JButton button_pSave;
     private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_startExchange;
@@ -3876,6 +4155,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_aCredits;
     private javax.swing.JLabel label_aDuplo;
     private javax.swing.JLabel label_aEmail;
+    private javax.swing.JLabel label_aErrAccName;
+    private javax.swing.JLabel label_aErrEmail;
+    private javax.swing.JLabel label_aErrFirstName;
+    private javax.swing.JLabel label_aErrLastName;
+    private javax.swing.JLabel label_aErrPass;
+    private javax.swing.JLabel label_aErrUCoins;
     private javax.swing.JLabel label_aFirstName;
     private javax.swing.JLabel label_aGame;
     private javax.swing.JLabel label_aLastName;
@@ -3926,6 +4211,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_omniLocked;
     private javax.swing.JLabel label_omniName;
     private javax.swing.JLabel label_omniOverlay;
+    private javax.swing.JLabel label_pEmail1;
+    private javax.swing.JLabel label_pEmail2;
+    private javax.swing.JLabel label_pErrAccname;
+    private javax.swing.JLabel label_pErrEmail1;
+    private javax.swing.JLabel label_pErrEmail2;
+    private javax.swing.JLabel label_pErrFirstName;
+    private javax.swing.JLabel label_pErrLastName;
+    private javax.swing.JLabel label_pErrPass1;
+    private javax.swing.JLabel label_pErrPass2;
+    private javax.swing.JLabel label_pFirstName;
+    private javax.swing.JLabel label_pKontoname;
+    private javax.swing.JLabel label_pPass1;
+    private javax.swing.JLabel label_pPass2;
+    private javax.swing.JLabel label_pSecondName;
     private javax.swing.JLabel label_rEmail1;
     private javax.swing.JLabel label_rEmail2;
     private javax.swing.JLabel label_rErrAccname;
@@ -3964,13 +4263,17 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel login_background;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
+    private javax.swing.JPanel panel_Profile;
     private javax.swing.JPanel panel_Register;
+    private javax.swing.JPanel panel_activityPhaseStudField;
     private javax.swing.JPanel panel_adminUser;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
     private javax.swing.JPanel panel_omniSense;
     private javax.swing.JPanel panel_redBull;
     private javax.swing.JPasswordField password_Pass;
+    private javax.swing.JPasswordField password_pPass1;
+    private javax.swing.JPasswordField password_pPass2;
     private javax.swing.JPasswordField password_rPass1;
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
@@ -3988,6 +4291,11 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_aRedBull;
     private javax.swing.JTextField textfield_aSurename;
     private javax.swing.JTextField textfield_aUCoins;
+    private javax.swing.JTextField textfield_pEmail1;
+    private javax.swing.JTextField textfield_pEmail2;
+    private javax.swing.JTextField textfield_pKontoname;
+    private javax.swing.JTextField textfield_pName;
+    private javax.swing.JTextField textfield_pSurename;
     private javax.swing.JTextField textfield_rEmail1;
     private javax.swing.JTextField textfield_rEmail2;
     private javax.swing.JTextField textfield_rKontoname;
@@ -4101,12 +4409,28 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str String with the name of the user to check
      * @return true if user already exists, false otherwise
      */
-    private boolean checkGlobUser(String str) {
+    private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
+
+        System.out.println("hier");
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
-                if (sublist.contains(str)) {
+                System.out.println("hier");
+                if (sublist.contains(input[0].getText())) {
+                    errMess[0].setText("Kontoname schon vergeben!");
+                    input[0].setBackground(Color.red);
                     return true;
+                } else {
+                    errMess[0].setText("");
+                    input[0].setBackground(Color.white);
+                }
+                if (sublist.contains(input[1].getText())) {
+                    errMess[1].setText("Email schon in Benutzung!");
+                    input[1].setBackground(Color.red);
+                    return true;
+                } else {
+                    errMess[1].setText("");
+                    input[1].setBackground(Color.white);
                 }
             }
         } catch (Exception e) {
@@ -4115,108 +4439,108 @@ public class Sims_1 extends javax.swing.JFrame {
         return false;
     }
 
-    /**
-     * Checks all text-fields in the register-for for valid output; user gets
-     * feedback to the invalid input after this function is called
-     *
-     * @return true if all fields have valid values in them, false otherwise
-     */
-    private boolean checkRegister() {
+    public static boolean checkRegister_(JComponent[] toCheck, JLabel[] errMess) {
+        JTextField account = (JTextField) toCheck[0];
+        JPasswordField pass1 = (JPasswordField) toCheck[1];
+        JPasswordField pass2 = (JPasswordField) toCheck[2];
+        JTextField email1 = (JTextField) toCheck[3];
+        JTextField email2 = (JTextField) toCheck[4];
+        JTextField name = (JTextField) toCheck[5];
+        JTextField lastName = (JTextField) toCheck[6];
+
         boolean check = true;
-        if (textfield_rKontoname.getText().length() < 5) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname zu kurz! (5-15 Zeichen)");
+        if (account.getText().length() < 5) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname zu kurz! (5-15 Zeichen)");
             check = false;
-        } else if (textfield_rKontoname.getText().length() > 15) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname zu lang! (5-15 Zeichen)");
+        } else if (account.getText().length() > 15) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname zu lang! (5-15 Zeichen)");
             check = false;
-        } else if (checkGlobUser(textfield_rKontoname.getText()) | textfield_rKontoname.getText().equals(_adminName)) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname schon vergeben!");
-            check = false;
-        } else if (!checkAlphaNumm(textfield_rKontoname.getText().toCharArray())) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname verwendet Sonderzeichen!");
+        } else if (!checkAlphaNumm(account.getText().toCharArray())) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname verwendet Sonderzeichen!");
         } else {
-            textfield_rKontoname.setBackground(Color.white);
-            label_rErrAccname.setText("");
+            account.setBackground(Color.white);
+            errMess[0].setText("");
         }
 
-        if (password_rPass1.getPassword().length < 5) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort zu kurz! (5-15 Zeichen)");
+        if (pass1.getPassword().length < 5) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort zu kurz! (5-15 Zeichen)");
             check = false;
-        } else if (password_rPass1.getPassword().length > 15) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort zu lang! (5-15 Zeichen)");
+        } else if (pass1.getPassword().length > 15) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort zu lang! (5-15 Zeichen)");
             check = false;
-        } else if (!checkAlphaNumm(password_rPass1.getPassword())) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort verwendet !onderzeichen!");
+        } else if (!checkAlphaNumm(pass1.getPassword())) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort verwendet Sonderzeichen!");
             check = false;
         } else {
-            password_rPass1.setBackground(Color.white);
-            label_rErrPass1.setText("");
+            pass1.setBackground(Color.white);
+            errMess[1].setText("");
 
 
-            if (!new String(password_rPass1.getPassword()).equals(new String(password_rPass2.getPassword()))) {
-                password_rPass1.setBackground(Color.red);
-                password_rPass2.setBackground(Color.red);
-                label_rErrPass2.setText("Passwörter stimmen nicht überein!");
+            if (!new String(pass1.getPassword()).equals(new String(pass2.getPassword()))) {
+                pass1.setBackground(Color.red);
+                pass2.setBackground(Color.red);
+                errMess[2].setText("Passwörter stimmen nicht überein!");
                 check = false;
             } else {
-                password_rPass1.setBackground(Color.white);
-                password_rPass2.setBackground(Color.white);
-                label_rErrPass2.setText("");
+                pass1.setBackground(Color.white);
+                pass2.setBackground(Color.white);
+                errMess[2].setText("");
             }
         }
 
-        if (textfield_rEmail1.getText().length() < 5 | !checkEmail(textfield_rEmail1.getText()) | checkGlobUser(textfield_rEmail1.getText())) {
-            textfield_rEmail1.setBackground(Color.red);
+        if (email1.getText().length() < 5 | !checkEmail(email1.getText())) {
+            email1.setBackground(Color.red);
             check = false;
-            label_rErrEmail1.setText("Ungültige Adresse!");
-            textfield_rEmail2.setText("");
+            errMess[3].setText("Ungültige Adresse!");
+            if (!email1.equals(email2)) {
+                email2.setText("");
+            };
         } else {
-            textfield_rEmail1.setBackground(Color.white);
-            label_rErrEmail1.setText("");
+            email1.setBackground(Color.white);
+            errMess[3].setText("");
 
 
-            if (!textfield_rEmail1.getText().equals(textfield_rEmail2.getText())) {
-                textfield_rEmail1.setBackground(Color.red);
-                textfield_rEmail2.setBackground(Color.red);
-                label_rErrEmail2.setText("Emails stimmen nicht überein!");
+            if (!email1.getText().equals(email2.getText())) {
+                email1.setBackground(Color.red);
+                email2.setBackground(Color.red);
+                errMess[4].setText("Emails stimmen nicht überein!");
                 check = false;
             } else {
-                textfield_rEmail1.setBackground(Color.white);
-                textfield_rEmail2.setBackground(Color.white);
-                label_rErrEmail2.setText("");
+                email1.setBackground(Color.white);
+                email2.setBackground(Color.white);
+                errMess[4].setText("");
             }
         }
 
-        if (!checkName(textfield_rName.getText())) {
-            textfield_rName.setBackground(Color.red);
-            label_rErrFirstName.setText("Kein gültiger Name!");
+        if (!checkName(name.getText())) {
+            name.setBackground(Color.red);
+            errMess[5].setText("Kein gültiger Name!");
             check = false;
         } else {
-            textfield_rName.setBackground(Color.white);
-            label_rErrFirstName.setText("");
+            name.setBackground(Color.white);
+            errMess[5].setText("");
         }
 
-        if (!checkName(textfield_rSurename.getText())) {
-            textfield_rSurename.setBackground(Color.red);
-            label_rErrLastName.setText("Kein gültiger Nachname!");
+        if (!checkName(lastName.getText())) {
+            lastName.setBackground(Color.red);
+            errMess[6].setText("Kein gültiger Nachname!");
             check = false;
         } else {
-            label_rErrLastName.setText("");
-            textfield_rSurename.setBackground(Color.white);
+            errMess[6].setText("");
+            lastName.setBackground(Color.white);
         }
 
         if (check) {
-            return User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+            return true;
         }
         return false;
     }
@@ -4315,6 +4639,15 @@ public class Sims_1 extends javax.swing.JFrame {
         System.out.println(_mainuser);
     }
 
+    private void logOut() {
+        _mainuser = null;
+        _maingame = null;
+        check_autoLogin.setSelected(false);
+        startPlanningGame.setVisible(false);
+        panel_Login.setVisible(true);
+
+    }
+
     /**
      * Reads the login file and writes the saved values into the login-fields;
      * if the auto-login-flag is set logIn(username) is called
@@ -4343,8 +4676,9 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
-        JTextField[] textFieldHelp =  {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
-        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth);
+        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
+        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
     }
     //***********************************************************************  /by Dawid

@@ -13,6 +13,7 @@ public class Timer extends Thread {
 
     public static int timer; // changed to public by nadir to use in updatebars
     private javax.swing.JLabel label_timer;
+    private ActivityPhase activityPhase;
     public Game1 game;
     public static double averageMotivation;
     public static double averageTiredness;
@@ -21,13 +22,14 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
 
-   public Timer(javax.swing.JLabel jLabel_timer, Game1 game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar) {
+   public Timer(javax.swing.JLabel jLabel_timer, Game1 game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game=game;
         this.KnowledgeBar = jKnowledgeBar;
         this.MotivationBar = jMotivationBar;
         this.TirednessBar = jTirednessBar;
+        this.activityPhase=activityPhase;
     }
    
    
@@ -59,20 +61,20 @@ public class Timer extends Thread {
             label_timer.setText(timerText);
             
             game.updateArray(-1.5, 1.5);
-         updateAvrg();
+            updateAvrg();
+            if(!this.activityPhase.doNotPaintFlag){
+            paintBars();
+            }
+        }
+    }
+    
+    private void paintBars(){
          KnowledgeBar.setValue((int)(averageKnowledge*250)); 
          MotivationBar.setValue((int)averageMotivation); 
          TirednessBar.setValue((int)averageTiredness); 
          KnowledgeBar.repaint();
          MotivationBar.repaint();
-         TirednessBar.repaint();
-            
-            
-            
-            
-            
-            
-        }
+         TirednessBar.repaint();     
     }
 
     private void initTimer() {
