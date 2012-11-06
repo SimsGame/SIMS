@@ -4430,7 +4430,7 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str String with the name of the user to check
      * @return true if user already exists, false otherwise
      */
-    private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
+    public static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
 
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
