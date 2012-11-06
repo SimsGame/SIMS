@@ -65,6 +65,12 @@ public class Timer extends Thread {
             if(!this.activityPhase.doNotPaintFlag){
             paintBars();
             }
+            if(activityPhase.barNum!=0){
+                activityPhase.barClicked();
+            }
+            if(activityPhase.studentDisplayed!=-1){
+                activityPhase.displayStudentBars();
+            }
         }
     }
     

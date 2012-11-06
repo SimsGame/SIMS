@@ -47,6 +47,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
+    private javax.swing.JButton[] activityPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -101,6 +102,7 @@ public class Sims_1 extends javax.swing.JFrame {
         setLocationRelativeTo( null ); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
+        this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
     }
 
     /**
@@ -1986,12 +1988,29 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel7.setText("Müdigkeit:");
         jPanel5.add(jLabel7);
         jLabel7.setBounds(10, 80, 80, 20);
+
+        KnowledgeBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KnowledgeBarMouseClicked(evt);
+            }
+        });
         jPanel5.add(KnowledgeBar);
         KnowledgeBar.setBounds(80, 10, 260, 20);
         KnowledgeBar.getAccessibleContext().setAccessibleDescription("");
 
+        MotivationBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MotivationBarMouseClicked(evt);
+            }
+        });
         jPanel5.add(MotivationBar);
         MotivationBar.setBounds(80, 40, 260, 20);
+
+        TirednessBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TirednessBarMouseClicked(evt);
+            }
+        });
         jPanel5.add(TirednessBar);
         TirednessBar.setBounds(80, 80, 260, 20);
 
@@ -2944,7 +2963,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -3443,7 +3462,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -3771,6 +3790,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void panel_activityPhaseStudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseClicked
     activityPhase.doNotPaintFlag= false;
+    activityPhase.studentDisplayed = -1;
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseClicked
 
     private void panel_activityPhaseStudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseEntered
@@ -3916,6 +3936,33 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_pCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pCancelActionPerformed
         panel_Profile.setVisible(false);
     }//GEN-LAST:event_button_pCancelActionPerformed
+
+    private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
+        if(activityPhase.barNum==1){
+            activityPhase.barNum=0;
+        }else{
+            activityPhase.barNum=1;
+        }
+        activityPhase.barClicked();
+    }//GEN-LAST:event_KnowledgeBarMouseClicked
+
+    private void MotivationBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MotivationBarMouseClicked
+        if(activityPhase.barNum==2){
+            activityPhase.barNum=0;
+        }else{
+            activityPhase.barNum=2;
+        }
+        activityPhase.barClicked();
+    }//GEN-LAST:event_MotivationBarMouseClicked
+
+    private void TirednessBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TirednessBarMouseClicked
+        if(activityPhase.barNum==3){
+            activityPhase.barNum=0;
+        }else{
+            activityPhase.barNum=3;
+        }
+        activityPhase.barClicked();
+    }//GEN-LAST:event_TirednessBarMouseClicked
     
     /**
      * @param args the command line arguments
@@ -4680,6 +4727,41 @@ public class Sims_1 extends javax.swing.JFrame {
         JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
         _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
+    }
+    
+    private javax.swing.JButton[] constructActivityPhaseButtons(){
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+                result[0]=button_stud1;
+                result[1]=button_stud2;
+                result[2]=button_stud3;
+                result[3]=button_stud4;
+                result[4]=button_stud5;
+                result[5]=button_stud6;
+                result[6]=button_stud7;
+                result[7]=button_stud8;
+                result[8]=button_stud9;
+                result[9]=button_stud10;
+                result[10]=button_stud11;
+                result[11]=button_stud12;
+                result[12]=button_stud13;
+                result[13]=button_stud14;
+                result[14]=button_stud15;
+                result[15]=button_stud16;
+                result[16]=button_stud17;
+                result[17]=button_stud18;
+                result[18]=button_stud19;
+                result[19]=button_stud20;
+                result[20]=button_stud21;
+                result[21]=button_stud22;
+                result[22]=button_stud23;
+                result[23]=button_stud24;
+                result[24]=button_stud25;
+                result[25]=button_stud26;
+                result[26]=button_stud27;
+                result[27]=button_stud28;
+                result[28]=button_stud29;
+                result[29]=button_stud30;              
+        return result;
     }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
