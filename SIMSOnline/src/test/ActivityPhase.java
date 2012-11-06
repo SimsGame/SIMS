@@ -27,6 +27,7 @@ public class ActivityPhase {
         this.TirednessBar = jTirednessBar;
         game = Sims_1._maingame;
         game.initArray();
+        game.initRoom();
         activityPhaseMain();
     }
     

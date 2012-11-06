@@ -17,6 +17,12 @@ public class Timer extends Thread {
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
+    public boolean windowOpen = false;
+    public boolean laptopClosed = false;
+    public boolean teamwork = false;
+    public boolean shortBreak = false;
+    private double add1;
+    private double add2;
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
@@ -57,8 +63,22 @@ public class Timer extends Thread {
             }
             timerText+=timer % 60;
             label_timer.setText(timerText);
-            
-            game.updateArray(-1.5, 1.5);
+           // problem: no default state. Thus implementing the planned changing of the attributes is impossible without disrupting the usual game flow, since the laptop is always either opened or closed.
+            if (laptopClosed){
+                add1=(game.noise+0.000001)/200*(-3.3);
+                add2=(100.000001-game.airQuality)/200*-3.3;
+                game.updateArray(add1, add2);
+            }
+            else if(teamwork){
+                add1=(game.noise+0.000001)/200*(-3.3);
+                add2=(100.000001-game.airQuality)/200*3.3;
+                game.updateArray(add1, add2);
+            }
+            else {
+                add1=(game.noise+0.000001)/200*(-3.3);
+                add2=(100.000001-game.airQuality)/200*3.3;
+                game.updateArray(add1, add2);
+            }
          updateAvrg();
          KnowledgeBar.setValue((int)(averageKnowledge*250)); 
          MotivationBar.setValue((int)averageMotivation); 

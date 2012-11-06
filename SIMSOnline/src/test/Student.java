@@ -71,12 +71,12 @@ public class Student {
      
     void changeTiredness(double factor)
     {
-       this.tiredness = this.tiredness+1*factor;
+       this.tiredness = this.tiredness+factor;
     }
      
     void changeMotivation(double factor)
     {
-       this.motivation = this.motivation+1*factor;
+       this.motivation = this.motivation+factor;
     }
     
     /**
