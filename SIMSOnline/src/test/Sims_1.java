@@ -422,6 +422,12 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_aPass = new javax.swing.JTextField();
         label_aMonthVal = new javax.swing.JLabel();
         button_aDelete = new javax.swing.JButton();
+        label_aErrAccName = new javax.swing.JLabel();
+        label_aErrPass = new javax.swing.JLabel();
+        label_aErrEmail = new javax.swing.JLabel();
+        label_aErrFirstName = new javax.swing.JLabel();
+        label_aErrLastName = new javax.swing.JLabel();
+        label_aErrUCoins = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         button_aCancel = new javax.swing.JButton();
 
@@ -2535,77 +2541,101 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
 
+        label_aErrAccName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrAccName.setText("Fehler?");
+
+        label_aErrPass.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrPass.setText("Fehler?");
+
+        label_aErrEmail.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrEmail.setText("Fehler?");
+
+        label_aErrFirstName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrFirstName.setText("Fehler?");
+
+        label_aErrLastName.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrLastName.setText("Fehler?");
+
+        label_aErrUCoins.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrUCoins.setText("Fehler?");
+
         javax.swing.GroupLayout panel_adminUserLayout = new javax.swing.GroupLayout(panel_adminUser);
         panel_adminUser.setLayout(panel_adminUserLayout);
         panel_adminUserLayout.setHorizontalGroup(
             panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(444, Short.MAX_VALUE))
+            .addGroup(panel_adminUserLayout.createSequentialGroup()
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_adminUserLayout.createSequentialGroup()
+                            .addGap(69, 69, 69)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aAccname)
+                                .addComponent(label_aPass)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_adminUserLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label_aEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label_aLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addComponent(label_aUCions, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lable_aProfil)
+                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(button_aDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textfield_aUCoins, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aKontoname, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textfield_aSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(textfield_aPass, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_aErrAccName)
+                            .addComponent(label_aErrPass)
+                            .addComponent(label_aErrEmail)
+                            .addComponent(label_aErrFirstName)
+                            .addComponent(label_aErrLastName)
+                            .addComponent(label_aErrUCoins))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                    .addGap(69, 69, 69)
-                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aAccname)
-                                        .addComponent(label_aPass)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_adminUserLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(label_aEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aFirstName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label_aLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
-                            .addComponent(label_aUCions, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(label_aDuplo))
+                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addComponent(label_aRedBull))
+                                    .addComponent(label_aOMNI))
+                                .addComponent(label_aCredits))
+                            .addComponent(label_aSpicker, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lable_aProfil)
-                            .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(button_aDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(textfield_aUCoins, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aKontoname, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textfield_aSurename, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(textfield_aPass, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                .addGap(138, 138, 138)
-                                                .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                            .addGap(33, 33, 33)
-                                                            .addComponent(label_aDuplo))
-                                                        .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                                            .addGap(25, 25, 25)
-                                                            .addComponent(label_aRedBull))
-                                                        .addComponent(label_aOMNI))
-                                                    .addComponent(label_aCredits)))
-                                            .addComponent(label_aSpicker, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(check_aSpicker)
-                                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(textfield_aCredits)
-                                                .addComponent(textfield_aDuplo)
-                                                .addComponent(textfield_aRedBull)
-                                                .addComponent(textfield_aOMNI, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
-                                            .addComponent(label_aGame)))
-                                    .addGroup(panel_adminUserLayout.createSequentialGroup()
-                                        .addGap(157, 157, 157)
-                                        .addComponent(label_aMonth)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(check_aSpicker)
+                            .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textfield_aCredits)
+                                .addComponent(textfield_aDuplo)
+                                .addComponent(textfield_aRedBull)
+                                .addComponent(textfield_aOMNI, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label_aGame)))
                     .addGroup(panel_adminUserLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(button_aSave, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(label_aMonth)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button_auCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(347, Short.MAX_VALUE))
+                        .addComponent(label_aMonthVal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(256, 256, 256))
         );
         panel_adminUserLayout.setVerticalGroup(
             panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2619,31 +2649,36 @@ public class Sims_1 extends javax.swing.JFrame {
                     .addComponent(textfield_aKontoname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aAccname)
                     .addComponent(textfield_aCredits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aCredits))
+                    .addComponent(label_aCredits)
+                    .addComponent(label_aErrAccName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_aPass)
                     .addComponent(textfield_aDuplo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aDuplo)
-                    .addComponent(textfield_aPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textfield_aPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_aErrPass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_aRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aRedBull)
                     .addComponent(textfield_aEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aEmail))
+                    .addComponent(label_aEmail)
+                    .addComponent(label_aErrEmail))
                 .addGap(6, 6, 6)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_aOMNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_aOMNI)
                     .addComponent(textfield_aName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aFirstName))
+                    .addComponent(label_aFirstName)
+                    .addComponent(label_aErrFirstName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check_aSpicker)
                     .addComponent(label_aSpicker)
                     .addComponent(textfield_aSurename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_aLastName))
+                    .addComponent(label_aLastName)
+                    .addComponent(label_aErrLastName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_aMonthVal)
@@ -2652,7 +2687,8 @@ public class Sims_1 extends javax.swing.JFrame {
                             .addComponent(label_aMonth)
                             .addGroup(panel_adminUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(textfield_aUCoins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_aUCions))
+                                .addComponent(label_aUCions)
+                                .addComponent(label_aErrUCoins))
                             .addComponent(slider_aMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button_aDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3262,7 +3298,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_rPass2FocusGained
 
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
-        if (checkRegister()) {  //by Dawid
+        JComponent[] toCheck = {textfield_rKontoname, password_rPass1, password_rPass2, textfield_rEmail1, textfield_rEmail2, textfield_rName, textfield_rSurename};
+        JLabel[] errMess = {label_rErrAccname, label_rErrPass1, label_rErrPass2, label_rErrEmail1, label_rErrEmail2, label_rErrFirstName, label_rErrLastName};
+        JTextField[] accName_eMail = {textfield_rKontoname, textfield_rEmail1};
+        JLabel[] errMess2 = {label_rErrAccname, label_rErrEmail1};
+        if (checkRegister_(toCheck, errMess) & !checkGlobUser(accName_eMail, errMess2)) {  //by Dawid
+            User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
             panel_Login.setVisible(true);
             panel_Register.setVisible(false);
             button_Register.setSelected(false);
@@ -3876,6 +3917,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_aCredits;
     private javax.swing.JLabel label_aDuplo;
     private javax.swing.JLabel label_aEmail;
+    private javax.swing.JLabel label_aErrAccName;
+    private javax.swing.JLabel label_aErrEmail;
+    private javax.swing.JLabel label_aErrFirstName;
+    private javax.swing.JLabel label_aErrLastName;
+    private javax.swing.JLabel label_aErrPass;
+    private javax.swing.JLabel label_aErrUCoins;
     private javax.swing.JLabel label_aFirstName;
     private javax.swing.JLabel label_aGame;
     private javax.swing.JLabel label_aLastName;
@@ -4101,12 +4148,28 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param str String with the name of the user to check
      * @return true if user already exists, false otherwise
      */
-    private boolean checkGlobUser(String str) {
+    private static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
+
+        System.out.println("hier");
         try {
             java.util.LinkedList<java.util.LinkedList> list = CSVHandling.readCSV(Sims_1._usersFileName);
             for (java.util.LinkedList sublist : list) {
-                if (sublist.contains(str)) {
+                System.out.println("hier");
+                if (sublist.contains(input[0].getText())) {
+                    errMess[0].setText("Kontoname schon vergeben!");
+                    input[0].setBackground(Color.red);
                     return true;
+                } else {
+                    errMess[0].setText("");
+                    input[0].setBackground(Color.white);
+                }
+                if (sublist.contains(input[1].getText())) {
+                    errMess[1].setText("Email schon in Benutzung!");
+                    input[1].setBackground(Color.red);
+                    return true;
+                } else {
+                    errMess[1].setText("");
+                    input[1].setBackground(Color.white);
                 }
             }
         } catch (Exception e) {
@@ -4115,108 +4178,108 @@ public class Sims_1 extends javax.swing.JFrame {
         return false;
     }
 
-    /**
-     * Checks all text-fields in the register-for for valid output; user gets
-     * feedback to the invalid input after this function is called
-     *
-     * @return true if all fields have valid values in them, false otherwise
-     */
-    private boolean checkRegister() {
+    public static boolean checkRegister_(JComponent[] toCheck, JLabel[] errMess) {
+        JTextField account = (JTextField) toCheck[0];
+        JPasswordField pass1 = (JPasswordField) toCheck[1];
+        JPasswordField pass2 = (JPasswordField) toCheck[2];
+        JTextField email1 = (JTextField) toCheck[3];
+        JTextField email2 = (JTextField) toCheck[4];
+        JTextField name = (JTextField) toCheck[5];
+        JTextField lastName = (JTextField) toCheck[6];
+
         boolean check = true;
-        if (textfield_rKontoname.getText().length() < 5) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname zu kurz! (5-15 Zeichen)");
+        if (account.getText().length() < 5) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname zu kurz! (5-15 Zeichen)");
             check = false;
-        } else if (textfield_rKontoname.getText().length() > 15) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname zu lang! (5-15 Zeichen)");
+        } else if (account.getText().length() > 15) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname zu lang! (5-15 Zeichen)");
             check = false;
-        } else if (checkGlobUser(textfield_rKontoname.getText()) | textfield_rKontoname.getText().equals(_adminName)) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname schon vergeben!");
-            check = false;
-        } else if (!checkAlphaNumm(textfield_rKontoname.getText().toCharArray())) {
-            textfield_rKontoname.setBackground(Color.red);
-            label_rErrAccname.setText("Kontoname verwendet Sonderzeichen!");
+        } else if (!checkAlphaNumm(account.getText().toCharArray())) {
+            account.setBackground(Color.red);
+            errMess[0].setText("Kontoname verwendet Sonderzeichen!");
         } else {
-            textfield_rKontoname.setBackground(Color.white);
-            label_rErrAccname.setText("");
+            account.setBackground(Color.white);
+            errMess[0].setText("");
         }
 
-        if (password_rPass1.getPassword().length < 5) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort zu kurz! (5-15 Zeichen)");
+        if (pass1.getPassword().length < 5) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort zu kurz! (5-15 Zeichen)");
             check = false;
-        } else if (password_rPass1.getPassword().length > 15) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort zu lang! (5-15 Zeichen)");
+        } else if (pass1.getPassword().length > 15) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort zu lang! (5-15 Zeichen)");
             check = false;
-        } else if (!checkAlphaNumm(password_rPass1.getPassword())) {
-            password_rPass1.setBackground(Color.red);
-            password_rPass2.setText("");
-            label_rErrPass1.setText("Passwort verwendet !onderzeichen!");
+        } else if (!checkAlphaNumm(pass1.getPassword())) {
+            pass1.setBackground(Color.red);
+            pass2.setText("");
+            errMess[1].setText("Passwort verwendet Sonderzeichen!");
             check = false;
         } else {
-            password_rPass1.setBackground(Color.white);
-            label_rErrPass1.setText("");
+            pass1.setBackground(Color.white);
+            errMess[1].setText("");
 
 
-            if (!new String(password_rPass1.getPassword()).equals(new String(password_rPass2.getPassword()))) {
-                password_rPass1.setBackground(Color.red);
-                password_rPass2.setBackground(Color.red);
-                label_rErrPass2.setText("Passwörter stimmen nicht überein!");
+            if (!new String(pass1.getPassword()).equals(new String(pass2.getPassword()))) {
+                pass1.setBackground(Color.red);
+                pass2.setBackground(Color.red);
+                errMess[2].setText("Passwörter stimmen nicht überein!");
                 check = false;
             } else {
-                password_rPass1.setBackground(Color.white);
-                password_rPass2.setBackground(Color.white);
-                label_rErrPass2.setText("");
+                pass1.setBackground(Color.white);
+                pass2.setBackground(Color.white);
+                errMess[2].setText("");
             }
         }
 
-        if (textfield_rEmail1.getText().length() < 5 | !checkEmail(textfield_rEmail1.getText()) | checkGlobUser(textfield_rEmail1.getText())) {
-            textfield_rEmail1.setBackground(Color.red);
+        if (email1.getText().length() < 5 | !checkEmail(email1.getText())) {
+            email1.setBackground(Color.red);
             check = false;
-            label_rErrEmail1.setText("Ungültige Adresse!");
-            textfield_rEmail2.setText("");
+            errMess[3].setText("Ungültige Adresse!");
+            if (!email1.equals(email2)) {
+                email2.setText("");
+            };
         } else {
-            textfield_rEmail1.setBackground(Color.white);
-            label_rErrEmail1.setText("");
+            email1.setBackground(Color.white);
+            errMess[3].setText("");
 
 
-            if (!textfield_rEmail1.getText().equals(textfield_rEmail2.getText())) {
-                textfield_rEmail1.setBackground(Color.red);
-                textfield_rEmail2.setBackground(Color.red);
-                label_rErrEmail2.setText("Emails stimmen nicht überein!");
+            if (!email1.getText().equals(email2.getText())) {
+                email1.setBackground(Color.red);
+                email2.setBackground(Color.red);
+                errMess[4].setText("Emails stimmen nicht überein!");
                 check = false;
             } else {
-                textfield_rEmail1.setBackground(Color.white);
-                textfield_rEmail2.setBackground(Color.white);
-                label_rErrEmail2.setText("");
+                email1.setBackground(Color.white);
+                email2.setBackground(Color.white);
+                errMess[4].setText("");
             }
         }
 
-        if (!checkName(textfield_rName.getText())) {
-            textfield_rName.setBackground(Color.red);
-            label_rErrFirstName.setText("Kein gültiger Name!");
+        if (!checkName(name.getText())) {
+            name.setBackground(Color.red);
+            errMess[5].setText("Kein gültiger Name!");
             check = false;
         } else {
-            textfield_rName.setBackground(Color.white);
-            label_rErrFirstName.setText("");
+            name.setBackground(Color.white);
+            errMess[5].setText("");
         }
 
-        if (!checkName(textfield_rSurename.getText())) {
-            textfield_rSurename.setBackground(Color.red);
-            label_rErrLastName.setText("Kein gültiger Nachname!");
+        if (!checkName(lastName.getText())) {
+            lastName.setBackground(Color.red);
+            errMess[6].setText("Kein gültiger Nachname!");
             check = false;
         } else {
-            label_rErrLastName.setText("");
-            textfield_rSurename.setBackground(Color.white);
+            errMess[6].setText("");
+            lastName.setBackground(Color.white);
         }
 
         if (check) {
-            return User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
+            return true;
         }
         return false;
     }
@@ -4315,6 +4378,15 @@ public class Sims_1 extends javax.swing.JFrame {
         System.out.println(_mainuser);
     }
 
+    private void logOut() {
+        _mainuser = null;
+        _maingame = null;
+        check_autoLogin.setSelected(false);
+        startPlanningGame.setVisible(false);
+        panel_Login.setVisible(true);
+
+    }
+
     /**
      * Reads the login file and writes the saved values into the login-fields;
      * if the auto-login-flag is set logIn(username) is called
@@ -4343,8 +4415,9 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
-        JTextField[] textFieldHelp =  {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
-        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth);
+        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
+        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
     }
     //***********************************************************************  /by Dawid
