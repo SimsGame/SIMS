@@ -15,6 +15,7 @@ public class ActivityPhase {
     public boolean duploPressed = false;
     public boolean OmniSensePressed = false;
     public boolean doNotPaintFlag = false;
+    public boolean paintStudents = false;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_redBull;
     private javax.swing.JLabel label_duplo;
@@ -42,7 +43,13 @@ public class ActivityPhase {
         runTimer.start();  
     }
     
-    void StudentClicked(int studNum) {
+    public void BarClicked(int barNum){
+        paintStudents=true;
+        for(int i=0; i<30; i++){
+        }
+    }
+    
+    public void StudentClicked(int studNum) {
         if (redBullPressed) {
             if (game.redBull.amount > 0) {
                 game.redBull.amount -= 1;
