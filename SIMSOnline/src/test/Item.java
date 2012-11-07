@@ -147,25 +147,25 @@ public class Item {
         int itemAmountHeight = 20;
         
         switch(item.name){
-            case "Red Bull":{
+            case _redBullName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullPainting80x80.png")));
                 field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-1);
                 name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-10);
                 break;
             }
-            case "Duplo":{
+            case _duploName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/FerreroDuploPainting80x80.png")));
                 field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-2);
                 name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-11);
                 break;
             }
-            case "OMNI Sense Audiobuch":{
+            case _omniSenseName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/OMNISenseAudioPainting80x80.png")));
                 field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-3);
                 name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-12);
                 break;
             }
-            case "Spickzettel":{
+            case _spickerName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/SpickzettelPainting80x80.png")));
                 field.getParent().setComponentZOrder(field,field.getParent().getComponentCount()-4);
                 name.getParent().setComponentZOrder(name,name.getParent().getComponentCount()-13);
@@ -187,12 +187,12 @@ public class Item {
         
         //The following part displays the container on the right position 
         
-        if(item.name.equals("Red Bull")){
+        if(item.name.equals(_redBullName)){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
-        if(item.name.equals("Duplo") && Sims_1._maingame.redBull.amount != 0){
+        if(item.name.equals(_duploName) && Sims_1._maingame.redBull.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
@@ -202,38 +202,38 @@ public class Item {
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
-        if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0){
+        if(item.name.equals(_omniSenseName) && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+2*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+2*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+2*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0){
+        else if(item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 || item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0){
+        else if(item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
         }
         
-        if(item.name.equals("Spickzettel") && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
+        if(item.name.equals(_spickerName) && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+3*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+3*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+3*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount == 0  || item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount != 0 || item.name.equals("Spickzettel") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
+        else if(item.name.equals(_spickerName) && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount == 0  || item.name.equals(_spickerName) && Sims_1._maingame.duplo.amount != 0 && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount != 0 || item.name.equals(_spickerName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount != 0 && Sims_1._maingame.omniSenseAudio.amount != 0){
             field.setBounds(itemBoxX, itemBoxY+2*boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+2*labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+2*labelFactor, itemAmountWidth, itemAmountHeight);
         }
-        else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0 || item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0){
+        else if(item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 || item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.redBull.amount == 0 || item.name.equals(_omniSenseName) && Sims_1._maingame.redBull.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0){
             field.setBounds(itemBoxX, itemBoxY+boxFactor, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY+labelFactor, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY+labelFactor, itemAmountWidth, itemAmountHeight);
         }
-         else if(item.name.equals("OMNI Sense Audiobuch") && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 && Sims_1._maingame.redBull.amount == 0){
+         else if(item.name.equals(_omniSenseName) && Sims_1._maingame.duplo.amount == 0 && Sims_1._maingame.omniSenseAudio.amount == 0 && Sims_1._maingame.redBull.amount == 0){
             field.setBounds(itemBoxX, itemBoxY, itemBoxWidth, itemBoxHeight);
             name.setBounds(itemLabelX, itemLabelY, itemLabelWidth, itemLabelHeight);
             amount.setBounds(itemAmountX, itemAmountY, itemAmountWidth, itemAmountHeight);
@@ -259,7 +259,7 @@ public class Item {
         name.setHorizontalAlignment(JLabel.CENTER);
         price.setHorizontalAlignment(JLabel.CENTER);
         
-        if(item.available > Sims_1._maingame.semester){
+        if(item.available > Sims_1._maingame.getSemester()){  //angepasst by Dawid
             name.setText("Verfügbar ab Semester "+item.available);
             price.setVisible(false);
         }else{
@@ -292,7 +292,7 @@ public class Item {
      * @param it item that will be updated
      */
      public static void updateInventoryPlanningPhase(JLabel item, Item it){
-       if (it.name.equals("OMNI Sense Audiobuch")) {
+       if (it.name.equals(_omniSenseName)) {
            item.setText("OmniSense Bücher: " +it.amount +"x" );
        }
        else{
@@ -313,12 +313,12 @@ public class Item {
             return 1;
         }
         
-        if(item.currency.equals("credits") && Sims_1._maingame.credits<item.price || item.currency.equals("UCoins") && Sims_1._mainuser.getUcoins()<item.price){
+        if(item.currency.equals(Sims_1._creditsName) && Sims_1._maingame.credits<item.price || item.currency.equals(Sims_1._UCoinsName) && Sims_1._mainuser.getUcoins()<item.price){
             return 1; 
         }
         else{
             item.amount += 1;
-            if(item.currency.equals("credits"))
+            if(item.currency.equals(Sims_1._creditsName))
                 Sims_1._maingame.credits = Sims_1._maingame.credits-item.price;
             else
                 Sims_1._mainuser.setUcoins(Sims_1._mainuser.getUcoins()-item.price);
