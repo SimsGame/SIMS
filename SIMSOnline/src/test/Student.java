@@ -71,17 +71,12 @@ public class Student {
      
     void changeTiredness(double factor)
     {
-       this.tiredness = this.tiredness+factor;
        setTiredness(this.tiredness+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
-
     }
      
     void changeMotivation(double factor)
     {
-       this.motivation = this.motivation+factor;
-
        setMotivation(this.motivation+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
-
     }
     
     /**
