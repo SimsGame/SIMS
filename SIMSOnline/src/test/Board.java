@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This jPanel holds the snake game.
  */
 package test;
 
@@ -15,10 +14,15 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class Board extends javax.swing.JPanel implements ActionListener {
 
+    /**
+     * Setting up the constants and variabels for the field and
+     * for further settings.
+     */
+    
     private final int WIDTH = 1000;
     private final int HEIGHT = 700;
     private final int DOT_SIZE = 10;
