@@ -128,9 +128,6 @@ public class Board extends javax.swing.JPanel implements ActionListener {
      * @param g the field where the text has to be printed
      */
     public void gameOver(Graphics g) {
-        if(endCounter == 1){
-            Sims_1.button_afterGame.doClick();
-        }
         String msg = "Game Over";
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics metr = this.getFontMetrics(small);
@@ -313,7 +310,8 @@ public class Board extends javax.swing.JPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 endDialog.setVisible(false);
                 endCounter = 1;
-                gameOver(g);
+                Sims_1.button_afterGame.doClick();
+                revalidate();
             }});
         label_headline.setFont(new Font("Text", 1,20));
         label_headline.setBounds(0, 10, 500, 20);
