@@ -16,6 +16,7 @@ public class Student {
     private final double intelligence = initIntelligence();
     private double tiredness;
     private double motivation;
+    public boolean laptopClosed = true;
     
     /**
      * 
@@ -60,11 +61,17 @@ public class Student {
     /**
      * This functions updates the knowledge and the knowledgeincreasement values
      * of the student. It should be run once every second.
+     * Updated by Kira: Added 'add', to realize the decreasing knowledgeIncreasement during teamwork and the nonexistent knowledgeIncreasement during shortBreak.
      */
-    void updateKnowledge() {
-        this.knowledgeIncreasement = (this.motivation - this.tiredness) * this.intelligence * 0.000375;
+    void updateKnowledge(double add) {
+        if (add!=-1){
+        this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.000375)-add;
         if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge
             this.knowledgeIncreasement = 0;
+        }
+        else {
+            this.knowledgeIncreasement = 0;
+        }
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
         
     }
@@ -130,6 +137,9 @@ public class Student {
      * @param value
      */
     public void setTiredness(double value) {
+        if (!laptopClosed){
+            value=value+0.7; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
+        }
         if(value<0){
             this.tiredness= 0;
         }else if(value>100){
@@ -149,14 +159,24 @@ public class Student {
 
     /**
      *
-     * @param value
+     * @param value the new value of motivation
+     * 
+     * Added the implementation of the increase when the laptop is opened. Also added the automatic opening of the laptop once the motivation goes below 30
+     * Problem = Motivation will NEVER go below 30!
+     * A number of times the student can open their laptop? Random?
      */
     public void setMotivation(double value) {
+        if (!laptopClosed){
+            value=value+3;
+        }
         if(value<0){
             this.motivation= 0;
         }else if(value>100){
             this.motivation=100;
         }else{
+            if (value<30 && laptopClosed) {
+                laptopClosed=false;
+            }
             this.motivation = value;
         }
     }

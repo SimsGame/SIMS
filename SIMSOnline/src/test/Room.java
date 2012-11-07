@@ -15,8 +15,9 @@ public class Room {
      *  @param noise            How loud it is within the classroom
      * 
      */
-    private double airQuality;
-    private double noise;
+    
+    public double airQuality;
+    public double noise;
     
     // constructor
     // noise is initialised by a method, airQuality 
@@ -35,22 +36,22 @@ public class Room {
      * called every second
      */  
     public void updateNoise(double factor){
-        this.noise = this.noise + 1*factor;
+        this.noise = this.noise + factor;
     }
     
     /* updating of the air quality, based on the factor. Factor is determined by the statuses window open/closed.
      * tentative default value is 0.5
-     * calles every second
+     * called every second
      */
     public void updateAirQuality(double factor){
-        this.airQuality = this.airQuality + 1*factor;
+        this.airQuality = this.airQuality + factor;
     }
     
-    public double getNoise() {
+/*    public double getNoise() {
         return this.noise;
     }    
     
     public double getAirQuality() {
         return this.airQuality;
-    }
+    }*/
 }

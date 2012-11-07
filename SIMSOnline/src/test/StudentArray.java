@@ -26,15 +26,8 @@ public class StudentArray {
         for (int i = 0; i < 30; i++) {
             studentArray[i] = new Student(i);
         }
-    } 
-    /* Added by Kira
-     * Regularly called with testvalue:
-     * double factor1 = 101-classroom.airQuality/200*(-3.3)
-     * double factor2 = classroom.noise/200*3.3
-     */
-    
+    }
    
-    
     public Student[] getArray(){
         return studentArray;
     }

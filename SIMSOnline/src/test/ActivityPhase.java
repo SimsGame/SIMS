@@ -41,6 +41,7 @@ public class ActivityPhase {
         this.studButtons = studButtons;
         game = Sims_1._maingame;
         game.initArray();
+        game.initRoom();
         activityPhaseMain();
     }
     
