@@ -73,27 +73,7 @@ public class Game1 {
      * fitting Item Objects in this class. That's how each item can be called by
      * name.
      */
-    @Deprecated
-    public void putItem_(String name, int amount, int available) {
-        this.points = 700;
-        this.credits = 400;
-        if (name.equals("Duplo")) {
-            this.duplo = new Item(name, amount, available);
-            this.duplo.amount = 4;
-        }
-        if (name.equals("Red Bull")) {
-            this.redBull = new Item(name, amount, available);
-            this.redBull.amount = 5;
-        }
-        if (name.equals("Spickzettel")) {
-            this.cheatSheet = new Item(name, amount, available);
-            this.cheatSheet.amount = 1;
-        }
-        if (name.equals("OMNI Sense Audiobuch")) {
-            this.omniSenseAudio = new Item(name, amount, available);
-        }
-    }
-
+    
     public final void putItem(String name, int amount, int available) {
 
         if (name.equals(Item._duploName)) {
