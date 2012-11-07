@@ -346,13 +346,13 @@ public class Sims_1 extends javax.swing.JFrame {
         KnowledgeBar = new javax.swing.JProgressBar();
         MotivationBar = new javax.swing.JProgressBar();
         TirednessBar = new javax.swing.JProgressBar();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        button_window = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         NoiseBar = new javax.swing.JProgressBar();
         AirBar = new javax.swing.JProgressBar();
+        toggleButton_shortBreak = new javax.swing.JToggleButton();
+        toggleButton_teamwork = new javax.swing.JToggleButton();
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
         panel_activityPhaseStudField = new javax.swing.JPanel();
@@ -2045,27 +2045,14 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(TirednessBar);
         TirednessBar.setBounds(80, 80, 260, 20);
 
-        jButton1.setText("Fenster : AUF");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button_window.setText("Fenster : ZU");
+        button_window.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button_windowActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 23);
-
-        jButton4.setText("Gruppenarbeit");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 23);
-
-        jButton5.setText("Pause");
-        jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 23);
+        jPanel5.add(button_window);
+        button_window.setBounds(350, 10, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2080,6 +2067,19 @@ public class Sims_1 extends javax.swing.JFrame {
         NoiseBar.setBounds(560, 10, 130, 20);
         jPanel5.add(AirBar);
         AirBar.setBounds(560, 40, 130, 20);
+
+        toggleButton_shortBreak.setText("Pause");
+        jPanel5.add(toggleButton_shortBreak);
+        toggleButton_shortBreak.setBounds(350, 80, 120, 23);
+
+        toggleButton_teamwork.setText("Gruppenarbeit");
+        toggleButton_teamwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleButton_teamworkActionPerformed(evt);
+            }
+        });
+        jPanel5.add(toggleButton_teamwork);
+        toggleButton_teamwork.setBounds(350, 40, 120, 23);
 
         gamePlaying.add(jPanel5);
         jPanel5.setBounds(150, 0, 700, 110);
@@ -3017,15 +3017,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String test = jButton1.getText();
-        if (test.equals("Fenster : AUF")) {
-            _maingame.windowClosed=true;
-            jButton1.setText("Fenster : ZU");
-        }
-        if (test.equals("Fenster : ZU")) {
-            _maingame.windowClosed=false;
-            jButton1.setText("Fenster : AUF");
-        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
@@ -3927,6 +3919,29 @@ public class Sims_1 extends javax.swing.JFrame {
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
+
+    private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
+        if (!_maingame.teamwork){
+            toggleButton_teamwork.setSelected(true);
+            _maingame.teamwork=true;
+        }
+        else {
+            toggleButton_teamwork.setSelected(false);
+            _maingame.teamwork=false;
+        }
+    }//GEN-LAST:event_toggleButton_teamworkActionPerformed
+
+    private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
+        String test = button_window.getText();
+        if (test.equals("Fenster : OFFEN")) {
+            _maingame.windowClosed=true;
+            button_window.setText("Fenster : ZU");
+        }
+        if (test.equals("Fenster : ZU")) {
+            _maingame.windowClosed=false;
+            button_window.setText("Fenster : OFFEN");
+        }
+    }//GEN-LAST:event_button_windowActionPerformed
     
     /**
      * @param args the command line arguments
@@ -4089,9 +4104,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_startShop;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
