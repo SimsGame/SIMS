@@ -3018,13 +3018,13 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String test = jButton1.getText();
-        if (test.equals("Fenster : OFFEN")) {
+        if (test.equals("Fenster : AUF")) {
             _maingame.windowClosed=true;
-            jButton1.setText("Fenster : GESCHLOSSEN");
+            jButton1.setText("Fenster : ZU");
         }
-        if (test.equals("Fenster : OFFEN")) {
+        if (test.equals("Fenster : ZU")) {
             _maingame.windowClosed=false;
-            jButton1.setText("Fenster : GESCHLOSSEN");
+            jButton1.setText("Fenster : AUF");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
