@@ -63,7 +63,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		one.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				if(counter == 0) { one.setText("Eins"); counter = 1; one.setOpaque(true); updatePoints();}
+				if(counter == 0) { one.setText("Eins"); counter = 1; one.setOpaque(true);}
 				else if(counter != 1 && !one.getText().equals("Eins")) {one.setText("1"); counter = 0; one.setOpaque(true);}
 			}
 		});
@@ -80,7 +80,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		two.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				if(one.getText().equals("Eins")) { two.setText("Zwei"); counter = 2; two.setOpaque(true); updatePoints();}
+				if(one.getText().equals("Eins")) { two.setText("Zwei"); counter = 2; two.setOpaque(true);}
 				else {two.setText("2"); counter = 0; two.setOpaque(true);}
 			}
 		});
@@ -97,7 +97,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		three.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				if(two.getText().equals("Zwei")) { three.setText("Drei"); counter = 3; three.setOpaque(true); updatePoints();}
+				if(two.getText().equals("Zwei")) { three.setText("Drei"); counter = 3; three.setOpaque(true);}
 				else {three.setText("3"); counter = 0; three.setOpaque(true);}
 			}
 		});
@@ -114,7 +114,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		four.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent event) {
-				if(three.getText().equals("Drei")) { four.setText("Vier"); counter = 4; four.setOpaque(true); updatePoints();}
+				if(three.getText().equals("Drei")) { four.setText("Vier"); counter = 4; four.setOpaque(true);}
 				else {four.setText("4"); counter = 0; four.setOpaque(true);}
 			}
 		});
@@ -131,7 +131,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		five.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent event) {
-				if(four.getText().equals("Vier")) { five.setText("Fünf"); counter = 5; five.setOpaque(true); updatePoints();}
+				if(four.getText().equals("Vier")) { five.setText("Fünf"); counter = 5; five.setOpaque(true);}
 				else {five.setText("5"); counter = 0; five.setOpaque(true);}
 			}
 		});
@@ -221,8 +221,10 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 					four.setText(""); four.setOpaque(false);
                                         five.setText(""); five.setOpaque(false);
 					counter = 0;
-                                        updatePoints();
 				}
+                                
+                                updatePoints();
+                                
                                 if(counter == 5 && visible == false){
                                     updatePoints();
                                     label_door.setVisible(true);
