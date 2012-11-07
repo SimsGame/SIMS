@@ -2045,10 +2045,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(TirednessBar);
         TirednessBar.setBounds(80, 80, 260, 20);
 
-        button_window.setText("Fenster : ZU");
-        button_window.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Fenster : AUF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_windowActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
         jPanel5.add(jButton1);
@@ -3016,17 +3016,17 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(false);
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
-    private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
-        String test = button_window.getText();
-        if (test.equals("Fenster : OFFEN")) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String test = jButton1.getText();
+        if (test.equals("Fenster : AUF")) {
             _maingame.windowClosed=true;
-            button_window.setText("Fenster : ZU");
+            jButton1.setText("Fenster : ZU");
         }
         if (test.equals("Fenster : ZU")) {
             _maingame.windowClosed=false;
-            button_window.setText("Fenster : OFFEN");
+            jButton1.setText("Fenster : AUF");
         }
-    }//GEN-LAST:event_button_windowActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
         // TODO add your handling code here:
@@ -3927,28 +3927,6 @@ public class Sims_1 extends javax.swing.JFrame {
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
-
-    private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
-        if (!_maingame.teamwork){
-            toggleButton_teamwork.setSelected(true);
-            _maingame.teamwork=true;
-        }
-        else {
-            toggleButton_teamwork.setSelected(false);
-            _maingame.teamwork=false;
-        }
-    }//GEN-LAST:event_toggleButton_teamworkActionPerformed
-
-    private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
-        if (!_maingame.shortBreak){
-            toggleButton_shortBreak.setSelected(true);
-            _maingame.shortBreak=true;
-        }
-        else {
-            toggleButton_shortBreak.setSelected(false);
-            _maingame.shortBreak=false;
-        }
-    }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
     
     /**
      * @param args the command line arguments
