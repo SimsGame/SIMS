@@ -836,7 +836,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(password_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 149, -1));
 
         button_pSave.setText("Übernehmen");
-        button_pSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_pSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_pSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pSaveActionPerformed(evt);
@@ -874,7 +874,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(label_pSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
         button_pCancel.setText("Abbrechen");
-        button_pCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_pCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_pCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pCancelActionPerformed(evt);
@@ -933,7 +933,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         button_menuStartNewGame.setText("Neues Spiel");
-        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuStartNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuStartNewGameActionPerformed(evt);
@@ -942,7 +942,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuStartNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         button_menuExit.setText("Beenden");
-        button_menuExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuExitActionPerformed(evt);
@@ -951,7 +951,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 160, 40));
 
         button_menuLoadGame.setText("Spiel Laden");
-        button_menuLoadGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuLoadGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuLoadGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuLoadGameActionPerformed(evt);
@@ -960,7 +960,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuLoadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
 
         button_menuCredits.setText("Credits");
-        button_menuCredits.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuCredits.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuCredits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuCreditsActionPerformed(evt);
@@ -969,7 +969,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
 
         button_menuProfile.setText("Profil");
-        button_menuProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuProfileActionPerformed(evt);
@@ -978,7 +978,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 160, 40));
 
         button_menuLogOut.setText("Abmelden");
-        button_menuLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuLogOutActionPerformed(evt);
@@ -987,7 +987,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 40));
 
         button_menuStatistic.setText("Statistik");
-        button_menuStatistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuStatistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_menuStatistic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuStatisticActionPerformed(evt);
@@ -2493,7 +2493,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Register.add(password_rPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 149, -1));
 
         button_rRegister.setText("Registrieren");
-        button_rRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_rRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_rRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_rRegisterActionPerformed(evt);
@@ -2538,7 +2538,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_rSecondName.getAccessibleContext().setAccessibleName("label_rSecondName");
 
         button_cancel.setText("Abbrechen");
-        button_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_cancelActionPerformed(evt);
@@ -2605,7 +2605,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 145, 30));
 
         button_Login.setText("Login");
-        button_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_LoginActionPerformed(evt);
@@ -2614,7 +2614,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.add(button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 80, 46));
 
         button_Register.setText("Registrieren");
-        button_Register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Register.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_Register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_RegisterActionPerformed(evt);
@@ -2674,7 +2674,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         button_aSave.setText("Übernehmen");
-        button_aSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_aSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_aSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_aSaveActionPerformed(evt);
@@ -2716,7 +2716,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(label_aEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         button_auCancel1.setText("Abbrechen");
-        button_auCancel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_auCancel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_auCancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_auCancel1ActionPerformed(evt);
@@ -2795,7 +2795,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(label_aMonthVal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 20, -1));
 
         button_aDelete.setText("Profil löschen");
-        button_aDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_aDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_aDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_aDeleteActionPerformed(evt);
@@ -2832,7 +2832,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jPanel1.add(panel_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        panel_Admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_Admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_Admin.setMaximumSize(new java.awt.Dimension(1000, 700));
         panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
         panel_Admin.setPreferredSize(new java.awt.Dimension(1000, 700));
