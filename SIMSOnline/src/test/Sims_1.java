@@ -2069,6 +2069,11 @@ public class Sims_1 extends javax.swing.JFrame {
         AirBar.setBounds(560, 40, 130, 20);
 
         toggleButton_shortBreak.setText("Pause");
+        toggleButton_shortBreak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleButton_shortBreakActionPerformed(evt);
+            }
+        });
         jPanel5.add(toggleButton_shortBreak);
         toggleButton_shortBreak.setBounds(350, 80, 120, 23);
 
@@ -3923,6 +3928,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
         if (!_maingame.teamwork){
             toggleButton_teamwork.setSelected(true);
+            _maingame.shortBreak=false;
+            toggleButton_shortBreak.setSelected(false);
             _maingame.teamwork=true;
         }
         else {
@@ -3942,6 +3949,19 @@ public class Sims_1 extends javax.swing.JFrame {
             button_window.setText("Fenster : OFFEN");
         }
     }//GEN-LAST:event_button_windowActionPerformed
+
+    private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
+        if (!_maingame.shortBreak){
+            toggleButton_shortBreak.setSelected(true);
+            _maingame.teamwork=false;
+            toggleButton_teamwork.setSelected(false);
+            _maingame.shortBreak=true;
+        }
+        else {
+            toggleButton_shortBreak.setSelected(false);
+            _maingame.shortBreak=false;
+        }
+    }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
     
     /**
      * @param args the command line arguments
