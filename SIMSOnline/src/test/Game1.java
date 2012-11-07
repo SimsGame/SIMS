@@ -23,7 +23,28 @@ public class Game1 {
     public Item redBull;
     public Item cheatSheet;
     public Item omniSenseAudio;
-    public Boolean[] cheated = new Boolean[18];
+    private Boolean[] cheated = new Boolean[5];
+
+    public boolean getCheated(int semester) {
+        int i = semester - 2;
+        if (i < 0 | i > 5) {
+            return false;
+        }
+        return cheated[i];
+    }
+
+    public boolean setCheated(int semester, boolean flag) {
+        int i = semester - 2;
+        if (i < 0 | i > 5) {
+            return false;
+        }
+        cheated[i] = flag;
+        return true;
+    }
+    
+    public boolean setCheated(int semester){
+        return setCheated(semester, true);
+    }
 
     /**
      * initializes the array of students.
@@ -98,9 +119,9 @@ public class Game1 {
         this.credits = 100;
         this.points = 0;
         initArray();
-        for(int i = 0; i < cheated.length; i++){
+        for (int i = 0; i < cheated.length; i++) {
             cheated[i] = false;
         }
-        
+
     }
 }
