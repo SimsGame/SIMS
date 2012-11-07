@@ -750,7 +750,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
-        setMaximumSize(new java.awt.Dimension(1000, 700));
         setMinimumSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -3018,11 +3017,13 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String test = jButton1.getText();
-        if (test.equals("Fenster : AUF")) {
-            jButton1.setText("Fenster : ZU");
+        if (test.equals("Fenster : OFFEN")) {
+            _maingame.windowClosed=true;
+            jButton1.setText("Fenster : GESCHLOSSEN");
         }
-        if (test.equals("Fenster : ZU")) {
-            jButton1.setText("Fenster : AUF");
+        if (test.equals("Fenster : OFFEN")) {
+            _maingame.windowClosed=false;
+            jButton1.setText("Fenster : GESCHLOSSEN");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -80,10 +80,10 @@ public class Timer extends Thread {
                 add2=(100.000001-game.airQuality)/200*3.3;
                 game.updateArray(add1, add2, 0);
             }
-         updateAvrg();
+            updateAvrg();
          
             //game.updateArray(-1.5, 1.5);
-            updateAvrg();
+            //updateAvrg();
             if(!this.activityPhase.doNotPaintFlag){
             paintBars();
             }
