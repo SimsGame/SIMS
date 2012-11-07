@@ -53,7 +53,8 @@ public class PlanningPhase {
     protected static int actMonth = 4;  // variable for actual month (from game-file)    
     protected static int lectorValue; //  variable that changes lector value (also from game file)
     
-    private JButton studBut;
+    private static JButton studBut1;
+    private static JButton studBut2;
 
         // PlanningPhase constructor
     public PlanningPhase() {
@@ -66,8 +67,7 @@ public class PlanningPhase {
             JProgressBar jProgB_Motivation,
             JProgressBar jProgB_Tiredness, 
             JLabel jLab_DozCounter,
-            JToggleButton jToggleBut_SwitchStud,
-            JButton jBut_1) {
+            JToggleButton jToggleBut_SwitchStud) {
 
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
@@ -87,8 +87,8 @@ public class PlanningPhase {
         //updates label "Dozenten tauschen
         validateLector(jLab_DozCounter);
         
-        this.studBut=jBut_1;
-        this.studBut.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
+        //this.studBut=jBut_1;
+        //this.studBut.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
     }
 
 
@@ -123,11 +123,12 @@ public class PlanningPhase {
         }
     }
 
-    private void storeStud(int stud_nr) {
+    private void storeStud(int stud_nr,JButton studBut) {
 
         if (studCounter == 1) {
             stud2 = studArr[stud_nr];
             stud2_nr = stud_nr;
+            studBut2 = studBut;
             System.out.println("Stud2 auf Platz: " + (stud2_nr + 1));
             System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
             StudSwitch(stud1, stud2);
@@ -139,6 +140,7 @@ public class PlanningPhase {
             System.out.println("studCounter = " + studCounter);
             stud1 = studArr[stud_nr];
             stud1_nr = stud_nr;
+            this.studBut1 = studBut;
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
             System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
@@ -168,7 +170,7 @@ public class PlanningPhase {
 
     }
 
-    public void StudButtonFunctions(int stud_nr) {
+    public void StudButtonFunctions(int stud_nr, JButton studBut) {
       // !!! ExmatrikulationsFlag abfragen
             // switchFlag == 0 --> SwitchButton not clickeds
         switchFlag = switchStudToggleBut.isSelected();
@@ -196,7 +198,7 @@ public class PlanningPhase {
          // switchFlag == 1 --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");
-            storeStud(stud_nr);
+            storeStud(stud_nr,studBut);
         }  
         
         //} else { // nichts passiert   --> z.B.

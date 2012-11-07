@@ -3003,10 +3003,19 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(panel_gamePhases, "card3");
         panel_menue.setVisible(false);
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jBut_1);  // added by Tobias, Yulyia
+            // set student pictures on the
+        jBut_1.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
+        jBut_2.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface2transparent.png")));
+        jBut_3.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface3transparent.png")));
+        jBut_4.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface4transparent.png")));
+        jBut_5.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface5transparent.png")));
+        
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+        
+        
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
@@ -3218,7 +3227,7 @@ public class Sims_1 extends javax.swing.JFrame {
         /**
          * @author Tobias Mauritz
          */
-        planningPhase.StudButtonFunctions(0);
+        planningPhase.StudButtonFunctions(0,jBut_1);
         // !!! kann nicht funzen!! wir brauchen akutelles Objekt von PLanningPhase, hier ist nur das generelle!
         // --> alles auslagern in Planungsphasen-Mehtode
 //        if (PlanningPhase.getSwitchFlag() == 0){
@@ -3237,7 +3246,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(1);
+        planningPhase.StudButtonFunctions(1,jBut_2);
 
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
@@ -3253,16 +3262,16 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
 
-        planningPhase.StudButtonFunctions(2);
+        planningPhase.StudButtonFunctions(2,jBut_3);
 
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        planningPhase.StudButtonFunctions(3);
+        planningPhase.StudButtonFunctions(3,jBut_4);
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        planningPhase.StudButtonFunctions(4);
+        planningPhase.StudButtonFunctions(4,jBut_5);
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
