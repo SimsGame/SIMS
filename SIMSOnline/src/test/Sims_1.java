@@ -346,13 +346,13 @@ public class Sims_1 extends javax.swing.JFrame {
         KnowledgeBar = new javax.swing.JProgressBar();
         MotivationBar = new javax.swing.JProgressBar();
         TirednessBar = new javax.swing.JProgressBar();
-        windowButton = new javax.swing.JButton();
-        teamworkButton = new javax.swing.JButton();
-        shortBreakButton = new javax.swing.JButton();
+        button_window = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jProgressBar5 = new javax.swing.JProgressBar();
         jProgressBar6 = new javax.swing.JProgressBar();
+        toggleButton_teamwork = new javax.swing.JToggleButton();
+        toggleButton_shortBreak = new javax.swing.JToggleButton();
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
         panel_activityPhaseStudField = new javax.swing.JPanel();
@@ -2045,28 +2045,14 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(TirednessBar);
         TirednessBar.setBounds(80, 80, 260, 20);
 
-        windowButton.setText("Fenster : ZU");
-        windowButton.addActionListener(new java.awt.event.ActionListener() {
+        button_window.setText("Fenster : ZU");
+        button_window.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                windowButtonActionPerformed(evt);
+                button_windowActionPerformed(evt);
             }
         });
-        jPanel5.add(windowButton);
-        windowButton.setBounds(350, 10, 120, 23);
-
-        teamworkButton.setText("Gruppenarbeit");
-        teamworkButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        teamworkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teamworkButtonActionPerformed(evt);
-            }
-        });
-        jPanel5.add(teamworkButton);
-        teamworkButton.setBounds(350, 40, 120, 23);
-
-        shortBreakButton.setText("Pause");
-        jPanel5.add(shortBreakButton);
-        shortBreakButton.setBounds(350, 80, 120, 23);
+        jPanel5.add(button_window);
+        button_window.setBounds(350, 10, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2081,6 +2067,24 @@ public class Sims_1 extends javax.swing.JFrame {
         jProgressBar5.setBounds(560, 10, 130, 20);
         jPanel5.add(jProgressBar6);
         jProgressBar6.setBounds(560, 40, 130, 20);
+
+        toggleButton_teamwork.setText("Gruppenarbeit");
+        toggleButton_teamwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleButton_teamworkActionPerformed(evt);
+            }
+        });
+        jPanel5.add(toggleButton_teamwork);
+        toggleButton_teamwork.setBounds(350, 40, 120, 23);
+
+        toggleButton_shortBreak.setText("Pause");
+        toggleButton_shortBreak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleButton_shortBreakActionPerformed(evt);
+            }
+        });
+        jPanel5.add(toggleButton_shortBreak);
+        toggleButton_shortBreak.setBounds(350, 80, 120, 23);
 
         gamePlaying.add(jPanel5);
         jPanel5.setBounds(150, 0, 700, 110);
@@ -3013,17 +3017,17 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.setVisible(false);
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
-    private void windowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_windowButtonActionPerformed
-        String test = windowButton.getText();
+    private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
+        String test = button_window.getText();
         if (test.equals("Fenster : OFFEN")) {
             _maingame.windowClosed=true;
-            windowButton.setText("Fenster : ZU");
+            button_window.setText("Fenster : ZU");
         }
         if (test.equals("Fenster : ZU")) {
             _maingame.windowClosed=false;
-            windowButton.setText("Fenster : OFFEN");
+            button_window.setText("Fenster : OFFEN");
         }
-    }//GEN-LAST:event_windowButtonActionPerformed
+    }//GEN-LAST:event_button_windowActionPerformed
 
     private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
         // TODO add your handling code here:
@@ -3925,9 +3929,27 @@ public class Sims_1 extends javax.swing.JFrame {
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
 
-    private void teamworkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamworkButtonActionPerformed
-        teamworkButton.setSelected(true);
-    }//GEN-LAST:event_teamworkButtonActionPerformed
+    private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
+        if (!_maingame.teamwork){
+            toggleButton_teamwork.setSelected(true);
+            _maingame.teamwork=true;
+        }
+        else {
+            toggleButton_teamwork.setSelected(false);
+            _maingame.teamwork=false;
+        }
+    }//GEN-LAST:event_toggleButton_teamworkActionPerformed
+
+    private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
+        if (!_maingame.shortBreak){
+            toggleButton_shortBreak.setSelected(true);
+            _maingame.shortBreak=true;
+        }
+        else {
+            toggleButton_shortBreak.setSelected(false);
+            _maingame.shortBreak=false;
+        }
+    }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
     
     /**
      * @param args the command line arguments
@@ -4037,6 +4059,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_stud9;
     private javax.swing.JButton button_swapperAbord;
     private javax.swing.JButton button_swapperExchange;
+    private javax.swing.JButton button_window;
     private javax.swing.JDialog buyCoins;
     private javax.swing.JDialog cheatUsedDialog;
     private javax.swing.JCheckBox check_aSpicker;
@@ -4292,10 +4315,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
     private javax.swing.JPanel shop;
-    private javax.swing.JButton shortBreakButton;
     private javax.swing.JSlider slider_aMonth;
     private javax.swing.JPanel startPlanningGame;
-    private javax.swing.JButton teamworkButton;
     private javax.swing.JTextField textfield_Kontoname;
     private javax.swing.JTextField textfield_aCredits;
     private javax.swing.JTextField textfield_aDuplo;
@@ -4319,9 +4340,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_rSurename;
     private javax.swing.JTextField textfield_swapperCredits;
     private javax.swing.JTextField textfield_swapperUcoins;
+    private javax.swing.JToggleButton toggleButton_shortBreak;
+    private javax.swing.JToggleButton toggleButton_teamwork;
     private javax.swing.JLabel ucoinsShop;
     private javax.swing.JDialog warning;
-    private javax.swing.JButton windowButton;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid
