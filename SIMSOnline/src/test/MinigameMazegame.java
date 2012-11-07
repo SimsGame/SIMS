@@ -23,8 +23,9 @@ public class MinigameMazegame extends javax.swing.JPanel {
     public JDialog endDialog = new JDialog();
     static long startTime = 0;
     static long endTime = 0;
-    private int timerflag = 0; 
-    // Variables declaration - do not modify                     
+    private int timerflag = 0;
+    
+    
     private javax.swing.JLabel label_auto;
     private javax.swing.JLabel label_goal;
     private javax.swing.JLabel label_spawn1;
@@ -335,6 +336,10 @@ public class MinigameMazegame extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    /**
+     * Initializes each component which was declared above.
+     * Creates a maze.
+     */
     private void initComponents1() {
 
         label_wall1 = new javax.swing.JLabel();
@@ -1835,6 +1840,9 @@ public class MinigameMazegame extends javax.swing.JPanel {
         return true;
     }
     
+    /**
+     * Whenever a game is called from another panel the start timer and the startposition are reseted.
+     */
     public void startSetup(){
         startTime = 0;
         endTime = 0;
@@ -1847,6 +1855,11 @@ public class MinigameMazegame extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Creates the popup that shows the result after the end of the game.
+     * Updates the credits and the points as well.
+     * @param time the tame that was taken to finish the game
+     */
     public void gameEnd(long time){
         int points;
         int credits;

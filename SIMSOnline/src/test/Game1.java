@@ -14,7 +14,7 @@ public class Game1 {
      */
     public int credits;
     public int points;
-    public int semester;
+    public int round;
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
@@ -27,7 +27,32 @@ public class Game1 {
     public Item redBull;
     public Item cheatSheet;
     public Item omniSenseAudio;
-    public Boolean[] cheated = new Boolean[18];
+    private Boolean[] cheated = new Boolean[5];
+
+    public int getSemester() {
+        return (round / 3 + 1);
+    }
+
+    public boolean getCheated(int semester) {
+        int i = semester - 2;
+        if (i < 0 | i > 5) {
+            return false;
+        }
+        return cheated[i];
+    }
+
+    public boolean setCheated(int semester, boolean flag) {
+        int i = semester - 2;
+        if (i < 0 | i > 5) {
+            return false;
+        }
+        cheated[i] = flag;
+        return true;
+    }
+
+    public boolean setCheated(int semester) {
+        return setCheated(semester, true);
+    }
 
     /**
      * initializes the array of students.
@@ -109,27 +134,7 @@ public class Game1 {
      * stores them in the fitting Item Objects in this class.
      * That's how each item can becalled by name.
      */
-    @Deprecated
-    public void putItem_(String name, int amount, int available) {
-        this.points = 700;
-        this.credits = 400;
-        if (name.equals("Duplo")) {
-            this.duplo = new Item(name, amount, available);
-            this.duplo.amount = 4;
-        }
-        if (name.equals("Red Bull")) {
-            this.redBull = new Item(name, amount, available);
-            this.redBull.amount = 5;
-        }
-        if (name.equals("Spickzettel")) {
-            this.cheatSheet = new Item(name, amount, available);
-            this.cheatSheet.amount = 1;
-        }
-        if (name.equals("OMNI Sense Audiobuch")) {
-            this.omniSenseAudio = new Item(name, amount, available);
-        }
-    }
-
+    
     public final void putItem(String name, int amount, int available) {
 
         if (name.equals(Item._duploName)) {
@@ -155,13 +160,13 @@ public class Game1 {
         this.putItem(Item._redBullName, 1, 0);
         this.putItem(Item._spickerName, 0, 2);
         this.putItem(Item._omniSenseName, 0, 4);
-        this.semester = 1;
+        this.round = 1;
         this.credits = 100;
         this.points = 0;
         initArray();
-        for(int i = 0; i < cheated.length; i++){
+        for (int i = 0; i < cheated.length; i++) {
             cheated[i] = false;
         }
-        
+
     }
 }

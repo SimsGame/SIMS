@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This jPanel holds the snake game.
  */
 package test;
 
@@ -15,10 +14,15 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class Board extends javax.swing.JPanel implements ActionListener {
 
+    /**
+     * Setting up the constants and variabels for the field and
+     * for further settings.
+     */
+    
     private final int WIDTH = 1000;
     private final int HEIGHT = 700;
     private final int DOT_SIZE = 10;
@@ -49,7 +53,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
     static long startTime = 0;
     static long endTime = 0;
     private int endCounter = 0;
-    
+   
+   /**
+    * Creates a new Board, loads the images and calls the init methode.  
+    */ 
    public Board() {
         addKeyListener(new TAdapter());
 
@@ -68,7 +75,11 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         initGame();
     }
 
-
+    /**
+     * Initializes the entire field on load.
+     * Sets the snake length and starts the timer to move the snake.
+     * Sets the first apple.
+     */
     public void initGame() {
 
         dots = 3;
@@ -86,7 +97,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         timer.start();
     }
 
-
+    /**
+     * Paints the board, the snake and the apple. Calls the gameOver method if inGame is false. 
+     * @param g the board field, the snake dots and the apple that have to be painted
+     */
     public void paint(Graphics g) {
         super.paint(g);
         
@@ -108,8 +122,15 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
     }
 
-
+    /**
+     * Is called if the game is over and inGame is false. Prints "Game Over" and
+     * opens the popup which shows the earned points and credits. Leaves the game.
+     * @param g the field where the text has to be printed
+     */
     public void gameOver(Graphics g) {
+        if(endCounter == 1){
+            Sims_1.button_afterGame.doClick();
+        }
         String msg = "Game Over";
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics metr = this.getFontMetrics(small);
@@ -122,12 +143,13 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         if(endCounter == 0){
             gameEnd(finalTime, g);
         }
-        if(endCounter == 1){
-            Sims_1.button_afterGame.doClick();
-        }
     }
 
-
+    /**
+     * If there are not enough dots yet the position of the snakes head is checked.
+     * If the head position equals the apple new dots are added to the snake.
+     * After that a new apple is located.
+     */
     public void checkApple() {
 
         if(dots >= ALL_DOTS-8){
@@ -140,7 +162,9 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
     }
 
-
+    /**
+     * Moves the snake in one direction by using the timer.
+     */
     public void move() {
 
         for (int z = dots; z > 0; z--) {
@@ -165,7 +189,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
     }
 
-
+    /**
+     * Checks if the snakes head has hit itself or a wall.
+     * Sets the inGame to false if that happens.
+     */
     public void checkCollision() {
 
           for (int z = dots; z > 0; z--) {
@@ -192,14 +219,22 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
         
     }
-
+    
+    /**
+     * Sets a new apple to a random position.
+     */
     public void locateApple() {
         int r = (int) (Math.random() * RAND_POS_X);
         apple_x = ((r * DOT_SIZE));
         r = (int) (Math.random() * RAND_POS_Y);
         apple_y = ((r * DOT_SIZE));
     }
-
+    
+    /**
+     * The order of activities that is called by the timer after the delay is over.
+     * First chekcs for an apple, than for collision and moves in the end.
+     * @param e unused 
+     */
     public void actionPerformed(ActionEvent e) {
 
         if (inGame) {
@@ -211,7 +246,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         repaint();
     }
 
-
+    /**
+     * This class recognizes keys. If the key was an arrow this is recognized and
+     * given to the Boardgame.
+     */
     private class TAdapter extends KeyAdapter {
 
         public void keyPressed(KeyEvent e) {
@@ -244,6 +282,11 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         }
     }
     
+    /**
+     * Creates the popup that shows the result of points, time and credits in the end.
+     * @param time thate time that was used to finish the game
+     * @param g the graphics where the "GameOver" was printed
+     */
     public void gameEnd(long time, final Graphics g){
         int points;
         int credits;
