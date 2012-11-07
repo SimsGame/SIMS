@@ -7,7 +7,7 @@ package test;
  *
  * @author Jannik
  */
-public class Game {
+@Deprecated public class Game {
     /**
      * Test attributes. Will be changed by real items from file
      * later. 
