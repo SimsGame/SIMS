@@ -272,7 +272,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
         gameEnd.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
         gameEnd.setLayout(null);
         gameEnd.setResizable(false);
-        gameEnd.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        //gameEnd.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         JLabel label_headline = new JLabel("Gewonnen!");
         JLabel label_gameTime = new JLabel("Zeit: " + time + " Sekunden!");
         JLabel label_Punkte = new JLabel();
