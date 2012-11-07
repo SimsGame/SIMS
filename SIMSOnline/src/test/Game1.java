@@ -18,6 +18,8 @@ public class Game1 {
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
+    public boolean teamwork = false;
+    public boolean shortBreak = false;
     public boolean windowClosed = true;
     
     /**
