@@ -5,6 +5,8 @@
 package test;
 
 import java.awt.Color;
+import javax.swing.*;
+
 
 /**
  *
@@ -14,11 +16,11 @@ import java.awt.Color;
 public class PlanningPhase {
 
     // deklaration of the progress bars
-    private javax.swing.JProgressBar KnowledgeBar;
-    private javax.swing.JProgressBar MotivationBar;
-    private javax.swing.JProgressBar TirednessBar;
-    private static javax.swing.JLabel switchCounterLabel;
-    private static javax.swing.JToggleButton switchStudToggleBut;
+    private JProgressBar KnowledgeBar;
+    private JProgressBar MotivationBar;
+    private JProgressBar TirednessBar;
+    private static JLabel switchCounterLabel;
+    private static JToggleButton switchStudToggleBut;
     // declaration of the StudentArray
     private static Student[] studArr;
     // declaration of an studInfo instance
@@ -40,7 +42,7 @@ public class PlanningPhase {
     
     
     //deklaration of the variables that are needed for the lector-change function
-    private static javax.swing.JLabel lectorCounter; //JLabel that shows how many times the user can change lector
+    private static JLabel lectorCounter; //JLabel that shows how many times the user can change lector
      
     private static boolean lectorChanged4 = false; //flag is set if the lector was already changed in this month
     private static boolean lectorChanged7 = false;
@@ -50,6 +52,8 @@ public class PlanningPhase {
     private static boolean validated;
     protected static int actMonth = 4;  // variable for actual month (from game-file)    
     protected static int lectorValue; //  variable that changes lector value (also from game file)
+    
+    private JButton studBut;
 
         // PlanningPhase constructor
     public PlanningPhase() {
@@ -58,10 +62,12 @@ public class PlanningPhase {
     // These are needed for the StudInfo methods
     // called first
 
-    public PlanningPhase(javax.swing.JProgressBar jProgB_Knowledge,
-            javax.swing.JProgressBar jProgB_Motivation,
-            javax.swing.JProgressBar jProgB_Tiredness, 
-            javax.swing.JLabel jLab_DozCounter,javax.swing.JToggleButton jToggleBut_SwitchStud) {
+    public PlanningPhase(JProgressBar jProgB_Knowledge,
+            JProgressBar jProgB_Motivation,
+            JProgressBar jProgB_Tiredness, 
+            JLabel jLab_DozCounter,
+            JToggleButton jToggleBut_SwitchStud,
+            JButton jBut_1) {
 
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
@@ -80,11 +86,14 @@ public class PlanningPhase {
         
         //updates label "Dozenten tauschen
         validateLector(jLab_DozCounter);
+        
+        this.studBut=jBut_1;
+        this.studBut.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
     }
 
 
     // called from SwitchStud-Button on navi
-    public  void startStudSwitch(javax.swing.JLabel jLab_SwitchCounter) {
+    public  void startStudSwitch(JLabel jLab_SwitchCounter) {
         switchCounterLabel = jLab_SwitchCounter;
         
         // declares switchFlag to true/false when ToggleButton is pressed
@@ -200,7 +209,7 @@ public class PlanningPhase {
      * case - to 0)
      *
      */
-    public  boolean validateLector(javax.swing.JLabel jLab_DozCounter) {
+    public  boolean validateLector(JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
         lectorCounter = jLab_DozCounter;
         if ( (actMonth == 4 && !lectorChanged4)  || (actMonth == 7 && !lectorChanged7) || 
@@ -222,7 +231,7 @@ public class PlanningPhase {
      * function to change lector, if lector was changed the appropriate flag
      * will be set to true
      */
-    public  void changeLector(javax.swing.JLabel jLab_DozCounter) {
+    public  void changeLector(JLabel jLab_DozCounter) {
         //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
         lectorCounter = jLab_DozCounter;
         

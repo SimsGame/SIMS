@@ -1627,6 +1627,10 @@
                     <Component class="javax.swing.JButton" name="jBut_1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Platz_1"/>
+                        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+                          <Rectangle value="[60, 10, 50, 50]"/>
+                        </Property>
+                        <Property name="horizontalTextPosition" type="int" value="0"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_1MouseClicked"/>
