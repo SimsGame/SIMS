@@ -11,7 +11,7 @@ package test;
  */
 public class Student {
     private int id;
-    private double knowledge=0;
+    private double knowledge=0; 
     private double knowledgeIncreasement;
     private final double intelligence = initIntelligence();
     private double tiredness;
