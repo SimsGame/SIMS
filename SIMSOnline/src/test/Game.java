@@ -39,11 +39,11 @@ package test;
         }
     }
     
-     public void updateArray (double factor1, double factor2){
+     public void updateArray (double factor1, double factor2, double add){
        for (int i = 0; i < 30; i++) {
        studentArray[i].changeMotivation(factor1);
        studentArray[i].changeTiredness(factor2);
-       studentArray[i].updateKnowledge();
+       studentArray[i].updateKnowledge(add);
        }
     }    
     /**
