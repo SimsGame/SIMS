@@ -39,9 +39,9 @@ public class StudInfo {
         
         game = Sims_1._maingame;
             // muss globalen Studentenarray bekommen und keine neue Initialisierung
-        game.initArray();
+        //game.initArray();
         // studArr gets the StudentArray of current game
-        this.studArr = game.studentArray;
+        this.studArr = game.getArray();
         // shows average values when PlanningPhase is loaded
         StudInfoAverage();
 

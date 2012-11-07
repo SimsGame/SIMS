@@ -76,9 +76,9 @@ public class PlanningPhase {
         // StudentArray will be initialized
         game = Sims_1._maingame;
             // muss globalen Studentenarray bekommen und keine neue Initialisierung
-        game.initArray();
+        //game.initArray();
         // studArr gets the StudentArray
-        this.studArr = game.studentArray;
+        this.studArr = game.getArray();
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
