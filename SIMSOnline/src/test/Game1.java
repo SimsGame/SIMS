@@ -20,6 +20,7 @@ public class Game1 {
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
+    public boolean windowClosed = true;
     
     /**
      * Items are public to have an easy access from every class
@@ -44,11 +45,11 @@ public class Game1 {
      * @param add1  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a negative value.
      * @param add2  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a positive value.
      */
-     public void updateArray (double add1, double add2){
+     public void updateArray (double add1, double add2, double add3){
        for (int i = 0; i < 30; i++) {
        studentArray[i].changeMotivation(add1);
        studentArray[i].changeTiredness(add2);
-       studentArray[i].updateKnowledge();
+       studentArray[i].updateKnowledge(add3);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
        }
     }    
 
@@ -61,14 +62,50 @@ public class Game1 {
      }
      
      /**
+      * @param value    The value of the airQuality
+      * 
+      * Setter used to avoid values x<0 or x>100
+      */
+     
+     public void setAirQuality(double value) {
+        if (!windowClosed){
+            value=value+3;
+        }
+        if(value<0){
+            this.airQuality= 0;
+        }else if(value>100){
+            this.airQuality=100;
+        }else{
+            this.airQuality = value;
+        }
+    }
+     
+      /**
+      * @param value    The value of the noise
+      * 
+      * Setter used to avoid values x<0 or x>100
+      */
+    public void setNoise(double value) {
+        if (!windowClosed){
+            value=value+0.7;
+        }
+        if(value<0){
+            this.noise= 0;
+        }else if(value>100){
+            this.noise=100;
+        }else{
+            this.noise = value;
+        }
+    }
+     /**
       * @param factor1  describes how much value AirQuality changes. Regularly a negative value.
       * @param factor2  describes how much value Noise changes. Regularly a positive value.
       * 
       * This function updates the attributes of the room.
       */
      public void updateRoom(double factor1, double factor2){
-         this.airQuality = this.airQuality + factor1;
-         this.noise = this.noise + factor2;
+         setAirQuality(this.airQuality + factor1);
+         setNoise(this.noise + factor2);
      }
      /**
      * Receives data (Item Objects) from Item.java and
