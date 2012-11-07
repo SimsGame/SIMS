@@ -259,7 +259,7 @@ public class Item {
         name.setHorizontalAlignment(JLabel.CENTER);
         price.setHorizontalAlignment(JLabel.CENTER);
         
-        if(item.available > Sims_1._maingame.semester){
+        if(item.available > Sims_1._maingame.getSemester()){  //angepasst by Dawid
             name.setText("Verfügbar ab Semester "+item.available);
             price.setVisible(false);
         }else{

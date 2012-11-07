@@ -14,7 +14,7 @@ public class Game1 {
      */
     public int credits;
     public int points;
-    public int semester;
+    public int round;
     public Student[] studentArray; //added by Jörg
     /**
      * Items are public to have an easy access from every class
@@ -24,6 +24,10 @@ public class Game1 {
     public Item cheatSheet;
     public Item omniSenseAudio;
     private Boolean[] cheated = new Boolean[5];
+
+    public int getSemester() {
+        return (round / 3 + 1);
+    }
 
     public boolean getCheated(int semester) {
         int i = semester - 2;
@@ -41,8 +45,8 @@ public class Game1 {
         cheated[i] = flag;
         return true;
     }
-    
-    public boolean setCheated(int semester){
+
+    public boolean setCheated(int semester) {
         return setCheated(semester, true);
     }
 
@@ -115,7 +119,7 @@ public class Game1 {
         this.putItem(Item._redBullName, 1, 0);
         this.putItem(Item._spickerName, 0, 2);
         this.putItem(Item._omniSenseName, 0, 4);
-        this.semester = 1;
+        this.round = 1;
         this.credits = 100;
         this.points = 0;
         initArray();
