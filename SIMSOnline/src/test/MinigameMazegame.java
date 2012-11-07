@@ -1873,7 +1873,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
         endDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
         endDialog.setLayout(null);
         endDialog.setResizable(false);
-        endDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        //endDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         JLabel label_headline = new JLabel("Gewonnen!");
         JLabel label_gameTime = new JLabel("Zeit: " + time + " Sekunden!");
         JLabel label_Punkte = new JLabel();
