@@ -664,6 +664,9 @@
                 <Component class="javax.swing.JButton" name="button_pSave">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Handcursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_pSaveActionPerformed"/>
@@ -769,6 +772,9 @@
                 <Component class="javax.swing.JButton" name="button_pCancel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Handcursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_pCancelActionPerformed"/>
@@ -923,7 +929,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Neues Spiel"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -938,6 +944,9 @@
             <Component class="javax.swing.JButton" name="button_menuExit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Beenden"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_menuExitActionPerformed"/>
@@ -952,7 +961,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spiel Laden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -968,7 +977,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Credits"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -984,7 +993,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1000,7 +1009,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abmelden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1016,7 +1025,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Statistik"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -3928,6 +3937,9 @@
                 <Component class="javax.swing.JButton" name="button_rRegister">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registrieren"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Handcursor"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_rRegisterActionPerformed"/>
@@ -4054,6 +4066,9 @@
                 <Component class="javax.swing.JButton" name="button_cancel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Handcursor"/>
+                    </Property>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="button_rCancel"/>
@@ -4198,19 +4213,25 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="textfield_Kontoname">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_KontonameActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_KontonameFocusGained"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="750" y="170" width="145" height="-1"/>
+                  <AbsoluteConstraints x="740" y="160" width="145" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="button_Login">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_LoginActionPerformed"/>
@@ -4224,6 +4245,9 @@
             <Component class="javax.swing.JToggleButton" name="button_Register">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrieren"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_RegisterActionPerformed"/>
@@ -4240,7 +4264,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="750" y="200" width="145" height="20"/>
+                  <AbsoluteConstraints x="740" y="200" width="145" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -4367,6 +4391,9 @@
             <Component class="javax.swing.JButton" name="button_aSave">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_aSaveActionPerformed"/>
@@ -4432,6 +4459,9 @@
             <Component class="javax.swing.JButton" name="button_auCancel1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abbrechen"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_auCancel1ActionPerformed"/>
@@ -4656,6 +4686,9 @@
             <Component class="javax.swing.JButton" name="button_aDelete">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil l&#xf6;schen"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Handcursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_aDeleteActionPerformed"/>
@@ -4760,6 +4793,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panel_Admin">
           <Properties>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Handcursor"/>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 700]"/>
             </Property>

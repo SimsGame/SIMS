@@ -515,7 +515,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 29);
+        button_swapperExchange.setBounds(50, 220, 130, 23);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -524,7 +524,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 29);
+        button_swapperAbord.setBounds(210, 220, 130, 23);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -533,11 +533,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 10, 16);
+        label_swapperArrow1.setBounds(190, 130, 8, 14);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 16);
+        label_swapperArrow3.setBounds(190, 140, 40, 14);
 
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
@@ -564,7 +564,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 75, 29);
+        button_shopMessageOk.setBounds(170, 210, 47, 23);
 
         warning.setModal(true);
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -835,6 +835,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(password_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 149, -1));
 
         button_pSave.setText("Übernehmen");
+        button_pSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_pSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pSaveActionPerformed(evt);
@@ -872,6 +873,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(label_pSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
         button_pCancel.setText("Abbrechen");
+        button_pCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_pCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pCancelActionPerformed(evt);
@@ -926,7 +928,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         button_menuStartNewGame.setText("Neues Spiel");
-        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuStartNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuStartNewGameActionPerformed(evt);
@@ -935,6 +937,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuStartNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         button_menuExit.setText("Beenden");
+        button_menuExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuExitActionPerformed(evt);
@@ -943,7 +946,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 160, 40));
 
         button_menuLoadGame.setText("Spiel Laden");
-        button_menuLoadGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuLoadGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuLoadGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuLoadGameActionPerformed(evt);
@@ -952,7 +955,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuLoadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
 
         button_menuCredits.setText("Credits");
-        button_menuCredits.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuCredits.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuCredits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuCreditsActionPerformed(evt);
@@ -961,7 +964,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 160, 40));
 
         button_menuProfile.setText("Profil");
-        button_menuProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuProfileActionPerformed(evt);
@@ -970,7 +973,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 160, 40));
 
         button_menuLogOut.setText("Abmelden");
-        button_menuLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuLogOutActionPerformed(evt);
@@ -979,7 +982,7 @@ public class Sims_1 extends javax.swing.JFrame {
         startPlanningGame.add(button_menuLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 40));
 
         button_menuStatistic.setText("Statistik");
-        button_menuStatistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_menuStatistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_menuStatistic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_menuStatisticActionPerformed(evt);
@@ -1074,7 +1077,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Planning_unused05.setText("umsetzen");
         jPan_StudSwitch.add(jLab_Planning_unused05);
-        jLab_Planning_unused05.setBounds(40, 40, 70, 16);
+        jLab_Planning_unused05.setBounds(40, 40, 70, 14);
 
         jLab_Planning_unused06.setText("Studenten");
         jPan_StudSwitch.add(jLab_Planning_unused06);
@@ -1083,7 +1086,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 22);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
         jToggleBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1151,7 +1154,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_ComboB_useItem.setText("Benutzen");
         jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 29);
+        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -1166,15 +1169,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 16);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 16);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 16);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1558,19 +1561,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 16);
+        jLabel58.setBounds(10, 450, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 16);
+        jLabel59.setBounds(80, 450, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 16);
+        jLabel60.setBounds(10, 470, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 16);
+        jLabel61.setBounds(80, 470, 60, 14);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item4);
@@ -1587,27 +1590,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         jPanel19.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 45, 16);
+        label_item1Name.setBounds(60, 80, 34, 14);
 
         label_item1Amount.setText("jLabel4");
         jPanel19.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 45, 16);
+        label_item1Amount.setBounds(60, 100, 34, 14);
 
         label_item2Name.setText("jLabel4");
         jPanel19.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 45, 16);
+        label_item2Name.setBounds(60, 190, 34, 14);
 
         label_item2Amount.setText("jLabel4");
         jPanel19.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 45, 16);
+        label_item2Amount.setBounds(60, 210, 34, 14);
 
         label_item3Name.setText("jLabel4");
         jPanel19.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 45, 16);
+        label_item3Name.setBounds(60, 380, 34, 14);
 
         label_item3Amount.setText("jLabel26");
         jPanel19.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 53, 16);
+        label_item3Amount.setBounds(60, 400, 40, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1615,11 +1618,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         jPanel19.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 45, 16);
+        label_item4Name.setBounds(60, 280, 34, 14);
 
         label_item4Amount.setText("jLabel26");
         jPanel19.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 53, 16);
+        label_item4Amount.setBounds(60, 300, 40, 14);
 
         shop.add(jPanel19);
         jPanel19.setBounds(0, 110, 150, 550);
@@ -1917,23 +1920,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel18.setText("Studenten:");
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(10, 450, 80, 16);
+        jLabel18.setBounds(10, 450, 80, 14);
 
         jLabel19.setText("4 / 40");
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(80, 450, 50, 16);
+        jLabel19.setBounds(80, 450, 50, 14);
 
         jLabel20.setText("Semester: ");
         jPanel4.add(jLabel20);
-        jLabel20.setBounds(10, 470, 80, 16);
+        jLabel20.setBounds(10, 470, 80, 14);
 
         jLabel21.setText("3 / 6");
         jPanel4.add(jLabel21);
-        jLabel21.setBounds(80, 470, 60, 16);
+        jLabel21.setBounds(80, 470, 60, 14);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 16);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1946,7 +1949,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 16);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -1954,7 +1957,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 16);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1985,11 +1988,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 16);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 16);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -2044,7 +2047,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(350, 10, 120, 29);
+        jButton1.setBounds(350, 10, 120, 23);
 
         jButton4.setText("Gruppenarbeit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2053,11 +2056,11 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 29);
+        jButton4.setBounds(350, 40, 120, 23);
 
         jButton5.setText("Pause");
         jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 29);
+        jButton5.setBounds(350, 80, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2485,6 +2488,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Register.add(password_rPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 149, -1));
 
         button_rRegister.setText("Registrieren");
+        button_rRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_rRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_rRegisterActionPerformed(evt);
@@ -2529,6 +2533,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_rSecondName.getAccessibleContext().setAccessibleName("label_rSecondName");
 
         button_cancel.setText("Abbrechen");
+        button_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_cancelActionPerformed(evt);
@@ -2581,6 +2586,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         panel_Login.add(panel_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 870));
 
+        textfield_Kontoname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         textfield_Kontoname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_KontonameActionPerformed(evt);
@@ -2591,9 +2597,10 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_KontonameFocusGained(evt);
             }
         });
-        panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 145, -1));
+        panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 145, 30));
 
         button_Login.setText("Login");
+        button_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_LoginActionPerformed(evt);
@@ -2602,6 +2609,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.add(button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 80, 46));
 
         button_Register.setText("Registrieren");
+        button_Register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_Register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_RegisterActionPerformed(evt);
@@ -2614,7 +2622,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 password_PassFocusGained(evt);
             }
         });
-        panel_Login.add(password_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 145, 20));
+        panel_Login.add(password_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 200, 145, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Kontoname:");
@@ -2661,6 +2669,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         button_aSave.setText("Übernehmen");
+        button_aSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_aSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_aSaveActionPerformed(evt);
@@ -2702,6 +2711,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(label_aEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         button_auCancel1.setText("Abbrechen");
+        button_auCancel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_auCancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_auCancel1ActionPerformed(evt);
@@ -2780,6 +2790,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(label_aMonthVal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 20, -1));
 
         button_aDelete.setText("Profil löschen");
+        button_aDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_aDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_aDeleteActionPerformed(evt);
@@ -2816,6 +2827,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jPanel1.add(panel_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        panel_Admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_Admin.setMaximumSize(new java.awt.Dimension(1000, 700));
         panel_Admin.setMinimumSize(new java.awt.Dimension(1000, 700));
         panel_Admin.setPreferredSize(new java.awt.Dimension(1000, 700));
