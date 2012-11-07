@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Creates a minigame which is called NumberGame.
+ * The player has to find different numbers hidden on the
+ * screen in the right order.
  */
 package test;
 
@@ -20,7 +21,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class MinigameNumbergame extends javax.swing.JPanel {
 
@@ -34,7 +35,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
     private JDialog gameEnd = new JDialog();
 
     /**
-     * Creates new form MinigameNumbergame
+     * Creates new form MinigameNumbergame and sets up the counter for the already located numbers
      */
     public MinigameNumbergame() {
         initComponents();
@@ -137,6 +138,9 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		five.setBounds(new RandGenerator().getRand(900)/*569*/, new RandGenerator().getRand(600)/*293*/, 72, 40);
 		add(five);
 		
+                /**
+                 * A door holding the "continue" and "again" button.
+                 */
                 final JLabel label_door = new JLabel("");
                 label_door.setBackground(Color.black);
                 label_door.setBounds(530, 170, 150, 200);
@@ -146,6 +150,9 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		final JButton btnReset = new JButton("Nochmal");
                 btnReset.setFont(new Font("Nochmal", 1,18));
 		btnReset.addActionListener(new ActionListener() {
+                    /**
+                     * If the reset button was pressed the field is reseted.
+                     */
 			public void actionPerformed(ActionEvent event) {
 				one.setText("");
                                 one.setOpaque(false);
@@ -175,6 +182,11 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		final JButton btnWeiter = new JButton("Weiter");
                 btnWeiter.setFont(new Font("Weiter", 1,18));
 		btnWeiter.addActionListener(new ActionListener() {
+                    /**
+                     * On "weiter" the field is reseted and the hidden.
+                     * The player moves on to the planning phase after
+                     * having seen his result.
+                     */
 			public void actionPerformed(ActionEvent event) {
                              btnReset.doClick();
                              timerflag = 0;
@@ -193,6 +205,10 @@ public class MinigameNumbergame extends javax.swing.JPanel {
 		lblNewLabel.setBounds(0, 0, 1000, 700);
 		lblNewLabel.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
+                        /**
+                         * If the mouse was moved the false numbers are hidden.
+                         * If all numbers are correct the end dialog is called.
+                         */
 			public void mouseMoved(MouseEvent e) {
                                 if(timerflag == 0){
                                     startTime = System.currentTimeMillis();
