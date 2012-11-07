@@ -665,7 +665,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Handcursor"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -773,7 +773,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Handcursor"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -885,7 +885,7 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Standardcursor"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -929,7 +929,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -942,7 +942,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Neues Spiel"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -958,7 +958,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Beenden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -974,7 +974,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spiel Laden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -990,7 +990,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Credits"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1006,7 +1006,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1022,7 +1022,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abmelden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1038,7 +1038,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Statistik"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -3951,7 +3951,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registrieren"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Handcursor"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -4080,7 +4080,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Handcursor"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <AccessibilityProperties>
@@ -4243,7 +4243,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4259,7 +4259,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrieren"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4405,7 +4405,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4473,7 +4473,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abbrechen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4700,7 +4700,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil l&#xf6;schen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Handcursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4807,7 +4807,7 @@
         <Container class="javax.swing.JPanel" name="panel_Admin">
           <Properties>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Handcursor"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 700]"/>

@@ -8,15 +8,13 @@ package test;
  * @author Jannik
  */
 public class Game1 {
+
     /**
-     * Test attributes. Will be changed by real items from file
-     * later. 
+     * Test attributes. Will be changed by real items from file later.
      */
-    
-    public int ucoins;
     public int credits;
     public int points;
-    public int semester = 4;
+    public int semester;
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
@@ -25,17 +23,16 @@ public class Game1 {
     /**
      * Items are public to have an easy access from every class
      */
-    
     public Item duplo;
     public Item redBull;
     public Item cheatSheet;
     public Item omniSenseAudio;
-    
-    
+    public Boolean[] cheated = new Boolean[18];
+
     /**
      * initializes the array of students.
      */
-    public void initArray() {
+    public final void initArray() {
         studentArray = new Student[30];
         for (int i = 0; i < 30; i++) {
             studentArray[i] = new Student(i);
@@ -112,27 +109,59 @@ public class Game1 {
      * stores them in the fitting Item Objects in this class.
      * That's how each item can becalled by name.
      */
-    public void putItem(String name, int amount, int available){
+    @Deprecated
+    public void putItem_(String name, int amount, int available) {
         this.points = 700;
         this.credits = 400;
-        if(name.equals("Duplo")){
+        if (name.equals("Duplo")) {
             this.duplo = new Item(name, amount, available);
             this.duplo.amount = 4;
         }
-        if(name.equals("Red Bull")){
+        if (name.equals("Red Bull")) {
             this.redBull = new Item(name, amount, available);
             this.redBull.amount = 5;
         }
-        if(name.equals("Spickzettel")){
+        if (name.equals("Spickzettel")) {
             this.cheatSheet = new Item(name, amount, available);
             this.cheatSheet.amount = 1;
         }
-        if(name.equals("OMNI Sense Audiobuch")){
+        if (name.equals("OMNI Sense Audiobuch")) {
             this.omniSenseAudio = new Item(name, amount, available);
         }
-      }
-        public Student[] getArray(){
+    }
+
+    public final void putItem(String name, int amount, int available) {
+
+        if (name.equals(Item._duploName)) {
+            this.duplo = new Item(name, amount, available);
+        }
+        if (name.equals(Item._redBullName)) {
+            this.redBull = new Item(name, amount, available);
+        }
+        if (name.equals(Item._spickerName)) {
+            this.cheatSheet = new Item(name, amount, available);
+        }
+        if (name.equals(Item._omniSenseName)) {
+            this.omniSenseAudio = new Item(name, amount, available);
+        }
+    }
+
+    public Student[] getArray() {
         return studentArray;
     }
-    
+
+    public Game1() {
+        this.putItem(Item._duploName, 1, 0);
+        this.putItem(Item._redBullName, 1, 0);
+        this.putItem(Item._spickerName, 0, 2);
+        this.putItem(Item._omniSenseName, 0, 4);
+        this.semester = 1;
+        this.credits = 100;
+        this.points = 0;
+        initArray();
+        for(int i = 0; i < cheated.length; i++){
+            cheated[i] = false;
+        }
+        
+    }
 }
