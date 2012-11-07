@@ -3959,7 +3959,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         else {
             toggleButton_shortBreak.setSelected(false);
-            _maingame.shortBreak=false;
+            _maingame.shortBreak=false; 
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
     
