@@ -180,6 +180,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_pErrLastName = new javax.swing.JLabel();
         Menu_overlay1 = new javax.swing.JLabel();
         noSave_overlay = new javax.swing.JLabel();
+        loggedinas = new javax.swing.JLabel();
         Menu_overlay = new javax.swing.JLabel();
         button_menuStartNewGame = new javax.swing.JButton();
         button_menuExit = new javax.swing.JButton();
@@ -921,6 +922,10 @@ public class Sims_1 extends javax.swing.JFrame {
         noSave_overlay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         noSave_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/keinspielstand_00000.png"))); // NOI18N
         startPlanningGame.add(noSave_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 400));
+
+        loggedinas.setFont(new java.awt.Font("Modern No. 20", 1, 24)); // NOI18N
+        loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        startPlanningGame.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 420, 30));
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/mainmenue_new.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
@@ -4267,6 +4272,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel lable_aProfil;
     private javax.swing.JDialog lectorChangedDialog;
     private javax.swing.JDialog lectorNotChangedDialog;
+    private javax.swing.JLabel loggedinas;
     private javax.swing.JLabel login_background;
     private javax.swing.JLabel noSave_overlay;
     private javax.swing.JPanel panel_Admin;
@@ -4587,6 +4593,7 @@ public class Sims_1 extends javax.swing.JFrame {
             String userPw = "";
             try {
                 userPw = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName)[1];
+                loggedinas.setText("Eingeloggt als: " + accountname); // by nadir , currentuser
             } catch (Exception e) {
                 e.printStackTrace();
             }
