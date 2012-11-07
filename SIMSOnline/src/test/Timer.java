@@ -18,19 +18,26 @@ public class Timer extends Thread {
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
+    public boolean windowOpen = false;
+    public boolean teamwork = false;
+    public boolean shortBreak = false;
     private double add1;
     private double add2;
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JProgressBar NoiseBar;
+    private javax.swing.JProgressBar AirBar;
 
-   public Timer(javax.swing.JLabel jLabel_timer, Game1 game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
+   public Timer(javax.swing.JLabel jLabel_timer, Game1 game,javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game=game;
         this.KnowledgeBar = jKnowledgeBar;
         this.MotivationBar = jMotivationBar;
         this.TirednessBar = jTirednessBar;
+        this.AirBar = jAirBar;
+        this.NoiseBar = jNoiseBar;
         this.activityPhase=activityPhase;
     }
    
@@ -97,9 +104,13 @@ public class Timer extends Thread {
          KnowledgeBar.setValue((int)(averageKnowledge*250)); 
          MotivationBar.setValue((int)averageMotivation); 
          TirednessBar.setValue((int)averageTiredness); 
+         AirBar.setValue((int)game.airQuality);
+         NoiseBar.setValue((int)game.noise);
          KnowledgeBar.repaint();
          MotivationBar.repaint();
-         TirednessBar.repaint();     
+         TirednessBar.repaint(); 
+         AirBar.repaint();
+         NoiseBar.repaint();
     }
 
     private void initTimer() {

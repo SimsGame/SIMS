@@ -346,13 +346,13 @@ public class Sims_1 extends javax.swing.JFrame {
         KnowledgeBar = new javax.swing.JProgressBar();
         MotivationBar = new javax.swing.JProgressBar();
         TirednessBar = new javax.swing.JProgressBar();
-        button_window = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jProgressBar5 = new javax.swing.JProgressBar();
-        jProgressBar6 = new javax.swing.JProgressBar();
-        toggleButton_teamwork = new javax.swing.JToggleButton();
-        toggleButton_shortBreak = new javax.swing.JToggleButton();
+        NoiseBar = new javax.swing.JProgressBar();
+        AirBar = new javax.swing.JProgressBar();
         jPanel6 = new javax.swing.JPanel();
         label_timer = new javax.swing.JLabel();
         panel_activityPhaseStudField = new javax.swing.JPanel();
@@ -2051,8 +2051,21 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_windowActionPerformed(evt);
             }
         });
-        jPanel5.add(button_window);
-        button_window.setBounds(350, 10, 120, 23);
+        jPanel5.add(jButton1);
+        jButton1.setBounds(350, 10, 120, 23);
+
+        jButton4.setText("Gruppenarbeit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton4);
+        jButton4.setBounds(350, 40, 120, 23);
+
+        jButton5.setText("Pause");
+        jPanel5.add(jButton5);
+        jButton5.setBounds(350, 80, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -2063,28 +2076,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel10.setText("Luftqualität:");
         jPanel5.add(jLabel10);
         jLabel10.setBounds(480, 34, 80, 30);
-        jPanel5.add(jProgressBar5);
-        jProgressBar5.setBounds(560, 10, 130, 20);
-        jPanel5.add(jProgressBar6);
-        jProgressBar6.setBounds(560, 40, 130, 20);
-
-        toggleButton_teamwork.setText("Gruppenarbeit");
-        toggleButton_teamwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toggleButton_teamworkActionPerformed(evt);
-            }
-        });
-        jPanel5.add(toggleButton_teamwork);
-        toggleButton_teamwork.setBounds(350, 40, 120, 23);
-
-        toggleButton_shortBreak.setText("Pause");
-        toggleButton_shortBreak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toggleButton_shortBreakActionPerformed(evt);
-            }
-        });
-        jPanel5.add(toggleButton_shortBreak);
-        toggleButton_shortBreak.setBounds(350, 80, 120, 23);
+        jPanel5.add(NoiseBar);
+        NoiseBar.setBounds(560, 10, 130, 20);
+        jPanel5.add(AirBar);
+        AirBar.setBounds(560, 40, 130, 20);
 
         gamePlaying.add(jPanel5);
         jPanel5.setBounds(150, 0, 700, 110);
@@ -2906,7 +2901,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -2975,6 +2970,10 @@ public class Sims_1 extends javax.swing.JFrame {
         // This function closes the exchange window if the user does not want to exchange more.
         buyCoins.setVisible(false);
     }//GEN-LAST:event_button_swapperAbordActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLab_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLab_LogoMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
@@ -3406,7 +3405,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -3994,6 +3993,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }
     public static JButton button_afterGame; // Button used after a minigame added by Jannik
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar AirBar;
     private javax.swing.JPanel Header;
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JPanel Logo;
@@ -4001,6 +4001,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel Menu_overlay1;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JPanel Navi;
+    private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JPanel Shop;
     private javax.swing.JPanel StudField;
     private javax.swing.JProgressBar TirednessBar;
@@ -4110,6 +4111,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_startShop;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -4175,8 +4179,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgB_Motivation;
     private javax.swing.JProgressBar jProgB_Müdigkeit;
     private javax.swing.JProgressBar jProgB_Wissen;
-    private javax.swing.JProgressBar jProgressBar5;
-    private javax.swing.JProgressBar jProgressBar6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
