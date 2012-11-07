@@ -301,7 +301,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         endDialog.setLayout(null);
         endDialog.setResizable(false);
         endDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-        JLabel label_headline = new JLabel("Gewonnen!");
+        JLabel label_headline = new JLabel("Spiel vorbei!");
         JLabel label_gameTime = new JLabel("Zeit: " + time + " Sekunden!");
         JLabel label_Punkte = new JLabel();
         JLabel label_credits = new JLabel();
