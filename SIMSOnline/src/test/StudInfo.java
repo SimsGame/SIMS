@@ -22,8 +22,6 @@ public class StudInfo {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
     // current StudentArray 
-    // current form the PlanningPhase
-    private Game1 game;
     private Student[] studArr;
 
     // constructor which expects the three progress bars
@@ -37,11 +35,8 @@ public class StudInfo {
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
-        game = Sims_1._maingame;
-            // muss globalen Studentenarray bekommen und keine neue Initialisierung
-        //game.initArray();
         // studArr gets the StudentArray of current game
-        this.studArr = game.getArray();
+        this.studArr = Sims_1._maingame.getArray();
         // shows average values when PlanningPhase is loaded
         StudInfoAverage();
 

@@ -19,8 +19,6 @@ public class PlanningPhase {
     private javax.swing.JProgressBar TirednessBar;
     private static javax.swing.JLabel switchCounterLabel;
     private static javax.swing.JToggleButton switchStudToggleBut;
-    // new Game-instance
-    private Game1 game;
     // declaration of the StudentArray
     private static Student[] studArr;
     // declaration of an studInfo instance
@@ -74,11 +72,7 @@ public class PlanningPhase {
         this.switchStudToggleBut = jToggleBut_SwitchStud;
 
         // StudentArray will be initialized
-        game = Sims_1._maingame;
-            // muss globalen Studentenarray bekommen und keine neue Initialisierung
-        //game.initArray();
-        // studArr gets the StudentArray
-        this.studArr = game.getArray();
+        this.studArr = Sims_1._maingame.getArray();
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
