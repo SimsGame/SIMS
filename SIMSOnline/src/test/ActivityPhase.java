@@ -115,9 +115,10 @@ public class ActivityPhase {
     }
     
     public void displayStudentBars(){
-        KnowledgeBar.setValue((int)game.studentArray[this.studentDisplayed].getKnowledge());
+        
         MotivationBar.setValue((int)game.studentArray[this.studentDisplayed].getMotivation());
         TirednessBar.setValue((int)game.studentArray[this.studentDisplayed].getTiredness());
+        KnowledgeBar.setValue((int)((game.studentArray[this.studentDisplayed].getKnowledge())*250)); // 250 is the facot we set so we see growth faster, change later by Nadir
         KnowledgeBar.repaint();
         MotivationBar.repaint();
         TirednessBar.repaint();
