@@ -18,9 +18,6 @@ public class Timer extends Thread {
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
-    public boolean windowOpen = false;
-    public boolean teamwork = false;
-    public boolean shortBreak = false;
     private double add1;
     private double add2;
     private javax.swing.JProgressBar KnowledgeBar;
@@ -65,12 +62,12 @@ public class Timer extends Thread {
             timerText+=timer % 60;
             label_timer.setText(timerText);
             //You can only have teamwork OR break. One will override the other.
-            if(teamwork){
+            if(game.teamwork){
                 add1=(game.noise+0.000001)/200*(3.0);
                 add2=(100.000001-game.airQuality)/200*3.3;
                 game.updateArray(add1, add2, 0.02);
             }
-            else if(shortBreak){
+            else if(game.shortBreak){
                 add1=(game.noise+0.000001)/200*(3.3);
                 add2=(100.000001-game.airQuality)/200*(-3.3);
                 game.updateArray(add1, add2, -1);

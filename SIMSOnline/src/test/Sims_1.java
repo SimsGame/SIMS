@@ -347,8 +347,8 @@ public class Sims_1 extends javax.swing.JFrame {
         MotivationBar = new javax.swing.JProgressBar();
         TirednessBar = new javax.swing.JProgressBar();
         windowButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        teamworkButton = new javax.swing.JButton();
+        shortBreakButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jProgressBar5 = new javax.swing.JProgressBar();
@@ -2054,14 +2054,19 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(windowButton);
         windowButton.setBounds(350, 10, 120, 23);
 
-        jButton4.setText("Gruppenarbeit");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel5.add(jButton4);
-        jButton4.setBounds(350, 40, 120, 23);
+        teamworkButton.setText("Gruppenarbeit");
+        teamworkButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        teamworkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamworkButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(teamworkButton);
+        teamworkButton.setBounds(350, 40, 120, 23);
 
-        jButton5.setText("Pause");
-        jPanel5.add(jButton5);
-        jButton5.setBounds(350, 80, 120, 23);
+        shortBreakButton.setText("Pause");
+        jPanel5.add(shortBreakButton);
+        shortBreakButton.setBounds(350, 80, 120, 23);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Lärmpegel:");
@@ -3919,6 +3924,10 @@ public class Sims_1 extends javax.swing.JFrame {
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
+
+    private void teamworkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamworkButtonActionPerformed
+        teamworkButton.setSelected(true);
+    }//GEN-LAST:event_teamworkButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -4078,8 +4087,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_startShop;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -4285,8 +4292,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPasswordField password_rPass2;
     private javax.swing.JLabel punkteShop;
     private javax.swing.JPanel shop;
+    private javax.swing.JButton shortBreakButton;
     private javax.swing.JSlider slider_aMonth;
     private javax.swing.JPanel startPlanningGame;
+    private javax.swing.JButton teamworkButton;
     private javax.swing.JTextField textfield_Kontoname;
     private javax.swing.JTextField textfield_aCredits;
     private javax.swing.JTextField textfield_aDuplo;
