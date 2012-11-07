@@ -103,6 +103,7 @@ public class Sims_1 extends javax.swing.JFrame {
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
+        noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
     }
 
     /**
@@ -178,6 +179,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_pErrFirstName = new javax.swing.JLabel();
         label_pErrLastName = new javax.swing.JLabel();
         Menu_overlay1 = new javax.swing.JLabel();
+        noSave_overlay = new javax.swing.JLabel();
         Menu_overlay = new javax.swing.JLabel();
         button_menuStartNewGame = new javax.swing.JButton();
         button_menuExit = new javax.swing.JButton();
@@ -907,14 +909,18 @@ public class Sims_1 extends javax.swing.JFrame {
         label_pErrLastName.setText("Fehler?");
         panel_Profile.add(label_pErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
 
-        Menu_overlay1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
+        Menu_overlay1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/mainmenue_new.png"))); // NOI18N
         Menu_overlay1.setText("Overlay_hauptmenü");
         Menu_overlay1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_Profile.add(Menu_overlay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         startPlanningGame.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 870));
 
-        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/hauptmenue1000x700.png"))); // NOI18N
+        noSave_overlay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        noSave_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/keinspielstand_00000.png"))); // NOI18N
+        startPlanningGame.add(noSave_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 400));
+
+        Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/mainmenue_new.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
         Menu_overlay.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         startPlanningGame.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -2575,7 +2581,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 textfield_KontonameFocusGained(evt);
             }
         });
-        panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 70, 145, -1));
+        panel_Login.add(textfield_Kontoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 145, -1));
 
         button_Login.setText("Login");
         button_Login.addActionListener(new java.awt.event.ActionListener() {
@@ -2583,7 +2589,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_LoginActionPerformed(evt);
             }
         });
-        panel_Login.add(button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 147, -1, 46));
+        panel_Login.add(button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 80, 46));
 
         button_Register.setText("Registrieren");
         button_Register.addActionListener(new java.awt.event.ActionListener() {
@@ -2591,21 +2597,23 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_RegisterActionPerformed(evt);
             }
         });
-        panel_Login.add(button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 211, -1, -1));
+        panel_Login.add(button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 110, 30));
 
         password_Pass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 password_PassFocusGained(evt);
             }
         });
-        panel_Login.add(password_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 96, 145, -1));
+        panel_Login.add(password_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 145, 20));
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Kontoname:");
-        panel_Login.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 73, -1, -1));
+        panel_Login.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, -1));
         jLabel12.getAccessibleContext().setAccessibleName("label_lUsername");
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Passwort:");
-        panel_Login.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 99, -1, -1));
+        panel_Login.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, -1, 20));
         jLabel15.getAccessibleContext().setAccessibleName("label_lPassword");
 
         check_saveUser.setText("Kontoname und Passwort speichern");
@@ -2614,16 +2622,16 @@ public class Sims_1 extends javax.swing.JFrame {
                 check_saveUserActionPerformed(evt);
             }
         });
-        panel_Login.add(check_saveUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 147, -1, -1));
+        panel_Login.add(check_saveUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, -1, -1));
         check_saveUser.getAccessibleContext().setAccessibleName("checkBox_lSaveData");
 
         check_autoLogin.setText("Automatisch einloggen");
-        panel_Login.add(check_autoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 170, -1, -1));
+        panel_Login.add(check_autoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, -1));
         check_autoLogin.getAccessibleContext().setAccessibleName("checkBox_lAutoLogin");
 
         label_lErr.setForeground(new java.awt.Color(204, 0, 0));
         label_lErr.setText("Fehler?");
-        panel_Login.add(label_lErr, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 122, -1, -1));
+        panel_Login.add(label_lErr, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, -1, -1));
 
         buton_enterAdmin.setText("enter Admin-Data");
         buton_enterAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -2631,10 +2639,9 @@ public class Sims_1 extends javax.swing.JFrame {
                 buton_enterAdminActionPerformed(evt);
             }
         });
-        panel_Login.add(buton_enterAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 36, -1, -1));
+        panel_Login.add(buton_enterAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 310, 120, 40));
 
         login_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/loginscreen2_00000.png"))); // NOI18N
-        login_background.setText("jLabel16");
         panel_Login.add(login_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.add(panel_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 821));
@@ -2652,10 +2659,10 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(button_aSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 149, 53));
 
         label_aAccname.setText("Kontoname:");
-        panel_adminUser.add(label_aAccname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        panel_adminUser.add(label_aAccname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         label_aPass.setText("Passwort:");
-        panel_adminUser.add(label_aPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        panel_adminUser.add(label_aPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         textfield_aKontoname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2682,7 +2689,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(textfield_aEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 149, -1));
 
         label_aEmail.setText("Email:");
-        panel_adminUser.add(label_aEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        panel_adminUser.add(label_aEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         button_auCancel1.setText("Abbrechen");
         button_auCancel1.addActionListener(new java.awt.event.ActionListener() {
@@ -2693,7 +2700,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(button_auCancel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 144, 53));
 
         label_aFirstName.setText("Vorname:");
-        panel_adminUser.add(label_aFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        panel_adminUser.add(label_aFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         textfield_aSurename.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -2703,7 +2710,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(textfield_aSurename, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 149, -1));
 
         label_aLastName.setText("Nachname:");
-        panel_adminUser.add(label_aLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        panel_adminUser.add(label_aLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
         textfield_aName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -2718,27 +2725,27 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.add(textfield_aUCoins, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 149, -1));
 
         label_aUCions.setText("UCoins:");
-        panel_adminUser.add(label_aUCions, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-        panel_adminUser.add(textfield_aCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 149, -1));
+        panel_adminUser.add(label_aUCions, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        panel_adminUser.add(textfield_aCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 149, -1));
 
         label_aCredits.setText("Credits:");
-        panel_adminUser.add(label_aCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
-        panel_adminUser.add(textfield_aDuplo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 149, -1));
+        panel_adminUser.add(label_aCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+        panel_adminUser.add(textfield_aDuplo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 149, -1));
 
         label_aDuplo.setText("Duplo:");
-        panel_adminUser.add(label_aDuplo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, -1));
-        panel_adminUser.add(textfield_aRedBull, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 149, -1));
-        panel_adminUser.add(textfield_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 149, -1));
+        panel_adminUser.add(label_aDuplo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+        panel_adminUser.add(textfield_aRedBull, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 149, -1));
+        panel_adminUser.add(textfield_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 149, -1));
 
         label_aRedBull.setText("RedBull:");
-        panel_adminUser.add(label_aRedBull, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
+        panel_adminUser.add(label_aRedBull, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
 
         label_aOMNI.setText("OMNI-Sense:");
-        panel_adminUser.add(label_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
-        panel_adminUser.add(check_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+        panel_adminUser.add(label_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+        panel_adminUser.add(check_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         label_aSpicker.setText("Spicker:");
-        panel_adminUser.add(label_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        panel_adminUser.add(label_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         slider_aMonth.setMaximum(18);
         slider_aMonth.setMinimum(1);
@@ -2749,18 +2756,18 @@ public class Sims_1 extends javax.swing.JFrame {
                 slider_aMonthStateChanged(evt);
             }
         });
-        panel_adminUser.add(slider_aMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 150, -1));
+        panel_adminUser.add(slider_aMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 150, -1));
 
         label_aMonth.setText("Monat: ");
-        panel_adminUser.add(label_aMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+        panel_adminUser.add(label_aMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, -1));
 
         label_aGame.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         label_aGame.setText("Spielstand:");
-        panel_adminUser.add(label_aGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        panel_adminUser.add(label_aGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
         panel_adminUser.add(textfield_aPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 149, -1));
 
         label_aMonthVal.setText("2");
-        panel_adminUser.add(label_aMonthVal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 20, -1));
+        panel_adminUser.add(label_aMonthVal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 20, -1));
 
         button_aDelete.setText("Profil löschen");
         button_aDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -2772,27 +2779,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_aErrAccName.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrAccName.setText("Fehler?");
-        panel_adminUser.add(label_aErrAccName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
+        panel_adminUser.add(label_aErrAccName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
         label_aErrPass.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrPass.setText("Fehler?");
-        panel_adminUser.add(label_aErrPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+        panel_adminUser.add(label_aErrPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
         label_aErrEmail.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrEmail.setText("Fehler?");
-        panel_adminUser.add(label_aErrEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
+        panel_adminUser.add(label_aErrEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
         label_aErrFirstName.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrFirstName.setText("Fehler?");
-        panel_adminUser.add(label_aErrFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+        panel_adminUser.add(label_aErrFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         label_aErrLastName.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrLastName.setText("Fehler?");
-        panel_adminUser.add(label_aErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+        panel_adminUser.add(label_aErrLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
         label_aErrUCoins.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrUCoins.setText("Fehler?");
-        panel_adminUser.add(label_aErrUCoins, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        panel_adminUser.add(label_aErrUCoins, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
         panel_adminUser.add(background_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -4227,6 +4234,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JDialog lectorChangedDialog;
     private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JLabel login_background;
+    private javax.swing.JLabel noSave_overlay;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Profile;
