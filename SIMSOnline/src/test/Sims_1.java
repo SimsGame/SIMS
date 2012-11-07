@@ -181,11 +181,18 @@ public class Sims_1 extends javax.swing.JFrame {
         label_pErrFirstName = new javax.swing.JLabel();
         label_pErrLastName = new javax.swing.JLabel();
         Menu_overlay1 = new javax.swing.JLabel();
-        noSave_overlay = new javax.swing.JLabel();
         loggedinas = new javax.swing.JLabel();
+        label_handcursor = new javax.swing.JLabel();
+        label_handcursor1 = new javax.swing.JLabel();
+        label_handcursor2 = new javax.swing.JLabel();
+        label_handcursor3 = new javax.swing.JLabel();
+        label_handcursor4 = new javax.swing.JLabel();
+        label_handcursor5 = new javax.swing.JLabel();
+        label_handcursor6 = new javax.swing.JLabel();
+        noSave_overlay = new javax.swing.JLabel();
         Menu_overlay = new javax.swing.JLabel();
-        button_menuStartNewGame = new javax.swing.JButton();
         button_menuExit = new javax.swing.JButton();
+        button_menuStartNewGame = new javax.swing.JButton();
         button_menuLoadGame = new javax.swing.JButton();
         button_menuCredits = new javax.swing.JButton();
         button_menuProfile = new javax.swing.JButton();
@@ -843,7 +850,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(password_pPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 149, -1));
 
         button_pSave.setText("Übernehmen");
-        button_pSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_pSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_pSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pSaveActionPerformed(evt);
@@ -881,7 +888,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.add(label_pSecondName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
         button_pCancel.setText("Abbrechen");
-        button_pCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_pCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_pCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_pCancelActionPerformed(evt);
@@ -926,27 +933,39 @@ public class Sims_1 extends javax.swing.JFrame {
 
         panel_menue.add(panel_Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 870));
 
+        loggedinas.setFont(new java.awt.Font("Modern No. 20", 1, 24)); // NOI18N
+        loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 540, 420, 30));
+
+        label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 170, 40));
+
+        label_handcursor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
+
+        label_handcursor2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 120, 40));
+
+        label_handcursor3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 40));
+
+        label_handcursor4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 140, 40));
+
+        label_handcursor5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 150, 40));
+
+        label_handcursor6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_menue.add(label_handcursor6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 110, 40));
+
         noSave_overlay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         noSave_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/keinspielstand_00000.png"))); // NOI18N
         panel_menue.add(noSave_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 400));
-
-        loggedinas.setFont(new java.awt.Font("Modern No. 20", 1, 24)); // NOI18N
-        loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 420, 30));
 
         Menu_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/mainmenue_new.png"))); // NOI18N
         Menu_overlay.setText("Overlay_hauptmenü");
         Menu_overlay.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_menue.add(Menu_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        button_menuStartNewGame.setText("Neues Spiel");
-        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_menuStartNewGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_menuStartNewGameActionPerformed(evt);
-            }
-        });
-        panel_menue.add(button_menuStartNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         button_menuExit.setText("Beenden");
         button_menuExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -956,6 +975,15 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_menue.add(button_menuExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 160, 40));
+
+        button_menuStartNewGame.setText("Neues Spiel");
+        button_menuStartNewGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_menuStartNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_menuStartNewGameActionPerformed(evt);
+            }
+        });
+        panel_menue.add(button_menuStartNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         button_menuLoadGame.setText("Spiel Laden");
         button_menuLoadGame.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1016,6 +1044,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo_planning.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label_logo_planning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_logo_planning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/coollogo150x110_transparent.png"))); // NOI18N
+        label_logo_planning.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         label_logo_planning.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_logo_planningMouseClicked(evt);
@@ -1560,6 +1589,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/coollogo150x110_transparent.png"))); // NOI18N
+        label_logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         label_logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_logoMouseClicked(evt);
@@ -1915,6 +1945,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo_playing.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label_logo_playing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_logo_playing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/coollogo150x110_transparent.png"))); // NOI18N
+        label_logo_playing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         label_logo_playing.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_logo_playingMouseClicked(evt);
@@ -4285,6 +4316,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_duploOverlay;
     private javax.swing.JLabel label_easteregg;
     private javax.swing.JLabel label_eastereggtrigger;
+    private javax.swing.JLabel label_handcursor;
+    private javax.swing.JLabel label_handcursor1;
+    private javax.swing.JLabel label_handcursor2;
+    private javax.swing.JLabel label_handcursor3;
+    private javax.swing.JLabel label_handcursor4;
+    private javax.swing.JLabel label_handcursor5;
+    private javax.swing.JLabel label_handcursor6;
     private javax.swing.JLabel label_inventar;
     private javax.swing.JLabel label_item1;
     private javax.swing.JLabel label_item1Amount;
