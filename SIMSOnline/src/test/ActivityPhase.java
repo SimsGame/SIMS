@@ -27,10 +27,12 @@ public class ActivityPhase {
     private javax.swing.JProgressBar KnowledgeBar;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
+    private javax.swing.JProgressBar AirBar;
+    private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JButton[] studButtons;
     private Game1 game;
     
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons) {
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons) {
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -38,6 +40,8 @@ public class ActivityPhase {
         this.KnowledgeBar = jKnowledgeBar;
         this.MotivationBar = jMotivationBar;
         this.TirednessBar = jTirednessBar;
+        this.AirBar = jAirBar;
+        this.NoiseBar = jNoiseBar;
         this.studButtons = studButtons;
         game = Sims_1._maingame;
         game.initArray();
@@ -46,7 +50,7 @@ public class ActivityPhase {
     }
     
     private void activityPhaseMain(){
-        Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar, MotivationBar,TirednessBar, this));
+        Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
         runTimer.start();  
     }
     
