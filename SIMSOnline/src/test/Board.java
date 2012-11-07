@@ -22,7 +22,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
     private final int WIDTH = 1000;
     private final int HEIGHT = 700;
     private final int DOT_SIZE = 10;
-    private final int ALL_DOTS = 5000;
+    private final int ALL_DOTS = 8000;
     private final int RAND_POS_X = 63;
     private final int RAND_POS_Y = 63;
     private final int DELAY = 40;
@@ -89,7 +89,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
 
     public void paint(Graphics g) {
         super.paint(g);
-
+        
         if (inGame) {
 
             g.drawImage(apple, apple_x, apple_y, this);
@@ -130,6 +130,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
 
     public void checkApple() {
 
+        if(dots >= ALL_DOTS-8){
+            inGame = false; 
+        }
+        
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
             dots += 6;
             locateApple();
@@ -290,11 +294,22 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         label_credits.setHorizontalAlignment(JLabel.CENTER);
         label_credits.setForeground(Color.green);
         label_credits.setText("Credits: " + credits + "   Neuer Punktestand: " + Sims_1._maingame.credits);
-        endGameBackground.add(button_dismissGameLabel);
-        endGameBackground.add(label_headline);
-        endGameBackground.add(label_gameTime);
-        endGameBackground.add(label_Punkte);
-        endGameBackground.add(label_credits);
+        if(!(dots >= ALL_DOTS-8)){
+            endGameBackground.add(button_dismissGameLabel);
+            endGameBackground.add(label_headline);
+            endGameBackground.add(label_gameTime);
+            endGameBackground.add(label_Punkte);
+            endGameBackground.add(label_credits);
+        }
+        else{
+            label_headline.setText("SECRET!");
+            label_gameTime.setText("Na, wie viele Credits dürfens sein?");
+            label_Punkte.setText("Oder sollens doch lieber DIE Credits sein?");
+            endGameBackground.add(label_headline);
+            endGameBackground.add(label_gameTime);
+            endGameBackground.add(label_Punkte);
+            endGameBackground.add(button_dismissGameLabel);
+        }
         endDialog.add(endGameBackground);
         endDialog.setVisible(true);
     }
