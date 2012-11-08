@@ -8,7 +8,7 @@ package test;
  *
  * @author Kira
  */
-public class Room {
+@Deprecated public class Room {
    
     /**
      *  @param airQuality       The quality of the air within the classroom

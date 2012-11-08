@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * @author Jannik
  */
-public class CSVRead {
+@Deprecated public class CSVRead {
 
     public String[] data = new String[24];
     int column = 4;
