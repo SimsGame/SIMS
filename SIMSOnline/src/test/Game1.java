@@ -3,6 +3,8 @@
  */
 package test;
 
+import java.awt.Color;
+
 /**
  *
  * @author Jannik
@@ -15,6 +17,7 @@ public class Game1 {
     public int credits;
     public int points;
     public int round;
+    public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
@@ -169,6 +172,38 @@ public class Game1 {
         for (int i = 0; i < cheated.length; i++) {
             cheated[i] = false;
         }
-
+    }
+    
+/**
+ * this function takes an array of 30 buttons and paints them to visualize the students attributes.
+ * It takes the number of the actually clicked bar of this class to paint the students by taking the right attribute.
+ * @param studButtons array of 30 buttons which should be painted
+ */
+    public void barClicked(javax.swing.JButton[] studButtons){        
+        if(this.barNum==0){
+            for(int i=0; i<30; i++){
+            Color color = new Color(220, 220, 220);
+            studButtons[i].setBackground(color);
+            studButtons[i].setOpaque(true);
+            }
+        }else if(this.barNum==1){
+            for(int i=0; i<30; i++){
+            Color color = new Color((int)(this.studentArray[i].getKnowledge()*2.55), 0, 0);
+            studButtons[i].setBackground(color);
+            studButtons[i].setOpaque(true);
+            }
+        } else if(this.barNum==2){
+            for(int i=0; i<30; i++){
+            Color color = new Color(0, (int)(this.studentArray[i].getMotivation()*2.55), 0);
+            studButtons[i].setBackground(color);
+            studButtons[i].setOpaque(true);
+            }
+        } else if(this.barNum==3){
+            for(int i=0; i<30; i++){
+            Color color = new Color(0, 0, (int)(this.studentArray[i].getTiredness()*2.55));
+            studButtons[i].setBackground(color);
+            studButtons[i].setOpaque(true);
+            }
+        }
     }
 }

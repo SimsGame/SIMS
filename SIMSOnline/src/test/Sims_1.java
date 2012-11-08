@@ -3979,30 +3979,30 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_pCancelActionPerformed
 
     private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
-        if(activityPhase.barNum==1){
-            activityPhase.barNum=0;
+        if(_maingame.barNum==1){
+            _maingame.barNum=0;
         }else{
-            activityPhase.barNum=1;
+            _maingame.barNum=1;
         }
-        activityPhase.barClicked();
+        _maingame.barClicked(activityPhase.studButtons);
     }//GEN-LAST:event_KnowledgeBarMouseClicked
 
     private void MotivationBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MotivationBarMouseClicked
-        if(activityPhase.barNum==2){
-            activityPhase.barNum=0;
+        if(_maingame.barNum==2){
+            _maingame.barNum=0;
         }else{
-            activityPhase.barNum=2;
+            _maingame.barNum=2;
         }
-        activityPhase.barClicked();
+        _maingame.barClicked(activityPhase.studButtons);
     }//GEN-LAST:event_MotivationBarMouseClicked
 
     private void TirednessBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TirednessBarMouseClicked
-        if(activityPhase.barNum==3){
-            activityPhase.barNum=0;
+        if(_maingame.barNum==3){
+            _maingame.barNum=0;
         }else{
-            activityPhase.barNum=3;
+            _maingame.barNum=3;
         }
-        activityPhase.barClicked();
+        _maingame.barClicked(activityPhase.studButtons);
     }//GEN-LAST:event_TirednessBarMouseClicked
 
     private void jBut_DozentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_DozentMouseClicked

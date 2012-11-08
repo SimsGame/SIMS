@@ -17,9 +17,7 @@ public class ActivityPhase {
     public boolean duploPressed = false;
     public boolean OmniSensePressed = false;
     public boolean doNotPaintFlag = false;
-    public boolean paintStudents = false;
     public boolean runTimer = true;
-    public int barNum = 0;
     public int studentDisplayed = -1;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_redBull;
@@ -30,7 +28,7 @@ public class ActivityPhase {
     private javax.swing.JProgressBar TirednessBar;
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JProgressBar NoiseBar;
-    private javax.swing.JButton[] studButtons;
+    public javax.swing.JButton[] studButtons;
     private Game1 game;
     
     public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons) {
@@ -53,40 +51,6 @@ public class ActivityPhase {
     private void activityPhaseMain(){
         Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
         runTimer.start();  
-    }
-    
-    public void barClicked(){
-        paintStudents=true;
-        
-        if(this.barNum==0){
-            for(int i=0; i<30; i++){
-            Color color = new Color(220, 220, 220);
-            System.out.println(studButtons[i]);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
-            }
-        }else if(this.barNum==1){
-            for(int i=0; i<30; i++){
-            Color color = new Color((int)(game.studentArray[i].getKnowledge()*2.55), 0, 0);
-            System.out.println(studButtons[i]);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
-            }
-        } else if(this.barNum==2){
-            for(int i=0; i<30; i++){
-            Color color = new Color(0, (int)(game.studentArray[i].getMotivation()*2.55), 0);
-            System.out.println(studButtons[i]);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
-            }
-        } else if(this.barNum==3){
-            for(int i=0; i<30; i++){
-            Color color = new Color(0, 0, (int)(game.studentArray[i].getTiredness()*2.55));
-            System.out.println(studButtons[i]);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
-            }
-        }
     }
     
     public void StudentClicked(int studNum) {
@@ -128,7 +92,7 @@ public class ActivityPhase {
         MotivationBar.repaint();
         TirednessBar.repaint();
         this.doNotPaintFlag = true;
-        barClicked();
+        game.barClicked(studButtons);
     }
 
 }
