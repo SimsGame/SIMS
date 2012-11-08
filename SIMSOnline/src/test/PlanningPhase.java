@@ -9,7 +9,6 @@ import javax.swing.*;
 
 
 /**
- *
  * @author Tobias Mauritz
  * @author Yuliya
  */
@@ -59,10 +58,22 @@ public class PlanningPhase {
         // PlanningPhase constructor
     public PlanningPhase() {
     }
-    // constructor which expects the three progress bars.
-    // These are needed for the StudInfo methods
-    // called first
-
+    
+     
+//     constructor which expects the three progress bars.
+//     These are needed for the StudInfo methods
+//     called first
+    /**
+     * - constructor which initializes the progress bars, the dozent counter label 
+     * and the switch student toggle button <br>
+     * - tt sets the progress bars to the current average values of the students <br>
+     * - tt validates if the dozent can be switched
+     * @param jProgB_Knowledge progress bar which shows the knowledge
+     * @param jProgB_Motivation progress bar which shows the motivation
+     * @param jProgB_Tiredness progress bar which shows the tiredness
+     * @param jLab_DozCounter 
+     * @param jToggleBut_SwitchStud 
+     */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
             JProgressBar jProgB_Motivation,
             JProgressBar jProgB_Tiredness, 
@@ -87,12 +98,16 @@ public class PlanningPhase {
         //updates label "Dozenten tauschen
         validateLector(jLab_DozCounter);
         
-        //this.studBut=jBut_1;
-        //this.studBut.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
     }
 
 
     // called from SwitchStud-Button on navi
+    /**
+     * - is called when the stud switch toggle button was clicked
+     * and initializes the switchFlag with the isSelected() method of
+     * an toggle button
+     * @param jLab_SwitchCounter 
+     */
     public  void startStudSwitch(JLabel jLab_SwitchCounter) {
         switchCounterLabel = jLab_SwitchCounter;
         
@@ -122,7 +137,12 @@ public class PlanningPhase {
             System.out.println("SwitchFlag (false?) = " + switchFlag);
         }
     }
-
+    /**
+     * - stores the clicked student into stud2 or stud1 which depends on the studCounter <br>
+     * - when both are stored the StudSwitch() method is called
+     * @param stud_nr student array index number of clicked student
+     * @param studBut student button which was clicked which will be stored
+     */
     private void storeStud(int stud_nr,JButton studBut) {
 
         if (studCounter == 1) {
@@ -146,6 +166,12 @@ public class PlanningPhase {
         }
     }
 
+    /**
+     * - switchs the two selected students in the array and resets the button icons on it <br>
+     * - it also resets the help variables to default
+     * @param stud1 first clicked student to switch
+     * @param stud2 second clicked student to switch
+     */
     private void StudSwitch(Student stud1, Student stud2) {
 
         System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
@@ -171,7 +197,13 @@ public class PlanningPhase {
         switchCounterLabel.repaint();
 
     }
-
+    /**
+     * - it reacts when a student button was clicked
+     * - if switch student button was clicked before it start the storeStud() method <br>
+     * - if not it shows the attributes of the clicked student and checks  the cheatFlag
+     * @param stud_nr student array index number of clicked student
+     * @param studBut button which was clicked
+     */
     public void StudButtonFunctions(int stud_nr, JButton studBut) {
       // !!! ExmatrikulationsFlag abfragen
             // switchFlag == 0 --> SwitchButton not clickeds
@@ -179,7 +211,7 @@ public class PlanningPhase {
         if (!switchFlag) {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
-            System.out.println(studArr[stud_nr].getStudIcon());
+            //System.out.println(studArr[stud_nr].getStudIcon());
             
 
             // start method StudInfo() which shows knowledge, motivation and tiredness 
@@ -209,11 +241,15 @@ public class PlanningPhase {
         //}
     }
 
-    /*
-     * function that gets the actual month and check if a user is allowed to
-     * changed a lector. If yes, the label counter will be set to 1. In other
-     * case - to 0)
-     *
+    
+//      function that gets the actual month and check if a user is allowed to
+//      changed a lector. If yes, the label counter will be set to 1. In other
+//      case - to 0)
+     
+    /**
+     * 
+     * @param jLab_DozCounter
+     * @return 
      */
     public  boolean validateLector(JLabel jLab_DozCounter) {
         //actMonth=User.getMonth();
@@ -233,10 +269,11 @@ public class PlanningPhase {
         return validated;
     }
 
-    /*
-     * function to change lector, if lector was changed the appropriate flag
-     * will be set to true
-     */
+    /**
+     * - function to change lector
+     * - if lector was changed the appropriate flag will be set to true
+     * @param jLab_DozCounter 
+     */ 
     public  void changeLector(JLabel jLab_DozCounter) {
         //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
         lectorCounter = jLab_DozCounter;
@@ -262,7 +299,11 @@ public class PlanningPhase {
         lectorCounter.repaint();
     }
     
-    //methode, die aktuelles Semester berechnet
+    
+    /**
+     *  - methode, die aktuelles Semester berechnet
+     * @return 
+     */
     public  int getTerm(){
         switch (actMonth) {
             case 1: case 2: case3:
@@ -289,7 +330,11 @@ public class PlanningPhase {
                   
     }
     
-    //Für Dialog-Fenster
+    
+    /**
+     * - Für Dialog-Fenster 
+     * @return 
+     */
     public  int getCheatFlag(){
         return cheatFlag;
     }
@@ -301,7 +346,7 @@ public class PlanningPhase {
     
     
     /**
-     * this method will be applied if a cheatFlag is set to 1 and we have selected one of a student.
+     * - this method will be applied if a cheatFlag is set to 1 and we have selected one of a student
      * also updates Spicker-value in game-file
      * @param stud_nr 
      */
