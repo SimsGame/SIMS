@@ -177,6 +177,7 @@ public class PlanningPhase {
         if (!switchFlag) {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
+            System.out.println(studArr[stud_nr].getStudIcon());
 
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked

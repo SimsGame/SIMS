@@ -17,6 +17,14 @@ public class Student {
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
+    private String studIconPath;
+    
+    public final String[] iconPath = {
+            "/pictures/studentface1transparent.png",
+            "/pictures/studentface2transparent.png",
+            "/pictures/studentface3transparent.png",
+            "/pictures/studentface4transparent.png",
+            "/pictures/studentface5transparent.png"};
     
     /**
      * 
@@ -26,6 +34,7 @@ public class Student {
         this.id=id;
         initTiredness();
         initMotivation();
+        initIcon();
     }
 
     /**
@@ -44,6 +53,14 @@ public class Student {
      */
     private void initMotivation() {
         this.motivation=Math.round(50+Math.random()*40);
+    }
+    
+    /**
+     *
+     * @return a IconPath for a student
+     */
+    private void initIcon(){
+        this.studIconPath = iconPath[(int)(5+Math.random()*100)%4]; 
     }
 
      /**
@@ -130,6 +147,14 @@ public class Student {
      */
     public double getTiredness() {
         return this.tiredness;
+    }
+    
+    /**
+     *
+     * @return the 
+     */
+    public String getStudIcon() {
+        return this.studIconPath;
     }
 
     /**
