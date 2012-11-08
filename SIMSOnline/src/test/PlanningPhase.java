@@ -54,6 +54,7 @@ public class PlanningPhase {
     
     private static JButton studBut1;
     private static JButton studBut2;
+    public JButton[] studButtons;
 
         // PlanningPhase constructor
     public PlanningPhase() {
