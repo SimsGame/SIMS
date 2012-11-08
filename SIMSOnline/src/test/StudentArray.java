@@ -13,7 +13,7 @@ package test;
  * the Array:
  * int id = myArray.getArray()[2].getId();
  */
-public class StudentArray {
+@Deprecated public class StudentArray {
 
     private Student[] studentArray;
 
