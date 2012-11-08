@@ -91,6 +91,10 @@ public class Sims_1 extends javax.swing.JFrame {
         lectorNotChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cheatUsedDialog.setSize(400, 320); //added by Julia
         cheatUsedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        notAllowedUseCheatDialog.setSize(400, 320);  //added by Julia
+        notAllowedUseCheatDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        noCheatsAvailableDialog.setSize(400, 320); //added by Julia
+        noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -151,13 +155,19 @@ public class Sims_1 extends javax.swing.JFrame {
         jTextArea3 = new javax.swing.JTextArea();
         jBut_OKcheat = new javax.swing.JButton();
         lectorNotChangedDialog = new javax.swing.JDialog();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
         jBut_OKnotchanged = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         noCheatsAvailableDialog = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jBut_OKnoCheatsAvailable = new javax.swing.JButton();
         notAllowedUseCheatDialog = new javax.swing.JDialog();
+        jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Profile = new javax.swing.JPanel();
@@ -233,7 +243,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_ChangeProfessor = new javax.swing.JButton();
         jPan_ItemSelect = new javax.swing.JPanel();
         jComboB_Items = new javax.swing.JComboBox();
-        jBut_ComboB_useItem = new javax.swing.JButton();
         jPan_ItemStorage = new javax.swing.JPanel();
         jLab_Planning_unused09 = new javax.swing.JLabel();
         jLab_Redbull = new javax.swing.JLabel();
@@ -725,11 +734,7 @@ public class Sims_1 extends javax.swing.JFrame {
         );
 
         lectorNotChangedDialog.setModal(true);
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jTextArea4.setText("\t\n      Du darfst den Dozenten \n      momentan nicht wechseln!");
-        jScrollPane4.setViewportView(jTextArea4);
+        lectorNotChangedDialog.setPreferredSize(new java.awt.Dimension(400, 320));
 
         jBut_OKnotchanged.setText("OK");
         jBut_OKnotchanged.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -738,53 +743,125 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
 
+        jTextArea5.setColumns(20);
+        jTextArea5.setEditable(false);
+        jTextArea5.setRows(5);
+        jTextArea5.setText("\t\n      \n\tDu darfst den Dozenten \n      \tmomentan nicht wechseln!");
+        jScrollPane5.setViewportView(jTextArea5);
+
         javax.swing.GroupLayout lectorNotChangedDialogLayout = new javax.swing.GroupLayout(lectorNotChangedDialog.getContentPane());
         lectorNotChangedDialog.getContentPane().setLayout(lectorNotChangedDialogLayout);
         lectorNotChangedDialogLayout.setHorizontalGroup(
             lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lectorNotChangedDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGroup(lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         lectorNotChangedDialogLayout.setVerticalGroup(
             lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jLabel1.setText("jLabel1");
 
         jLabel3.setText("jLabel3");
 
+        noCheatsAvailableDialog.setModal(true);
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setEditable(false);
+        jTextArea6.setRows(5);
+        jTextArea6.setText("\t\n\t\n\tKein Spicker\n\tverfügbar!\n");
+        jScrollPane6.setViewportView(jTextArea6);
+
+        jBut_OKnoCheatsAvailable.setText("OK");
+        jBut_OKnoCheatsAvailable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_OKnoCheatsAvailableMouseClicked(evt);
+            }
+        });
+        jBut_OKnoCheatsAvailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_OKnoCheatsAvailableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout noCheatsAvailableDialogLayout = new javax.swing.GroupLayout(noCheatsAvailableDialog.getContentPane());
         noCheatsAvailableDialog.getContentPane().setLayout(noCheatsAvailableDialogLayout);
         noCheatsAvailableDialogLayout.setHorizontalGroup(
             noCheatsAvailableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(noCheatsAvailableDialogLayout.createSequentialGroup()
+                .addGroup(noCheatsAvailableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(noCheatsAvailableDialogLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jBut_OKnoCheatsAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(noCheatsAvailableDialogLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         noCheatsAvailableDialogLayout.setVerticalGroup(
             noCheatsAvailableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(noCheatsAvailableDialogLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jBut_OKnoCheatsAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
+
+        notAllowedUseCheatDialog.setModal(true);
+
+        jBut_OKnotAllowedUseCheat.setText("OK");
+        jBut_OKnotAllowedUseCheat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_OKnotAllowedUseCheatMouseClicked(evt);
+            }
+        });
+        jBut_OKnotAllowedUseCheat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_OKnotAllowedUseCheatActionPerformed(evt);
+            }
+        });
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setEditable(false);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("\n  Du darfst den Spicker \n  jetzt nicht einsetzen");
+        jScrollPane4.setViewportView(jTextArea4);
 
         javax.swing.GroupLayout notAllowedUseCheatDialogLayout = new javax.swing.GroupLayout(notAllowedUseCheatDialog.getContentPane());
         notAllowedUseCheatDialog.getContentPane().setLayout(notAllowedUseCheatDialogLayout);
         notAllowedUseCheatDialogLayout.setHorizontalGroup(
             notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
         notAllowedUseCheatDialogLayout.setVerticalGroup(
             notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1241,11 +1318,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPan_ItemSelect.add(jComboB_Items);
-        jComboB_Items.setBounds(10, 20, 130, 30);
-
-        jBut_ComboB_useItem.setText("Benutzen");
-        jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
+        jComboB_Items.setBounds(10, 40, 130, 30);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -3151,9 +3224,9 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setVisible(false);
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBut_OKnoCheatsAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBut_OKnoCheatsAvailableActionPerformed
 
     private void jBut_ChangeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorActionPerformed
         // TODO add your handling code here:
@@ -3629,11 +3702,13 @@ public class Sims_1 extends javax.swing.JFrame {
         if (selected.equals("Spicker")) {
             if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
+                noCheatsAvailableDialog.setVisible(true);
             } else if ((currentSemester>=2)&&(currentSemester<=6)&&!usedCheat){
                 warningDialog.setVisible(true);
                 System.out.println("show warning");
             } else {
                 System.out.println("Du kannst in dem " + currentSemester + " Semester den Spicker nicht mehr einsetzen");
+                notAllowedUseCheatDialog.setVisible(true);
             }
         }
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
@@ -4133,6 +4208,20 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         _maingame.barClicked(planningPhaseButtons);
     }//GEN-LAST:event_jProgB_MüdigkeitMouseClicked
+
+    private void jBut_OKnoCheatsAvailableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableMouseClicked
+        // TODO add your handling code here:
+        noCheatsAvailableDialog.setVisible(false);
+    }//GEN-LAST:event_jBut_OKnoCheatsAvailableMouseClicked
+
+    private void jBut_OKnotAllowedUseCheatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_OKnotAllowedUseCheatActionPerformed
+
+    private void jBut_OKnotAllowedUseCheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatMouseClicked
+        // TODO add your handling code here:
+        notAllowedUseCheatDialog.setVisible(false);
+    }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
     
     /**
      * @param args the command line arguments
@@ -4286,12 +4375,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_8;
     private javax.swing.JButton jBut_9;
     private javax.swing.JButton jBut_ChangeProfessor;
-    private javax.swing.JButton jBut_ComboB_useItem;
     private javax.swing.JButton jBut_Dozent;
     private javax.swing.JButton jBut_JA;
     private javax.swing.JButton jBut_NEIN;
     private javax.swing.JButton jBut_OKcheat;
     private javax.swing.JButton jBut_OKlector;
+    private javax.swing.JButton jBut_OKnoCheatsAvailable;
+    private javax.swing.JButton jBut_OKnotAllowedUseCheat;
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
     private javax.swing.JButton jBut_startShop;
@@ -4333,10 +4423,14 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JToggleButton jToggleBut_SwitchStud;
     private javax.swing.JLabel label_aAccname;
     private javax.swing.JLabel label_aCredits;
