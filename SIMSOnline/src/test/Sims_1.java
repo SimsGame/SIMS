@@ -734,7 +734,6 @@ public class Sims_1 extends javax.swing.JFrame {
         );
 
         lectorNotChangedDialog.setModal(true);
-        lectorNotChangedDialog.setPreferredSize(new java.awt.Dimension(400, 320));
 
         jBut_OKnotchanged.setText("OK");
         jBut_OKnotchanged.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2281,6 +2280,11 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_activityPhaseStudField.setLayout(null);
 
         button_dozent1.setText("Dozent");
+        button_dozent1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_dozent1ActionPerformed(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_dozent1);
         button_dozent1.setBounds(340, 470, 110, 50);
 
@@ -4222,6 +4226,13 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         notAllowedUseCheatDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
+
+    private void button_dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dozent1ActionPerformed
+        if (_maingame.lecturer_counter>0){
+            _maingame.quietingCounter=5;
+            _maingame.lecturer_counter--;
+        }
+    }//GEN-LAST:event_button_dozent1ActionPerformed
     
     /**
      * @param args the command line arguments
