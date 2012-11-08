@@ -68,9 +68,6 @@ public class StudInfo {
      * - calculates the average attributs values of all students
      */
     public void StudInfoAverage() {
-        // if abfrage ob knowledge_H != 0 usw. damit es nicht nochmal gerechnet wird!!
-        // --> new SetBars()
-
         // initializing to 0
         this.knowledge_H = 0;
         this.motivation_H = 0;

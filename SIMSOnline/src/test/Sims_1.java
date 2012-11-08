@@ -3007,7 +3007,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
-        new StudIcons(activityPhaseButtons, _maingame.getArray());
+        new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
         activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
@@ -3025,7 +3025,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setVisible(false);
 
             // sets StudIcons on StudButtons
-        new StudIcons(planningPhaseButtons, _maingame.getArray());
+        new StudIcons(planningPhaseButtons, _maingame.getArray());  
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
