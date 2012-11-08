@@ -48,7 +48,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
     private javax.swing.JButton[] activityPhaseButtons;
-    private javax.swing.JButton[] plannigPhaseButtons;
+    private javax.swing.JButton[] planningPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -106,6 +106,7 @@ public class Sims_1 extends javax.swing.JFrame {
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
+        this.planningPhaseButtons=constructActivityPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
     }
 
