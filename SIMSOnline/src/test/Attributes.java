@@ -10,14 +10,7 @@ package test;
  */
 @Deprecated public class Attributes {
     
-    /**
-     * @param knowledge                 Knowledge of the students - bound to student
-     * @param knowledgeIncreasement     Increase of the knowledge attribute - bound to student
-     * @param tiredness                 Shows how tired a student is - bound to student
-     * @param motivation                Shows how motivated a student is - bound to student
-     * @param airQuality                The quality of the air in the classroom - bound to room
-     * @param noise                     Denotes how loud it is in the room - bound to room
-     */
+    
     
     private Student[] changeArray;
     

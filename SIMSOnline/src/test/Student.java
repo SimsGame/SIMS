@@ -21,8 +21,9 @@ public class Student {
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
-    private String studIconPath;                        //in savefile
-    private boolean cheatAvailable; //added by Julia           //in savefile
+    public boolean present = true;
+    private String studIconPath;
+    private boolean cheatAvailable; //added by Julia   
     public final String[] iconPath = {
             "/pictures/studentface1transparent.png",
             "/pictures/studentface2transparent.png",
@@ -122,6 +123,12 @@ public class Student {
         return this.id;
     }
     
+    public void exam(double value){
+        if(this.knowledge<value){
+            this.present=false;
+        }            
+    }
+    
        /**
      *
      * @return the knowledge attribute of the student is returned
@@ -217,9 +224,18 @@ public class Student {
         }
     }
     
+    /**
+     * CheatSheet will be set 
+     * @param flag 
+     */
     public void setCheatAvailable(boolean flag){
         this.cheatAvailable=flag;
     }
+    
+    /**
+     * 
+     * @return  true if a student has the CheatSheet.
+     */
     
     public boolean getCheatAvailable(){
         return this.cheatAvailable;
