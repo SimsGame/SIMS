@@ -18,7 +18,7 @@ public class Student {
     private double motivation;
     public boolean laptopClosed = true;
     private String studIconPath;
-        
+    private boolean cheatAvailable; //added by Julia    
     public final String[] iconPath = {
             "/pictures/studentface1transparent.png",
             "/pictures/studentface2transparent.png",
@@ -204,5 +204,13 @@ public class Student {
             }
             this.motivation = value;
         }
+    }
+    
+    public void setCheatAvailable(boolean flag){
+        this.cheatAvailable=flag;
+    }
+    
+    public boolean getCheatAvailable(){
+        return this.cheatAvailable;
     }
 }
