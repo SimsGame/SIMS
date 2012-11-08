@@ -228,7 +228,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_Planning_unused07 = new javax.swing.JLabel();
         jLab_Planning_unused08 = new javax.swing.JLabel();
         jLab_DozCounter = new javax.swing.JLabel();
-        jBut_ChangeLector = new javax.swing.JButton();
+        jBut_ChangeProfessor = new javax.swing.JButton();
         jPan_ItemSelect = new javax.swing.JPanel();
         jComboB_Items = new javax.swing.JComboBox();
         jBut_ComboB_useItem = new javax.swing.JButton();
@@ -1187,19 +1187,19 @@ public class Sims_1 extends javax.swing.JFrame {
         jPan_DozSwitch.add(jLab_DozCounter);
         jLab_DozCounter.setBounds(60, 60, 30, 30);
 
-        jBut_ChangeLector.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jBut_ChangeLector.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBut_ChangeProfessor.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jBut_ChangeProfessor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBut_ChangeLectorMouseClicked(evt);
+                jBut_ChangeProfessorMouseClicked(evt);
             }
         });
-        jBut_ChangeLector.addActionListener(new java.awt.event.ActionListener() {
+        jBut_ChangeProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBut_ChangeLectorActionPerformed(evt);
+                jBut_ChangeProfessorActionPerformed(evt);
             }
         });
-        jPan_DozSwitch.add(jBut_ChangeLector);
-        jBut_ChangeLector.setBounds(10, 10, 130, 90);
+        jPan_DozSwitch.add(jBut_ChangeProfessor);
+        jBut_ChangeProfessor.setBounds(10, 10, 130, 90);
 
         Navi.add(jPan_DozSwitch);
         jPan_DozSwitch.setBounds(0, 110, 150, 110);
@@ -3133,9 +3133,9 @@ public class Sims_1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jBut_ChangeLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorActionPerformed
+    private void jBut_ChangeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBut_ChangeLectorActionPerformed
+    }//GEN-LAST:event_jBut_ChangeProfessorActionPerformed
 
     private void jBut_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_PlayActionPerformed
         // TODO add your handling code here:
@@ -3479,13 +3479,13 @@ public class Sims_1 extends javax.swing.JFrame {
         planningPhase.studInfo.StudInfoAttr(29);
     }//GEN-LAST:event_jBut_30MouseClicked
 
-    private void jBut_ChangeLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeLectorMouseClicked
+    private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
         // TODO add your handling code here:
         
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
         
-        //check if can change lector. If so - do this, else - error 
+        //check if can change lector. If so - do this, else -  show error 
         boolean allowed = planningPhase.checkProffesorChangeability(jLab_DozCounter);
         if (allowed) {
             planningPhase.changeLector(jLab_DozCounter);
@@ -3493,7 +3493,7 @@ public class Sims_1 extends javax.swing.JFrame {
         } else {
             lectorNotChangedDialog.setVisible(true);
         }
-    }//GEN-LAST:event_jBut_ChangeLectorMouseClicked
+    }//GEN-LAST:event_jBut_ChangeProfessorMouseClicked
 
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
@@ -4263,7 +4263,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_7;
     private javax.swing.JButton jBut_8;
     private javax.swing.JButton jBut_9;
-    private javax.swing.JButton jBut_ChangeLector;
+    private javax.swing.JButton jBut_ChangeProfessor;
     private javax.swing.JButton jBut_ComboB_useItem;
     private javax.swing.JButton jBut_Dozent;
     private javax.swing.JButton jBut_JA;
