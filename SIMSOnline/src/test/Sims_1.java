@@ -83,8 +83,8 @@ public class Sims_1 extends javax.swing.JFrame {
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog_error.setSize(400, 320);
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        warning.setSize(400, 320); //added  by Julia
-        warning.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warningDialog.setSize(400, 320); //added  by Julia
+        warningDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         lectorChangedDialog.setSize(400, 320); //added by Julia
         lectorChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         lectorNotChangedDialog.setSize(400, 320);
@@ -137,7 +137,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage1 = new javax.swing.JLabel();
         label_shopMessage2 = new javax.swing.JLabel();
         button_shopMessageOk = new javax.swing.JButton();
-        warning = new javax.swing.JDialog();
+        warningDialog = new javax.swing.JDialog();
         jBut_JA = new javax.swing.JButton();
         jBut_NEIN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -156,6 +156,8 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotchanged = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        noCheatsAvailableDialog = new javax.swing.JDialog();
+        notAllowedUseCheatDialog = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Profile = new javax.swing.JPanel();
@@ -584,10 +586,10 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.getContentPane().add(button_shopMessageOk);
         button_shopMessageOk.setBounds(170, 210, 47, 23);
 
-        warning.setModal(true);
-        warning.addWindowListener(new java.awt.event.WindowAdapter() {
+        warningDialog.setModal(true);
+        warningDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
-                warningWindowClosed(evt);
+                warningDialogWindowClosed(evt);
             }
         });
 
@@ -621,11 +623,11 @@ public class Sims_1 extends javax.swing.JFrame {
         jTextArea1.setText("\t\tAchtung!  \nSpicker ist ein mal im Semester einstzbarer\nJocker. Du kannst den nur EIN MAL pro Semester\neinem beliebigen Studenten schenken.\nDann wird er die Klausuren auf jeden Fall\nbestehen. \n\nWillst du wirklich den Spicker einsetzen?\nWenn ja, klicke auf \"JA\" Button und wähle\ndanach deinen Lieblingsstudenten.");
         jScrollPane1.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout warningLayout = new javax.swing.GroupLayout(warning.getContentPane());
-        warning.getContentPane().setLayout(warningLayout);
-        warningLayout.setHorizontalGroup(
-            warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(warningLayout.createSequentialGroup()
+        javax.swing.GroupLayout warningDialogLayout = new javax.swing.GroupLayout(warningDialog.getContentPane());
+        warningDialog.getContentPane().setLayout(warningDialogLayout);
+        warningDialogLayout.setHorizontalGroup(
+            warningDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningDialogLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jBut_JA, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
@@ -633,13 +635,13 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
             .addComponent(jScrollPane1)
         );
-        warningLayout.setVerticalGroup(
-            warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(warningLayout.createSequentialGroup()
+        warningDialogLayout.setVerticalGroup(
+            warningDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(warningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(warningDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBut_JA, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(jBut_NEIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 31, Short.MAX_VALUE))
@@ -665,21 +667,20 @@ public class Sims_1 extends javax.swing.JFrame {
         lectorChangedDialogLayout.setHorizontalGroup(
             lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorChangedDialogLayout.createSequentialGroup()
-                .addGroup(lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lectorChangedDialogLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lectorChangedDialogLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jBut_OKlector, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(134, 134, 134)
+                .addComponent(jBut_OKlector, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(136, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lectorChangedDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         lectorChangedDialogLayout.setVerticalGroup(
             lectorChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorChangedDialogLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jBut_OKlector, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -727,7 +728,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
-        jTextArea4.setText("Du darfst den Dozenten \nmomentan nicht wechseln!");
+        jTextArea4.setText("\t\n      Du darfst den Dozenten \n      momentan nicht wechseln!");
         jScrollPane4.setViewportView(jTextArea4);
 
         jBut_OKnotchanged.setText("OK");
@@ -742,28 +743,49 @@ public class Sims_1 extends javax.swing.JFrame {
         lectorNotChangedDialogLayout.setHorizontalGroup(
             lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                .addGroup(lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(120, 120, 120)
+                .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lectorNotChangedDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         lectorNotChangedDialogLayout.setVerticalGroup(
             lectorNotChangedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lectorNotChangedDialogLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(42, 42, 42)
                 .addComponent(jBut_OKnotchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jLabel1.setText("jLabel1");
 
         jLabel3.setText("jLabel3");
+
+        javax.swing.GroupLayout noCheatsAvailableDialogLayout = new javax.swing.GroupLayout(noCheatsAvailableDialog.getContentPane());
+        noCheatsAvailableDialog.getContentPane().setLayout(noCheatsAvailableDialogLayout);
+        noCheatsAvailableDialogLayout.setHorizontalGroup(
+            noCheatsAvailableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        noCheatsAvailableDialogLayout.setVerticalGroup(
+            noCheatsAvailableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout notAllowedUseCheatDialogLayout = new javax.swing.GroupLayout(notAllowedUseCheatDialog.getContentPane());
+        notAllowedUseCheatDialog.getContentPane().setLayout(notAllowedUseCheatDialogLayout);
+        notAllowedUseCheatDialogLayout.setHorizontalGroup(
+            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        notAllowedUseCheatDialogLayout.setVerticalGroup(
+            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
@@ -3608,7 +3630,7 @@ public class Sims_1 extends javax.swing.JFrame {
             if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
             } else if ((currentSemester>=2)&&(currentSemester<=6)&&!usedCheat){
-                warning.setVisible(true);
+                warningDialog.setVisible(true);
                 System.out.println("show warning");
             } else {
                 System.out.println("Du kannst in dem " + currentSemester + " Semester den Spicker nicht mehr einsetzen");
@@ -3619,21 +3641,21 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
         // TODO add your handling code here:
         planningPhase.setCheatFlag(1);
-        warning.setVisible(false);
+        warningDialog.setVisible(false);
 
     }//GEN-LAST:event_jBut_JAMouseClicked
 
     private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
         // TODO add your handling code here:
         planningPhase.setCheatFlag(0);
-        warning.setVisible(false);
+        warningDialog.setVisible(false);
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
-    private void warningWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningWindowClosed
+    private void warningDialogWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningDialogWindowClosed
 //        // TODO add your handling code here:
 //        planningPhase.setCheatFlag(0);
 //        warning.setVisible(false);
-    }//GEN-LAST:event_warningWindowClosed
+    }//GEN-LAST:event_warningDialogWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
         // TODO add your handling code here:
@@ -4451,7 +4473,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JDialog lectorNotChangedDialog;
     private javax.swing.JLabel loggedinas;
     private javax.swing.JLabel login_background;
+    private javax.swing.JDialog noCheatsAvailableDialog;
     private javax.swing.JLabel noSave_overlay;
+    private javax.swing.JDialog notAllowedUseCheatDialog;
     private javax.swing.JPanel panel_Admin;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Profile;
@@ -4517,7 +4541,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JToggleButton toggleButton_shortBreak;
     private javax.swing.JToggleButton toggleButton_teamwork;
     private javax.swing.JLabel ucoinsShop;
-    private javax.swing.JDialog warning;
+    private javax.swing.JDialog warningDialog;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid
