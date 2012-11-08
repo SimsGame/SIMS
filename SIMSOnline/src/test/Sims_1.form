@@ -909,7 +909,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Standardcursor"/>
+                  <Color id="Handcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1738,9 +1738,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_2"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_2MouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_2MouseEntered"/>

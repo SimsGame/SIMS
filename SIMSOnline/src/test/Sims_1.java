@@ -939,7 +939,7 @@ public class Sims_1 extends javax.swing.JFrame {
         loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 540, 420, 30));
 
-        label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_menue.add(label_handcursor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 170, 40));
 
         label_handcursor1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1316,7 +1316,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_1);
         jBut_1.setBounds(60, 10, 110, 50);
 
-        jBut_2.setText("Platz_2");
         jBut_2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_2MouseClicked(evt);
