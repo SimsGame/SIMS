@@ -17,6 +17,7 @@ public class Game1 {
     public int credits;
     public int points;
     public int round;
+    public int professor; //added by Julia
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
     public Student[] studentArray; //added by Jörg
     public double airQuality;

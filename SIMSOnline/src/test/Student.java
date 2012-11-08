@@ -18,7 +18,7 @@ public class Student {
     private double motivation;
     public boolean laptopClosed = true;
     private String studIconPath;
-    
+        
     public final String[] iconPath = {
             "/pictures/studentface1transparent.png",
             "/pictures/studentface2transparent.png",

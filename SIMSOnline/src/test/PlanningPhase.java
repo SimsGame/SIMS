@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  * @author Tobias Mauritz
- * @author Yuliya
+ * @author Yuliya Kuznetsova
  */
 public class PlanningPhase {
 
@@ -27,7 +27,7 @@ public class PlanningPhase {
     
     //flags deklaration
     private static boolean switchFlag = false;
-    private static int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
+    private int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
                                        //(before will be checked if the user can use this cheat)
     // counter
     private static int switchCounter = 5;
@@ -41,15 +41,15 @@ public class PlanningPhase {
     
     
     //deklaration of the variables that are needed for the lector-change function
-    private static JLabel lectorCounter; //JLabel that shows how many times the user can change lector
+    private  JLabel lectorCounter; //JLabel that shows how many times the user can change lector
      
-    private static boolean lectorChanged4 = false; //flag is set if the lector was already changed in this month
-    private static boolean lectorChanged7 = false;
-    private static boolean lectorChanged10 = false;
-    private static boolean lectorChanged13 = false;
-    private static boolean lectorChanged16 = false;
-    private static boolean validated;
-    protected static int actMonth = 4;  // variable for actual month (from game-file)    
+    private  boolean lectorChanged3 = false; //flag is set if the lector was already changed in this round
+    private  boolean lectorChanged6 = false;
+    private  boolean lectorChanged9 = false;
+    private  boolean lectorChanged12 = false;
+    private  boolean lectorChanged15 = false;
+   
+        
     protected static int lectorValue; //  variable that changes lector value (also from game file)
     
     private static JButton studBut1;
@@ -97,7 +97,7 @@ public class PlanningPhase {
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
         
         //updates label "Dozenten tauschen
-        validateLector(jLab_DozCounter);
+        checkProffesorChangeability(jLab_DozCounter);
         
     }
 
@@ -252,22 +252,22 @@ public class PlanningPhase {
      * @param jLab_DozCounter
      * @return 
      */
-    public  boolean validateLector(JLabel jLab_DozCounter) {
-        //actMonth=User.getMonth();
+    public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
+        int actualRound=Sims_1._maingame.round;
         lectorCounter = jLab_DozCounter;
-        if ( (actMonth == 4 && !lectorChanged4)  || (actMonth == 7 && !lectorChanged7) || 
-             (actMonth == 10 && !lectorChanged10)|| (actMonth == 13 && !lectorChanged13)||
-             (actMonth == 16 && !lectorChanged16)) {
-            
-            validated = true;
+        if ( (actualRound == 3 && !lectorChanged3)  || (actualRound == 6 && !lectorChanged6) || 
+             (actualRound == 9 && !lectorChanged9)|| (actualRound == 12 && !lectorChanged12) ||
+             (actualRound == 15 && !lectorChanged15)) {            
             lectorCounter.setText("1x");
             lectorCounter.repaint();
+            return true;
         } else {
-            validated = false;
+            
             lectorCounter.setText("0x");
             lectorCounter.repaint();
+            return false;
         }
-        return validated;
+        
     }
 
     /**
@@ -276,61 +276,31 @@ public class PlanningPhase {
      * @param jLab_DozCounter 
      */ 
     public  void changeLector(JLabel jLab_DozCounter) {
-        //actMonth=User.getMonth(); - ABfrage des aktuellen Monats
-        lectorCounter = jLab_DozCounter;
-        
-         if (actMonth == 4) {
-            lectorChanged4 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actMonth == 7) {
-            lectorChanged7 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actMonth == 10) {
-            lectorChanged10 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actMonth == 13) {
-            lectorChanged13 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actMonth == 16) {
-            lectorChanged16 = true;
-            lectorValue = (int) Math.round(Math.random() * 100 + 1);
+        int actualRound=Sims_1._maingame.round; // - ABfrage des aktuellen Monats
+        lectorCounter = jLab_DozCounter;        
+         if (actualRound == 3) {
+            lectorChanged3 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
+        } else if (actualRound == 6) {
+            lectorChanged6 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
+        } else if (actualRound == 9) {
+            lectorChanged9 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
+        } else if (actualRound == 12) {
+            lectorChanged12 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
+        } else if (actualRound == 15) {
+            lectorChanged15 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
-        System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + lectorValue);
+        System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
         lectorCounter.setText("0x");
         lectorCounter.repaint();
     }
     
     
-    /**
-     *  - methode, die aktuelles Semester berechnet
-     * @return 
-     */
-    public  int getTerm(){
-        switch (actMonth) {
-            case 1: case 2: case3:
-                return 1;
-                
-            case 4: case 5: case6:               
-                return 2;
-                
-            case 7: case 8: case9:            
-                return 3;
-                
-            case 10: case 11: case12:                
-                return 4;
-                
-            case 13: case 14: case15:            
-                return 5;
-                
-            case 16: case 17: case18:                
-                return 6;
-                
-            default:
-                return 0;
-        }
-                  
-    }
-    
+      
     
     /**
      * - Für Dialog-Fenster 
@@ -352,34 +322,20 @@ public class PlanningPhase {
      * @param stud_nr 
      */
     public  void useCheat(int stud_nr){
-        System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker"); //-> wird später den Flag in game.txt setzen
+        int currentSemester=Sims_1._maingame.getSemester();
+        System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker");
+        
+        //-> FLAG BEIM STUDENT SETZEN        
+        
         System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
         Sims_1._maingame.cheatSheet.amount-=1;
         System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " +Sims_1._maingame.cheatSheet.amount); // -> wird später  Spicker.amount um 1 verringern;
             cheatFlag=0;
             System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
-            //Spicker-Wert für das jeweilige Semester updaten:
+            //Spicker-Wert für das jeweilige Semester updaten:            
+           Sims_1._maingame.setCheated(currentSemester);       
+          
             
-            int currTerm= getTerm();
-            switch (currTerm){
-                case 2:
-                // Spicker wurde im 2 Sem. eingesetzt - Spickerwert fürs 2 Sem. auf 1 setzen (quasi "eingesetz2" aus der lokalen methode bei spicker auswahl auf 1 setzen)
-                    break;
-                case 3:
-                    // Spicker wurde im 3 Sem. eingesetzt - Spickerwert fürs 3 Sem. auf 1 setzen
-                    break;
-                case 4:
-                    // Spicker wurde im 4 Sem. eingesetzt - Spickerwert fürs 4 Sem. auf 1 setzen
-                    break;
-                case 5:
-                    // Spicker wurde im 5 Sem. eingesetzt - Spickerwert fürs 5 Sem. auf 1 setzen
-                    break;
-                case 6:
-                    // Spicker wurde im 6 Sem. eingesetzt - Spickerwert fürs 6 Sem. auf 1 setzen
-                    break;
-                default:
-                    break;
-            }
     
 }
 }

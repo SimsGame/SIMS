@@ -3030,6 +3030,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+        System.out.println("Current round " +Sims_1._maingame.round +" Current Semester " +Sims_1._maingame.getSemester());
         
         
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
@@ -3485,7 +3486,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jToggleBut_SwitchStud.setSelected(false);
         
         //check if can change lector. If so - do this, else - error 
-        boolean allowed = planningPhase.validateLector(jLab_DozCounter);
+        boolean allowed = planningPhase.checkProffesorChangeability(jLab_DozCounter);
         if (allowed) {
             planningPhase.changeLector(jLab_DozCounter);
             lectorChangedDialog.setVisible(true);
@@ -3597,29 +3598,20 @@ public class Sims_1 extends javax.swing.JFrame {
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
          */
-        int currTerm = planningPhase.getTerm(); // aktuelles Semester
-        int eingesetzt2 = 0; //werte kommen aus game.txt, aus "spicker pro semester" zeilen
-        int eingesetzt3 = 0;
-        int eingesetzt4 = 0;
-        int eingesetzt5 = 0;
-        int eingesetzt6 = 0;
-        int amount = 1; //ANZAHL DER SPICKER, MUSS ERSETZT WERDEN
-
+        int currentSemester=Sims_1._maingame.getSemester(); // aktuelles Semester
+        boolean usedCheat=Sims_1._maingame.getCheated(currentSemester);
+        
         javax.swing.JComboBox box = (javax.swing.JComboBox) evt.getSource();
         String selected = (String) box.getSelectedItem();
         System.out.println("Right now selected " + selected);
         if (selected.equals("Spicker")) {
             if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
-            } else if (((currTerm == 2) && (eingesetzt2 == 0)) || //---> Abfrage, ob im jeweiligen Semester der Spicker bereits benutzt wurde.
-                    ((currTerm == 3) && (eingesetzt3 == 0)) || //Wenn nicht, dann wird der Cheat Flag gesetzt
-                    ((currTerm == 4) && (eingesetzt4 == 0)) || // 
-                    ((currTerm == 5) && (eingesetzt5 == 0))
-                    || ((currTerm == 6) && (eingesetzt6 == 0))) {
+            } else if ((currentSemester>=2)&&(currentSemester<=6)&&!usedCheat){
                 warning.setVisible(true);
                 System.out.println("show warning");
             } else {
-                System.out.println("Du kannst in dem " + currTerm + " Semester den Spicker nicht mehr einsetzen");
+                System.out.println("Du kannst in dem " + currentSemester + " Semester den Spicker nicht mehr einsetzen");
             }
         }
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
