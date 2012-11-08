@@ -4930,6 +4930,41 @@ public class Sims_1 extends javax.swing.JFrame {
                 result[29]=button_stud30;              
         return result;
     }
+    
+    private javax.swing.JButton[] constructPlanningPhaseButtons(){
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+                result[0]=jBut_1;
+                result[1]=jBut_2;
+                result[2]=jBut_3;
+                result[3]=jBut_4;
+                result[4]=jBut_5;
+                result[5]=jBut_6;
+                result[6]=jBut_7;
+                result[7]=jBut_8;
+                result[8]=jBut_9;
+                result[9]=jBut_10;
+                result[10]=jBut_11;
+                result[11]=jBut_12;
+                result[12]=jBut_13;
+                result[13]=jBut_14;
+                result[14]=jBut_15;
+                result[15]=jBut_16;
+                result[16]=jBut_17;
+                result[17]=jBut_18;
+                result[18]=jBut_19;
+                result[19]=jBut_20;
+                result[20]=jBut_21;
+                result[21]=jBut_22;
+                result[22]=jBut_23;
+                result[23]=jBut_24;
+                result[24]=jBut_25;
+                result[25]=jBut_26;
+                result[26]=jBut_27;
+                result[27]=jBut_28;
+                result[28]=jBut_29;
+                result[29]=jBut_30;              
+        return result;
+    }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
