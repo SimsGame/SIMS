@@ -106,7 +106,7 @@ public class Sims_1 extends javax.swing.JFrame {
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
-        this.planningPhaseButtons=constructActivityPhaseButtons(); //added by Tobias
+        this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
     }
 
@@ -2989,6 +2989,8 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
+            // sets StudIcons on StudButtons
+        new StudIcons(activityPhaseButtons, _maingame.getArray());
         activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons); // added by Jörg, Nadir
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
@@ -3004,13 +3006,9 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         cl.show(panel_gamePhases, "card3");
         panel_menue.setVisible(false);
-            // set student pictures on the
-        jBut_1.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface1transparent.png")));
-        jBut_2.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface2transparent.png")));
-        jBut_3.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface3transparent.png")));
-        jBut_4.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface4transparent.png")));
-        jBut_5.setIcon(new ImageIcon(getClass().getResource("/pictures/studentface5transparent.png")));
-        
+
+            // sets StudIcons on StudButtons
+        new StudIcons(planningPhaseButtons, _maingame.getArray());
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");

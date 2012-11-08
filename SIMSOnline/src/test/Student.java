@@ -60,7 +60,7 @@ public class Student {
      * @return a IconPath for a student
      */
     private void initIcon(){
-        this.studIconPath = iconPath[(int)(5+Math.random()*100)%4]; 
+        this.studIconPath = iconPath[(int)(Math.random()*5)]; 
     }
 
      /**

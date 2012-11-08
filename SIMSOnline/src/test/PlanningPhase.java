@@ -128,7 +128,7 @@ public class PlanningPhase {
         if (studCounter == 1) {
             stud2 = studArr[stud_nr];
             stud2_nr = stud_nr;
-            studBut2 = studBut;
+            this.studBut2 = studBut;
             System.out.println("Stud2 auf Platz: " + (stud2_nr + 1));
             System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
             StudSwitch(stud1, stud2);
@@ -154,6 +154,8 @@ public class PlanningPhase {
         // swtiching the two selected students 
         studArr[stud1_nr] = stud2;
         studArr[stud2_nr] = stud1;
+        studBut1.setIcon(new ImageIcon(getClass().getResource(studArr[stud1_nr].getStudIcon())));
+        studBut2.setIcon(new ImageIcon(getClass().getResource(studArr[stud2_nr].getStudIcon())));
 
         System.out.println("NACHHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId()
                 + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
@@ -178,6 +180,7 @@ public class PlanningPhase {
             System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
             System.out.println(studArr[stud_nr].getStudIcon());
+            
 
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
