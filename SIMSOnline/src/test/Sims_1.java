@@ -3099,9 +3099,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_startExchangeActionPerformed
 
     private void label_logo_playingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_playingMouseClicked
-        // TODO add your handling code here:
         panel_gamePhases.setVisible(false);
         panel_menue.setVisible(true);
+        activityPhase.runTimer=false;
     }//GEN-LAST:event_label_logo_playingMouseClicked
 
     private void button_menuStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStatisticActionPerformed

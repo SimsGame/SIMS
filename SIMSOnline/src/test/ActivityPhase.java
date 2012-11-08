@@ -18,6 +18,7 @@ public class ActivityPhase {
     public boolean OmniSensePressed = false;
     public boolean doNotPaintFlag = false;
     public boolean paintStudents = false;
+    public boolean runTimer = true;
     public int barNum = 0;
     public int studentDisplayed = -1;
     private javax.swing.JLabel label_timer;
