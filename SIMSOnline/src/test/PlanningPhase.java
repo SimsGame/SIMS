@@ -298,7 +298,6 @@ public class PlanningPhase {
     }
     
     
-      
     
     /**
      * - Für Dialog-Fenster 
