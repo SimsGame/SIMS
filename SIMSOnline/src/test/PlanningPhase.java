@@ -27,8 +27,8 @@ public class PlanningPhase {
     
     //flags deklaration
     private static boolean switchFlag = false;
-    private int cheatFlag = 0;  //will be set to 1, if Spicker in Dropdown-Field is selected 
-                                       //(before will be checked if the user can use this cheat)
+    private boolean cheatFlag = false;  //will be set to true, if Spicker in Dropdown-Field is selected  and can be used
+                                       
     // counter
     private static int switchCounter = 5;
     private static int studCounter = 0;
@@ -217,36 +217,36 @@ public class PlanningPhase {
 
             // start method StudInfo() which shows knowledge, motivation and tiredness 
             // of the student which was clicked
-            studInfo.StudInfoAttr(stud_nr);
-           
-            //die if-Abrage muss hier stehen,um Überlappungen mit dem Studententausch zu vermeiden
-            //d.h. der Spicker kann nur dann eingesetzt werden, wenn der UmtauschButton nicht angeklickt ist(switchFlag=0)
+            studInfo.StudInfoAttr(stud_nr);      
             
+            // if-condition should be here to avoid overlap with the StudSwitch-function
+            // so use Cheat funktion will be invoked only if switchFlag==false and Cheat was selected
+              if (cheatFlag){             
               
-              if (cheatFlag == 1){
-                  
-              //Abfrage willst du den Spicker einsetzen? Wenn ja gecklickt useCheat methode ausführen, beim Abbrechen cheatFlag auf 0 setzen 
                useCheat(stud_nr);
+               System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
               }
                else 
-                  System.out.println("Dieser Student bekommt keinen Spicker");
-            
+                  System.out.println("Dieser Student bekommt keinen Spicker");  
+                  System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
              
-         // switchFlag == 1 --> SwitchButton clicked
+         // switchFlag == true --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");
             storeStud(stud_nr,studBut);
-        }  
-        
-        //} else { // nichts passiert   --> z.B.
-        //}
+        }      
+       
     }
      
     /**
-     *  -   function that gets the actual round and check if a user is allowed to
-     *  -   change his/her professor right now. If so, the label professor counter will be set to 1. In other case - to 0)
-     *  -   user is allowed to change his/her professor only at the beginning of the actual month and only once due semester time
-     * @param jLab_DozCounter  Label in the navigation panel of a planning phase that shows how many times the user can change professor
+     * - function that gets the actual round and check if a user is allowed to -
+     *- change his/her professor right now. If so, the label professor counter
+     *- will be set to 1. In other case - to 0) - user is allowed to change
+     * his/her professor only at the beginning of the actual month and only once
+     * due semester time
+     *
+     * @param jLab_DozCounter Label in the navigation panel of a planning phase
+     * that shows how many times the user can change professor
      * @return true if professor can be changed. In other case return false
      */
     public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
@@ -267,16 +267,18 @@ public class PlanningPhase {
     }
 
     /**
-     * - function to change lector: randomly sets the value of professor-field between 0 and 100
-     * - if professor was changed the appropriate professor-change-flag for the current round will be set to true i.e. 
+     * function to change lector: randomly sets the value of professor-field
+     * between 0 and 100 - if professor was changed the appropriate
+     * professor-change-flag for the current round will be set to true in order
+     * to avoid new change
      *
-     * @param jLab_DozCounter  Label in the navigation panel of a planning phase that shows how many times the user can change 
-     *                         professor - will be updated
-     */ 
-    public  void changeLector(JLabel jLab_DozCounter) {
-        int actualRound=Sims_1._maingame.round; // - ABfrage des aktuellen Monats
-        lectorCounter = jLab_DozCounter;        
-         if (actualRound == 3) {
+     * @param jLab_DozCounter Label in the navigation panel of a planning phase
+     * that shows how many times the user can change professor - will be updated
+     */
+    public void changeLector(JLabel jLab_DozCounter) {
+        int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
+        lectorCounter = jLab_DozCounter;
+        if (actualRound == 3) {
             lectorChanged3 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         } else if (actualRound == 6) {
@@ -295,47 +297,43 @@ public class PlanningPhase {
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
         lectorCounter.setText("0x");
         lectorCounter.repaint();
-    }
-    
-    
-      
+    }     
     
     /**
-     * - Für Dialog-Fenster 
-     * @return 
+     *
+     * @return true if CheatFlag is set.
      */
-    public  int getCheatFlag(){
+    public boolean getCheatFlag() {
         return cheatFlag;
     }
-    
-    public  void setCheatFlag(int Flag) {
-          cheatFlag = Flag;
-        
+
+    /**
+     *
+     * @param flag true if the user really wants to use cheat sheet
+     */
+    public void setCheatFlag(boolean flag) {
+        cheatFlag = flag;
     }
     
     
     /**
-     * - this method will be applied if a cheatFlag is set to 1 and we have selected one of a student
-     *      also updates Spicker-value in game-file
-     *   @param stud_nr 
+     * this method will be applied if a cheatFlag is set to true and one of a students is selected
+     * updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
+     * also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
+     * @param stud_nr  student array index number of clicked student
      */
-    public  void useCheat(int stud_nr){
-        int currentSemester=Sims_1._maingame.getSemester();
-        System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker");
-        
-        //-> FLAG BEIM STUDENT SETZEN 
+    public void useCheat(int stud_nr) {
+        int currentSemester = Sims_1._maingame.getSemester();
+        System.out.println("Student " + studArr[stud_nr].getId() + "kriegt den Spicker");
         studArr[stud_nr].setCheatAvailable(true);
-        System.out.println("CheatAvailable?" +studArr[stud_nr].getCheatAvailable() + " Student " +studArr[stud_nr].getId());
-        
-        System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
-        Sims_1._maingame.cheatSheet.amount-=1;
-        System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " +Sims_1._maingame.cheatSheet.amount); // -> wird später  Spicker.amount um 1 verringern;
-            cheatFlag=0;
-            System.out.println("cheatFlag auf 0 setzen " +cheatFlag);
-            //Spicker-Wert für das jeweilige Semester updaten:            
-           Sims_1._maingame.setCheated(currentSemester);       
-          
-            
-    
-}
+        System.out.println("CheatAvailable?" + studArr[stud_nr].getCheatAvailable() + " Student " + studArr[stud_nr].getId());
+
+        System.out.println("Anzahl der Spicker zuvor: " + Sims_1._maingame.cheatSheet.amount);
+        Sims_1._maingame.cheatSheet.amount -= 1;
+        System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " + Sims_1._maingame.cheatSheet.amount);
+        cheatFlag = false;
+        System.out.println("cheatFlag auf false setzen " + cheatFlag);
+
+        Sims_1._maingame.setCheated(currentSemester);
+    }
 }

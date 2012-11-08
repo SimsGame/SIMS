@@ -3693,8 +3693,8 @@ public class Sims_1 extends javax.swing.JFrame {
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
          */
-        int currentSemester=Sims_1._maingame.getSemester(); // aktuelles Semester
-        boolean usedCheat=Sims_1._maingame.getCheated(currentSemester);
+        int currentSemester=Sims_1._maingame.getSemester(); // current Semester
+        boolean usedCheat=Sims_1._maingame.getCheated(currentSemester); //checks if Cheat was already used in this semester
         
         javax.swing.JComboBox box = (javax.swing.JComboBox) evt.getSource();
         String selected = (String) box.getSelectedItem();
@@ -3715,14 +3715,14 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
         // TODO add your handling code here:
-        planningPhase.setCheatFlag(1);
+        planningPhase.setCheatFlag(true);
         warningDialog.setVisible(false);
 
     }//GEN-LAST:event_jBut_JAMouseClicked
 
     private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
         // TODO add your handling code here:
-        planningPhase.setCheatFlag(0);
+        planningPhase.setCheatFlag(false);
         warningDialog.setVisible(false);
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
