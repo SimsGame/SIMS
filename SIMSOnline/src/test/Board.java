@@ -308,10 +308,10 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         button_dismissGameLabel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 endDialog.setVisible(false);
                 endCounter = 1;
                 Sims_1.button_afterGame.doClick();
-                revalidate();
             }});
         label_headline.setFont(new Font("Text", 1,20));
         label_headline.setBounds(0, 10, 500, 20);
