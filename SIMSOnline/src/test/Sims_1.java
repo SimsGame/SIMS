@@ -2996,6 +2996,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuStartNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStartNewGameActionPerformed
         // Starts a new game with initial values from the game_1.java. 
+        Game1.initNewSavefile();
+        Game1.loadGame();
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
@@ -3018,6 +3020,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
         // Loads and existing game which always starts with a planning phase.
+        Game1.loadGame();
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
@@ -4831,7 +4834,7 @@ public class Sims_1 extends javax.swing.JFrame {
             e.printStackTrace();
         }
         _mainuser = new User(accountname);
-        _maingame = new Game1();
+        //_maingame = new Game1();
 //        CSVRead read = new CSVRead();
 //        try {
 //            read.readCSV();
@@ -4846,7 +4849,7 @@ public class Sims_1 extends javax.swing.JFrame {
     /**
      * Standardized login with a fictional user, just for dev-purposes
      */
-    private void logIn() {
+    @Deprecated private void logIn() {
         _mainuser = new User();  //by Dawid
         _maingame = new Game1();
         CSVRead read = new CSVRead();
