@@ -8,7 +8,7 @@ package test;
  *
  * @author Kira
  */
-public class Attributes {
+@Deprecated public class Attributes {
     
     
     

@@ -53,7 +53,7 @@ public class Timer extends Thread {
    }
     @Override
     public void run() {
-        while (timer > 0) {
+        while (timer > 0 && activityPhase.runTimer) {
             long millis = System.currentTimeMillis();
             while ((System.currentTimeMillis() - millis) < 1000) {
                 //do nothing
@@ -111,8 +111,8 @@ public void updateRoom(double factor1, double factor2){
             if(!this.activityPhase.doNotPaintFlag){
             paintBars();
             }
-            if(activityPhase.barNum!=0){
-                activityPhase.barClicked();
+            if(game.barNum!=0){
+                game.barClicked(activityPhase.studButtons);
             }
             if(activityPhase.studentDisplayed!=-1){
                 activityPhase.displayStudentBars();

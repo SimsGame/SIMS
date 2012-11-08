@@ -22,12 +22,16 @@ public class StudInfo {
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JProgressBar TirednessBar;
     // current StudentArray 
-    // current form the PlanningPhase
-    private Game1 game;
     private Student[] studArr;
 
-    // constructor which expects the three progress bars
-    // called on loading the PlanningPhase
+
+    /**
+     * - constructor which expects the three progress bars
+     * - called on loading the PlanningPhase
+     * @param jProgB_Knowledge progress bar which shows the knowledge
+     * @param jProgB_Motivation progress bar which shows the motivation
+     * @param jProgB_Tiredness progress bar which shows the tiredness
+     */
     public StudInfo(javax.swing.JProgressBar jProgB_Knowledge,
             javax.swing.JProgressBar jProgB_Motivation,
             javax.swing.JProgressBar jProgB_Tiredness) {
@@ -37,18 +41,19 @@ public class StudInfo {
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
-        game = Sims_1._maingame;
-            // muss globalen Studentenarray bekommen und keine neue Initialisierung
-        game.initArray();
         // studArr gets the StudentArray of current game
-        this.studArr = game.studentArray;
+        this.studArr = Sims_1._maingame.getArray();
         // shows average values when PlanningPhase is loaded
         StudInfoAverage();
 
 
     }
 
-    // initializes the attributes of the selected student
+    
+    /**
+     * - initializes the attributes of the selected student
+     * @param stud_nr array index number of the student array
+     */
     public void StudInfoAttr(int stud_nr) {
 
         this.knowledge = (int) studArr[stud_nr].getKnowledge();
@@ -58,11 +63,11 @@ public class StudInfo {
         StudInfoSetBars();
     }
 
-    // calculates the average attributs values of all students 
+    
+    /**
+     * - calculates the average attributs values of all students
+     */
     public void StudInfoAverage() {
-        // if abfrage ob knowledge_H != 0 usw. damit es nicht nochmal gerechnet wird!!
-        // --> new SetBars()
-
         // initializing to 0
         this.knowledge_H = 0;
         this.motivation_H = 0;
@@ -82,7 +87,8 @@ public class StudInfo {
         StudInfoSetBars();
     }
 
-    // visualizes the attributs of a student via the progress bars
+    
+        // sets the progress bars
     private void StudInfoSetBars() {
         KnowledgeBar.setValue(knowledge);
         KnowledgeBar.repaint();
