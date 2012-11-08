@@ -213,9 +213,18 @@ public class Student {
         }
     }
     
+    /**
+     * CheatSheet will be set 
+     * @param flag 
+     */
     public void setCheatAvailable(boolean flag){
         this.cheatAvailable=flag;
     }
+    
+    /**
+     * 
+     * @return  true if a student has the CheatSheet.
+     */
     
     public boolean getCheatAvailable(){
         return this.cheatAvailable;
