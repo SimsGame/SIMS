@@ -325,7 +325,9 @@ public class PlanningPhase {
         int currentSemester=Sims_1._maingame.getSemester();
         System.out.println("Student " +studArr[stud_nr].getId() + "kriegt den Spicker");
         
-        //-> FLAG BEIM STUDENT SETZEN        
+        //-> FLAG BEIM STUDENT SETZEN 
+        studArr[stud_nr].setCheatAvailable(true);
+        System.out.println("CheatAvailable?" +studArr[stud_nr].getCheatAvailable() + " Student " +studArr[stud_nr].getId());
         
         System.out.println("Anzahl der Spicker zuvor: " +Sims_1._maingame.cheatSheet.amount);
         Sims_1._maingame.cheatSheet.amount-=1;
