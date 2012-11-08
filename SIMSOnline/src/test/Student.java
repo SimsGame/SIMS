@@ -17,6 +17,7 @@ public class Student {
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
+    public boolean present=true;
     
     /**
      * 
@@ -92,6 +93,12 @@ public class Student {
      */
     public double getId() {
         return this.id;
+    }
+    
+    public void exam(double value){
+        if(this.knowledge<value){
+            this.present=false;
+        }            
     }
     
        /**

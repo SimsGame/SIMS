@@ -18,9 +18,6 @@ public class Timer extends Thread {
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
-    public boolean windowOpen = false;
-    public boolean teamwork = false;
-    public boolean shortBreak = false;
     private double add1;
     private double add2;
     private javax.swing.JProgressBar KnowledgeBar;
@@ -69,25 +66,48 @@ public class Timer extends Thread {
             timerText+=timer % 60;
             label_timer.setText(timerText);
             //You can only have teamwork OR break. One will override the other.
+/*            
+public void updateRoom(double factor1, double factor2){
+         setAirQuality(this.airQuality + factor1);
+         setNoise(this.noise + factor2);
+     }*/    
+            if (game.quietingCounter>0){
+                game.updateRoom(-1.65, -3.65);
+                game.quietingCounter--;
+            }
+            else{
+                game.updateRoom(-1.65, 1.65);
+            }
             if(game.teamwork){
-                add1=(game.noise+0.000001)/200*(13.0);
-                add2=(100.000001-game.airQuality)/200*13.3;
+                add1=(game.noise+0.000001)/200*(2.5);
+                add2=(100.000001-game.airQuality)/200*3.3;
                 game.updateArray(add1, add2, 0.02);
             }
             else if(game.shortBreak){
-                add1=(game.noise+0.000001)/200*(13.3);
-                add2=(100.000001-game.airQuality)/200*(-13.3);
+                add1=(game.noise+0.000001)/200*(3.3);
+                add2=(100.000001-game.airQuality)/200*(-3.3);
                 game.updateArray(add1, add2, -1);
             }
             else {
-                add1=(game.noise+0.000001)/200*(-13.3);
-                add2=(100.000001-game.airQuality)/200*13.3;
+                add1=(game.noise+0.000001)/200*(-3.3);
+                add2=(100.000001-game.airQuality)/200*3.3;
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
-         
-            //game.updateArray(-1.5, 1.5);
-            //updateAvrg();
+            if(timer==1){
+                int round = game.round;
+                if (round%3==0){
+                    switch (round){
+                        case 3: game.examTime(10); break;
+                        case 6: game.examTime(20); break;
+                        case 9: game.examTime(35); break;
+                        case 12: game.examTime(50); break;
+                        case 15: game.examTime(70); break;
+                        case 18: game.examTime(90); break;
+                        default: break;
+                    }
+                }
+            }
             if(!this.activityPhase.doNotPaintFlag){
             paintBars();
             }
@@ -101,7 +121,7 @@ public class Timer extends Thread {
     }
     
     private void paintBars(){
-         KnowledgeBar.setValue((int)(averageKnowledge*250)); 
+         KnowledgeBar.setValue((int)(averageKnowledge)); 
          MotivationBar.setValue((int)averageMotivation); 
          TirednessBar.setValue((int)averageTiredness); 
          AirBar.setValue((int)game.airQuality);

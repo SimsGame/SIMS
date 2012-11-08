@@ -2112,6 +2112,11 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_activityPhaseStudField.setLayout(null);
 
         jBut_Dozent1.setText("Dozent");
+        jBut_Dozent1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_Dozent1ActionPerformed(evt);
+            }
+        });
         panel_activityPhaseStudField.add(jBut_Dozent1);
         jBut_Dozent1.setBounds(340, 470, 110, 50);
 
@@ -3962,6 +3967,13 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.shortBreak=false; 
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
+
+    private void jBut_Dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_Dozent1ActionPerformed
+        if (_maingame.lecturer_counter>0){
+            _maingame.quietingCounter=5;
+            _maingame.lecturer_counter--;
+        }
+    }//GEN-LAST:event_jBut_Dozent1ActionPerformed
     
     /**
      * @param args the command line arguments
