@@ -533,7 +533,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 29);
+        button_swapperExchange.setBounds(50, 220, 130, 23);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -542,7 +542,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 29);
+        button_swapperAbord.setBounds(210, 220, 130, 23);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -551,11 +551,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 10, 16);
+        label_swapperArrow1.setBounds(190, 130, 8, 14);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 16);
+        label_swapperArrow3.setBounds(190, 140, 40, 14);
 
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
@@ -582,7 +582,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 75, 29);
+        button_shopMessageOk.setBounds(170, 210, 47, 23);
 
         warning.setModal(true);
         warning.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -939,10 +939,10 @@ public class Sims_1 extends javax.swing.JFrame {
         loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 540, 420, 30));
 
-        label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_menue.add(label_handcursor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 170, 40));
 
-        label_handcursor1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label_handcursor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_menue.add(label_handcursor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 160, 40));
 
         label_handcursor2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1058,7 +1058,7 @@ public class Sims_1 extends javax.swing.JFrame {
         text_backtomenue1.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
         text_backtomenue1.setText("<- zurück zum Menü");
         Logo.add(text_backtomenue1);
-        text_backtomenue1.setBounds(10, 90, 130, 14);
+        text_backtomenue1.setBounds(10, 90, 130, 15);
 
         gamePlanning.add(Logo);
         Logo.setBounds(0, 0, 150, 110);
@@ -1144,7 +1144,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Planning_unused05.setText("umsetzen");
         jPan_StudSwitch.add(jLab_Planning_unused05);
-        jLab_Planning_unused05.setBounds(40, 40, 70, 16);
+        jLab_Planning_unused05.setBounds(40, 40, 70, 14);
 
         jLab_Planning_unused06.setText("Studenten");
         jPan_StudSwitch.add(jLab_Planning_unused06);
@@ -1153,7 +1153,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 22);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
         jToggleBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1223,7 +1223,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jBut_ComboB_useItem.setText("Benutzen");
         jPan_ItemSelect.add(jBut_ComboB_useItem);
-        jBut_ComboB_useItem.setBounds(10, 60, 120, 29);
+        jBut_ComboB_useItem.setBounds(10, 60, 120, 23);
 
         Navi.add(jPan_ItemSelect);
         jPan_ItemSelect.setBounds(0, 220, 150, 110);
@@ -1238,15 +1238,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 16);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 16);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 16);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1619,7 +1619,7 @@ public class Sims_1 extends javax.swing.JFrame {
         text_backtomenue2.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
         text_backtomenue2.setText("<- zurück zum Menü");
         jPanel18.add(text_backtomenue2);
-        text_backtomenue2.setBounds(10, 90, 130, 14);
+        text_backtomenue2.setBounds(10, 90, 130, 15);
 
         shop.add(jPanel18);
         jPanel18.setBounds(0, 0, 150, 110);
@@ -1634,19 +1634,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLabel58.setText("Studenten:");
         jPanel19.add(jLabel58);
-        jLabel58.setBounds(10, 450, 80, 16);
+        jLabel58.setBounds(10, 450, 80, 14);
 
         jLabel59.setText("4 / 40");
         jPanel19.add(jLabel59);
-        jLabel59.setBounds(80, 450, 50, 16);
+        jLabel59.setBounds(80, 450, 50, 14);
 
         jLabel60.setText("Semester: ");
         jPanel19.add(jLabel60);
-        jLabel60.setBounds(10, 470, 80, 16);
+        jLabel60.setBounds(10, 470, 80, 14);
 
         jLabel61.setText("3 / 6");
         jPanel19.add(jLabel61);
-        jLabel61.setBounds(80, 470, 60, 16);
+        jLabel61.setBounds(80, 470, 60, 14);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item4);
@@ -1663,27 +1663,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         jPanel19.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 45, 16);
+        label_item1Name.setBounds(60, 80, 34, 14);
 
         label_item1Amount.setText("jLabel4");
         jPanel19.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 45, 16);
+        label_item1Amount.setBounds(60, 100, 34, 14);
 
         label_item2Name.setText("jLabel4");
         jPanel19.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 45, 16);
+        label_item2Name.setBounds(60, 190, 34, 14);
 
         label_item2Amount.setText("jLabel4");
         jPanel19.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 45, 16);
+        label_item2Amount.setBounds(60, 210, 34, 14);
 
         label_item3Name.setText("jLabel4");
         jPanel19.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 45, 16);
+        label_item3Name.setBounds(60, 380, 34, 14);
 
         label_item3Amount.setText("jLabel26");
         jPanel19.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 53, 16);
+        label_item3Amount.setBounds(60, 400, 40, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel19.add(label_item3);
@@ -1691,11 +1691,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         jPanel19.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 45, 16);
+        label_item4Name.setBounds(60, 280, 34, 14);
 
         label_item4Amount.setText("jLabel26");
         jPanel19.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 53, 16);
+        label_item4Amount.setBounds(60, 300, 40, 14);
 
         shop.add(jPanel19);
         jPanel19.setBounds(0, 110, 150, 550);
@@ -1975,7 +1975,7 @@ public class Sims_1 extends javax.swing.JFrame {
         text_backtomenue.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
         text_backtomenue.setText("<- zurück zum Menü");
         panel_logoarea.add(text_backtomenue);
-        text_backtomenue.setBounds(10, 90, 130, 14);
+        text_backtomenue.setBounds(10, 90, 130, 15);
 
         gamePlaying.add(panel_logoarea);
         panel_logoarea.setBounds(0, 0, 150, 110);
@@ -1999,23 +1999,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         text_students.setText("Studenten:");
         jPanel4.add(text_students);
-        text_students.setBounds(10, 450, 80, 16);
+        text_students.setBounds(10, 450, 80, 14);
 
         label_students.setText("4 / 40");
         jPanel4.add(label_students);
-        label_students.setBounds(80, 450, 50, 16);
+        label_students.setBounds(80, 450, 50, 14);
 
         text_semester.setText("Semester: ");
         jPanel4.add(text_semester);
-        text_semester.setBounds(10, 470, 80, 16);
+        text_semester.setBounds(10, 470, 80, 14);
 
         label_semester.setText("3 / 6");
         jPanel4.add(label_semester);
-        label_semester.setBounds(80, 470, 60, 16);
+        label_semester.setBounds(80, 470, 60, 14);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 16);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2028,7 +2028,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 16);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -2036,7 +2036,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 16);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2067,11 +2067,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 16);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 16);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -2126,7 +2126,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(button_window);
-        button_window.setBounds(350, 10, 120, 29);
+        button_window.setBounds(350, 10, 120, 23);
 
         text_noise.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_noise.setText("Lärmpegel:");
@@ -2158,7 +2158,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(toggleButton_teamwork);
-        toggleButton_teamwork.setBounds(350, 40, 120, 29);
+        toggleButton_teamwork.setBounds(350, 40, 120, 23);
 
         gamePlaying.add(jPanel5);
         jPanel5.setBounds(150, 0, 700, 110);
