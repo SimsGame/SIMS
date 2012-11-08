@@ -8,6 +8,7 @@ package test;
  *
  * @author Jörg Woditschka
  * @authot Nadir Yudlashev
+ * @author Kira Schomber
  */
 public class Timer extends Thread {
 
