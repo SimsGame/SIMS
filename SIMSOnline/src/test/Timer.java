@@ -91,8 +91,8 @@ public class Timer extends Thread {
             if(!this.activityPhase.doNotPaintFlag){
             paintBars();
             }
-            if(activityPhase.barNum!=0){
-                activityPhase.barClicked();
+            if(game.barNum!=0){
+                game.barClicked(activityPhase.studButtons);
             }
             if(activityPhase.studentDisplayed!=-1){
                 activityPhase.displayStudentBars();
