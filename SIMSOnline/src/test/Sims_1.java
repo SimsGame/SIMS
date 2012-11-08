@@ -48,6 +48,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
     private javax.swing.JButton[] activityPhaseButtons;
+    private javax.swing.JButton[] plannigPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
