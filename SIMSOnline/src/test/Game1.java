@@ -22,6 +22,8 @@ public class Game1 {
     public Student[] studentArray; //added by Jörg
     public double airQuality;
     public double noise;
+    public int quietingCounter=0;
+    public int lecturer_counter=3;
     public boolean teamwork = false;
     public boolean shortBreak = false;
     public boolean windowClosed = true;
@@ -75,12 +77,28 @@ public class Game1 {
      */
      public void updateArray (double add1, double add2, double add3){
        for (int i = 0; i < 30; i++) {
-       studentArray[i].changeMotivation(add1);
-       studentArray[i].changeTiredness(add2);
-       studentArray[i].updateKnowledge(add3);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
-       }
-    }    
+        if (quietingCounter>0&&add1>=0){
+            add1=-1;
+        }
+        else if(quietingCounter>0){
+            add1=add1-1;
+        }
+        studentArray[i].changeMotivation(add1);
+        studentArray[i].changeTiredness(add2);
+        studentArray[i].updateKnowledge(add3);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
+        }
+       }    
 
+     public void examTime(double examvalue){
+         for (int i = 0; i < 30; i++) {
+             if (studentArray[i].present){
+                 double knowledge=studentArray[i].getKnowledge();
+                 if(knowledge<examvalue){
+                   studentArray[i].present=false;
+                 } 
+             }
+         }
+     }
      /**
       * initializes the attributes of the room in general
       */
@@ -97,7 +115,7 @@ public class Game1 {
      
      public void setAirQuality(double value) {
         if (!windowClosed){
-            value=value+3;
+            value=value+5;
         }
         if(value<0){
             this.airQuality= 0;
@@ -115,7 +133,7 @@ public class Game1 {
       */
     public void setNoise(double value) {
         if (!windowClosed){
-            value=value+0.7;
+            value=value+0.5;
         }
         if(value<0){
             this.noise= 0;
@@ -138,7 +156,7 @@ public class Game1 {
      /**
      * Receives data (Item Objects) from Item.java and
      * stores them in the fitting Item Objects in this class.
-     * That's how each item can becalled by name.
+     * That's how each item can be called by name.
      */
     
     public final void putItem(String name, int amount, int available) {

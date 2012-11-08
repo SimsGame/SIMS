@@ -17,8 +17,9 @@ public class Student {
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
+    public boolean present = true;
     private String studIconPath;
-    private boolean cheatAvailable; //added by Julia    
+    private boolean cheatAvailable; //added by Julia   
     public final String[] iconPath = {
             "/pictures/studentface1transparent.png",
             "/pictures/studentface2transparent.png",
@@ -109,6 +110,12 @@ public class Student {
      */
     public double getId() {
         return this.id;
+    }
+    
+    public void exam(double value){
+        if(this.knowledge<value){
+            this.present=false;
+        }            
     }
     
        /**
