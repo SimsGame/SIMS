@@ -241,16 +241,13 @@ public class PlanningPhase {
         //} else { // nichts passiert   --> z.B.
         //}
     }
-
-    
-//      function that gets the actual month and check if a user is allowed to
-//      changed a lector. If yes, the label counter will be set to 1. In other
-//      case - to 0)
      
     /**
-     * 
-     * @param jLab_DozCounter
-     * @return 
+     *  -   function that gets the actual round and check if a user is allowed to
+     *  -   change his/her professor right now. If so, the label professor counter will be set to 1. In other case - to 0)
+     *  -   user is allowed to change his/her professor only at the beginning of the actual month and only once due semester time
+     * @param jLab_DozCounter  Label in the navigation panel of a planning phase that shows how many times the user can change professor
+     * @return true if professor can be changed. In other case return false
      */
     public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
         int actualRound=Sims_1._maingame.round;
@@ -261,8 +258,7 @@ public class PlanningPhase {
             lectorCounter.setText("1x");
             lectorCounter.repaint();
             return true;
-        } else {
-            
+        } else {            
             lectorCounter.setText("0x");
             lectorCounter.repaint();
             return false;
@@ -271,9 +267,11 @@ public class PlanningPhase {
     }
 
     /**
-     * - function to change lector
-     * - if lector was changed the appropriate flag will be set to true
-     * @param jLab_DozCounter 
+     * - function to change lector: randomly sets the value of professor-field between 0 and 100
+     * - if professor was changed the appropriate professor-change-flag for the current round will be set to true i.e. 
+     *
+     * @param jLab_DozCounter  Label in the navigation panel of a planning phase that shows how many times the user can change 
+     *                         professor - will be updated
      */ 
     public  void changeLector(JLabel jLab_DozCounter) {
         int actualRound=Sims_1._maingame.round; // - ABfrage des aktuellen Monats
@@ -318,8 +316,8 @@ public class PlanningPhase {
     
     /**
      * - this method will be applied if a cheatFlag is set to 1 and we have selected one of a student
-     * also updates Spicker-value in game-file
-     * @param stud_nr 
+     *      also updates Spicker-value in game-file
+     *   @param stud_nr 
      */
     public  void useCheat(int stud_nr){
         int currentSemester=Sims_1._maingame.getSemester();
