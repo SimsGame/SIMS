@@ -55,12 +55,15 @@ public class StudInfo {
      * @param stud_nr array index number of the student array
      */
     public void StudInfoAttr(int stud_nr) {
-
+        if (studArr[stud_nr].present){
         this.knowledge = (int) studArr[stud_nr].getKnowledge();
         this.motivation = (int) studArr[stud_nr].getMotivation();
         this.tiredness = (int) studArr[stud_nr].getTiredness();
 
         StudInfoSetBars();
+        } else{
+            System.out.println("Student not present!");
+        }
     }
 
     
@@ -75,9 +78,11 @@ public class StudInfo {
 
         // iterates the studentArray and sum up the attribute values
         for (int i = 0; i < 30; i++) {
+            if (studArr[i].present){
             this.knowledge_H = this.knowledge_H + studArr[i].getKnowledge();
             this.motivation_H = this.motivation_H + studArr[i].getMotivation();
             this.tiredness_H = this.tiredness_H + studArr[i].getTiredness();
+            }
         }
 
         this.knowledge = (int) (this.knowledge_H / 30);
