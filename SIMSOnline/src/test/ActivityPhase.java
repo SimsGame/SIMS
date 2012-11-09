@@ -32,7 +32,7 @@ public class ActivityPhase {
     public javax.swing.JButton[] studButtons;
     private Game1 game;
     
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score) {
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -62,7 +62,7 @@ public class ActivityPhase {
         if (redBullPressed) {
             if (game.redBull.amount > 0) {
                 game.redBull.amount -= 1;
-                label_redBull.setText(game.redBull.amount+"x");
+                label_redBull.setText(game.redBull.amount+" x");
                 game.studentArray[studNum].setKnowledge(game.studentArray[studNum].getKnowledge() + game.redBull.knowledge);
                 game.studentArray[studNum].setMotivation(game.studentArray[studNum].getMotivation() + game.redBull.motivation);
                 game.studentArray[studNum].setTiredness(game.studentArray[studNum].getTiredness() + game.redBull.tiredness);
@@ -73,7 +73,7 @@ public class ActivityPhase {
         } else if (duploPressed) {
             if (game.duplo.amount > 0) {
                 game.duplo.amount -= 1;
-                label_duplo.setText(game.duplo.amount+"x");
+                label_duplo.setText(game.duplo.amount+" x");
                 game.studentArray[studNum].setKnowledge(game.studentArray[studNum].getKnowledge() + game.duplo.knowledge);
                 game.studentArray[studNum].setMotivation(game.studentArray[studNum].getMotivation() + game.duplo.motivation);
                 game.studentArray[studNum].setTiredness(game.studentArray[studNum].getTiredness() + game.duplo.tiredness);
@@ -83,7 +83,7 @@ public class ActivityPhase {
         } else if (OmniSensePressed) {
             if (game.omniSenseAudio.amount > 0) {
                 game.omniSenseAudio.amount -= 1;
-                label_omniSense.setText(game.omniSenseAudio.amount+"x");
+                label_omniSense.setText(game.omniSenseAudio.amount+" x");
                 game.studentArray[studNum].setKnowledge(game.studentArray[studNum].getKnowledge() + game.omniSenseAudio.knowledge);
                 game.studentArray[studNum].setMotivation(game.studentArray[studNum].getMotivation() + game.omniSenseAudio.motivation);
                 game.studentArray[studNum].setTiredness(game.studentArray[studNum].getTiredness() + game.omniSenseAudio.tiredness);
