@@ -65,6 +65,13 @@ public class Game1 {
     public boolean setCheated(int semester) {
         return setCheated(semester, true);
     }
+    
+    public void initAttr(){
+        for(int i= 0; i< studentArray.length; i++){
+            studentArray[i].initMotivation();
+            studentArray[i].initTiredness();
+        }
+    }
 
     /**
      * initializes the array of students.
@@ -250,6 +257,7 @@ public class Game1 {
         putItem(Item._spickerName, new Integer(help.get(0)), new Integer(help.get(1)));
         help = inventory.pop();
         putItem(Item._omniSenseName, new Integer(help.get(0)), new Integer(help.get(1)));
+        
         
     }
     

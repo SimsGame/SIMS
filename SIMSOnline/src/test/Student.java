@@ -45,6 +45,7 @@ public class Student {
     public Student(LinkedList<String> student){
         this.knowledge = new Integer(student.pop());
         this.intelligence = new Double(student.pop());
+        System.out.println(this.intelligence);
         this.studIconPath = iconPath[new Integer(student.pop())];
         this.cheatAvailable = Boolean.getBoolean(student.pop());
     }
@@ -54,7 +55,7 @@ public class Student {
      * @return a double of value between 0 and 40 This functions initializes the
      * value of the tiredness attribute.
      */
-    private void initTiredness() {
+    public void initTiredness() {
         this.tiredness=Math.round(Math.random()*40);
     }
 
@@ -63,7 +64,7 @@ public class Student {
      * @return a double of value between 50 and 90 This functions initializes the
      * value of the motivation attribute.
      */
-    private void initMotivation() {
+    public void initMotivation() {
         this.motivation=Math.round(50+Math.random()*40);
     }
     
@@ -71,7 +72,7 @@ public class Student {
      *
      * @return a IconPath for a student
      */
-    private void initIcon(){
+    public void initIcon(){
         this.studIconPath = iconPath[(int)(Math.random()*5)]; 
     }
 
@@ -109,6 +110,7 @@ public class Student {
         else {
             this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
         }
+        System.out.println(this.intelligence);
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
         
     }

@@ -41,7 +41,7 @@ public class PlanningPhase {
     
     
     //deklaration of the variables that are needed for the lector-change function
-    private  JLabel lectorCounter; //JLabel that shows how many times the user can change lector
+    private  JLabel professorCounter; //JLabel that shows how many times the user can change lector
      
     private  boolean lectorChanged3 = false; //flag is set if the lector was already changed in this round
     private  boolean lectorChanged6 = false;
@@ -93,8 +93,28 @@ public class PlanningPhase {
         // initialzing the PrograssBars on studInfo
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
         
+        this.professorCounter = jLab_DozCounter;
         //updates label "Dozenten tauschen"
-        checkProffesorChangeability(jLab_DozCounter);
+        checkProffesorChangeability(professorCounter);
+        
+        new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
+        
+    }
+    /**
+     * 
+     */
+    public void startPlanningPhase() {
+        // StudentArray will be initialized
+        studArr = Sims_1._maingame.getArray();
+
+        // one instance of StudInfo which is used for all student buttons
+        // initialzing the PrograssBars on studInfo
+        studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
+        
+        //updates label "Dozenten tauschen"
+        checkProffesorChangeability(professorCounter);
+        
+        new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray());
         
     }
 
@@ -226,10 +246,10 @@ public class PlanningPhase {
                useCheat(stud_nr);
                System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
               }
-               else {
+               else 
                   System.out.println("Dieser Student bekommt keinen Spicker");  
                   System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
-              }
+             
          // switchFlag == true --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");
@@ -251,16 +271,16 @@ public class PlanningPhase {
      */
     public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
         int actualRound=Sims_1._maingame.round;
-        lectorCounter = jLab_DozCounter;
+        professorCounter = jLab_DozCounter;
         if ( (actualRound == 3 && !lectorChanged3)  || (actualRound == 6 && !lectorChanged6) || 
              (actualRound == 9 && !lectorChanged9)|| (actualRound == 12 && !lectorChanged12) ||
              (actualRound == 15 && !lectorChanged15)) {            
-            lectorCounter.setText("1x");
-            lectorCounter.repaint();
+            professorCounter.setText("1x");
+            professorCounter.repaint();
             return true;
         } else {            
-            lectorCounter.setText("0x");
-            lectorCounter.repaint();
+            professorCounter.setText("0x");
+            professorCounter.repaint();
             return false;
         }
         
@@ -278,7 +298,7 @@ public class PlanningPhase {
      */
     public void changeLector(JLabel jLab_DozCounter) {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
-        lectorCounter = jLab_DozCounter;
+        professorCounter = jLab_DozCounter;
         if (actualRound == 3) {
             lectorChanged3 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
@@ -296,8 +316,8 @@ public class PlanningPhase {
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
-        lectorCounter.setText("0x");
-        lectorCounter.repaint();
+        professorCounter.setText("0x");
+        professorCounter.repaint();
     }     
     
     /**

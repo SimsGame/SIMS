@@ -47,8 +47,8 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
-    private javax.swing.JButton[] activityPhaseButtons;
-    private javax.swing.JButton[] planningPhaseButtons;
+    protected static javax.swing.JButton[] activityPhaseButtons;
+    protected static javax.swing.JButton[] planningPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -3097,19 +3097,8 @@ public class Sims_1 extends javax.swing.JFrame {
         // Starts a new game with initial values from the game_1.java. 
         Game1.initNewSavefile();
         Game1.loadGame();
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        cl.show(panel_gamePhases, "card2");
-        panel_menue.setVisible(false);
-        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
-        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
-        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
-        label_creditsInv.setText("Credits:   " + _maingame.credits);
-            // sets StudIcons on StudButtons
-        new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
+        
+        startActivityPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -3127,7 +3116,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setVisible(false);
 
             // sets StudIcons on StudButtons
-        new StudIcons(planningPhaseButtons, _maingame.getArray());  
+        //new StudIcons(planningPhaseButtons, _maingame.getArray());  
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
@@ -3205,9 +3194,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_logoMouseClicked
 
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
-        // Returns from the shop back to the planning phase
+              // Returns from the shop back to the planning phase
         cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);
+        planningPhase.startPlanningPhase();
+        panel_menue.setVisible(false);  
     }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
@@ -3612,7 +3602,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
+     //   activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -5138,4 +5128,21 @@ public class Sims_1 extends javax.swing.JFrame {
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
+    
+public void startActivityPhase(){
+        
+    if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        cl.show(panel_gamePhases, "card2");
+        panel_menue.setVisible(false);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
+        label_creditsInv.setText("Credits:   " + _maingame.credits);
+            // sets StudIcons on StudButtons
+        new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
+}
 }
