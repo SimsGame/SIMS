@@ -226,10 +226,10 @@ public class PlanningPhase {
                useCheat(stud_nr);
                System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
               }
-               else 
+               else {
                   System.out.println("Dieser Student bekommt keinen Spicker");  
                   System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
-             
+              }
          // switchFlag == true --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");

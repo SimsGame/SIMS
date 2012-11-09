@@ -227,7 +227,6 @@ public class Game1 {
         help = inventory.pop();
         putItem(Item._omniSenseName, new Integer(help.get(0)), new Integer(help.get(1)));
         
-        JOptionPane.showMessageDialog(null, Arrays.toString(this.studentArray));
     }
     
 /**
