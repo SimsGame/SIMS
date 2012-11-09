@@ -52,6 +52,7 @@ public class ActivityPhase {
     }
     
     private void activityPhaseMain(){
+        game.calculateRowIntelligence();
         Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
         runTimer.start();  
     }
