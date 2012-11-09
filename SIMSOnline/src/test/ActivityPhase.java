@@ -12,13 +12,14 @@ import java.awt.Color;
  * @author Nadir Yuldashev
  */
 public class ActivityPhase {
-    
+    public Thread timer;
     public boolean redBullPressed = false;
     public boolean duploPressed = false;
     public boolean OmniSensePressed = false;
     public boolean doNotPaintFlag = false;
     public boolean runTimer = true;
     public int studentDisplayed = -1;
+    public Sims_1 sims;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_redBull;
@@ -32,7 +33,7 @@ public class ActivityPhase {
     public javax.swing.JButton[] studButtons;
     private Game1 game;
     
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score) {        
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -48,13 +49,14 @@ public class ActivityPhase {
         game.initRoom();
         this.label_score=score;
         this.label_score.setText(Integer.toString(this.game.points));
+        this.sims=sims;
         activityPhaseMain();
     }
     
     private void activityPhaseMain(){
         game.calculateRowIntelligence();
-        Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
-        runTimer.start();  
+        timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
+        timer.start();  
     }
     
     public void StudentClicked(int studNum) {

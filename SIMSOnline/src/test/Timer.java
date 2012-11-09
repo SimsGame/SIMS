@@ -119,6 +119,8 @@ public void updateRoom(double factor1, double factor2){
                 activityPhase.displayStudentBars();
             }
         }
+        game.round+=1;
+        activityPhase.sims.switchPhase();
     }
     
     private void paintBars(){

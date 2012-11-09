@@ -42,7 +42,7 @@ public class Game1 {
 
 
     public int getSemester() {
-        return (round / 3 + 1);
+        return ((round -1 ) / 3 + 1);
     }
 
     public boolean getCheated(int semester) {
