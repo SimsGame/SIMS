@@ -1355,11 +1355,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_PlayMouseClicked(evt);
             }
         });
-        jBut_Play.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBut_PlayActionPerformed(evt);
-            }
-        });
         jPan_Planning_Play.add(jBut_Play);
         jBut_Play.setBounds(10, 10, 130, 90);
 
@@ -3097,8 +3092,18 @@ public class Sims_1 extends javax.swing.JFrame {
         // Starts a new game with initial values from the game_1.java. 
         Game1.initNewSavefile();
         Game1.loadGame();
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);
+        if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
         
-        startActivityPhase();
+        cl.show(panel_gamePhases, "card3");
+        planningPhase.startPlanningPhase();
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+        panel_menue.setVisible(false);
+        //startActivityPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -3228,10 +3233,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_ChangeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBut_ChangeProfessorActionPerformed
-
-    private void jBut_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_PlayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBut_PlayActionPerformed
 
     private void jBut_startShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_startShopActionPerformed
         // TODO add your handling code here:
@@ -3590,12 +3591,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this);
         // Starts the action phase and the inventory. 
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
         cl.show(panel_gamePhases, "card2");
+        startActivityPhase();
         panel_menue.setVisible(false);
         item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
         item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
@@ -5156,6 +5158,7 @@ public void switchPhase(){
         }*/
     }else{
         cl.show(panel_gamePhases, "card3");
+        planningPhase.startPlanningPhase();
     }
     
 }

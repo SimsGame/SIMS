@@ -56,7 +56,7 @@ public class Timer extends Thread {
     public void run() {
         while (timer > 0 && activityPhase.runTimer) {
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 1000) {
+            while ((System.currentTimeMillis() - millis) < 100) {
                 //do nothing
             }
             timer--;
