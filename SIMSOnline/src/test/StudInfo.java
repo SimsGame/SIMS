@@ -36,6 +36,7 @@ public class StudInfo {
             javax.swing.JProgressBar jProgB_Motivation,
             javax.swing.JProgressBar jProgB_Tiredness) {
 
+        
         // initializes the three progress bars to set values later
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
