@@ -4,6 +4,9 @@
 package test;
 
 import java.awt.Color;
+import java.util.Arrays;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,9 +14,8 @@ import java.awt.Color;
  */
 public class Game1 {
 
-    /**
-     * Test attributes. Will be changed by real items from file later.
-     */
+    public static final int _startCredits = 100;
+    
     public int credits;
     public int points;
     public int round;
@@ -28,6 +30,7 @@ public class Game1 {
     public boolean teamwork = false;
     public boolean shortBreak = false;
     public boolean windowClosed = true;
+    private Boolean[] cheated = new Boolean[5];
     
     /**
      * Items are public to have an easy access from every class
@@ -36,7 +39,7 @@ public class Game1 {
     public Item redBull;
     public Item cheatSheet;
     public Item omniSenseAudio;
-    private Boolean[] cheated = new Boolean[5];
+
 
     public int getSemester() {
         return (round / 3 + 1);
@@ -66,10 +69,19 @@ public class Game1 {
     /**
      * initializes the array of students.
      */
-    public final void initArray() {
+    @Deprecated public final void initArray() {
         studentArray = new Student[30];
         for (int i = 0; i < 30; i++) {
             studentArray[i] = new Student(i);
+        }
+    }
+    
+    public final void initArray(LinkedList<LinkedList> students){
+        studentArray = new Student[students.size()];
+        int i = 0;
+        while(!students.isEmpty()){
+            studentArray[i] = new Student(students.pop());
+            i++;
         }
     }
     /**
@@ -203,7 +215,7 @@ public class Game1 {
         return studentArray;
     }
 
-    public Game1() {
+    @Deprecated public Game1() {
         this.putItem(Item._duploName, 1, 0);
         this.putItem(Item._redBullName, 1, 0);
         this.putItem(Item._spickerName, 0, 2);
@@ -215,6 +227,30 @@ public class Game1 {
         for (int i = 0; i < cheated.length; i++) {
             cheated[i] = false;
         }
+    }
+    
+    public Game1(LinkedList<LinkedList> savegame, LinkedList<LinkedList> inventory){
+        LinkedList<String> help;
+        savegame.pop();
+        help = savegame.pop();
+        this.credits = new Integer(help.pop());
+        this.points = new Integer(help.pop());
+        this.round = new Integer(help.pop());
+        this.professor = new Integer(help.pop());
+        help = savegame.pop();
+        for(int i = 0; i<5; i++){
+            this.cheated[i] = Boolean.getBoolean(help.pop());
+        }
+        initArray(savegame);
+        help = inventory.pop();
+        putItem(Item._duploName, new Integer(help.get(0)), new Integer(help.get(1)));
+        help = inventory.pop();
+        putItem(Item._redBullName, new Integer(help.get(0)), new Integer(help.get(1)));
+        help = inventory.pop();
+        putItem(Item._spickerName, new Integer(help.get(0)), new Integer(help.get(1)));
+        help = inventory.pop();
+        putItem(Item._omniSenseName, new Integer(help.get(0)), new Integer(help.get(1)));
+        
     }
     
 /**
@@ -248,5 +284,60 @@ public class Game1 {
             studButtons[i].setOpaque(true);
             }
         }
+    }
+    
+    public static void initNewSavefile(){
+        LinkedList<LinkedList> mainlist = new LinkedList();
+        LinkedList<String> sublist = new LinkedList();
+        sublist.add("1");
+        mainlist.add(new LinkedList(sublist));
+        sublist = new LinkedList();
+        sublist.add(Integer.toString(_startCredits));
+        sublist.add("0");
+        sublist.add("1");
+        sublist.add(Integer.toString((int) Math.round(Math.random() * 100 + 1)));
+        mainlist.add(new LinkedList(sublist));
+        sublist = new LinkedList();
+        for(int i = 0; i<5; i++){
+            sublist.add("False");
+        }
+        mainlist.add(new LinkedList(sublist));
+        for(int i = 0; i<30; i++){
+            sublist = new LinkedList();
+            sublist.add("0");
+            sublist.add(Double.toString(Math.round((1.3 + Math.random() % 0.7) * 100) / 100d));     //WEHE EINER MACHT DAS "d" WEG! /Dawid
+            sublist.add(Integer.toString((int)(Math.random()*5)));
+            sublist.add("False");
+            mainlist.add(new LinkedList(sublist));
+        }
+        String inventory = "1,0\n1,0\n0,2\n0,4";
+        try{
+            CSVHandling.writeCSV(mainlist, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._gameFileName);
+            CSVHandling.writeFile(inventory, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._inventoryFileName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }        
+    }
+    
+    public static void loadGame(){
+        
+        LinkedList savegame = null;
+        LinkedList inventory = null;
+        try{
+            savegame = CSVHandling.readCSV(Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._gameFileName);
+            inventory = CSVHandling.readCSV(Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._inventoryFileName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        if(savegame != null & inventory != null){
+            Sims_1._maingame = new Game1(savegame, inventory);
+        } else {
+            System.err.println("Something, somewhere went horribly wrong while loading the game!");
+        }
+    }
+    
+    public static void saveGame(){
+        
     }
 }

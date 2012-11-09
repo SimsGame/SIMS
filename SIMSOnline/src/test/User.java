@@ -210,7 +210,7 @@ public class User {
             //create the userfolder (automatically through through writeCSV()) and create the needed userfiles
             CSVHandling.writeCSV(str, Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
             CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
-            CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
+            CSVHandling.writeFile("0", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
             JTextField[] toCheck = {new JTextField(accountname), new JTextField(email)};
             JLabel[] placebo = {new JLabel(), new JLabel()};
             if (!Sims_1.checkGlobUser(toCheck, placebo)) {

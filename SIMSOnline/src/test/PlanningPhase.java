@@ -47,10 +47,8 @@ public class PlanningPhase {
     private  boolean lectorChanged6 = false;
     private  boolean lectorChanged9 = false;
     private  boolean lectorChanged12 = false;
-    private  boolean lectorChanged15 = false;
-   
-        
-    protected static int lectorValue; //  variable that changes lector value (also from game file)
+    private  boolean lectorChanged15 = false;  
+    
     
     private static JButton studBut1;
     private static JButton studBut2;
@@ -61,18 +59,17 @@ public class PlanningPhase {
     }
     
      
-//     constructor which expects the three progress bars.
-//     These are needed for the StudInfo methods
+
 //     called first
     /**
-     * - constructor which initializes the progress bars, the dozent counter label 
+     * - constructor which initializes the progress bars, the professor counter label 
      * and the switch student toggle button <br>
      * - tt sets the progress bars to the current average values of the students <br>
-     * - tt validates if the dozent can be switched
+     * - tt validates if the professor can be switched
      * @param jProgB_Knowledge progress bar which shows the knowledge
      * @param jProgB_Motivation progress bar which shows the motivation
      * @param jProgB_Tiredness progress bar which shows the tiredness
-     * @param jLab_DozCounter 
+     * @param jLab_DozCounter label which shows how many times one can change professor
      * @param jToggleBut_SwitchStud 
      */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
@@ -96,7 +93,7 @@ public class PlanningPhase {
         // initialzing the PrograssBars on studInfo
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
         
-        //updates label "Dozenten tauschen
+        //updates label "Dozenten tauschen"
         checkProffesorChangeability(jLab_DozCounter);
         
     }
@@ -206,7 +203,10 @@ public class PlanningPhase {
      * @param studBut button which was clicked
      */
     public void StudButtonFunctions(int stud_nr, JButton studBut) {
-      // !!! ExmatrikulationsFlag abfragen
+      
+        
+        // !!! ExmatrikulationsFlag abfragen!!!!
+        
             // switchFlag == 0 --> SwitchButton not clickeds
         switchFlag = switchStudToggleBut.isSelected();
         if (!switchFlag) {
@@ -226,10 +226,10 @@ public class PlanningPhase {
                useCheat(stud_nr);
                System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
               }
-               else 
+               else {
                   System.out.println("Dieser Student bekommt keinen Spicker");  
                   System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
-             
+              }
          // switchFlag == true --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");
@@ -239,11 +239,11 @@ public class PlanningPhase {
     }
      
     /**
-     * - function that gets the actual round and check if a user is allowed to -
-     *- change his/her professor right now. If so, the label professor counter
-     *- will be set to 1. In other case - to 0) - user is allowed to change
-     * his/her professor only at the beginning of the actual month and only once
-     * due semester time
+     * function that gets the actual round and check if a user is allowed to 
+     * change his/her professor right now. If so, the label professor counter
+     * will be set to 1. In other case - to 0) 
+     * user is allowed to change  his/her professor only at the beginning 
+     * of the actual month and only once due semester time
      *
      * @param jLab_DozCounter Label in the navigation panel of a planning phase
      * that shows how many times the user can change professor
@@ -272,8 +272,9 @@ public class PlanningPhase {
      * professor-change-flag for the current round will be set to true in order
      * to avoid new change
      *
-     * @param jLab_DozCounter Label in the navigation panel of a planning phase
-     * that shows how many times the user can change professor - will be updated
+     * @param jLab_DozCounter Label in the navigation panel of a planning phase that shows how many times
+     *                        the user can change professor - will be updated
+     * 
      */
     public void changeLector(JLabel jLab_DozCounter) {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
@@ -317,9 +318,10 @@ public class PlanningPhase {
     
     
     /**
-     * this method will be applied if a cheatFlag is set to true and one of a students is selected
-     * updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
-     * also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
+     * - this method will be applied if a cheatFlag is set to true and one of a students is selected
+     * - updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
+     * - also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
+     * 
      * @param stud_nr  student array index number of clicked student
      */
     public void useCheat(int stud_nr) {

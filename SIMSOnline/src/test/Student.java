@@ -4,16 +4,20 @@
  */
 package test;
 
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joerg Woditschka
  * @author Nadir Yuldashev
  */
 public class Student {
-    private int id;
-    private double knowledge=0; 
+    @Deprecated private int id = 0;
+    private boolean out = false;
+    private double knowledge=0;                 //in savefile
     private double knowledgeIncreasement;
-    private final double intelligence = initIntelligence();
+    private double intelligence; //= initIntelligence(); //in savefile
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
@@ -31,11 +35,18 @@ public class Student {
      * 
      * @param id 
      */   
-    public Student(int id){
+    @Deprecated public Student(int id){
         this.id=id;
         initTiredness();
         initMotivation();
         initIcon();
+    }
+    
+    public Student(LinkedList<String> student){
+        this.knowledge = new Integer(student.pop());
+        this.intelligence = new Double(student.pop());
+        this.studIconPath = iconPath[new Integer(student.pop())];
+        this.cheatAvailable = Boolean.getBoolean(student.pop());
     }
 
     /**
@@ -96,7 +107,7 @@ public class Student {
             }
         }
         else {
-            this.knowledgeIncreasement = 0;
+            this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
         }
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
         
