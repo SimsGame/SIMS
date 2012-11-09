@@ -47,8 +47,8 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
-    private javax.swing.JButton[] activityPhaseButtons;
-    private javax.swing.JButton[] planningPhaseButtons;
+    protected static javax.swing.JButton[] activityPhaseButtons;
+    protected static javax.swing.JButton[] planningPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -3127,7 +3127,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setVisible(false);
 
             // sets StudIcons on StudButtons
-        new StudIcons(planningPhaseButtons, _maingame.getArray());  
+        //new StudIcons(planningPhaseButtons, _maingame.getArray());  
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
@@ -3205,9 +3205,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_logoMouseClicked
 
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
-        // Returns from the shop back to the planning phase
+              // Returns from the shop back to the planning phase
         cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);
+        panel_menue.setVisible(false);  
     }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
