@@ -3207,6 +3207,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
               // Returns from the shop back to the planning phase
         cl.show(panel_gamePhases, "card3");
+        planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
     }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
