@@ -20,6 +20,7 @@ public class Game1 {
     public int professor; //added by Julia
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
     public Student[] studentArray; //added by Jörg
+    public double[] rowIntelligence;
     public double airQuality;
     public double noise;
     public int quietingCounter=0;
@@ -76,19 +77,42 @@ public class Game1 {
      * @param add2  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a positive value.
      */
      public void updateArray (double add1, double add2, double add3){
-       for (int i = 0; i < 30; i++) {
-        if (quietingCounter>0&&add1>=0){
-            add1=-1;
-        }
-        else if(quietingCounter>0){
-            add1=add1-1;
-        }
-        studentArray[i].changeMotivation(add1);
-        studentArray[i].changeTiredness(add2);
-        studentArray[i].updateKnowledge(add3);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
-        }
-       }    
+      int counter = 0;
+      int endCounter=5;
+      for (int j=0; j<6; j++){
+            for (int i=counter; i<endCounter; i++){
+                if (quietingCounter>0&&add1>=0){
+                    add1=-1;
+                }
+                else if(quietingCounter>0){
+                    add1=add1-1;
+                }
+                studentArray[i].changeMotivation(add1);
+                studentArray[i].changeTiredness(add2);
+                studentArray[i].updateKnowledge(add3, rowIntelligence[j]);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
+            }
+            counter=counter+5;
+            endCounter=endCounter+5;
+       }
+     }
 
+     public void calculateRowIntelligence(){
+        rowIntelligence = new double[6];
+        int rowStart=0;
+        int rowEnd=5;
+        double row=0;
+        for (int i=0; i<6; i++){
+            for (int j=rowStart; j<rowEnd;j++){
+                row = row+studentArray[j].getIntelligence();
+            }
+            row=row/5;
+            rowIntelligence[i]=row;
+            row=0;
+            rowStart=rowStart+5;
+            rowEnd=rowEnd+5;
+        }
+     }
+     
      public void examTime(double examvalue){
          for (int i = 0; i < 30; i++) {
              if (studentArray[i].present){
