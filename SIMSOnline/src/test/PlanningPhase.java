@@ -30,7 +30,7 @@ public class PlanningPhase {
     private boolean cheatFlag = false;  //will be set to true, if Spicker in Dropdown-Field is selected  and can be used
                                        
     // counter
-    private static int switchCounter = 5;
+    public static int switchCounter = 5;
     private static int studCounter = 0;
    
     // students for the switching function
@@ -53,14 +53,8 @@ public class PlanningPhase {
     private static JButton studBut1;
     private static JButton studBut2;
     public JButton[] studButtons;
-
-        // PlanningPhase constructor
-    public PlanningPhase() {
-    }
-    
      
 
-//     called first
     /**
      * - constructor which initializes the progress bars, the professor counter label 
      * and the switch student toggle button <br>
@@ -116,6 +110,11 @@ public class PlanningPhase {
         
         new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray());
         
+    }
+    
+    public void startPlanningPhaseFromShop(){
+        Sims_1.planningPhase.switchCounter = 5;
+        Sims_1.planningPhase.startPlanningPhase();
     }
 
 
