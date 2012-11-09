@@ -44,7 +44,7 @@ public class ActivityPhase {
         this.NoiseBar = jNoiseBar;
         this.studButtons = studButtons;
         game = Sims_1._maingame;
-        game.initArray();
+        game.initAttr();
         game.initRoom();
         this.label_score=score;
         this.label_score.setText(Integer.toString(this.game.points));
@@ -52,6 +52,7 @@ public class ActivityPhase {
     }
     
     private void activityPhaseMain(){
+        game.calculateRowIntelligence();
         Thread runTimer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
         runTimer.start();  
     }
