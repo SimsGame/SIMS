@@ -3074,8 +3074,20 @@ public class Sims_1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void goToNextPage() {
+        panel_gamePhases.remove(panel_snakeMinigame);
         // Flipes to the planning phase after a minigame.
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);
+        if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        
         cl.show(panel_gamePhases, "card3");
+        //planningPhase.startPlanningPhase();
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+        panel_menue.setVisible(false);
+        //startActivityPhase();
     }
 
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
@@ -3092,18 +3104,8 @@ public class Sims_1 extends javax.swing.JFrame {
         // Starts a new game with initial values from the game_1.java. 
         Game1.initNewSavefile();
         Game1.loadGame();
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        
-        cl.show(panel_gamePhases, "card3");
-        planningPhase.startPlanningPhase();
-        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
-        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
-        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
-        panel_menue.setVisible(false);
-        //startActivityPhase();
+        switchPhase();
+       
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -3114,18 +3116,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
         // Loads and existing game which always starts with a planning phase.
         Game1.loadGame();
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);
-
-            // sets StudIcons on StudButtons
-        //new StudIcons(planningPhaseButtons, _maingame.getArray());  
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
-        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
-        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
-        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+       
         System.out.println("Current round " +Sims_1._maingame.round +" Current Semester " +Sims_1._maingame.getSemester());
         
         
@@ -3591,7 +3582,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this);
         // Starts the action phase and the inventory. 
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
@@ -5147,19 +5137,40 @@ public void startActivityPhase(){
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
         activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this); // added by Jörg, Nadir
 }
+
+public void startPlanningPhase(){
+ if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        cl.show(panel_gamePhases, "card3");
+        panel_menue.setVisible(false);
+
+            // sets StudIcons on StudButtons
+        //new StudIcons(planningPhaseButtons, _maingame.getArray());  
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+}
 public void switchPhase(){
+    System.out.println(_maingame.round);
+    if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
     if(_maingame.round%3==1){
         // TODO: initialize random minigame variable
-        /*switch(variable){
-            case 1: {panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); break;} 
-            case 2: {cl.show(panel_gamePhases, "card6"); break;} 
-            case 3: {cl.show(panel_gamePhases, "card7"); break;}
-            default: {cl.show(panel_gamePhases, "card3"); break;}
-        }*/
+        
+        int i;
+        switch(i=(int)Math.random()%3+1){
+            case 1: {panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); panel_snakeMinigame.requestFocus(); cl.show(panel_gamePhases, "card5"); panel_menue.setVisible(false); break;} 
+            case 2: {cl.show(panel_gamePhases, "card6"); panel_menue.setVisible(false); break;} 
+            case 3: {cl.show(panel_gamePhases, "card7"); panel_menue.setVisible(false); break;}
+            default: {goToNextPage(); break;}
+        }
+        //System.out.println(i);
     }else{
         cl.show(panel_gamePhases, "card3");
-        planningPhase.startPlanningPhase();
+        startPlanningPhase();
     }
-    
 }
 }

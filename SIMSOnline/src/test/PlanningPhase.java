@@ -72,6 +72,8 @@ public class PlanningPhase {
             JLabel jLab_DozCounter,
             JToggleButton jToggleBut_SwitchStud) {
 
+        Sims_1._maingame.initAttr();
+        
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
