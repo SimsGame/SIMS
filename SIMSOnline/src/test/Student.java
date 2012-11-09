@@ -92,6 +92,29 @@ public class Student {
      * of the student. It should be run once every second.
      * Updated by Kira: Added 'add', to realize the decreasing knowledgeIncreasement during teamwork and the nonexistent knowledgeIncreasement during shortBreak.
      */
+    
+    /*
+     * Old version without rowIntelligence
+     * 
+    void updateKnowledge(double add, double rowIntelligence) {
+        double influence=0;
+        if (add!=-1){
+            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.000375)+influence-add;
+            if(this.knowledgeIncreasement<0){ // this if belongs above the this.knowledge
+                this.knowledgeIncreasement = 0;
+            }
+        }
+        else {
+            this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
+        }
+        setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
+        
+    }
+    * 
+    */
+ /*   
+  * New Version with rowIntelligence
+  */ 
     void updateKnowledge(double add, double rowIntelligence) {
         double influence=0;
         if (add!=-1){
@@ -109,10 +132,9 @@ public class Student {
         else {
             this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
         }
-        setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
-        
+        setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100        
     }
-     
+   
     void changeTiredness(double factor)
     {
        setTiredness(this.tiredness+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
