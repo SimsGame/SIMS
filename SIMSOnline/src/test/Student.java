@@ -95,11 +95,11 @@ public class Student {
     void updateKnowledge(double add) {
         if (add!=-1){
         this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.000375)-add;
-        if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge
+        if(this.knowledgeIncreasement<0) // this if belongs above the this.knowledge // this is not even necessary, as the knowledge is updated using the setKnowledge() method
             this.knowledgeIncreasement = 0;
         }
         else {
-            this.knowledgeIncreasement = 0;
+            this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
         }
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
         
