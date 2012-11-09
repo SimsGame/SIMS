@@ -43,11 +43,11 @@ public class PlanningPhase {
     //deklaration of the variables that are needed for the lector-change function
     private  JLabel professorCounter; //JLabel that shows how many times the user can change lector
      
-    private  boolean lectorChanged3 = false; //flag is set if the lector was already changed in this round
-    private  boolean lectorChanged6 = false;
-    private  boolean lectorChanged9 = false;
-    private  boolean lectorChanged12 = false;
-    private  boolean lectorChanged15 = false;  
+    private  boolean lectorChanged4 = false; //flag is set if the lector was already changed in this round
+    private  boolean lectorChanged7 = false;
+    private  boolean lectorChanged10 = false;
+    private  boolean lectorChanged13 = false;
+    private  boolean lectorChanged16 = false;  
     
     
     private static JButton studBut1;
@@ -272,9 +272,9 @@ public class PlanningPhase {
     public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
         int actualRound=Sims_1._maingame.round;
         professorCounter = jLab_DozCounter;
-        if ( (actualRound == 3 && !lectorChanged3)  || (actualRound == 6 && !lectorChanged6) || 
-             (actualRound == 9 && !lectorChanged9)|| (actualRound == 12 && !lectorChanged12) ||
-             (actualRound == 15 && !lectorChanged15)) {            
+        if ( (actualRound == 4 && !lectorChanged4)  || (actualRound == 7 && !lectorChanged7) || 
+             (actualRound == 10 && !lectorChanged10)|| (actualRound == 13 && !lectorChanged13) ||
+             (actualRound == 16 && !lectorChanged16)) {            
             professorCounter.setText("1x");
             professorCounter.repaint();
             return true;
@@ -299,20 +299,20 @@ public class PlanningPhase {
     public void changeLector(JLabel jLab_DozCounter) {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
         professorCounter = jLab_DozCounter;
-        if (actualRound == 3) {
-            lectorChanged3 = true;
+        if (actualRound == 4) {
+            lectorChanged4 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 6) {
-            lectorChanged6 = true;
+        } else if (actualRound == 7) {
+            lectorChanged7 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 9) {
-            lectorChanged9 = true;
+        } else if (actualRound == 10) {
+            lectorChanged10 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 12) {
-            lectorChanged12 = true;
+        } else if (actualRound == 13) {
+            lectorChanged13 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 15) {
-            lectorChanged15 = true;
+        } else if (actualRound == 16) {
+            lectorChanged16 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
