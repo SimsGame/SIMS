@@ -1835,7 +1835,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_1"/>
+                        <Property name="actionCommand" type="java.lang.String" value=""/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                       </Properties>
                       <Events>
@@ -1862,9 +1862,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_3"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_3MouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_3MouseEntered"/>
@@ -1876,9 +1873,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_4"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_4MouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_4MouseEntered"/>
@@ -1890,9 +1884,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_5"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_5MouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_5MouseEntered"/>
@@ -1904,9 +1895,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_6">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_6"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_6MouseClicked"/>
                       </Events>
@@ -1917,9 +1905,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_7">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_7"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_7MouseClicked"/>
                       </Events>
@@ -1930,9 +1915,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_8">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_8"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_8MouseClicked"/>
                       </Events>
@@ -1943,9 +1925,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_9">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_9"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_9MouseClicked"/>
                       </Events>
@@ -1956,9 +1935,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_10">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_10"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_10MouseClicked"/>
                       </Events>
@@ -1969,9 +1945,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_11">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_11"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_11MouseClicked"/>
                       </Events>
@@ -1982,9 +1955,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_12">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_12"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_12MouseClicked"/>
                       </Events>
@@ -1995,9 +1965,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_13">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_13"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_13MouseClicked"/>
                       </Events>
@@ -2008,9 +1975,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_14">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_14"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_14MouseClicked"/>
                       </Events>
@@ -2021,9 +1985,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_15">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_15"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_15MouseClicked"/>
                       </Events>
@@ -2034,9 +1995,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_16">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_16"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_16MouseClicked"/>
                       </Events>
@@ -2047,9 +2005,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_17">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_17"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_17MouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBut_17ActionPerformed"/>
@@ -2061,9 +2016,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_18">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_18"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_18MouseClicked"/>
                       </Events>
@@ -2075,7 +2027,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_19">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_19"/>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_19MouseClicked"/>
@@ -2087,9 +2039,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_20">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_20"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_20MouseClicked"/>
                       </Events>
@@ -2100,9 +2049,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_21">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_21"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_21MouseClicked"/>
                       </Events>
@@ -2113,9 +2059,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_22">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_22"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_22MouseClicked"/>
                       </Events>
@@ -2126,9 +2069,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_23">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_23"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_23MouseClicked"/>
                       </Events>
@@ -2139,9 +2079,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_24">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_24"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_24MouseClicked"/>
                       </Events>
@@ -2152,9 +2089,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_25">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_25"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_25MouseClicked"/>
                       </Events>
@@ -2165,9 +2099,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_26">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_26"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_26MouseClicked"/>
                       </Events>
@@ -2179,7 +2110,6 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_27">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_27"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
@@ -2192,9 +2122,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_28">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_28"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_28MouseClicked"/>
                       </Events>
@@ -2205,9 +2132,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_29">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_29"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_29MouseClicked"/>
                       </Events>
@@ -2218,9 +2142,6 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBut_30">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Platz_30"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_30MouseClicked"/>
                       </Events>
