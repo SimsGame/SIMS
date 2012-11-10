@@ -3402,127 +3402,127 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(5);
+        planningPhase.StudButtonFunctions(5,jBut_6);
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(6);
+        planningPhase.StudButtonFunctions(6,jBut_7);
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(7);
+        planningPhase.StudButtonFunctions(7,jBut_8);
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(8);
+        planningPhase.StudButtonFunctions(8,jBut_9);
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(9);
+        planningPhase.StudButtonFunctions(9,jBut_10);
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(10);
+        planningPhase.StudButtonFunctions(10,jBut_11);
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(11);
+        planningPhase.StudButtonFunctions(11,jBut_12);
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(12);
+        planningPhase.StudButtonFunctions(12,jBut_13);
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(13);
+        planningPhase.StudButtonFunctions(13,jBut_14);
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(14);
+        planningPhase.StudButtonFunctions(14,jBut_15);
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(15);
+        planningPhase.StudButtonFunctions(15,jBut_16);
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(16);
+        planningPhase.StudButtonFunctions(16,jBut_17);
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(17);
+        planningPhase.StudButtonFunctions(17,jBut_18);
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(18);
+        planningPhase.StudButtonFunctions(18,jBut_19);
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(19);
+        planningPhase.StudButtonFunctions(19,jBut_20);
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(20);
+        planningPhase.StudButtonFunctions(20,jBut_21);
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(21);
+        planningPhase.StudButtonFunctions(21,jBut_22);
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(22);
+        planningPhase.StudButtonFunctions(22,jBut_23);
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(23);
+        planningPhase.StudButtonFunctions(23,jBut_24);
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(24);
+        planningPhase.StudButtonFunctions(24,jBut_25);
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(25);
+        planningPhase.StudButtonFunctions(25,jBut_26);
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(26);
+        planningPhase.StudButtonFunctions(26,jBut_27);
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(27);
+        planningPhase.StudButtonFunctions(27,jBut_28);
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(28);
+        planningPhase.StudButtonFunctions(28,jBut_29);
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(29);
+        planningPhase.StudButtonFunctions(29,jBut_30);
     }//GEN-LAST:event_jBut_30MouseClicked
 
     private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
