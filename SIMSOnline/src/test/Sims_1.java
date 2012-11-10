@@ -5079,16 +5079,14 @@ public void switchPhase(){
             panel_gamePhases.setVisible(true);
         }
     if(_maingame.round%3==1){
-        // TODO: initialize random minigame variable
-        
-        int i;
-        switch(i=(int)Math.random()%3+1){
+        // Create a random minigame
+        RandGenerator randGen = new RandGenerator();
+        switch(i=randGen.getRand(3)+1){
             case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
             default: {goToNextPage(); break;}
         }
-        //System.out.println(i);
     }else{
         cl.show(panel_gamePhases, "card3");
         startPlanningPhase();
