@@ -64,7 +64,8 @@ public class PlanningPhase {
      * @param jProgB_Motivation progress bar which shows the motivation
      * @param jProgB_Tiredness progress bar which shows the tiredness
      * @param jLab_DozCounter label which shows how many times one can change professor
-     * @param jToggleBut_SwitchStud 
+     * @param jToggleBut_SwitchStud toggle button for student switching
+     * @param jLab_SwitchCounter label with counter value of available student switchs
      */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
             JProgressBar jProgB_Motivation,
@@ -83,6 +84,7 @@ public class PlanningPhase {
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
+        // initializes label of counter switchs
         this.switchCounterLabel = jLab_SwitchCounter;
         
         
