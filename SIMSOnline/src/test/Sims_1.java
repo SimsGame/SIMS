@@ -5081,7 +5081,7 @@ public void switchPhase(){
     if(_maingame.round%3==1){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
-        switch(i=randGen.getRand(3)+1){
+        switch(randGen.getRand(3)+1){
             case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
