@@ -30,8 +30,8 @@ public class PlanningPhase {
     private boolean cheatFlag = false;  //will be set to true, if Spicker in Dropdown-Field is selected  and can be used
                                        
     // counter
-    public static int switchCounter = 5;
-    private static int studCounter = 0;
+    public  int switchCounter = 5;
+    private  int studCounter = 0;
    
     // students for the switching function
     private static Student stud1;
@@ -70,20 +70,28 @@ public class PlanningPhase {
             JProgressBar jProgB_Motivation,
             JProgressBar jProgB_Tiredness, 
             JLabel jLab_DozCounter,
-            JToggleButton jToggleBut_SwitchStud) {
-
+            JToggleButton jToggleBut_SwitchStud,
+            JLabel jLab_SwitchCounter) {
+        
+        // initializes motivation and tiredness of students
         Sims_1._maingame.initAttr();
+        // StudentArray will be initialized
+        this.studArr = Sims_1._maingame.getArray();
         
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
+        this.switchCounterLabel = jLab_SwitchCounter;
+        
+        
         // initializes the ToggleButton for switching students
         this.switchStudToggleBut = jToggleBut_SwitchStud;
 
-        // StudentArray will be initialized
-        this.studArr = Sims_1._maingame.getArray();
+        // sets Label of StudentSwitch to default value --> switchCounter == 5
+        switchCounterLabel.setText(switchCounter + "x");
+        switchCounterLabel.repaint();
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
@@ -96,28 +104,7 @@ public class PlanningPhase {
         new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
         
     }
-    /**
-     * 
-     */
-    public void startPlanningPhase() {
-        // StudentArray will be initialized
-        studArr = Sims_1._maingame.getArray();
 
-        // one instance of StudInfo which is used for all student buttons
-        // initialzing the PrograssBars on studInfo
-        studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
-        
-        //updates label "Dozenten tauschen"
-        checkProffesorChangeability(professorCounter);
-        
-        new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray());
-        
-    }
-    
-    public void startPlanningPhaseFromShop(){
-        Sims_1.planningPhase.switchCounter = 5;
-        Sims_1.planningPhase.startPlanningPhase();
-    }
 
 
     // called from SwitchStud-Button on navi
@@ -127,8 +114,8 @@ public class PlanningPhase {
      * an toggle button
      * @param jLab_SwitchCounter 
      */
-    public  void startStudSwitch(JLabel jLab_SwitchCounter) {
-        switchCounterLabel = jLab_SwitchCounter;
+    public  void startStudSwitch() {
+        
         
         // declares switchFlag to true/false when ToggleButton is pressed
         switchFlag = switchStudToggleBut.isSelected();

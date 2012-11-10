@@ -3075,7 +3075,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter);
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
@@ -3089,7 +3089,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }
 
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
-        planningPhase.startStudSwitch(jLab_StudCounter);
+        planningPhase.startStudSwitch();
 
     }
 
@@ -3182,7 +3182,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
         // Returns from the shop back to the planning phase
         cl.show(panel_gamePhases, "card3");
-        planningPhase.startPlanningPhase();
+        //planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
     }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
@@ -5091,7 +5091,7 @@ public void startPlanningPhase(){
 
         // sets StudIcons on StudButtons
         //new StudIcons(planningPhaseButtons, _maingame.getArray());  
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
