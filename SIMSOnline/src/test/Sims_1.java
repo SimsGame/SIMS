@@ -3203,9 +3203,19 @@ public class Sims_1 extends javax.swing.JFrame {
         // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(panel_gamePhases, "card4");
         panel_menue.setVisible(false);
+        
         OpenShop labels = new OpenShop();
         labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
+        //Checks the Students that are still present
+        int present = 0;
+        for(int i=0; i<_maingame.studentArray.length; i++){
+            if(_maingame.studentArray[i].present == true){
+                present++;
+            }
+        }
+        label_shopRemainingStudents.setText(String.valueOf(present)+" / 30");
         label_shopRemainingSemesters.setText(String.valueOf(_maingame.getSemester())+" / 6");
+        
         item.createItemInventory(label_item1, label_item1Name, label_item1Amount, _maingame.redBull);
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, _maingame.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, _maingame.omniSenseAudio);
@@ -5070,6 +5080,14 @@ public void startPlanningPhase(){
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
 }
 public void switchPhase(){
+    //Checks the Students that are still present
+    int present = 0;
+    for(int i=0; i<_maingame.studentArray.length; i++){
+        if(_maingame.studentArray[i].present == true){
+            present++;
+        }
+    }
+    label_students.setText(String.valueOf(present)+" / 30");
     label_semester.setText(String.valueOf(_maingame.getSemester())+" / 6"); // show curent semester in the activityphase
     if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
