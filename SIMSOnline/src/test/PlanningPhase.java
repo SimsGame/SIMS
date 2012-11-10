@@ -28,7 +28,8 @@ public class PlanningPhase {
     //flags deklaration
     private static boolean switchFlag = false;
     private boolean cheatFlag = false;  //will be set to true, if Spicker in Dropdown-Field is selected  and can be used
-                                       
+    private boolean studPresent1;   // when a not present student was clicked first while SwitchStudent
+    private boolean studPresent2;   // when a not present student was clicked second while SwitchStudent
     // counter
     public  int switchCounter = 5;
     private  int studCounter = 0;
@@ -105,6 +106,7 @@ public class PlanningPhase {
         
         new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
         
+        
     }
 
 
@@ -157,6 +159,9 @@ public class PlanningPhase {
             stud2 = studArr[stud_nr];
             stud2_nr = stud_nr;
             this.studBut2 = studBut;
+            if (!studArr[stud_nr].present){
+                studPresent2 = false;
+            }
             System.out.println("Stud2 auf Platz: " + (stud2_nr + 1));
             System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
             StudSwitch(stud1, stud2);
@@ -169,6 +174,9 @@ public class PlanningPhase {
             stud1 = studArr[stud_nr];
             stud1_nr = stud_nr;
             this.studBut1 = studBut;
+            if (!studArr[stud_nr].present){
+                studPresent1 = false;
+            }
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
             System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
@@ -181,15 +189,24 @@ public class PlanningPhase {
      * @param stud2 second clicked student to switch
      */
     private void StudSwitch(Student stud1, Student stud2) {
-
+        
+        if (stud1.present || stud2.present){
         System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
                 + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // swtiching the two selected students 
         studArr[stud1_nr] = stud2;
         studArr[stud2_nr] = stud1;
-        studBut1.setIcon(new ImageIcon(getClass().getResource(studArr[stud1_nr].getStudIcon())));
-        studBut2.setIcon(new ImageIcon(getClass().getResource(studArr[stud2_nr].getStudIcon())));
+        if (studArr[stud1_nr].present){
+            studBut1.setIcon(new ImageIcon(getClass().getResource(studArr[stud1_nr].getStudIcon())));
+        } else {
+            studBut1.setIcon(new ImageIcon());
+        }
+        if (studArr[stud2_nr].present){
+            studBut2.setIcon(new ImageIcon(getClass().getResource(studArr[stud2_nr].getStudIcon())));
+        } else {
+            studBut2.setIcon(new ImageIcon());
+        }
 
         System.out.println("NACHHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId()
                 + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
@@ -198,6 +215,7 @@ public class PlanningPhase {
         //switchFlag = 0;
         switchCounter--;
         studCounter = 0;
+        }
         
         switchStudToggleBut.setSelected(false);
 
