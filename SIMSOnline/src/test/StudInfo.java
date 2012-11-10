@@ -63,7 +63,11 @@ public class StudInfo {
 
         StudInfoSetBars();
         } else{
+            this.knowledge = 0;
+            this.motivation = 0;
+            this.tiredness = 0;
             System.out.println("Student not present!");
+            StudInfoSetBars();
         }
     }
 
