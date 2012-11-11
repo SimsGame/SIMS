@@ -52,7 +52,7 @@ public class ActivityPhase {
         this.label_score.setText(Integer.toString(this.game.points));
         this.sims=sims;
         this.professorButton  = jBut_Dozent; //added by Julia
-        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added by Julia
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added byJulia
         activityPhaseMain();
     }
     
