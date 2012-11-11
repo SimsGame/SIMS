@@ -44,7 +44,7 @@ public class ActivityPhase {
         this.NoiseBar = jNoiseBar;
         this.studButtons = studButtons;
         game = Sims_1._maingame;
-        game.initArray();
+        game.initAttr();
         game.initRoom();
         this.label_score=score;
         this.label_score.setText(Integer.toString(this.game.points));
