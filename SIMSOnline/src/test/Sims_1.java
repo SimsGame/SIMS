@@ -3082,7 +3082,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter);
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
@@ -3548,9 +3548,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jToggleBut_SwitchStud.setSelected(false);
         
         //check if can change lector. If so - do this, else -  show error 
-        boolean allowed = planningPhase.checkProffesorChangeability(jLab_DozCounter);
+        boolean allowed = planningPhase.checkProffesorChangeability();
         if (allowed) {
-            planningPhase.changeLector(jLab_DozCounter);
+            planningPhase.changeProfessor(jBut_Dozent);
             lectorChangedDialog.setVisible(true);
         } else {
             lectorNotChangedDialog.setVisible(true);
@@ -5119,7 +5119,7 @@ public void startPlanningPhase(){
 
         // sets StudIcons on StudButtons
         //new StudIcons(planningPhaseButtons, _maingame.getArray());  
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter);  // added by Tobias, Yulyia
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter, jBut_Dozent);  // added by Tobias, Yulyia
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");

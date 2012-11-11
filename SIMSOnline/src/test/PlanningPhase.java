@@ -6,6 +6,7 @@ package test;
 
 import java.awt.Color;
 import javax.swing.*;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -49,6 +50,7 @@ public class PlanningPhase {
     private  boolean lectorChanged10 = false;
     private  boolean lectorChanged13 = false;
     private  boolean lectorChanged16 = false;  
+    private  JButton professorButton;
     
     
     private static JButton studBut1;
@@ -69,11 +71,12 @@ public class PlanningPhase {
      * @param jLab_SwitchCounter label with counter value of available student switchs
      */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
-            JProgressBar jProgB_Motivation,
-            JProgressBar jProgB_Tiredness, 
-            JLabel jLab_DozCounter,
-            JToggleButton jToggleBut_SwitchStud,
-            JLabel jLab_SwitchCounter) {
+                         JProgressBar jProgB_Motivation,
+                         JProgressBar jProgB_Tiredness, 
+                         JLabel jLab_DozCounter,
+                         JToggleButton jToggleBut_SwitchStud,
+                         JLabel jLab_SwitchCounter,
+                         javax.swing.JButton jBut_Dozent) {
         
         // initializes motivation and tiredness of students
         Sims_1._maingame.initAttr();
@@ -101,10 +104,15 @@ public class PlanningPhase {
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
         
         this.professorCounter = jLab_DozCounter;
+        this.professorButton  = jBut_Dozent;
+        
         //updates label "Dozenten tauschen"
-        checkProffesorChangeability(professorCounter);
+        checkProffesorChangeability();
         
         new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
+        
+        
         
         
     }
@@ -273,13 +281,11 @@ public class PlanningPhase {
      * user is allowed to change  his/her professor only at the beginning 
      * of the actual month and only once due semester time
      *
-     * @param jLab_DozCounter Label in the navigation panel of a planning phase
-     * that shows how many times the user can change professor
+     * 
      * @return true if professor can be changed. In other case return false
      */
-    public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
+    public  boolean checkProffesorChangeability() {
         int actualRound=Sims_1._maingame.round;
-        professorCounter = jLab_DozCounter;
         if ( (actualRound == 4 && !lectorChanged4)  || (actualRound == 7 && !lectorChanged7) || 
              (actualRound == 10 && !lectorChanged10)|| (actualRound == 13 && !lectorChanged13) ||
              (actualRound == 16 && !lectorChanged16)) {            
@@ -300,16 +306,15 @@ public class PlanningPhase {
      * professor-change-flag for the current round will be set to true in order
      * to avoid new change
      *
-     * @param jLab_DozCounter Label in the navigation panel of a planning phase that shows how many times
-     *                        the user can change professor - will be updated
+     *
      * 
      */
-    public void changeLector(JLabel jLab_DozCounter) {
+    public void changeProfessor(javax.swing.JButton jBut_Dozent) {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
-        professorCounter = jLab_DozCounter;
+       
         if (actualRound == 4) {
             lectorChanged4 = true;
-            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);                     
         } else if (actualRound == 7) {
             lectorChanged7 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
@@ -323,6 +328,13 @@ public class PlanningPhase {
             lectorChanged16 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
+        //setting new professor icon
+        Sims_1._maingame.professorIcon=Sims_1._maingame.professorIconPath[((int) Math.round(Math.random()%3 ))];
+        
+        //loading new icon on the button
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
+        
+        
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
         professorCounter.setText("0x");
         professorCounter.repaint();
@@ -346,7 +358,7 @@ public class PlanningPhase {
     
     
     /**
-     * - this method will be applied if a cheatFlag is set to true and one of a students is selected
+     * - this method will be used if a cheatFlag is set to true and one of a students is selected
      * - updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
      * - also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
      * 

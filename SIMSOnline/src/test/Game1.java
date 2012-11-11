@@ -20,6 +20,12 @@ public class Game1 {
     public int points;
     public int round;
     public int professor; //added by Julia
+    public String professorIcon="/pictures/prof1_transparent.png"; //added by Julia
+    public final String professorIconPath[] = { 
+                                                 "/pictures/prof1_transparent.png",
+                                                 "/pictures/prof2_transparent.png",
+                                                 "/pictures/prof3_transparent.png"      
+                                                };
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
     public Student[] studentArray; //added by Jörg
     public double[] rowIntelligence;
