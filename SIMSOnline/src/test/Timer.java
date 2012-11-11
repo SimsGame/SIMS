@@ -4,6 +4,8 @@
  */
 package test;
 
+import java.awt.Color;
+
 /**
  *
  * @author Jörg Woditschka @authot Nadir Yudlashev
@@ -54,6 +56,9 @@ public class Timer extends Thread {
     @Override
     public void run() {
         while (timer > 0 && activityPhase.runTimer) {
+            if(timer==30){
+                label_timer.setForeground(Color.red);
+            }
             long millis = System.currentTimeMillis();
             while ((System.currentTimeMillis() - millis) < 10) {
                 //do nothing
