@@ -165,7 +165,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
-        dialog_gameOver = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Profile = new javax.swing.JPanel();
@@ -410,6 +409,11 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud29 = new javax.swing.JButton();
         button_stud30 = new javax.swing.JButton();
         jLab_DozSwitch2 = new javax.swing.JLabel();
+        panel_gameOver = new javax.swing.JPanel();
+        label_gameOverPoints = new javax.swing.JLabel();
+        label_gameOverSemester = new javax.swing.JLabel();
+        label_gameOver = new javax.swing.JLabel();
+        button_retry = new javax.swing.JButton();
         panel_Login = new javax.swing.JPanel();
         panel_Register = new javax.swing.JPanel();
         textfield_rKontoname = new javax.swing.JTextField();
@@ -859,17 +863,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
-        );
-
-        javax.swing.GroupLayout dialog_gameOverLayout = new javax.swing.GroupLayout(dialog_gameOver.getContentPane());
-        dialog_gameOver.getContentPane().setLayout(dialog_gameOverLayout);
-        dialog_gameOverLayout.setHorizontalGroup(
-            dialog_gameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        dialog_gameOverLayout.setVerticalGroup(
-            dialog_gameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2573,6 +2566,36 @@ public class Sims_1 extends javax.swing.JFrame {
 
         panel_gamePhases.add(gamePlaying, "card2");
 
+        panel_gameOver.setLayout(null);
+
+        label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverPoints.setText("Erreichte Punktzahl:");
+        panel_gameOver.add(label_gameOverPoints);
+        label_gameOverPoints.setBounds(610, 480, 380, 50);
+
+        label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverSemester.setText("Erreichtes Semester: ");
+        panel_gameOver.add(label_gameOverSemester);
+        label_gameOverSemester.setBounds(610, 450, 380, 30);
+
+        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/simsGameOver.png"))); // NOI18N
+        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_gameOver.setOpaque(true);
+        panel_gameOver.add(label_gameOver);
+        label_gameOver.setBounds(0, -40, 1020, 770);
+
+        button_retry.setText("jButton1");
+        button_retry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_retry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_retryActionPerformed(evt);
+            }
+        });
+        panel_gameOver.add(button_retry);
+        button_retry.setBounds(370, 410, 170, 40);
+
+        panel_gamePhases.add(panel_gameOver, "card8");
+
         jPanel1.add(panel_gamePhases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 768));
 
         panel_Login.setMaximumSize(new java.awt.Dimension(1000, 700));
@@ -4157,6 +4180,11 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.lecturer_counter--;
         }
     }//GEN-LAST:event_button_dozent1ActionPerformed
+
+    private void button_retryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_retryActionPerformed
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+    }//GEN-LAST:event_button_retryActionPerformed
     
     /**
      * @param args the command line arguments
@@ -4235,6 +4263,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_pCancel;
     private javax.swing.JButton button_pSave;
     private javax.swing.JButton button_rRegister;
+    private javax.swing.JButton button_retry;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_startExchange;
     private javax.swing.JButton button_stud1;
@@ -4277,7 +4306,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
     private javax.swing.JDialog dialog_error;
-    private javax.swing.JDialog dialog_gameOver;
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
     private javax.swing.JButton jBut_1;
@@ -4402,6 +4430,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_duploOverlay;
     private javax.swing.JLabel label_easteregg;
     private javax.swing.JLabel label_eastereggtrigger;
+    private javax.swing.JLabel label_gameOver;
+    private javax.swing.JLabel label_gameOverPoints;
+    private javax.swing.JLabel label_gameOverSemester;
     private javax.swing.JLabel label_handcursor;
     private javax.swing.JLabel label_handcursor1;
     private javax.swing.JLabel label_handcursor2;
@@ -4514,6 +4545,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_adminUser;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
+    private javax.swing.JPanel panel_gameOver;
     private javax.swing.JPanel panel_gamePhases;
     private javax.swing.JPanel panel_logoarea;
     private javax.swing.JPanel panel_menue;
@@ -5119,8 +5151,9 @@ public void switchPhase(){
         startPlanningPhase();
     }
     else{
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
+        cl.show(panel_gamePhases, "card8");
     }
 }
 }
