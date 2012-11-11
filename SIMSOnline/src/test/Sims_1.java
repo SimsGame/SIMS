@@ -165,6 +165,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        dialog_gameOver = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Profile = new javax.swing.JPanel();
@@ -858,6 +859,17 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
+        );
+
+        javax.swing.GroupLayout dialog_gameOverLayout = new javax.swing.GroupLayout(dialog_gameOver.getContentPane());
+        dialog_gameOver.getContentPane().setLayout(dialog_gameOverLayout);
+        dialog_gameOverLayout.setHorizontalGroup(
+            dialog_gameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dialog_gameOverLayout.setVerticalGroup(
+            dialog_gameOverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -4265,6 +4277,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
     private javax.swing.JDialog dialog_error;
+    private javax.swing.JDialog dialog_gameOver;
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
     private javax.swing.JButton jBut_1;
@@ -5092,7 +5105,7 @@ public void switchPhase(){
     if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
-    if(_maingame.round%3==1){
+    if(_maingame.round%3 == 1 && present != 0){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
         switch(randGen.getRand(3)+1){
@@ -5101,9 +5114,13 @@ public void switchPhase(){
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
             default: {goToNextPage(); break;}
         }
-    }else{
+    }else if(_maingame.round%3 != 1 && present != 0){
         cl.show(panel_gamePhases, "card3");
         startPlanningPhase();
+    }
+    else{
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
     }
 }
 }
