@@ -5137,7 +5137,7 @@ public void switchPhase(){
     if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
-    if(_maingame.round%3 == 1 && present != 0){
+    if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() != 7){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
         switch(randGen.getRand(3)+1){
@@ -5146,10 +5146,18 @@ public void switchPhase(){
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
             default: {goToNextPage(); break;}
         }
-    }else if(_maingame.round%3 != 1 && present != 0){
+    }
+    // Calls the planninghpase without having a minigame
+    else if(_maingame.round%3 != 1 && present != 0){
         cl.show(panel_gamePhases, "card3");
         startPlanningPhase();
     }
+    // Calls the page after the last Semester if there are still students available
+    else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+    }
+    // Calls the gameOver screen if there are no students any more
     else{
         label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
         label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
