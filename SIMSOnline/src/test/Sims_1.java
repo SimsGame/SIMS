@@ -3550,7 +3550,7 @@ public class Sims_1 extends javax.swing.JFrame {
         //check if can change lector. If so - do this, else -  show error 
         boolean allowed = planningPhase.checkProffesorChangeability();
         if (allowed) {
-            planningPhase.changeProfessor(jBut_Dozent);
+            planningPhase.changeProfessor();
             lectorChangedDialog.setVisible(true);
         } else {
             lectorNotChangedDialog.setVisible(true);

@@ -309,7 +309,7 @@ public class PlanningPhase {
      *
      * 
      */
-    public void changeProfessor(javax.swing.JButton jBut_Dozent) {
+    public void changeProfessor() {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
        
         if (actualRound == 4) {
