@@ -22,9 +22,9 @@ public class Student {
     private double motivation;
     public boolean laptopClosed = true;
     public boolean present = true;
-    private String studIconPath;
+    private String studIconPath;    // added by Tobias
     private boolean cheatAvailable; //added by Julia   
-    public final String[] iconPath = {
+    public final String[] iconPath = {  // added by Tobias
             "/pictures/studentface1transparent.png",
             "/pictures/studentface2transparent.png",
             "/pictures/studentface3transparent.png",
@@ -69,7 +69,7 @@ public class Student {
     }
     
     /**
-     *
+     * initializes the icon to a student
      * @return a IconPath for a student
      */
     public void initIcon(){

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Jannik
@@ -20,6 +21,12 @@ public class Game1 {
     public int points;
     public int round;
     public int professor; //added by Julia
+    public String professorIcon="/pictures/prof1_transparent.png"; //added by Julia - now has a value just for test will be loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
+    public final String professorIconPath[] = { 
+                                                 "/pictures/prof1_transparent.png",
+                                                 "/pictures/prof2_transparent.png",
+                                                 "/pictures/prof3_transparent.png"      
+                                                };
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
     public Student[] studentArray; //added by Jörg
     public double[] rowIntelligence;
@@ -42,7 +49,7 @@ public class Game1 {
 
 
     public int getSemester() {
-        return (round / 3 + 1);
+        return ((round -1 ) / 3 + 1);
     }
 
     public boolean getCheated(int semester) {
@@ -258,7 +265,7 @@ public class Game1 {
         help = inventory.pop();
         putItem(Item._omniSenseName, new Integer(help.get(0)), new Integer(help.get(1)));
         
-        
+        this.round=1;
     }
     
 /**

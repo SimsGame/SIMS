@@ -4,10 +4,7 @@
  */
 package test;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -47,17 +44,14 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
-    private javax.swing.JButton[] activityPhaseButtons;
-    private javax.swing.JButton[] planningPhaseButtons;
+    protected static javax.swing.JButton[] activityPhaseButtons;
+    protected static javax.swing.JButton[] planningPhaseButtons;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
     public CardLayout cl;
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
-    private JPanel panel_mazeMinigame = new JPanel();
-    private JPanel panel_numberMinigame = new JPanel();
-    private JPanel panel_snakeMinigame = new JPanel();
     public JDialog miniGameFinished = new JDialog();
 
     /**
@@ -65,8 +59,6 @@ public class Sims_1 extends javax.swing.JFrame {
      * auto login function is called from here as well.
      */
     public Sims_1() {
-        panel_mazeMinigame = new MinigameMazegame();
-        panel_numberMinigame = new MinigameNumbergame();
         button_afterGame = new JButton("Game");
         button_afterGame.addActionListener(new ActionListener() {
 
@@ -76,25 +68,30 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         miniGameFinished.add(button_afterGame);
         initComponents();
-        panel_gamePhases.add(panel_numberMinigame, "card6");
-        panel_gamePhases.add(panel_mazeMinigame,"card7");
         setSize(1000, 700);
         buyCoins.setSize(400, 320);
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        buyCoins.setLocationRelativeTo(null);
         dialog_error.setSize(400, 320);
         dialog_error.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        dialog_error.setLocationRelativeTo(null);
         warningDialog.setSize(400, 320); //added  by Julia
         warningDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warningDialog.setLocationRelativeTo(null);
         lectorChangedDialog.setSize(400, 320); //added by Julia
         lectorChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        lectorChangedDialog.setLocationRelativeTo(null);
         lectorNotChangedDialog.setSize(400, 320);
         lectorNotChangedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        lectorNotChangedDialog.setLocationRelativeTo(null);
         cheatUsedDialog.setSize(400, 320); //added by Julia
         cheatUsedDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cheatUsedDialog.setLocationRelativeTo(null); 
         notAllowedUseCheatDialog.setSize(400, 320);  //added by Julia
         notAllowedUseCheatDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
-        noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
+        noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        noCheatsAvailableDialog.setLocationRelativeTo(null);
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -412,6 +409,11 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud29 = new javax.swing.JButton();
         button_stud30 = new javax.swing.JButton();
         jLab_DozSwitch2 = new javax.swing.JLabel();
+        panel_gameOver = new javax.swing.JPanel();
+        label_gameOverPoints = new javax.swing.JLabel();
+        label_gameOverSemester = new javax.swing.JLabel();
+        label_gameOver = new javax.swing.JLabel();
+        button_retry = new javax.swing.JButton();
         panel_Login = new javax.swing.JPanel();
         panel_Register = new javax.swing.JPanel();
         textfield_rKontoname = new javax.swing.JTextField();
@@ -544,7 +546,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperExchange);
-        button_swapperExchange.setBounds(50, 220, 130, 29);
+        button_swapperExchange.setBounds(50, 220, 130, 23);
 
         button_swapperAbord.setText("Abbrechen");
         button_swapperAbord.addActionListener(new java.awt.event.ActionListener() {
@@ -553,7 +555,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         buyCoins.getContentPane().add(button_swapperAbord);
-        button_swapperAbord.setBounds(210, 220, 130, 29);
+        button_swapperAbord.setBounds(210, 220, 130, 23);
 
         textfield_swapperCredits.setEditable(false);
         textfield_swapperCredits.setMinimumSize(new java.awt.Dimension(30, 20));
@@ -562,11 +564,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_swapperArrow1.setText("||");
         buyCoins.getContentPane().add(label_swapperArrow1);
-        label_swapperArrow1.setBounds(190, 130, 8, 17);
+        label_swapperArrow1.setBounds(190, 130, 8, 14);
 
         label_swapperArrow3.setText("\\/");
         buyCoins.getContentPane().add(label_swapperArrow3);
-        label_swapperArrow3.setBounds(190, 140, 40, 17);
+        label_swapperArrow3.setBounds(190, 140, 40, 14);
 
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
@@ -593,7 +595,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 34, 29);
+        button_shopMessageOk.setBounds(170, 210, 47, 23);
 
         warningDialog.setModal(true);
         warningDialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1154,9 +1156,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo_planning.setBounds(0, 0, 150, 110);
 
         text_backtomenue1.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
+        text_backtomenue1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         text_backtomenue1.setText("<- zurück zum Menü");
         Logo.add(text_backtomenue1);
-        text_backtomenue1.setBounds(10, 90, 130, 14);
+        text_backtomenue1.setBounds(0, 90, 150, 14);
 
         gamePlanning.add(Logo);
         Logo.setBounds(0, 0, 150, 110);
@@ -1242,7 +1245,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Planning_unused05.setText("umsetzen");
         jPan_StudSwitch.add(jLab_Planning_unused05);
-        jLab_Planning_unused05.setBounds(40, 40, 70, 17);
+        jLab_Planning_unused05.setBounds(40, 40, 70, 14);
 
         jLab_Planning_unused06.setText("Studenten");
         jPan_StudSwitch.add(jLab_Planning_unused06);
@@ -1251,7 +1254,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jLab_StudCounter.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLab_StudCounter.setText("5x");
         jPan_StudSwitch.add(jLab_StudCounter);
-        jLab_StudCounter.setBounds(60, 60, 30, 22);
+        jLab_StudCounter.setBounds(60, 60, 30, 24);
 
         jToggleBut_SwitchStud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1332,15 +1335,15 @@ public class Sims_1 extends javax.swing.JFrame {
 
         jLab_Redbull.setText("");
         jPan_ItemStorage.add(jLab_Redbull);
-        jLab_Redbull.setBounds(10, 40, 90, 17);
+        jLab_Redbull.setBounds(10, 40, 90, 14);
 
         jLab_Duplo.setText("mehr text");
         jPan_ItemStorage.add(jLab_Duplo);
-        jLab_Duplo.setBounds(10, 60, 90, 17);
+        jLab_Duplo.setBounds(10, 60, 90, 14);
 
         jLab_OMNI.setText("noch mehr text" );
         jPan_ItemStorage.add(jLab_OMNI);
-        jLab_OMNI.setBounds(10, 80, 140, 17);
+        jLab_OMNI.setBounds(10, 80, 140, 14);
 
         Navi.add(jPan_ItemStorage);
         jPan_ItemStorage.setBounds(0, 330, 150, 110);
@@ -1353,11 +1356,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_Play.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_PlayMouseClicked(evt);
-            }
-        });
-        jBut_Play.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBut_PlayActionPerformed(evt);
             }
         });
         jPan_Planning_Play.add(jBut_Play);
@@ -1389,7 +1387,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_Dozent);
         jBut_Dozent.setBounds(340, 470, 110, 50);
 
-        jBut_1.setText("Platz_1");
         jBut_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBut_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1421,7 +1418,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_2);
         jBut_2.setBounds(210, 10, 110, 50);
 
-        jBut_3.setText("Platz_3");
         jBut_3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_3MouseClicked(evt);
@@ -1433,7 +1429,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_3);
         jBut_3.setBounds(360, 10, 110, 50);
 
-        jBut_4.setText("Platz_4");
         jBut_4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_4MouseClicked(evt);
@@ -1445,7 +1440,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_4);
         jBut_4.setBounds(510, 10, 110, 50);
 
-        jBut_5.setText("Platz_5");
         jBut_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_5MouseClicked(evt);
@@ -1457,7 +1451,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_5);
         jBut_5.setBounds(660, 10, 110, 50);
 
-        jBut_6.setText("Platz_6");
         jBut_6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_6MouseClicked(evt);
@@ -1466,7 +1459,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_6);
         jBut_6.setBounds(60, 80, 110, 50);
 
-        jBut_7.setText("Platz_7");
         jBut_7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_7MouseClicked(evt);
@@ -1475,7 +1467,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_7);
         jBut_7.setBounds(210, 80, 110, 50);
 
-        jBut_8.setText("Platz_8");
         jBut_8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_8MouseClicked(evt);
@@ -1484,7 +1475,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_8);
         jBut_8.setBounds(360, 80, 110, 50);
 
-        jBut_9.setText("Platz_9");
         jBut_9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_9MouseClicked(evt);
@@ -1493,7 +1483,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_9);
         jBut_9.setBounds(510, 80, 110, 50);
 
-        jBut_10.setText("Platz_10");
         jBut_10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_10MouseClicked(evt);
@@ -1502,7 +1491,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_10);
         jBut_10.setBounds(660, 80, 110, 50);
 
-        jBut_11.setText("Platz_11");
         jBut_11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_11MouseClicked(evt);
@@ -1511,7 +1499,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_11);
         jBut_11.setBounds(60, 150, 110, 50);
 
-        jBut_12.setText("Platz_12");
         jBut_12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_12MouseClicked(evt);
@@ -1520,7 +1507,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_12);
         jBut_12.setBounds(210, 150, 110, 50);
 
-        jBut_13.setText("Platz_13");
         jBut_13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_13MouseClicked(evt);
@@ -1529,7 +1515,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_13);
         jBut_13.setBounds(360, 150, 110, 50);
 
-        jBut_14.setText("Platz_14");
         jBut_14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_14MouseClicked(evt);
@@ -1538,7 +1523,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_14);
         jBut_14.setBounds(510, 150, 110, 50);
 
-        jBut_15.setText("Platz_15");
         jBut_15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_15MouseClicked(evt);
@@ -1547,7 +1531,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_15);
         jBut_15.setBounds(660, 150, 110, 50);
 
-        jBut_16.setText("Platz_16");
         jBut_16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_16MouseClicked(evt);
@@ -1556,7 +1539,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_16);
         jBut_16.setBounds(60, 220, 110, 50);
 
-        jBut_17.setText("Platz_17");
         jBut_17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_17MouseClicked(evt);
@@ -1570,7 +1552,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_17);
         jBut_17.setBounds(210, 220, 110, 50);
 
-        jBut_18.setText("Platz_18");
         jBut_18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_18MouseClicked(evt);
@@ -1579,7 +1560,7 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_18);
         jBut_18.setBounds(360, 220, 110, 50);
 
-        jBut_19.setText("Platz_19");
+        jBut_19.setToolTipText("");
         jBut_19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_19MouseClicked(evt);
@@ -1588,7 +1569,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_19);
         jBut_19.setBounds(510, 220, 110, 50);
 
-        jBut_20.setText("Platz_20");
         jBut_20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_20MouseClicked(evt);
@@ -1597,7 +1577,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_20);
         jBut_20.setBounds(660, 220, 110, 50);
 
-        jBut_21.setText("Platz_21");
         jBut_21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_21MouseClicked(evt);
@@ -1606,7 +1585,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_21);
         jBut_21.setBounds(60, 290, 110, 50);
 
-        jBut_22.setText("Platz_22");
         jBut_22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_22MouseClicked(evt);
@@ -1615,7 +1593,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_22);
         jBut_22.setBounds(210, 290, 110, 50);
 
-        jBut_23.setText("Platz_23");
         jBut_23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_23MouseClicked(evt);
@@ -1624,7 +1601,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_23);
         jBut_23.setBounds(360, 290, 110, 50);
 
-        jBut_24.setText("Platz_24");
         jBut_24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_24MouseClicked(evt);
@@ -1633,7 +1609,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_24);
         jBut_24.setBounds(510, 290, 110, 50);
 
-        jBut_25.setText("Platz_25");
         jBut_25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_25MouseClicked(evt);
@@ -1642,7 +1617,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_25);
         jBut_25.setBounds(660, 290, 110, 50);
 
-        jBut_26.setText("Platz_26");
         jBut_26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_26MouseClicked(evt);
@@ -1651,7 +1625,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_26);
         jBut_26.setBounds(60, 360, 110, 50);
 
-        jBut_27.setText("Platz_27");
         jBut_27.setToolTipText("");
         jBut_27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1661,7 +1634,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_27);
         jBut_27.setBounds(210, 360, 110, 50);
 
-        jBut_28.setText("Platz_28");
         jBut_28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_28MouseClicked(evt);
@@ -1670,7 +1642,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_28);
         jBut_28.setBounds(360, 360, 110, 50);
 
-        jBut_29.setText("Platz_29");
         jBut_29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_29MouseClicked(evt);
@@ -1679,7 +1650,6 @@ public class Sims_1 extends javax.swing.JFrame {
         StudField.add(jBut_29);
         jBut_29.setBounds(510, 360, 110, 50);
 
-        jBut_30.setText("Platz_30");
         jBut_30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_30MouseClicked(evt);
@@ -1711,9 +1681,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo.setBounds(0, 0, 150, 110);
 
         text_backtomenue2.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
+        text_backtomenue2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         text_backtomenue2.setText("<- zurück zum Menü");
         panel_shopBackMainmenu.add(text_backtomenue2);
-        text_backtomenue2.setBounds(10, 90, 130, 14);
+        text_backtomenue2.setBounds(0, 90, 150, 14);
 
         shop.add(panel_shopBackMainmenu);
         panel_shopBackMainmenu.setBounds(0, 0, 150, 110);
@@ -1728,19 +1699,19 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_shopStudents.setText("Studenten:");
         panel_shopInventory.add(label_shopStudents);
-        label_shopStudents.setBounds(10, 450, 80, 17);
+        label_shopStudents.setBounds(10, 450, 80, 14);
 
-        label_shopRemainingStudents.setText("4 / 40");
+        label_shopRemainingStudents.setText("4 / 30");
         panel_shopInventory.add(label_shopRemainingStudents);
-        label_shopRemainingStudents.setBounds(80, 450, 50, 17);
+        label_shopRemainingStudents.setBounds(80, 450, 50, 14);
 
         label_shopSemester.setText("Semester: ");
         panel_shopInventory.add(label_shopSemester);
-        label_shopSemester.setBounds(10, 470, 80, 17);
+        label_shopSemester.setBounds(10, 470, 80, 14);
 
         label_shopRemainingSemesters.setText("3 / 6");
         panel_shopInventory.add(label_shopRemainingSemesters);
-        label_shopRemainingSemesters.setBounds(80, 470, 60, 17);
+        label_shopRemainingSemesters.setBounds(80, 470, 60, 14);
 
         label_item4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopInventory.add(label_item4);
@@ -1757,27 +1728,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item1Name.setText("jLabel4");
         panel_shopInventory.add(label_item1Name);
-        label_item1Name.setBounds(60, 80, 51, 17);
+        label_item1Name.setBounds(60, 80, 34, 14);
 
         label_item1Amount.setText("jLabel4");
         panel_shopInventory.add(label_item1Amount);
-        label_item1Amount.setBounds(60, 100, 51, 17);
+        label_item1Amount.setBounds(60, 100, 34, 14);
 
         label_item2Name.setText("jLabel4");
         panel_shopInventory.add(label_item2Name);
-        label_item2Name.setBounds(60, 190, 51, 17);
+        label_item2Name.setBounds(60, 190, 34, 14);
 
         label_item2Amount.setText("jLabel4");
         panel_shopInventory.add(label_item2Amount);
-        label_item2Amount.setBounds(60, 210, 51, 17);
+        label_item2Amount.setBounds(60, 210, 34, 14);
 
         label_item3Name.setText("jLabel4");
         panel_shopInventory.add(label_item3Name);
-        label_item3Name.setBounds(60, 380, 51, 17);
+        label_item3Name.setBounds(60, 380, 34, 14);
 
         label_item3Amount.setText("jLabel26");
         panel_shopInventory.add(label_item3Amount);
-        label_item3Amount.setBounds(60, 400, 60, 17);
+        label_item3Amount.setBounds(60, 400, 40, 14);
 
         label_item3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopInventory.add(label_item3);
@@ -1785,11 +1756,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item4Name.setText("jLabel4");
         panel_shopInventory.add(label_item4Name);
-        label_item4Name.setBounds(60, 280, 51, 17);
+        label_item4Name.setBounds(60, 280, 34, 14);
 
         label_item4Amount.setText("jLabel26");
         panel_shopInventory.add(label_item4Amount);
-        label_item4Amount.setBounds(60, 300, 60, 17);
+        label_item4Amount.setBounds(60, 300, 40, 14);
 
         shop.add(panel_shopInventory);
         panel_shopInventory.setBounds(0, 110, 150, 550);
@@ -1849,7 +1820,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_returnToPlanningPhase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label_returnToPlanningPhase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_returnToPlanningPhase.setText("SPIEL");
+        label_returnToPlanningPhase.setText("zurück zum  Spiel");
         label_returnToPlanningPhase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_returnToPlanningPhaseMouseClicked(evt);
@@ -2067,9 +2038,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo_playing.setBounds(0, 0, 150, 110);
 
         text_backtomenue.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
+        text_backtomenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         text_backtomenue.setText("<- zurück zum Menü");
         panel_logoarea.add(text_backtomenue);
-        text_backtomenue.setBounds(10, 90, 130, 14);
+        text_backtomenue.setBounds(0, 90, 150, 14);
 
         gamePlaying.add(panel_logoarea);
         panel_logoarea.setBounds(0, 0, 150, 110);
@@ -2093,23 +2065,23 @@ public class Sims_1 extends javax.swing.JFrame {
 
         text_students.setText("Studenten:");
         jPanel4.add(text_students);
-        text_students.setBounds(10, 450, 80, 17);
+        text_students.setBounds(10, 450, 80, 14);
 
-        label_students.setText("4 / 40");
+        label_students.setText("4 / 30");
         jPanel4.add(label_students);
-        label_students.setBounds(80, 450, 50, 17);
+        label_students.setBounds(80, 450, 50, 14);
 
         text_semester.setText("Semester: ");
         jPanel4.add(text_semester);
-        text_semester.setBounds(10, 470, 80, 17);
+        text_semester.setBounds(10, 470, 80, 14);
 
         label_semester.setText("3 / 6");
         jPanel4.add(label_semester);
-        label_semester.setBounds(80, 470, 60, 17);
+        label_semester.setBounds(80, 470, 60, 14);
 
         label_ucoinsInv.setText("UCoins: 300");
         jPanel4.add(label_ucoinsInv);
-        label_ucoinsInv.setBounds(10, 380, 130, 17);
+        label_ucoinsInv.setBounds(10, 380, 130, 14);
 
         label_item2Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item2Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2122,7 +2094,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_creditsInv.setText("Credits: 700");
         jPanel4.add(label_creditsInv);
-        label_creditsInv.setBounds(10, 360, 140, 17);
+        label_creditsInv.setBounds(10, 360, 140, 14);
 
         label_item3InvName.setText("Red Bull");
         jPanel4.add(label_item3InvName);
@@ -2130,7 +2102,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item3InvAmount.setText("3 x");
         jPanel4.add(label_item3InvAmount);
-        label_item3InvAmount.setBounds(30, 300, 80, 17);
+        label_item3InvAmount.setBounds(30, 300, 80, 14);
 
         label_item1Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item1Inv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2161,11 +2133,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_item2InvAmount.setText("3 x");
         jPanel4.add(label_item2InvAmount);
-        label_item2InvAmount.setBounds(30, 190, 80, 17);
+        label_item2InvAmount.setBounds(30, 190, 80, 14);
 
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
-        label_item1InvAmount.setBounds(30, 110, 80, 17);
+        label_item1InvAmount.setBounds(30, 110, 80, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -2220,7 +2192,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(button_window);
-        button_window.setBounds(350, 10, 120, 29);
+        button_window.setBounds(350, 10, 120, 23);
 
         text_noise.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_noise.setText("Lärmpegel:");
@@ -2252,7 +2224,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(toggleButton_teamwork);
-        toggleButton_teamwork.setBounds(350, 40, 120, 29);
+        toggleButton_teamwork.setBounds(350, 40, 120, 23);
 
         gamePlaying.add(jPanel5);
         jPanel5.setBounds(150, 0, 700, 110);
@@ -2593,6 +2565,36 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_activityPhaseStudField.setBounds(150, 110, 830, 550);
 
         panel_gamePhases.add(gamePlaying, "card2");
+
+        panel_gameOver.setLayout(null);
+
+        label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverPoints.setText("Erreichte Punktzahl:");
+        panel_gameOver.add(label_gameOverPoints);
+        label_gameOverPoints.setBounds(610, 480, 380, 50);
+
+        label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverSemester.setText("Erreichtes Semester: ");
+        panel_gameOver.add(label_gameOverSemester);
+        label_gameOverSemester.setBounds(610, 450, 380, 30);
+
+        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/simsGameOver.png"))); // NOI18N
+        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_gameOver.setOpaque(true);
+        panel_gameOver.add(label_gameOver);
+        label_gameOver.setBounds(0, -40, 1020, 770);
+
+        button_retry.setText("jButton1");
+        button_retry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_retry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_retryActionPerformed(evt);
+            }
+        });
+        panel_gameOver.add(button_retry);
+        button_retry.setBounds(370, 410, 170, 40);
+
+        panel_gamePhases.add(panel_gameOver, "card8");
 
         jPanel1.add(panel_gamePhases, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 768));
 
@@ -3080,11 +3082,21 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
+        if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        
         cl.show(panel_gamePhases, "card3");
+        gamePlanning.requestFocus();
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+        panel_menue.setVisible(false);
     }
 
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
-        planningPhase.startStudSwitch(jLab_StudCounter);
+        planningPhase.startStudSwitch();
 
     }
 
@@ -3097,19 +3109,7 @@ public class Sims_1 extends javax.swing.JFrame {
         // Starts a new game with initial values from the game_1.java. 
         Game1.initNewSavefile();
         Game1.loadGame();
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        cl.show(panel_gamePhases, "card2");
-        panel_menue.setVisible(false);
-        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
-        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
-        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
-        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
-        label_creditsInv.setText("Credits:   " + _maingame.credits);
-            // sets StudIcons on StudButtons
-        new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
+        switchPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
@@ -3120,31 +3120,14 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
         // Loads and existing game which always starts with a planning phase.
         Game1.loadGame();
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);
-
-            // sets StudIcons on StudButtons
-        new StudIcons(planningPhaseButtons, _maingame.getArray());  
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud);  // added by Tobias, Yulyia
-        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
-        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
-        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+       
         System.out.println("Current round " +Sims_1._maingame.round +" Current Semester " +Sims_1._maingame.getSemester());
         
         
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
-        }
-        panel_snakeMinigame = new Board();
-        panel_gamePhases.add(panel_snakeMinigame, "card5");
-        cl.show(panel_gamePhases, "card5");
-        panel_menue.setVisible(false);
+        //TODO: Show credits to the player
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
@@ -3187,7 +3170,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_swapperAbordActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void label_logo_planningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_planningMouseClicked
@@ -3199,7 +3182,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_logo_planningMouseClicked
 
     private void label_logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseClicked
-        // TODO add your handling code here:
         panel_gamePhases.setVisible(false);
         panel_menue.setVisible(true);
     }//GEN-LAST:event_label_logoMouseClicked
@@ -3207,7 +3189,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
         // Returns from the shop back to the planning phase
         cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);
+        //planningPhase.startPlanningPhase();
+        panel_menue.setVisible(false);  
     }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
@@ -3236,19 +3219,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_OKnoCheatsAvailableActionPerformed
 
     private void jBut_ChangeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_ChangeProfessorActionPerformed
 
-    private void jBut_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_PlayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBut_PlayActionPerformed
-
     private void jBut_startShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_startShopActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_startShopActionPerformed
 
     private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_17ActionPerformed
 
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
@@ -3259,8 +3238,19 @@ public class Sims_1 extends javax.swing.JFrame {
         // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(panel_gamePhases, "card4");
         panel_menue.setVisible(false);
+        
         OpenShop labels = new OpenShop();
         labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
+        //Checks the Students that are still present
+        int present = 0;
+        for(int i=0; i<_maingame.studentArray.length; i++){
+            if(_maingame.studentArray[i].present == true){
+                present++;
+            }
+        }
+        label_shopRemainingStudents.setText(String.valueOf(present)+" / 30");
+        label_shopRemainingSemesters.setText(String.valueOf(_maingame.getSemester())+" / 6");
+        
         item.createItemInventory(label_item1, label_item1Name, label_item1Amount, _maingame.redBull);
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, _maingame.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, _maingame.omniSenseAudio);
@@ -3278,7 +3268,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item1Amount, _maingame.redBull, creditsShop, _maingame.credits, label_item1);
+            jBut_startShopMouseClicked(evt);
             item.updateInventoryPlanningPhase(jLab_Redbull, _maingame.redBull);
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
@@ -3290,7 +3280,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item2Amount, _maingame.duplo, creditsShop, _maingame.credits, label_item2);
+            jBut_startShopMouseClicked(evt);
             item.updateInventoryPlanningPhase(jLab_Duplo, _maingame.duplo);
         }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
@@ -3302,7 +3292,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item4Amount, _maingame.cheatSheet, ucoinsShop, _mainuser.getUcoins(), label_item4);
+            jBut_startShopMouseClicked(evt);
         }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
@@ -3313,7 +3303,7 @@ public class Sims_1 extends javax.swing.JFrame {
             dialog_error.setVisible(true);
             dialog_error.setBounds(300, 200, 400, 320);
         } else {
-            item.updateInventroy(label_item3Amount, _maingame.omniSenseAudio, ucoinsShop, _mainuser.getUcoins(), label_item3);
+            jBut_startShopMouseClicked(evt);
             item.updateInventoryPlanningPhase(jLab_OMNI, _maingame.omniSenseAudio);
         }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
@@ -3323,7 +3313,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
 
     private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_1ActionPerformed
 
     private void textfield_swapperUcoinsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_swapperUcoinsKeyReleased
@@ -3341,8 +3331,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_swapperUcoinsKeyReleased
 
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
-        // TODO add your handling code here:
-
         /**
          * @author Tobias Mauritz
          */
@@ -3394,19 +3382,18 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_1MouseEntered
 
     private void jBut_1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseExited
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_1MouseExited
 
     private void StudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_StudFieldMouseEntered
 
     private void StudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseClicked
-        // TODO add your handling code here:
 
         System.out.println("StudField");
         // 
@@ -3416,181 +3403,154 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_StudFieldMouseClicked
 
     private void jBut_2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_2MouseEntered
 
     private void jBut_3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_3MouseEntered
 
     private void jBut_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseEntered
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_jBut_4MouseEntered
 
     private void jBut_5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseEntered
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jBut_5MouseEntered
 
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(5);
+        planningPhase.StudButtonFunctions(5,jBut_6);
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(6);
+        planningPhase.StudButtonFunctions(6,jBut_7);
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(7);
+        planningPhase.StudButtonFunctions(7,jBut_8);
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(8);
+        planningPhase.StudButtonFunctions(8,jBut_9);
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(9);
+        planningPhase.StudButtonFunctions(9,jBut_10);
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(10);
+        planningPhase.StudButtonFunctions(10,jBut_11);
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(11);
+        planningPhase.StudButtonFunctions(11,jBut_12);
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(12);
+        planningPhase.StudButtonFunctions(12,jBut_13);
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(13);
+        planningPhase.StudButtonFunctions(13,jBut_14);
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(14);
+        planningPhase.StudButtonFunctions(14,jBut_15);
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(15);
+        planningPhase.StudButtonFunctions(15,jBut_16);
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(16);
+        planningPhase.StudButtonFunctions(16,jBut_17);
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(17);
+        planningPhase.StudButtonFunctions(17,jBut_18);
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(18);
+        planningPhase.StudButtonFunctions(18,jBut_19);
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(19);
+        planningPhase.StudButtonFunctions(19,jBut_20);
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(20);
+        planningPhase.StudButtonFunctions(20,jBut_21);
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(21);
+        planningPhase.StudButtonFunctions(21,jBut_22);
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(22);
+        planningPhase.StudButtonFunctions(22,jBut_23);
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(23);
+        planningPhase.StudButtonFunctions(23,jBut_24);
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(24);
+        planningPhase.StudButtonFunctions(24,jBut_25);
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(25);
+        planningPhase.StudButtonFunctions(25,jBut_26);
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(26);
+        planningPhase.StudButtonFunctions(26,jBut_27);
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(27);
+        planningPhase.StudButtonFunctions(27,jBut_28);
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(28);
+        planningPhase.StudButtonFunctions(28,jBut_29);
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
-        // TODO add your handling code here:
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.studInfo.StudInfoAttr(29);
+        planningPhase.StudButtonFunctions(29,jBut_30);
     }//GEN-LAST:event_jBut_30MouseClicked
 
     private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
-        // TODO add your handling code here:
-        
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
         
         //check if can change lector. If so - do this, else -  show error 
-        boolean allowed = planningPhase.checkProffesorChangeability(jLab_DozCounter);
+        boolean allowed = planningPhase.checkProffesorChangeability();
         if (allowed) {
-            planningPhase.changeLector(jLab_DozCounter);
+            planningPhase.changeProfessor();
             lectorChangedDialog.setVisible(true);
         } else {
             lectorNotChangedDialog.setVisible(true);
@@ -3600,12 +3560,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        
         // Starts the action phase and the inventory. 
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
         cl.show(panel_gamePhases, "card2");
+        startActivityPhase();
         panel_menue.setVisible(false);
         item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
         item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
@@ -3621,7 +3581,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rKontonameFocusGained
 
     private void textfield_rEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rEmail1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_textfield_rEmail1ActionPerformed
 
     private void textfield_rEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail1FocusGained
@@ -3680,15 +3640,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_RegisterActionPerformed
 
     private void textfield_KontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_KontonameActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_textfield_KontonameActionPerformed
 
     private void check_saveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_saveUserActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_check_saveUserActionPerformed
 
     private void textfield_rKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rKontonameActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_textfield_rKontonameActionPerformed
 
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
@@ -3721,45 +3681,38 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
-        // TODO add your handling code here:
         planningPhase.setCheatFlag(true);
         warningDialog.setVisible(false);
 
     }//GEN-LAST:event_jBut_JAMouseClicked
 
     private void jBut_NEINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_NEINMouseClicked
-        // TODO add your handling code here:
         planningPhase.setCheatFlag(false);
         warningDialog.setVisible(false);
     }//GEN-LAST:event_jBut_NEINMouseClicked
 
     private void warningDialogWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_warningDialogWindowClosed
-//        // TODO add your handling code here:
 //        planningPhase.setCheatFlag(0);
 //        warning.setVisible(false);
     }//GEN-LAST:event_warningDialogWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_jBut_NEINActionPerformed
 
     private void jBut_JAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_JAActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jBut_JAActionPerformed
 
     private void jBut_OKlectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKlectorMouseClicked
-        // TODO add your handling code here:
         lectorChangedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKlectorMouseClicked
 
     private void jBut_OKcheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKcheatMouseClicked
-        // TODO add your handling code here:
         cheatUsedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKcheatMouseClicked
 
     private void jBut_OKnotchangedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotchangedMouseClicked
-        // TODO add your handling code here:
-
         lectorNotChangedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotchangedMouseClicked
 
@@ -3778,15 +3731,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud1MouseClicked
 
     private void button_stud1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseExited
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_button_stud1MouseExited
 
     private void button_stud1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseEntered
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_button_stud1MouseEntered
 
     private void button_stud1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud1ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_button_stud1ActionPerformed
 
     private void button_stud2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseClicked
@@ -3794,7 +3747,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud2MouseClicked
 
     private void button_stud2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_button_stud2MouseEntered
 
     private void button_stud3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseClicked
@@ -3802,7 +3755,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud3MouseClicked
 
     private void button_stud3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseEntered
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_button_stud3MouseEntered
 
     private void button_stud4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseClicked
@@ -3810,7 +3763,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud4MouseClicked
 
     private void button_stud4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseEntered
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_button_stud4MouseEntered
 
     private void button_stud5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseClicked
@@ -3818,7 +3771,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud5MouseClicked
 
     private void button_stud5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseEntered
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_button_stud5MouseEntered
 
     private void button_stud6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud6MouseClicked
@@ -3870,7 +3823,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_stud17MouseClicked
 
     private void button_stud17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud17ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_button_stud17ActionPerformed
 
     private void button_stud18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud18MouseClicked
@@ -3931,7 +3884,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseClicked
 
     private void panel_activityPhaseStudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseEntered
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseEntered
 
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
@@ -3978,19 +3931,19 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_aSaveActionPerformed
 
     private void textfield_aKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aKontonameActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_textfield_aKontonameActionPerformed
 
     private void textfield_aKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aKontonameFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_aKontonameFocusGained
 
     private void textfield_aEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aEmailActionPerformed
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_textfield_aEmailActionPerformed
 
     private void textfield_aEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aEmailFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_aEmailFocusGained
 
     private void button_auCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_auCancel1ActionPerformed
@@ -3999,11 +3952,11 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_auCancel1ActionPerformed
 
     private void textfield_aSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aSurenameFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_aSurenameFocusGained
 
     private void textfield_aNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aNameFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_aNameFocusGained
 
     private void slider_aMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slider_aMonthStateChanged
@@ -4011,7 +3964,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_slider_aMonthStateChanged
 
     private void textfield_rNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rNameActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
@@ -4027,47 +3980,46 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_aCancelActionPerformed
 
     private void textfield_pKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pKontonameActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_textfield_pKontonameActionPerformed
 
     private void textfield_pKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pKontonameFocusGained
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_textfield_pKontonameFocusGained
 
     private void textfield_pEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pEmail1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_pEmail1ActionPerformed
 
     private void textfield_pEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail1FocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_pEmail1FocusGained
 
     private void textfield_pEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail2FocusGained
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_textfield_pEmail2FocusGained
 
     private void textfield_pNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pNameActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_textfield_pNameActionPerformed
 
     private void textfield_pNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pNameFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_pNameFocusGained
 
     private void textfield_pSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pSurenameFocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textfield_pSurenameFocusGained
 
     private void password_pPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass1FocusGained
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_password_pPass1FocusGained
 
     private void password_pPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass2FocusGained
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_password_pPass2FocusGained
 
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
-
         JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
         JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
         JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
@@ -4167,27 +4119,23 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
 
     private void onmouseover_easteregg(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onmouseover_easteregg
-// TODO add your handling code here:
         label_easteregg.setVisible(true);
     }//GEN-LAST:event_onmouseover_easteregg
 
     private void onmouseleave_easteregg(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onmouseleave_easteregg
-        // TODO add your handling code here:
         label_easteregg.setVisible(false);
     }//GEN-LAST:event_onmouseleave_easteregg
 
     private void login_backgroundMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_backgroundMouseEntered
-        // TODO add your handling code here:
-      
+       
     }//GEN-LAST:event_login_backgroundMouseEntered
 
 
     private void login_backgroundMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_backgroundMouseExited
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_login_backgroundMouseExited
 
     private void jProgB_WissenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_WissenMouseClicked
-        // TODO add your handling code here:
         if(_maingame.barNum==1){
             _maingame.barNum=0;
         }else{
@@ -4197,7 +4145,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jProgB_WissenMouseClicked
 
     private void jProgB_MotivationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MotivationMouseClicked
-        // TODO add your handling code here:
         if(_maingame.barNum==2){
             _maingame.barNum=0;
         }else{
@@ -4207,7 +4154,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jProgB_MotivationMouseClicked
 
     private void jProgB_MüdigkeitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MüdigkeitMouseClicked
-        // TODO add your handling code here:
         if(_maingame.barNum==3){
             _maingame.barNum=0;
         }else{
@@ -4217,16 +4163,14 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jProgB_MüdigkeitMouseClicked
 
     private void jBut_OKnoCheatsAvailableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableMouseClicked
-        // TODO add your handling code here:
         noCheatsAvailableDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnoCheatsAvailableMouseClicked
 
     private void jBut_OKnotAllowedUseCheatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatActionPerformed
 
     private void jBut_OKnotAllowedUseCheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatMouseClicked
-        // TODO add your handling code here:
         notAllowedUseCheatDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
 
@@ -4236,6 +4180,11 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.lecturer_counter--;
         }
     }//GEN-LAST:event_button_dozent1ActionPerformed
+
+    private void button_retryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_retryActionPerformed
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+    }//GEN-LAST:event_button_retryActionPerformed
     
     /**
      * @param args the command line arguments
@@ -4314,6 +4263,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_pCancel;
     private javax.swing.JButton button_pSave;
     private javax.swing.JButton button_rRegister;
+    private javax.swing.JButton button_retry;
     private javax.swing.JButton button_shopMessageOk;
     private javax.swing.JButton button_startExchange;
     private javax.swing.JButton button_stud1;
@@ -4480,6 +4430,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_duploOverlay;
     private javax.swing.JLabel label_easteregg;
     private javax.swing.JLabel label_eastereggtrigger;
+    private javax.swing.JLabel label_gameOver;
+    private javax.swing.JLabel label_gameOverPoints;
+    private javax.swing.JLabel label_gameOverSemester;
     private javax.swing.JLabel label_handcursor;
     private javax.swing.JLabel label_handcursor1;
     private javax.swing.JLabel label_handcursor2;
@@ -4592,6 +4545,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_adminUser;
     private javax.swing.JPanel panel_cheatSheet;
     private javax.swing.JPanel panel_duplo;
+    private javax.swing.JPanel panel_gameOver;
     private javax.swing.JPanel panel_gamePhases;
     private javax.swing.JPanel panel_logoarea;
     private javax.swing.JPanel panel_menue;
@@ -5138,4 +5092,76 @@ public class Sims_1 extends javax.swing.JFrame {
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
+    
+public void startActivityPhase(){
+        
+    if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        cl.show(panel_gamePhases, "card2");
+        panel_menue.setVisible(false);
+        item.createItemInventory(label_item1Inv, label_item1InvName, label_item1InvAmount, _maingame.redBull);
+        item.createItemInventory(label_item2Inv, label_item2InvName, label_item2InvAmount, _maingame.duplo);
+        item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
+        label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
+        label_creditsInv.setText("Credits:   " + _maingame.credits);
+            // sets StudIcons on StudButtons
+        new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1); // added by Jörg, Nadir
+}
+
+public void startPlanningPhase(){
+ if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+        cl.show(panel_gamePhases, "card3");
+        panel_menue.setVisible(false);
+
+        // sets StudIcons on StudButtons
+        //new StudIcons(planningPhaseButtons, _maingame.getArray());  
+        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter, jBut_Dozent);  // added by Tobias, Yulyia
+        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+}
+public void switchPhase(){
+    //Checks the Students that are still present
+    int present = 0;
+    for(int i=0; i<_maingame.studentArray.length; i++){
+        if(_maingame.studentArray[i].present == true){
+            present++;
+        }
+    }
+    label_students.setText(String.valueOf(present)+" / 30");
+    label_semester.setText(String.valueOf(_maingame.getSemester())+" / 6"); // show curent semester in the activityphase
+    if (panel_gamePhases.isVisible() == false) {
+            panel_gamePhases.setVisible(true);
+        }
+    if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() != 7){
+        // Create a random minigame
+        RandGenerator randGen = new RandGenerator();
+        switch(randGen.getRand(3)+1){
+            case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
+            case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
+            case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
+            default: {goToNextPage(); break;}
+        }
+    }
+    // Calls the planninghpase without having a minigame
+    else if(_maingame.round%3 != 1 && present != 0){
+        cl.show(panel_gamePhases, "card3");
+        startPlanningPhase();
+    }
+    // Calls the page after the last Semester if there are still students available
+    else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+    }
+    // Calls the gameOver screen if there are no students any more
+    else{
+        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
+        cl.show(panel_gamePhases, "card8");
+    }
+}
 }

@@ -145,7 +145,7 @@ public class Item {
         int itemAmountY = 100;
         int itemAmountWidth = 80;
         int itemAmountHeight = 20;
-        
+              
         switch(item.name){
             case _redBullName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullPainting80x80.png")));
@@ -244,6 +244,11 @@ public class Item {
             name.setVisible(false);
             amount.setVisible(false);
         }
+        else{
+            field.setVisible(true);
+            name.setVisible(true);
+            amount.setVisible(true);
+        }
     }
     
     /**
@@ -276,7 +281,7 @@ public class Item {
      * @param price  The Credits or UCoins label. 
      * @param value  The new value of coins after the buy.
      */
-    
+    @Deprecated
     public static void updateInventroy(JLabel item, Item it, JLabel price, int value, JLabel field){
         if(item.isVisible() == false){
             item.setVisible(true);

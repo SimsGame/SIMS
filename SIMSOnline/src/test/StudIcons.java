@@ -19,7 +19,11 @@ public class StudIcons {
     public StudIcons (javax.swing.JButton[] studButtons, Student[] studArray){
         int i;
         for (i=0;i<30;i++){
+            if (studArray[i].present){
             studButtons[i].setIcon(new ImageIcon(getClass().getResource(studArray[i].getStudIcon())));
+            } else {
+                studButtons[i].setIcon(new ImageIcon());
+            }
         }
     }
 }

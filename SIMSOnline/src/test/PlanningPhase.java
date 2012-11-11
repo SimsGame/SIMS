@@ -6,6 +6,7 @@ package test;
 
 import java.awt.Color;
 import javax.swing.*;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -28,10 +29,11 @@ public class PlanningPhase {
     //flags deklaration
     private static boolean switchFlag = false;
     private boolean cheatFlag = false;  //will be set to true, if Spicker in Dropdown-Field is selected  and can be used
-                                       
+    private boolean studPresent1;   // when a not present student was clicked first while SwitchStudent
+    private boolean studPresent2;   // when a not present student was clicked second while SwitchStudent
     // counter
-    private static int switchCounter = 5;
-    private static int studCounter = 0;
+    public  int switchCounter = 5;
+    private  int studCounter = 0;
    
     // students for the switching function
     private static Student stud1;
@@ -41,26 +43,21 @@ public class PlanningPhase {
     
     
     //deklaration of the variables that are needed for the lector-change function
-    private  JLabel lectorCounter; //JLabel that shows how many times the user can change lector
+    private  JLabel professorCounter; //JLabel that shows how many times the user can change lector
      
-    private  boolean lectorChanged3 = false; //flag is set if the lector was already changed in this round
-    private  boolean lectorChanged6 = false;
-    private  boolean lectorChanged9 = false;
-    private  boolean lectorChanged12 = false;
-    private  boolean lectorChanged15 = false;  
+    private  boolean lectorChanged4 = false; //flag is set if the lector was already changed in this round
+    private  boolean lectorChanged7 = false;
+    private  boolean lectorChanged10 = false;
+    private  boolean lectorChanged13 = false;
+    private  boolean lectorChanged16 = false;  
+    private  JButton professorButton;
     
     
     private static JButton studBut1;
     private static JButton studBut2;
     public JButton[] studButtons;
-
-        // PlanningPhase constructor
-    public PlanningPhase() {
-    }
-    
      
 
-//     called first
     /**
      * - constructor which initializes the progress bars, the professor counter label 
      * and the switch student toggle button <br>
@@ -70,33 +67,56 @@ public class PlanningPhase {
      * @param jProgB_Motivation progress bar which shows the motivation
      * @param jProgB_Tiredness progress bar which shows the tiredness
      * @param jLab_DozCounter label which shows how many times one can change professor
-     * @param jToggleBut_SwitchStud 
+     * @param jToggleBut_SwitchStud toggle button for student switching
+     * @param jLab_SwitchCounter label with counter value of available student switchs
      */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
-            JProgressBar jProgB_Motivation,
-            JProgressBar jProgB_Tiredness, 
-            JLabel jLab_DozCounter,
-            JToggleButton jToggleBut_SwitchStud) {
-
+                         JProgressBar jProgB_Motivation,
+                         JProgressBar jProgB_Tiredness, 
+                         JLabel jLab_DozCounter,
+                         JToggleButton jToggleBut_SwitchStud,
+                         JLabel jLab_SwitchCounter,
+                         JButton jBut_Dozent) {
+        
+        // initializes motivation and tiredness of students
+        Sims_1._maingame.initAttr();
+        // StudentArray will be initialized
+        this.studArr = Sims_1._maingame.getArray();
+        
         // initializes the progress bars
         this.KnowledgeBar = jProgB_Knowledge;
         this.MotivationBar = jProgB_Motivation;
         this.TirednessBar = jProgB_Tiredness;
         
+        // initializes label of counter switchs
+        this.switchCounterLabel = jLab_SwitchCounter;
+        
+        
         // initializes the ToggleButton for switching students
         this.switchStudToggleBut = jToggleBut_SwitchStud;
 
-        // StudentArray will be initialized
-        this.studArr = Sims_1._maingame.getArray();
+        // sets Label of StudentSwitch to default value --> switchCounter == 5
+        switchCounterLabel.setText(switchCounter + "x");
+        switchCounterLabel.repaint();
 
         // one instance of StudInfo which is used for all student buttons
         // initialzing the PrograssBars on studInfo
         studInfo = new StudInfo(KnowledgeBar, MotivationBar, TirednessBar);
         
+        this.professorCounter = jLab_DozCounter;
+        this.professorButton  = jBut_Dozent;
+        
         //updates label "Dozenten tauschen"
-        checkProffesorChangeability(jLab_DozCounter);
+        checkProffesorChangeability();
+        
+        new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
+        
+        
+        
         
     }
+
 
 
     // called from SwitchStud-Button on navi
@@ -106,8 +126,8 @@ public class PlanningPhase {
      * an toggle button
      * @param jLab_SwitchCounter 
      */
-    public  void startStudSwitch(JLabel jLab_SwitchCounter) {
-        switchCounterLabel = jLab_SwitchCounter;
+    public  void startStudSwitch() {
+        
         
         // declares switchFlag to true/false when ToggleButton is pressed
         switchFlag = switchStudToggleBut.isSelected();
@@ -147,6 +167,9 @@ public class PlanningPhase {
             stud2 = studArr[stud_nr];
             stud2_nr = stud_nr;
             this.studBut2 = studBut;
+            if (!studArr[stud_nr].present){
+                studPresent2 = false;
+            }
             System.out.println("Stud2 auf Platz: " + (stud2_nr + 1));
             System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
             StudSwitch(stud1, stud2);
@@ -159,6 +182,9 @@ public class PlanningPhase {
             stud1 = studArr[stud_nr];
             stud1_nr = stud_nr;
             this.studBut1 = studBut;
+            if (!studArr[stud_nr].present){
+                studPresent1 = false;
+            }
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
             System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
@@ -171,15 +197,24 @@ public class PlanningPhase {
      * @param stud2 second clicked student to switch
      */
     private void StudSwitch(Student stud1, Student stud2) {
-
+        
+        if (stud1.present || stud2.present){
         System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
                 + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // swtiching the two selected students 
         studArr[stud1_nr] = stud2;
         studArr[stud2_nr] = stud1;
-        studBut1.setIcon(new ImageIcon(getClass().getResource(studArr[stud1_nr].getStudIcon())));
-        studBut2.setIcon(new ImageIcon(getClass().getResource(studArr[stud2_nr].getStudIcon())));
+        if (studArr[stud1_nr].present){
+            studBut1.setIcon(new ImageIcon(getClass().getResource(studArr[stud1_nr].getStudIcon())));
+        } else {
+            studBut1.setIcon(new ImageIcon());
+        }
+        if (studArr[stud2_nr].present){
+            studBut2.setIcon(new ImageIcon(getClass().getResource(studArr[stud2_nr].getStudIcon())));
+        } else {
+            studBut2.setIcon(new ImageIcon());
+        }
 
         System.out.println("NACHHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId()
                 + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
@@ -188,6 +223,7 @@ public class PlanningPhase {
         //switchFlag = 0;
         switchCounter--;
         studCounter = 0;
+        }
         
         switchStudToggleBut.setSelected(false);
 
@@ -245,22 +281,20 @@ public class PlanningPhase {
      * user is allowed to change  his/her professor only at the beginning 
      * of the actual month and only once due semester time
      *
-     * @param jLab_DozCounter Label in the navigation panel of a planning phase
-     * that shows how many times the user can change professor
+     * 
      * @return true if professor can be changed. In other case return false
      */
-    public  boolean checkProffesorChangeability(JLabel jLab_DozCounter) {
+    public  boolean checkProffesorChangeability() {
         int actualRound=Sims_1._maingame.round;
-        lectorCounter = jLab_DozCounter;
-        if ( (actualRound == 3 && !lectorChanged3)  || (actualRound == 6 && !lectorChanged6) || 
-             (actualRound == 9 && !lectorChanged9)|| (actualRound == 12 && !lectorChanged12) ||
-             (actualRound == 15 && !lectorChanged15)) {            
-            lectorCounter.setText("1x");
-            lectorCounter.repaint();
+        if ( (actualRound == 4 && !lectorChanged4)  || (actualRound == 7 && !lectorChanged7) || 
+             (actualRound == 10 && !lectorChanged10)|| (actualRound == 13 && !lectorChanged13) ||
+             (actualRound == 16 && !lectorChanged16)) {            
+            professorCounter.setText("1x");
+            professorCounter.repaint();
             return true;
         } else {            
-            lectorCounter.setText("0x");
-            lectorCounter.repaint();
+            professorCounter.setText("0x");
+            professorCounter.repaint();
             return false;
         }
         
@@ -272,32 +306,38 @@ public class PlanningPhase {
      * professor-change-flag for the current round will be set to true in order
      * to avoid new change
      *
-     * @param jLab_DozCounter Label in the navigation panel of a planning phase that shows how many times
-     *                        the user can change professor - will be updated
+     *
      * 
      */
-    public void changeLector(JLabel jLab_DozCounter) {
+    public void changeProfessor() {
         int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
-        lectorCounter = jLab_DozCounter;
-        if (actualRound == 3) {
-            lectorChanged3 = true;
+       
+        if (actualRound == 4) {
+            lectorChanged4 = true;
+            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);                     
+        } else if (actualRound == 7) {
+            lectorChanged7 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 6) {
-            lectorChanged6 = true;
+        } else if (actualRound == 10) {
+            lectorChanged10 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 9) {
-            lectorChanged9 = true;
+        } else if (actualRound == 13) {
+            lectorChanged13 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 12) {
-            lectorChanged12 = true;
-            Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
-        } else if (actualRound == 15) {
-            lectorChanged15 = true;
+        } else if (actualRound == 16) {
+            lectorChanged16 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
+        //setting new professor icon
+        Sims_1._maingame.professorIcon=Sims_1._maingame.professorIconPath[((int) Math.round(Math.random()%3 ))];
+        
+        //loading new icon on the button
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
+        
+        
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
-        lectorCounter.setText("0x");
-        lectorCounter.repaint();
+        professorCounter.setText("0x");
+        professorCounter.repaint();
     }     
     
     /**
@@ -318,7 +358,7 @@ public class PlanningPhase {
     
     
     /**
-     * - this method will be applied if a cheatFlag is set to true and one of a students is selected
+     * - this method will be used if a cheatFlag is set to true and one of a students is selected
      * - updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
      * - also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
      * 
