@@ -5,6 +5,7 @@
 package test;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -31,9 +32,10 @@ public class ActivityPhase {
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JProgressBar NoiseBar;
     public javax.swing.JButton[] studButtons;
+    private javax.swing.JButton professorButton; //added by Julia
     private Game1 game;
     
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims) {        
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -49,6 +51,8 @@ public class ActivityPhase {
         this.label_score=score;
         this.label_score.setText(Integer.toString(this.game.points));
         this.sims=sims;
+        this.professorButton  = jBut_Dozent; //added by Julia
+        this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added by Julia
         activityPhaseMain();
     }
     

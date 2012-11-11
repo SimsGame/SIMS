@@ -20,7 +20,7 @@ public class Game1 {
     public int points;
     public int round;
     public int professor; //added by Julia
-    public String professorIcon; //added by Julia - loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
+    public String professorIcon="/pictures/prof1_transparent.png"; //added by Julia - now has a value just for test will be loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
     public final String professorIconPath[] = { 
                                                  "/pictures/prof1_transparent.png",
                                                  "/pictures/prof2_transparent.png",

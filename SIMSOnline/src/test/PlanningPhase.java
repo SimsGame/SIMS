@@ -76,7 +76,7 @@ public class PlanningPhase {
                          JLabel jLab_DozCounter,
                          JToggleButton jToggleBut_SwitchStud,
                          JLabel jLab_SwitchCounter,
-                         javax.swing.JButton jBut_Dozent) {
+                         JButton jBut_Dozent) {
         
         // initializes motivation and tiredness of students
         Sims_1._maingame.initAttr();

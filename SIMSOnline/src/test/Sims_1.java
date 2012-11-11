@@ -5107,7 +5107,7 @@ public void startActivityPhase(){
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1); // added by Jörg, Nadir
 }
 
 public void startPlanningPhase(){
