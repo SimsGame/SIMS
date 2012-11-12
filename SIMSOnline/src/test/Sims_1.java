@@ -3173,12 +3173,15 @@ public class Sims_1 extends javax.swing.JFrame {
   {    panel_Credits.setVisible(false);}
   else  
   { panel_Credits.setVisible(true);}
-      //TODO: Show credits to the player
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
         initProfile();
-        panel_Profile.setVisible(true);
+         if(panel_Profile.isVisible())
+  {    panel_Profile.setVisible(false);}
+  else  
+  { panel_Profile.setVisible(true);}
+         
     }//GEN-LAST:event_button_menuProfileActionPerformed
 
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
