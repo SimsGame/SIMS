@@ -169,8 +169,8 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Credits = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        label_creditsHeadline = new javax.swing.JLabel();
+        label_creditsHeadline1 = new javax.swing.JLabel();
         panel_Profile = new javax.swing.JPanel();
         textfield_pKontoname = new javax.swing.JTextField();
         textfield_pEmail1 = new javax.swing.JTextField();
@@ -886,17 +886,19 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panel_Credits.setOpaque(false);
         panel_Credits.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("SIMS");
-        panel_Credits.add(jLabel2);
-        jLabel2.setBounds(130, 240, 240, 40);
+        label_creditsHeadline.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        label_creditsHeadline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_creditsHeadline.setText("SIMS");
+        panel_Credits.add(label_creditsHeadline);
+        label_creditsHeadline.setBounds(130, 200, 240, 40);
 
-        jLabel4.setText("A game made by Macrosoft");
-        panel_Credits.add(jLabel4);
-        jLabel4.setBounds(190, 290, 200, 14);
+        label_creditsHeadline1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_creditsHeadline1.setText("A game made by Macrosoft");
+        panel_Credits.add(label_creditsHeadline1);
+        label_creditsHeadline1.setBounds(130, 250, 230, 14);
 
         panel_menue.add(panel_Credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 700));
 
@@ -3145,7 +3147,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-        //TODO: Show credits to the player
+        panel_Credits.setVisible(true);
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
@@ -4389,9 +4391,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -4441,6 +4441,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_cheatSheetLocked;
     private javax.swing.JLabel label_cheatSheetName;
     private javax.swing.JLabel label_cheatSheetOverlay;
+    private javax.swing.JLabel label_creditsHeadline;
+    private javax.swing.JLabel label_creditsHeadline1;
     private javax.swing.JLabel label_creditsInv;
     private javax.swing.JLabel label_currentExchange;
     private javax.swing.JLabel label_duploAmount;
