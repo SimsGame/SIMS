@@ -333,6 +333,7 @@ public class PlanningPhase {
         
         //loading new icon on the button
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
+        this.professorButton.updateUI();
         
         
         System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
