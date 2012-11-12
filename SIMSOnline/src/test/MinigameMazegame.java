@@ -1774,26 +1774,26 @@ public class MinigameMazegame extends javax.swing.JPanel {
             case KeyEvent.VK_LEFT:{ if(checkPosition(label_auto.getLocationOnScreen(), -2, 0) == false){
                          break;
                       }else{ 
-                         label_auto.setLocation(label_auto.getX()-1, label_auto.getY());
+                         label_auto.setLocation(label_auto.getX()-2, label_auto.getY());
                          break;
                       }
                     }
             case KeyEvent.VK_UP:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, -2) == false){
                          break;
                       }else{ 
-                         label_auto.setLocation(label_auto.getX(), label_auto.getY()-1); break;
+                         label_auto.setLocation(label_auto.getX(), label_auto.getY()-2); break;
                       }
                     }
             case KeyEvent.VK_RIGHT:{ if(checkPosition(label_auto.getLocationOnScreen(), label_auto.getWidth()+2, 0) == false){
                          break;
                       }else{ 
-                         label_auto.setLocation(label_auto.getX()+1, label_auto.getY()); break;
+                         label_auto.setLocation(label_auto.getX()+2, label_auto.getY()); break;
                       }
                     }
             case KeyEvent.VK_DOWN:{ if(checkPosition(label_auto.getLocationOnScreen(), 0, label_auto.getHeight()+2) == false){
                          break;
                       }else{ 
-                          label_auto.setLocation(label_auto.getX(), label_auto.getY()+1); break;
+                          label_auto.setLocation(label_auto.getX(), label_auto.getY()+2); break;
                       }
                     }    
         }
@@ -1890,11 +1890,11 @@ public class MinigameMazegame extends javax.swing.JPanel {
         label_Punkte.setBounds(0, 90, 500, 20);
         label_Punkte.setHorizontalAlignment(JLabel.CENTER);
         label_Punkte.setForeground(Color.green);
-        if(time <= 38){
+        if(time <= 18){
             points = 500;
             credits = 200;
         }
-        else if(time >= 39 && time <= 60){
+        else if(time >= 25 && time <= 40){
             points = 300;
             credits = 100;
         }
