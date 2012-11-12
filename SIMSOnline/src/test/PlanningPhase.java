@@ -110,6 +110,8 @@ public class PlanningPhase {
         checkProffesorChangeability();
         
         new StudIcons(Sims_1.planningPhaseButtons, Sims_1._maingame.getArray()); 
+        
+        //draw professor's picture
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
         
         
@@ -238,10 +240,7 @@ public class PlanningPhase {
      * @param stud_nr student array index number of clicked student
      * @param studBut button which was clicked
      */
-    public void StudButtonFunctions(int stud_nr, JButton studBut) {
-      
-        
-        // !!! ExmatrikulationsFlag abfragen!!!!
+    public void StudButtonFunctions(int stud_nr, JButton studBut) {                
         
             // switchFlag == 0 --> SwitchButton not clickeds
         switchFlag = switchStudToggleBut.isSelected();
@@ -260,12 +259,12 @@ public class PlanningPhase {
               if (cheatFlag){             
               
                useCheat(stud_nr);
-               System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
+              // System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
               }
-               else 
-                  System.out.println("Dieser Student bekommt keinen Spicker");  
-                  System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
-             
+               else {
+                //  System.out.println("Dieser Student bekommt keinen Spicker");  
+                //  System.out.println("Cheat available? " +studArr[stud_nr].getCheatAvailable());
+              }
          // switchFlag == true --> SwitchButton clicked
         } else {
             System.out.println("SwitchFlag = true");
@@ -301,19 +300,21 @@ public class PlanningPhase {
     }
 
     /**
-     * function to change lector: randomly sets the value of professor-field
-     * between 0 and 100 - if professor was changed the appropriate
-     * professor-change-flag for the current round will be set to true in order
-     * to avoid new change
+     * - function to change professor: randomly sets the value of professor-field
+     *   between 0 and 100 
+     * - if professor was changed the appropriate professor-change-flag for the current round 
+     *   will be set to true in order
+     *   to avoid new changes
      *
-     *
-     * 
+     * -  also updates professor's picture 
+     *  
      */
     public void changeProfessor() {
-        int actualRound = Sims_1._maingame.round; // - ABfrage des aktuellen Monats
+        
+        int actualRound = Sims_1._maingame.round; 
        
         if (actualRound == 4) {
-            lectorChanged4 = true;
+            lectorChanged4 = true; //shows that professor was changed on the beginning of the 2.Semester (4.Round)
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);                     
         } else if (actualRound == 7) {
             lectorChanged7 = true;
@@ -328,16 +329,23 @@ public class PlanningPhase {
             lectorChanged16 = true;
             Sims_1._maingame.professor = (int) Math.round(Math.random() * 100 + 1);
         }
-        //setting new professor icon
-        Sims_1._maingame.professorIcon=Sims_1._maingame.professorIconPath[((int) Math.round(Math.random()%3 ))];
+         //setting new professor icon        
+        //temp is a temporar variable needed for comparison 
+         String temp=Sims_1._maingame.professorIconPath[((int) Math.round(Math.random()*2 ))];
+         
+        //elimination of setting the same professor picture as before
+          while (Sims_1._maingame.professorIcon.equals(temp)){
+              temp=Sims_1._maingame.professorIconPath[((int) Math.round(Math.random()*2 ))];                  
+        }
+        
+         Sims_1._maingame.professorIcon=temp;
         
         //loading new icon on the button
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon)));
-        this.professorButton.updateUI();
+        this.professorButton.updateUI();           
         
-        
-        System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
-        professorCounter.setText("0x");
+        //  System.out.println("Dozent wurde gewechselt. Neuer Dozentenwert: " + Sims_1._maingame.professor);
+        professorCounter.setText("0x"); //label update
         professorCounter.repaint();
     }     
     
@@ -360,23 +368,25 @@ public class PlanningPhase {
     
     /**
      * - this method will be used if a cheatFlag is set to true and one of a students is selected
-     * - updates amount of cheat sheets in the inventory and set cheatAvailable attribut of a clicked student to true
+     * - also updates amount of cheat sheets in the inventory and set cheatAvailable attribute of a clicked student to true
      * - also notes that cheat sheet in this semester was used in order to avoid new use in the same semester
      * 
      * @param stud_nr  student array index number of clicked student
      */
     public void useCheat(int stud_nr) {
-        int currentSemester = Sims_1._maingame.getSemester();
-        System.out.println("Student " + studArr[stud_nr].getId() + "kriegt den Spicker");
-        studArr[stud_nr].setCheatAvailable(true);
-        System.out.println("CheatAvailable?" + studArr[stud_nr].getCheatAvailable() + " Student " + studArr[stud_nr].getId());
+        
+        int currentSemester = Sims_1._maingame.getSemester();         
+        
+        studArr[stud_nr].setCheatAvailable(true);       
 
-        System.out.println("Anzahl der Spicker zuvor: " + Sims_1._maingame.cheatSheet.amount);
+        // System.out.println("Anzahl der Spicker zuvor: " + Sims_1._maingame.cheatSheet.amount);
         Sims_1._maingame.cheatSheet.amount -= 1;
-        System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " + Sims_1._maingame.cheatSheet.amount);
-        cheatFlag = false;
-        System.out.println("cheatFlag auf false setzen " + cheatFlag);
+        //System.out.println("Spicker Anzahl im Inventar um 1 verringern, aktueller wert: " + Sims_1._maingame.cheatSheet.amount);
+       
+        cheatFlag = false; //unset the flag after using
+        
+       // System.out.println("cheatFlag auf false setzen " + cheatFlag);
 
-        Sims_1._maingame.setCheated(currentSemester);
+        Sims_1._maingame.setCheated(currentSemester);  // note that the flag was already used in this semester
     }
 }
