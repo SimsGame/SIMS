@@ -20,7 +20,7 @@ public class Student {
     private double tiredness;
     private double motivation;
     public boolean laptopClosed = true;
-    public boolean present = true;
+    public boolean present;// = true;
     private String studIconPath;    // added by Tobias
     private boolean cheatAvailable; //added by Julia   
     public final String[] iconPath = {  // added by Tobias
@@ -29,6 +29,7 @@ public class Student {
             "/pictures/studentface3transparent.png",
             "/pictures/studentface4transparent.png",
             "/pictures/studentface5transparent.png"};
+    public int iconNum;
     
     /**
      * 
@@ -42,11 +43,19 @@ public class Student {
     }
     
     public Student(LinkedList<String> student){
-        this.knowledge = new Integer(student.pop());
+        this.knowledge = new Double(student.pop());
         this.intelligence = new Double(student.pop());
-        System.out.println(this.intelligence);
-        this.studIconPath = iconPath[new Integer(student.pop())];
+        //System.out.println(this.intelligence);
+        this.iconNum = new Integer(student.pop());
+        this.studIconPath = iconPath[this.iconNum];
         this.cheatAvailable = Boolean.getBoolean(student.pop());
+        if(student.pop().equals("0")){
+            this.present = false;
+        } else {
+            this.present = true;
+        }
+        //this.present = Boolean.getBoolean(student.pop());
+        System.out.println(this.present);
     }
 
     /**
