@@ -54,8 +54,6 @@ public class Student {
         } else {
             this.present = true;
         }
-        //this.present = Boolean.getBoolean(student.pop());
-        System.out.println(this.present);
     }
 
     /**
