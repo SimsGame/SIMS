@@ -171,7 +171,6 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Credits = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Menu_overlay2 = new javax.swing.JLabel();
         panel_Profile = new javax.swing.JPanel();
         textfield_pKontoname = new javax.swing.JTextField();
         textfield_pEmail1 = new javax.swing.JTextField();
@@ -858,7 +857,7 @@ public class Sims_1 extends javax.swing.JFrame {
             .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -891,22 +890,19 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel_Credits.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_Credits.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SIMS");
-        panel_Credits.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 240, 40));
+        panel_Credits.add(jLabel2);
+        jLabel2.setBounds(130, 240, 240, 40);
 
         jLabel4.setText("A game made by Macrosoft");
-        panel_Credits.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 200, -1));
+        panel_Credits.add(jLabel4);
+        jLabel4.setBounds(190, 290, 200, 14);
 
-        Menu_overlay2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/mainmenue_new.png"))); // NOI18N
-        Menu_overlay2.setText("Overlay_hauptmenü");
-        Menu_overlay2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panel_Credits.add(Menu_overlay2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -100, -1, -1));
-
-        panel_menue.add(panel_Credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 460, 390));
+        panel_menue.add(panel_Credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 700));
 
         panel_Profile.setMaximumSize(new java.awt.Dimension(500, 700));
         panel_Profile.setMinimumSize(new java.awt.Dimension(500, 700));
@@ -3169,7 +3165,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
-  panel_Credits.setVisible(true);        //TODO: Show credits to the player
+        //TODO: Show credits to the player
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
@@ -4277,7 +4273,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel Logo;
     private javax.swing.JLabel Menu_overlay;
     private javax.swing.JLabel Menu_overlay1;
-    private javax.swing.JLabel Menu_overlay2;
     private javax.swing.JProgressBar MotivationBar;
     private javax.swing.JPanel Navi;
     private javax.swing.JProgressBar NoiseBar;
