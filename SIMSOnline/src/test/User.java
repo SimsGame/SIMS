@@ -25,7 +25,7 @@ public class User {
     private String last_name = "";
     private Date reg_date = new Date();
     private Date last_login = new Date();
-    private int ucoins = 0;
+    private int ucoins;
 
     public void setAccountname(String accountname) {
         this.accountname = accountname;
@@ -132,8 +132,9 @@ public class User {
             } else {
                 last_login = (Date) formatter.parse(userData[6]);
             }
-            ucoins = Integer.parseInt(userData[7]);
-            time_played = Integer.parseInt(userData[8]);
+            time_played = Integer.parseInt(userData[7]);
+            ucoins = Integer.parseInt(userData[8]);
+            System.out.println(this.ucoins);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -175,6 +176,10 @@ public class User {
         }
 
         return false;
+    }
+    
+    public static boolean saveUser(){
+        return createUser(Sims_1._mainuser);
     }
 
     public static boolean createUser(User user) {

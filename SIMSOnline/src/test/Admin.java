@@ -17,7 +17,7 @@ import java.util.LinkedList;
  * @author rusinda
  */
 public class Admin {
-    
+
     LinkedList<User> users = new LinkedList();
     JButton[] userButtons;
     JPanel adminpanel;
@@ -27,11 +27,11 @@ public class Admin {
     JSlider months;
     User currentuser;
     JLabel[] errMess;
-    
+
     public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JCheckBox spicker, JSlider months, JLabel[] errMess) {
-        
+
         this.errMess = errMess;
-        for(int i = 0; i< this.errMess.length; i++){
+        for (int i = 0; i < this.errMess.length; i++) {
             this.errMess[i].setText("");
         }
         this.adminpanel = adminpanel;
@@ -55,49 +55,70 @@ public class Admin {
                 }
             }
         }
-        
+
         userButtons = new JButton[users.size()];
         LinkedList<User> usersHelp = (LinkedList<User>) users.clone();
         for (int i = 0; i < userButtons.length; i++) {
             userButtons[i] = new JButton(usersHelp.pop().getAccountname());
             userButtons[i].setSize(150, 50);
-            userButtons[i].setLocation(10 + 160 * (i /9), 80 + (i % 9) * 60);
+            userButtons[i].setLocation(10 + 160 * (i / 9), 80 + (i % 9) * 60);
             userButtons[i].addActionListener(new AdminActionListener(i));
             this.adminpanel.add(userButtons[i]);
             userButtons[i].setVisible(true);
         }
-        
+
     }
-    
+
     private void getUser(int index) {
-        
+
         currentuser = users.get(index);
+        Sims_1._mainuser = currentuser;
+        Game1.loadGame();
         userdata[0].setText(currentuser.getAccountname());
         userdata[1].setText(currentuser.getPassword());
         userdata[2].setText(currentuser.getEmail());
         userdata[3].setText(currentuser.getFirst_name());
         userdata[4].setText(currentuser.getLast_name());
         userdata[5].setText(Integer.toString(currentuser.getUcoins()));
-        userdata[6].setText("aus Spielstand");
-        userdata[7].setText("aus Spielstand");
-        userdata[8].setText("aus Spielstand");
-        userdata[9].setText("aus Spielstand");
-        spicker.setSelected(false);     //aus Spielstand
-        months.setValue(4);             //aus Spielstand
-        
+        userdata[6].setText(Integer.toString(Sims_1._maingame.credits));
+        userdata[7].setText(Integer.toString(Sims_1._maingame.duplo.amount));
+        userdata[8].setText(Integer.toString(Sims_1._maingame.redBull.amount));
+        userdata[9].setText(Integer.toString(Sims_1._maingame.omniSenseAudio.amount));
+        if (Sims_1._maingame.cheatSheet.amount > 0) {
+            spicker.setSelected(true);     //aus Spielstand
+        } else {
+            spicker.setSelected(false);
+        }
+        months.setValue(Sims_1._maingame.round);             //aus Spielstand
+
         adminpanel.setVisible(false);
-        userpanel.setVisible(true);        
+        userpanel.setVisible(true);
     }
-    
-    public boolean checkChanges(){
+
+    public boolean checkChanges() {
         JComponent[] toCheck = {userdata[0], new JPasswordField(userdata[1].getText()), new JPasswordField(userdata[1].getText()), userdata[2], userdata[2], userdata[3], userdata[4]};
         JLabel[] errMessLoc = {errMess[0], errMess[1], errMess[1], errMess[2], errMess[2], errMess[3], errMess[4]};
-        
-        return (Sims_1.checkRegister_(toCheck, errMessLoc));
+        boolean checked = true;
+        int check = -1;
+        for (int i = 0; i < 4; i++) {
+            check = -1;
+            try {
+                check = new Integer(userdata[6 + i].getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (check < 0) {
+                errMess[5 + i].setText("Ungültige eingabe");
+                checked = false;
+            }
+
+        }
+        return (Sims_1.checkRegister_(toCheck, errMessLoc)) & checked;
     }
-    
+
+    @Deprecated
     public boolean checkChanges_() {
-        
+
         if (!Sims_1.checkAlphaNumm(userdata[0].getText().toCharArray()) | userdata[0].getText().length() < 5 | userdata[0].getText().length() > 15) {
             userdata[0].setBackground(Color.red);
             return false;
@@ -136,14 +157,14 @@ public class Admin {
         }
         return true;
     }
-    
+
     public void delSpecUser() {
         User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
     }
-    
+
     public void saveChages() {
         delSpecUser();
-        
+
         currentuser.setAccountname(userdata[0].getText());
         currentuser.setPassword(userdata[1].getText());
         currentuser.setEmail(userdata[2].getText());
@@ -151,11 +172,19 @@ public class Admin {
         currentuser.setLast_name(userdata[4].getText());
         currentuser.setUcoins(new Integer(userdata[5].getText()));
         
+        Sims_1._maingame.credits = new Integer(userdata[6].getText());
+        Sims_1._maingame.duplo.amount = new Integer(userdata[7].getText());
+        Sims_1._maingame.redBull.amount = new Integer(userdata[8].getText());
+        Sims_1._maingame.omniSenseAudio.amount = new Integer(userdata[9].getText());
+        Sims_1._maingame.cheatSheet.amount = 0;
+        Sims_1._maingame.round = new Integer(months.getValue());
+
         User.createUser(currentuser);
+        Game1.saveGame();
     }
-    
+
     private class AdminActionListener implements ActionListener {
-        
+
         int index;
 
         public AdminActionListener(int index) {

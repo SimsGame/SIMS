@@ -491,6 +491,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrFirstName = new javax.swing.JLabel();
         label_aErrLastName = new javax.swing.JLabel();
         label_aErrUCoins = new javax.swing.JLabel();
+        label_aErrCredits = new javax.swing.JLabel();
+        label_aErrDuplo = new javax.swing.JLabel();
+        label_aErrRedBull = new javax.swing.JLabel();
+        label_aErrOmni = new javax.swing.JLabel();
         background_adminUser = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         background_admin = new javax.swing.JLabel();
@@ -2579,13 +2583,13 @@ public class Sims_1 extends javax.swing.JFrame {
         label_gameOverSemester.setBounds(610, 450, 380, 30);
 
         label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/simsGameOver.png"))); // NOI18N
-        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label_gameOver.setOpaque(true);
         panel_gameOver.add(label_gameOver);
         label_gameOver.setBounds(0, -40, 1020, 770);
 
         button_retry.setText("jButton1");
-        button_retry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_retry.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_retry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_retryActionPerformed(evt);
@@ -3030,6 +3034,22 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrUCoins.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrUCoins.setText("Fehler?");
         panel_adminUser.add(label_aErrUCoins, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
+
+        label_aErrCredits.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrCredits.setText("Fehler?");
+        panel_adminUser.add(label_aErrCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
+
+        label_aErrDuplo.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrDuplo.setText("Fehler?");
+        panel_adminUser.add(label_aErrDuplo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
+
+        label_aErrRedBull.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrRedBull.setText("Fehler?");
+        panel_adminUser.add(label_aErrRedBull, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
+
+        label_aErrOmni.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrOmni.setText("Fehler?");
+        panel_adminUser.add(label_aErrOmni, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
         panel_adminUser.add(background_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -4401,10 +4421,14 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_aDuplo;
     private javax.swing.JLabel label_aEmail;
     private javax.swing.JLabel label_aErrAccName;
+    private javax.swing.JLabel label_aErrCredits;
+    private javax.swing.JLabel label_aErrDuplo;
     private javax.swing.JLabel label_aErrEmail;
     private javax.swing.JLabel label_aErrFirstName;
     private javax.swing.JLabel label_aErrLastName;
+    private javax.swing.JLabel label_aErrOmni;
     private javax.swing.JLabel label_aErrPass;
+    private javax.swing.JLabel label_aErrRedBull;
     private javax.swing.JLabel label_aErrUCoins;
     private javax.swing.JLabel label_aFirstName;
     private javax.swing.JLabel label_aGame;
@@ -4987,7 +5011,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
         JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
-        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins};
+        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni};
         _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin);
