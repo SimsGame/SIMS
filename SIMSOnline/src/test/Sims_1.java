@@ -109,6 +109,7 @@ public class Sims_1 extends javax.swing.JFrame {
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
+        panel_Credits.setVisible(false);
     }
 
     /**
@@ -167,6 +168,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
+        panel_Credits = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         panel_Profile = new javax.swing.JPanel();
         textfield_pKontoname = new javax.swing.JTextField();
         textfield_pEmail1 = new javax.swing.JTextField();
@@ -885,6 +889,20 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setName(""); // NOI18N
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_Credits.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("SIMS");
+        panel_Credits.add(jLabel2);
+        jLabel2.setBounds(130, 240, 240, 40);
+
+        jLabel4.setText("A game made by Macrosoft");
+        panel_Credits.add(jLabel4);
+        jLabel4.setBounds(190, 290, 200, 14);
+
+        panel_menue.add(panel_Credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 700));
 
         panel_Profile.setMaximumSize(new java.awt.Dimension(500, 700));
         panel_Profile.setMinimumSize(new java.awt.Dimension(500, 700));
@@ -4391,7 +4409,9 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -4562,6 +4582,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel noSave_overlay;
     private javax.swing.JDialog notAllowedUseCheatDialog;
     private javax.swing.JPanel panel_Admin;
+    private javax.swing.JPanel panel_Credits;
     private javax.swing.JPanel panel_Login;
     private javax.swing.JPanel panel_Profile;
     private javax.swing.JPanel panel_Register;
