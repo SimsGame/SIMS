@@ -171,6 +171,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Credits = new javax.swing.JPanel();
         label_creditsHeadline = new javax.swing.JLabel();
         label_creditsHeadline1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         panel_Profile = new javax.swing.JPanel();
         textfield_pKontoname = new javax.swing.JTextField();
         textfield_pEmail1 = new javax.swing.JTextField();
@@ -897,12 +898,17 @@ public class Sims_1 extends javax.swing.JFrame {
         label_creditsHeadline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_creditsHeadline.setText("SIMS");
         panel_Credits.add(label_creditsHeadline);
-        label_creditsHeadline.setBounds(130, 200, 240, 40);
+        label_creditsHeadline.setBounds(150, 200, 240, 40);
 
         label_creditsHeadline1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_creditsHeadline1.setText("A game made by Macrosoft");
         panel_Credits.add(label_creditsHeadline1);
-        label_creditsHeadline1.setBounds(130, 250, 230, 14);
+        label_creditsHeadline1.setBounds(160, 250, 230, 14);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("<HTML><BODY><DIV id=\"1\" style=\"color: blue; font-size: 16px; text-decoration: underline;\">Projektmanager</DIV><BR\\><DIV style=\"font-size: 11px; text-align: center;\">Kira Schomber</DIV><BR\\><BR\\><BR\\><BR\\><DIV style=\"text-align: center; color: blue; font-size: 16px; text-decoration: underline;\">Design / Writing</DIV><BR\\><DIV style=\"font-size: 11px; text-align: center;\">Kira Schomber<BR\\>Jörg Woditschka<BR\\>Dawid Rusin<BR\\>Tobias Mauritz<BR\\>Yuliya Kuznetsova<BR\\>Nadir Yuldashev<BR\\>Jannik Pachal</DIV><BR\\><BR\\><BR\\><BR\\><DIV style=\"text-align: center; color: blue; font-size: 16px; text-decoration: underline;\">Programmierung</DIV><BR\\><DIV style=\"font-size: 11px; text-align: center;\">Kira Schomber<BR\\>Jörg Woditschka<BR\\>Dawid Rusin<BR\\>Tobias Mauritz<BR\\>Yuliya Kuznetsova<BR\\>Nadir Yuldashev<BR\\>Jannik Pachal</DIV><BR\\><BR\\><BR\\><BR\\><DIV style=\"text-align: center; color: blue; font-size: 16px; text-decoration: underline;\">Grafiken</DIV><BR\\><DIV style=\"font-size: 11px; text-align: center;\">Jannik Pachal<BR\\>Nadir Yuldashev</DIV></BODY></HTML>");
+        panel_Credits.add(jLabel2);
+        jLabel2.setBounds(0, 20, 530, 680);
 
         panel_menue.add(panel_Credits, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 700));
 
@@ -3168,6 +3174,27 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
         panel_Credits.setVisible(true);
+        javax.swing.Timer timer;
+        int delay = 100; //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            int down = 0;
+            public void actionPerformed(ActionEvent evt) {
+                if(down == 1){
+                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()-2);
+                    System.out.print(panel_Credits.getY()+"\n");
+                    if(panel_Credits.getY() == 0){
+                        ((javax.swing.Timer)evt.getSource()).stop();
+                    }
+                }
+                else{
+                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()+300);
+                    if(panel_Credits.getY() == +300)
+                        down = 1;
+                }
+            }
+        };
+        timer = new javax.swing.Timer(delay, taskPerformer);
+        timer.start();
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
@@ -4411,6 +4438,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
