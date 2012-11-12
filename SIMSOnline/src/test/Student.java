@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class Student {
     @Deprecated private int id = 0;
-    private boolean out = false;
     private double knowledge=0;                 //in savefile
     private double knowledgeIncreasement;
     private double intelligence; //= initIntelligence(); //in savefile
@@ -125,7 +124,7 @@ public class Student {
             else if (rowIntelligence>1.65){
                 influence=0.005*rowIntelligence;
             }
-            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.000375)+influence-add;
+            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.001375)+influence-add;
             if(this.knowledgeIncreasement<0){ // this if belongs above the this.knowledge
                 this.knowledgeIncreasement = 0;
             }
@@ -205,8 +204,9 @@ public class Student {
      * @param value
      */
     public void setTiredness(double value) {
+        value=value+Sims_1._maingame.professor/100;
         if (!laptopClosed){
-            value=value+0.7; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
+            value=value+0.9; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
         }
         if(value<0){
             this.tiredness= 0;
@@ -234,17 +234,22 @@ public class Student {
      * A number of times the student can open their laptop? Random?
      */
     public void setMotivation(double value) {
+        value=value+Sims_1._maingame.professor/100;
         if (!laptopClosed){
-            value=value+3;
+            value=value+2.5;
         }
+        else if (value<30 && laptopClosed) {
+                double helper = 31-this.motivation;
+                double i = Math.round(Math.random());
+                if (helper*i>15){
+                    laptopClosed=false;
+                }
+            }
         if(value<0){
             this.motivation= 0;
         }else if(value>100){
             this.motivation=100;
         }else{
-            if (value<30 && laptopClosed) {
-                laptopClosed=false;
-            }
             this.motivation = value;
         }
     }
