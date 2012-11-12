@@ -5158,7 +5158,7 @@ public void switchPhase(){
         panel_menue.setVisible(true);
     }
     // Calls the gameOver screen if there are no students any more
-    else{
+   else{   
         label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
         label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
         cl.show(panel_gamePhases, "card8");

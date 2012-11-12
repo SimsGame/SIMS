@@ -60,7 +60,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 10) {
+            while ((System.currentTimeMillis() - millis) < 100) {
                 //do nothing
             }
             timer--;
