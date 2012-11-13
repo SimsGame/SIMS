@@ -52,6 +52,8 @@ public class Sims_1 extends javax.swing.JFrame {
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
     public JDialog miniGameFinished = new JDialog();
+    public static long startTime = 0;
+    public static long endTime = 0;
 
     /**
      * Sets up and initializes each component and some additional settings. The
@@ -3643,6 +3645,8 @@ public class Sims_1 extends javax.swing.JFrame {
         // Starts a new game with initial values from the game_1.java. 
         Game1.initNewSavefile();
         Game1.loadGame();
+        startTime = System.currentTimeMillis();
+        
         switchPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
@@ -3656,6 +3660,7 @@ public class Sims_1 extends javax.swing.JFrame {
         if (!noSave_overlay.isVisible()) {
             Game1.loadGame();
             switchPhase();
+            startTime = System.currentTimeMillis();
             System.out.println("Current round " + Sims_1._maingame.round + " Current Semester " + Sims_1._maingame.getSemester());
         }
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
@@ -5163,6 +5168,8 @@ public class Sims_1 extends javax.swing.JFrame {
          // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
         
+        endTime = System.currentTimeMillis();
+        _mainuser.setTime_played(_mainuser.getTime_played()+(endTime - startTime));
         panel_gamePhases.setVisible(false);
         panel_menue.setVisible(true);
         warningExitPlanningPhase.setVisible(false);

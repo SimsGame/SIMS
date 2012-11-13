@@ -305,6 +305,7 @@ public class MinigameNumbergame extends javax.swing.JPanel {
         }
         Sims_1._maingame.points += points;
         Sims_1._maingame.credits += credits;
+        Sims_1._maingame.overallCredits += credits;
         label_Punkte.setText("Punkte: " + points + "   Neuer Punktestand: " + Sims_1._maingame.points);
         label_credits.setFont(new Font("Text", 1,20));
         label_credits.setBounds(0, 130, 500, 20);
