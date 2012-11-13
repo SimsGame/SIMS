@@ -3143,7 +3143,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
+        panel_Profile.setVisible(false);
         panel_Credits.setVisible(true);
+        panel_Credits.requestFocus();
         javax.swing.Timer timer;
         int delay = 100; //milliseconds
         ActionListener taskPerformer = new ActionListener() {
@@ -3152,8 +3154,9 @@ public class Sims_1 extends javax.swing.JFrame {
                 if(down == 1){
                     panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()-2);
                     System.out.print(panel_Credits.getY()+"\n");
-                    if(panel_Credits.getY() == -1200){
+                    if(panel_Credits.getY() == -1200 || panel_Credits.hasFocus() == false){
                         down = 0;
+                        panel_Credits.setVisible(false);
                         ((javax.swing.Timer)evt.getSource()).stop();
                     }
                 }

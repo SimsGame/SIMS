@@ -1827,7 +1827,7 @@ public class MinigameMazegame extends javax.swing.JPanel {
                     if(color.getRed() == 0 && color.getGreen() == 0 && color.getBlue() == 0){
                         return false;
                     }
-                    if((color.getRed() == 255 && color.getGreen() == 0 && color.getBlue() == 0) || (color.getRed() == 244 && color.getGreen() == 1 && color.getBlue() == 0)){
+                    if((color.getRed() == 255 && color.getGreen() == 0 && color.getBlue() == 0) || (color.getRed() == 238 && color.getGreen() == 0 && color.getBlue() == 0)){
                         endTime = System.currentTimeMillis();
                         long finalTime = (endTime - startTime)/1000;
                         gameEnd(finalTime);
