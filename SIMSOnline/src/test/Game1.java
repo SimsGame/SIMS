@@ -18,8 +18,12 @@ public class Game1 {
     public static final int _startCredits = 100;
     
     public int credits;
+    public int overallCredits;
     public int points;
     public int round;
+    public double averageKnowledge;
+    public double avarageMotivation;
+    public double averageTiredness;
     public int professor; //added by Julia
     public String professorIcon; //="/pictures/prof1_transparent.png"; //added by Julia - now has a value just for test will be loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
     public final String professorIconPath[] = { 
@@ -35,12 +39,9 @@ public class Game1 {
     public double noise;
     public int quietingCounter=0;
     public int lecturer_counter=3;
-    public int remainingStudents=30;
-    public int failedStudents=0;
     public boolean teamwork = false;
     public boolean shortBreak = false;
     public boolean windowClosed = true;
-    public boolean windowChangesNoise = true; //flag that sets whether noise is changed when closing the window
     private Boolean[] cheated = new Boolean[5];
     
     /**
@@ -149,8 +150,6 @@ public class Game1 {
                  double knowledge=studentArray[i].getKnowledge();
                  if(knowledge<examvalue){
                    studentArray[i].present=false;
-                   remainingStudents--;
-                   failedStudents++;
                  } 
              }
          }

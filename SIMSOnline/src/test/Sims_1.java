@@ -45,6 +45,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static PlanningPhase planningPhase;
     protected static javax.swing.JButton[] activityPhaseButtons;
     protected static javax.swing.JButton[] planningPhaseButtons;
+    protected static javax.swing.JLabel[] laptopLabels;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -89,6 +90,9 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
+       // warningExitPlanningPhase.setSize(500, 320);
+        warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warningExitPlanningPhase.setLocationRelativeTo(null);        
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -104,6 +108,7 @@ public class Sims_1 extends javax.swing.JFrame {
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
+        this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
         panel_Credits.setVisible(false);
@@ -177,6 +182,15 @@ public class Sims_1 extends javax.swing.JFrame {
         label_examRemainingText2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
+        panel_stats = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         panel_Credits = new javax.swing.JPanel();
         label_creditsHeadline = new javax.swing.JLabel();
         label_creditsHeadline1 = new javax.swing.JLabel();
@@ -328,7 +342,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopPointsName = new javax.swing.JLabel();
         label_shopName = new javax.swing.JLabel();
         panel_shopBackPlanningPhase = new javax.swing.JPanel();
-        label_returnToPlanningPhase = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_shopItems = new javax.swing.JPanel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
@@ -395,6 +409,36 @@ public class Sims_1 extends javax.swing.JFrame {
         label_timer = new javax.swing.JLabel();
         panel_activityPhaseStudField = new javax.swing.JPanel();
         button_dozent1 = new javax.swing.JButton();
+        label_laptop6 = new javax.swing.JLabel();
+        label_laptop5 = new javax.swing.JLabel();
+        label_laptop4 = new javax.swing.JLabel();
+        label_laptop3 = new javax.swing.JLabel();
+        label_laptop2 = new javax.swing.JLabel();
+        label_laptop1 = new javax.swing.JLabel();
+        label_laptop7 = new javax.swing.JLabel();
+        label_laptop8 = new javax.swing.JLabel();
+        label_laptop9 = new javax.swing.JLabel();
+        label_laptop10 = new javax.swing.JLabel();
+        label_laptop11 = new javax.swing.JLabel();
+        label_laptop12 = new javax.swing.JLabel();
+        label_laptop13 = new javax.swing.JLabel();
+        label_laptop14 = new javax.swing.JLabel();
+        label_laptop15 = new javax.swing.JLabel();
+        label_laptop16 = new javax.swing.JLabel();
+        label_laptop17 = new javax.swing.JLabel();
+        label_laptop18 = new javax.swing.JLabel();
+        label_laptop19 = new javax.swing.JLabel();
+        label_laptop20 = new javax.swing.JLabel();
+        label_laptop21 = new javax.swing.JLabel();
+        label_laptop22 = new javax.swing.JLabel();
+        label_laptop23 = new javax.swing.JLabel();
+        label_laptop24 = new javax.swing.JLabel();
+        label_laptop25 = new javax.swing.JLabel();
+        label_laptop26 = new javax.swing.JLabel();
+        label_laptop27 = new javax.swing.JLabel();
+        label_laptop28 = new javax.swing.JLabel();
+        label_laptop29 = new javax.swing.JLabel();
+        label_laptop30 = new javax.swing.JLabel();
         button_stud1 = new javax.swing.JButton();
         button_stud2 = new javax.swing.JButton();
         button_stud3 = new javax.swing.JButton();
@@ -598,24 +642,26 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
 
+        label_shopMessage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_shopMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage.setText("Shop -  Mitteilung");
         dialog_error.getContentPane().add(label_shopMessage);
-        label_shopMessage.setBounds(50, 10, 290, 70);
+        label_shopMessage.setBounds(60, 10, 290, 70);
 
         label_shopMessage1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage1.setText("Erwerbe neue Credits im Spiel oder tausche UCoins!");
         dialog_error.getContentPane().add(label_shopMessage1);
-        label_shopMessage1.setBounds(10, 110, 380, 70);
+        label_shopMessage1.setBounds(0, 130, 420, 70);
 
         label_shopMessage2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins");
         dialog_error.getContentPane().add(label_shopMessage2);
-        label_shopMessage2.setBounds(10, 80, 380, 70);
+        label_shopMessage2.setBounds(20, 90, 380, 30);
 
+        label_shopMessage3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage3.setText("oder das Item ist gesperrt!");
         dialog_error.getContentPane().add(label_shopMessage3);
-        label_shopMessage3.setBounds(100, 146, 240, 40);
+        label_shopMessage3.setBounds(0, 110, 400, 30);
 
         button_shopMessageOk.setText("OK");
         button_shopMessageOk.addActionListener(new java.awt.event.ActionListener() {
@@ -624,7 +670,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 34, 29);
+        button_shopMessageOk.setBounds(120, 210, 160, 30);
 
         warningDialog.setModal(true);
         warningDialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -813,6 +859,7 @@ public class Sims_1 extends javax.swing.JFrame {
         );
 
         notAllowedUseCheatDialog.setModal(true);
+        notAllowedUseCheatDialog.getContentPane().setLayout(null);
 
         jBut_OKnotAllowedUseCheat.setText("OK");
         jBut_OKnotAllowedUseCheat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -825,6 +872,8 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_OKnotAllowedUseCheatActionPerformed(evt);
             }
         });
+        notAllowedUseCheatDialog.getContentPane().add(jBut_OKnotAllowedUseCheat);
+        jBut_OKnotAllowedUseCheat.setBounds(134, 259, 118, 50);
 
         jTextArea4.setColumns(20);
         jTextArea4.setEditable(false);
@@ -832,28 +881,62 @@ public class Sims_1 extends javax.swing.JFrame {
         jTextArea4.setText("\n      Du darfst den Spicker \n      jetzt nicht einsetzen");
         jScrollPane4.setViewportView(jTextArea4);
 
-        javax.swing.GroupLayout notAllowedUseCheatDialogLayout = new javax.swing.GroupLayout(notAllowedUseCheatDialog.getContentPane());
-        notAllowedUseCheatDialog.getContentPane().setLayout(notAllowedUseCheatDialogLayout);
-        notAllowedUseCheatDialogLayout.setHorizontalGroup(
-            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-        );
-        notAllowedUseCheatDialogLayout.setVerticalGroup(
-            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        notAllowedUseCheatDialog.getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(83, 137, 238, 113);
+
+        warningExitPlanningPhase.setMinimumSize(new java.awt.Dimension(600, 320));
+        warningExitPlanningPhase.setModal(true);
+        warningExitPlanningPhase.getContentPane().setLayout(null);
+
+        label_warning1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_warning1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning1.setText("Achtung!");
+        warningExitPlanningPhase.getContentPane().add(label_warning1);
+        label_warning1.setBounds(0, 11, 580, 50);
+
+        label_warning2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_warning2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning2.setText("Du bist grade dabei das Spiel  zu verlassen.");
+        warningExitPlanningPhase.getContentPane().add(label_warning2);
+        label_warning2.setBounds(0, 80, 580, 24);
+
+        label_warning3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_warning3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning3.setText("Dein Fortschritt wird an dieser Stelle nicht gespeichert");
+        warningExitPlanningPhase.getContentPane().add(label_warning3);
+        label_warning3.setBounds(-2, 114, 580, 15);
+
+        llabel_warning4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        llabel_warning4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        llabel_warning4.setText("Wenn du trotzdem fortfahren willst, dann klicke auf \"Bestätigen\"");
+        warningExitPlanningPhase.getContentPane().add(llabel_warning4);
+        llabel_warning4.setBounds(0, 140, 580, 15);
+        warningExitPlanningPhase.getContentPane().add(label_warning5);
+        label_warning5.setBounds(358, 201, 110, 0);
+
+        jBut_confirmExit.setText("Bestätigen");
+        jBut_confirmExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_confirmExitMouseClicked(evt);
+            }
+        });
+        warningExitPlanningPhase.getContentPane().add(jBut_confirmExit);
+        jBut_confirmExit.setBounds(90, 220, 141, 43);
+
+        jBut_cancelExit.setText("Abbrechen");
+        jBut_cancelExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_cancelExitMouseClicked(evt);
+            }
+        });
+        warningExitPlanningPhase.getContentPane().add(jBut_cancelExit);
+        jBut_cancelExit.setBounds(350, 220, 148, 43);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Das Spiel wird automatisch nach der Aktivitätsphase gespeichert");
+        warningExitPlanningPhase.getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 170, 570, 15);
 
         dialog_examResults.setLocationByPlatform(true);
         dialog_examResults.setMinimumSize(new java.awt.Dimension(436, 295));
@@ -928,6 +1011,43 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setName(""); // NOI18N
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_stats.setLayout(null);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Statistik");
+        panel_stats.add(jLabel2);
+        jLabel2.setBounds(170, 74, 120, 40);
+
+        jLabel4.setText("Erhaltene Credits:");
+        panel_stats.add(jLabel4);
+        jLabel4.setBounds(50, 140, 160, 20);
+
+        jLabel5.setText("Momentane Credits:");
+        panel_stats.add(jLabel5);
+        jLabel5.setBounds(50, 160, 180, 20);
+
+        jLabel6.setText("Erreichte Punktzahl: ");
+        panel_stats.add(jLabel6);
+        jLabel6.setBounds(50, 260, 180, 20);
+
+        jLabel7.setText("Gesamtspielzeit (in Stunden):");
+        panel_stats.add(jLabel7);
+        jLabel7.setBounds(50, 180, 180, 20);
+
+        jLabel9.setText("Gespielte Semster: ");
+        panel_stats.add(jLabel9);
+        jLabel9.setBounds(50, 200, 180, 20);
+
+        jLabel10.setText("Erfolgs-/ Durchfallquote:");
+        panel_stats.add(jLabel10);
+        jLabel10.setBounds(50, 220, 180, 20);
+
+        jLabel11.setText("Kursattribute (Durchschnitt): ");
+        panel_stats.add(jLabel11);
+        jLabel11.setBounds(50, 240, 180, 20);
+
+        panel_menue.add(panel_stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panel_Credits.setMinimumSize(new java.awt.Dimension(0, 1700));
         panel_Credits.setOpaque(false);
@@ -2052,6 +2172,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopHeadline.add(punkteShop);
         punkteShop.setBounds(80, 70, 70, 17);
 
+        button_startExchange.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         button_startExchange.setText("UCoins Tauschen");
         button_startExchange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2059,7 +2180,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_shopHeadline.add(button_startExchange);
-        button_startExchange.setBounds(230, 10, 160, 90);
+        button_startExchange.setBounds(200, 10, 190, 90);
 
         label_shopUCoinsName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_shopUCoinsName.setText("UCoins:");
@@ -2087,16 +2208,16 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopBackPlanningPhase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopBackPlanningPhase.setLayout(null);
 
-        label_returnToPlanningPhase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        label_returnToPlanningPhase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_returnToPlanningPhase.setText("zurück zum  Spiel");
-        label_returnToPlanningPhase.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_returnToPlanningPhaseMouseClicked(evt);
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jButton1.setText("<HTML><BODY><DIV style=\"text-align: center;\">Zurück<BR\\>zur<BR\\>Planung</DIV></BODY></HTML>");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        panel_shopBackPlanningPhase.add(label_returnToPlanningPhase);
-        label_returnToPlanningPhase.setBounds(0, 0, 130, 110);
+        panel_shopBackPlanningPhase.add(jButton1);
+        jButton1.setBounds(5, 5, 120, 100);
 
         shop.add(panel_shopBackPlanningPhase);
         panel_shopBackPlanningPhase.setBounds(850, 0, 130, 110);
@@ -2422,9 +2543,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(button_window);
         button_window.setBounds(350, 10, 120, 29);
 
-        label_knowledgeBar_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/knowledgebalkenoverlay_2_00000.png"))); // NOI18N
+        label_knowledgeBar_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/barlayout.png"))); // NOI18N
         jPanel5.add(label_knowledgeBar_overlay);
-        label_knowledgeBar_overlay.setBounds(100, 0, 260, 80);
+        label_knowledgeBar_overlay.setBounds(80, 0, 300, 80);
 
         text_motivation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_motivation.setText("Motivation:");
@@ -2527,6 +2648,276 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         panel_activityPhaseStudField.add(button_dozent1);
         button_dozent1.setBounds(370, 400, 90, 150);
+
+        label_laptop6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop6MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop6);
+        label_laptop6.setBounds(650, 65, 50, 30);
+
+        label_laptop5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop5MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop5);
+        label_laptop5.setBounds(550, 65, 50, 30);
+
+        label_laptop4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop4MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop4);
+        label_laptop4.setBounds(450, 65, 50, 30);
+
+        label_laptop3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop3MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop3);
+        label_laptop3.setBounds(340, 65, 50, 30);
+
+        label_laptop2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop2MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop2);
+        label_laptop2.setBounds(230, 65, 50, 30);
+
+        label_laptop1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop1MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop1);
+        label_laptop1.setBounds(130, 65, 50, 30);
+
+        label_laptop7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop7MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop7);
+        label_laptop7.setBounds(130, 150, 50, 30);
+
+        label_laptop8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop8MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop8);
+        label_laptop8.setBounds(230, 150, 50, 30);
+
+        label_laptop9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop9MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop9);
+        label_laptop9.setBounds(340, 150, 50, 30);
+
+        label_laptop10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop10MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop10);
+        label_laptop10.setBounds(430, 150, 50, 30);
+
+        label_laptop11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop11MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop11);
+        label_laptop11.setBounds(540, 150, 50, 30);
+
+        label_laptop12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop12MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop12);
+        label_laptop12.setBounds(640, 150, 50, 30);
+
+        label_laptop13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop13MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop13);
+        label_laptop13.setBounds(120, 230, 50, 30);
+
+        label_laptop14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop14MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop14);
+        label_laptop14.setBounds(230, 230, 50, 30);
+
+        label_laptop15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop15MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop15);
+        label_laptop15.setBounds(340, 230, 50, 30);
+
+        label_laptop16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop16MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop16);
+        label_laptop16.setBounds(440, 230, 50, 30);
+
+        label_laptop17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop17MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop17);
+        label_laptop17.setBounds(550, 230, 50, 30);
+
+        label_laptop18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop18MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop18);
+        label_laptop18.setBounds(650, 230, 50, 30);
+
+        label_laptop19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop19MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop19);
+        label_laptop19.setBounds(120, 310, 50, 30);
+
+        label_laptop20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop20MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop20);
+        label_laptop20.setBounds(230, 310, 50, 30);
+
+        label_laptop21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop21MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop21);
+        label_laptop21.setBounds(340, 310, 50, 30);
+
+        label_laptop22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop22MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop22);
+        label_laptop22.setBounds(440, 310, 50, 30);
+
+        label_laptop23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop23MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop23);
+        label_laptop23.setBounds(550, 310, 50, 30);
+
+        label_laptop24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop24MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop24);
+        label_laptop24.setBounds(650, 320, 50, 30);
+
+        label_laptop25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop25MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop25);
+        label_laptop25.setBounds(130, 400, 50, 30);
+
+        label_laptop26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop26MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop26);
+        label_laptop26.setBounds(230, 400, 50, 30);
+
+        label_laptop27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop27MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop27);
+        label_laptop27.setBounds(330, 400, 50, 30);
+
+        label_laptop28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop28MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop28);
+        label_laptop28.setBounds(440, 400, 50, 30);
+
+        label_laptop29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop29MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop29);
+        label_laptop29.setBounds(550, 400, 50, 30);
+
+        label_laptop30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop30MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop30);
+        label_laptop30.setBounds(650, 400, 50, 30);
 
         button_stud1.setBackground(new java.awt.Color(255, 255, 255));
         button_stud1.setBorder(null);
@@ -3665,26 +4056,13 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void label_logo_planningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_planningMouseClicked
-        // if the toggleButton is clicked for switching student and not a student the button will be deselected
-        jToggleBut_SwitchStud.setSelected(false);
-        
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+       warningExitPlanningPhase.setVisible(true);        
+       
     }//GEN-LAST:event_label_logo_planningMouseClicked
 
     private void label_logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseClicked
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+        warningExitPlanningPhase.setVisible(true);
     }//GEN-LAST:event_label_logoMouseClicked
-
-    private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
-        // Returns from the shop back to the planning phase
-        User.saveUser();
-        Game1.saveGame();
-        cl.show(panel_gamePhases, "card3");
-        //planningPhase.startPlanningPhase();
-        panel_menue.setVisible(false);  
-    }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
         // Starts the exchange dialog in the shop
@@ -3722,7 +4100,273 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
 
     }//GEN-LAST:event_jBut_17ActionPerformed
+ private void label_laptop1MouseClicked(java.awt.event.MouseEvent evt) {                                           
+if(_maingame.studentArray[0].laptopClosed== false)
+{
+    label_laptop1.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[0].laptopClosed = true;
+}// TODO add your handling code here:
+    }                                          
 
+    private void label_laptop2MouseClicked(java.awt.event.MouseEvent evt) {                                           
+ if(_maingame.studentArray[1].laptopClosed== false)
+{
+    label_laptop2.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[1].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop3MouseClicked(java.awt.event.MouseEvent evt) {                                           
+if(_maingame.studentArray[2].laptopClosed== false)
+{
+    label_laptop3.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[2].laptopClosed = true;
+    
+}        // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop4MouseClicked(java.awt.event.MouseEvent evt) {                                           
+ if(_maingame.studentArray[3].laptopClosed== false)
+{
+    label_laptop4.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[3].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop5MouseClicked(java.awt.event.MouseEvent evt) {                                           
+   if(_maingame.studentArray[4].laptopClosed== false)
+{
+    label_laptop5.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[4].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop6MouseClicked(java.awt.event.MouseEvent evt) {                                           
+   if(_maingame.studentArray[5].laptopClosed== false)
+{
+    label_laptop6.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[5].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop12MouseClicked(java.awt.event.MouseEvent evt) {                                            
+  if(_maingame.studentArray[11].laptopClosed== false)
+{
+    label_laptop12.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[11].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop11MouseClicked(java.awt.event.MouseEvent evt) {                                            
+ if(_maingame.studentArray[10].laptopClosed== false)
+{
+    label_laptop11.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[10].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop10MouseClicked(java.awt.event.MouseEvent evt) {                                            
+   if(_maingame.studentArray[9].laptopClosed== false)
+{
+    label_laptop10.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[9].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop9MouseClicked(java.awt.event.MouseEvent evt) {                                           
+  if(_maingame.studentArray[8].laptopClosed== false)
+{
+    label_laptop9.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[8].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop8MouseClicked(java.awt.event.MouseEvent evt) {                                           
+    if(_maingame.studentArray[7].laptopClosed== false)
+{
+    label_laptop8.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[7].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop7MouseClicked(java.awt.event.MouseEvent evt) {                                           
+   if(_maingame.studentArray[6].laptopClosed== false)
+{
+    label_laptop7.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[6].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                          
+
+    private void label_laptop18MouseClicked(java.awt.event.MouseEvent evt) {                                            
+   if(_maingame.studentArray[17].laptopClosed== false)
+{
+    label_laptop18.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[17].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop17MouseClicked(java.awt.event.MouseEvent evt) {                                            
+  if(_maingame.studentArray[16].laptopClosed== false)
+{
+    label_laptop17.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[16].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop16MouseClicked(java.awt.event.MouseEvent evt) {                                            
+   if(_maingame.studentArray[15].laptopClosed== false)
+{
+    label_laptop16.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[15].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop15MouseClicked(java.awt.event.MouseEvent evt) {                                            
+     if(_maingame.studentArray[14].laptopClosed== false)
+{
+    label_laptop15.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[14].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop14MouseClicked(java.awt.event.MouseEvent evt) {                                            
+  if(_maingame.studentArray[13].laptopClosed== false)
+{
+    label_laptop14.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[13].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop13MouseClicked(java.awt.event.MouseEvent evt) {                                            
+  if(_maingame.studentArray[12].laptopClosed== false)
+{
+    label_laptop13.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[12].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop24MouseClicked(java.awt.event.MouseEvent evt) {                                            
+   if(_maingame.studentArray[23].laptopClosed== false)
+{
+    label_laptop24.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[23].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop23MouseClicked(java.awt.event.MouseEvent evt) {                                            
+    if(_maingame.studentArray[22].laptopClosed== false)
+{
+    label_laptop23.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[22].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop22MouseClicked(java.awt.event.MouseEvent evt) {                                            
+     if(_maingame.studentArray[21].laptopClosed== false)
+{
+    label_laptop22.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[21].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop21MouseClicked(java.awt.event.MouseEvent evt) {                                            
+   if(_maingame.studentArray[20].laptopClosed== false)
+{
+    label_laptop21.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[20].laptopClosed = true;
+}     // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop20MouseClicked(java.awt.event.MouseEvent evt) {                                            
+     if(_maingame.studentArray[19].laptopClosed== false)
+{
+    label_laptop20.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[19].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop19MouseClicked(java.awt.event.MouseEvent evt) {                                            
+  if(_maingame.studentArray[18].laptopClosed== false)
+{
+    label_laptop19.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[18].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop30MouseClicked(java.awt.event.MouseEvent evt) {                                            
+    if(_maingame.studentArray[29].laptopClosed== false)
+{
+    label_laptop30.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[29].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop29MouseClicked(java.awt.event.MouseEvent evt) {                                            
+     if(_maingame.studentArray[28].laptopClosed== false)
+{
+    label_laptop29.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[28].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop28MouseClicked(java.awt.event.MouseEvent evt) {                                            
+    if(_maingame.studentArray[27].laptopClosed== false)
+{
+    label_laptop28.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[27].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop27MouseClicked(java.awt.event.MouseEvent evt) {                                            
+      if(_maingame.studentArray[26].laptopClosed== false)
+{
+    label_laptop27.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[26].laptopClosed = true;
+    
+}  // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop26MouseClicked(java.awt.event.MouseEvent evt) {                                            
+    if(_maingame.studentArray[25].laptopClosed== false)
+{
+    label_laptop26.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[25].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }                                           
+
+    private void label_laptop25MouseClicked(java.awt.event.MouseEvent evt) {                                            
+      if(_maingame.studentArray[24].laptopClosed== false)
+{
+    label_laptop25.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[24].laptopClosed = true;
+    
+}  // TODO add your handling code here:
+    }
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
@@ -5106,6 +5750,29 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_1StateChanged
          SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
+
+    private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
+         // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_confirmExitMouseClicked
+
+    private void jBut_cancelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_cancelExitMouseClicked
+        // TODO add your handling code here:
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_cancelExitMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Returns from the shop back to the planning phase
+        User.saveUser();
+        Game1.saveGame();
+        cl.show(panel_gamePhases, "card3");
+        //planningPhase.startPlanningPhase();
+        panel_menue.setVisible(false);  
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -5267,7 +5934,10 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_OKnotAllowedUseCheat;
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
+    private javax.swing.JButton jBut_cancelExit;
+    private javax.swing.JButton jBut_confirmExit;
     private javax.swing.JButton jBut_startShop;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -5288,9 +5958,18 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -5400,6 +6079,36 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_item4Name;
     private javax.swing.JLabel label_knowledgeBar_overlay;
     private javax.swing.JLabel label_lErr;
+    private javax.swing.JLabel label_laptop1;
+    private javax.swing.JLabel label_laptop10;
+    private javax.swing.JLabel label_laptop11;
+    private javax.swing.JLabel label_laptop12;
+    private javax.swing.JLabel label_laptop13;
+    private javax.swing.JLabel label_laptop14;
+    private javax.swing.JLabel label_laptop15;
+    private javax.swing.JLabel label_laptop16;
+    private javax.swing.JLabel label_laptop17;
+    private javax.swing.JLabel label_laptop18;
+    private javax.swing.JLabel label_laptop19;
+    private javax.swing.JLabel label_laptop2;
+    private javax.swing.JLabel label_laptop20;
+    private javax.swing.JLabel label_laptop21;
+    private javax.swing.JLabel label_laptop22;
+    private javax.swing.JLabel label_laptop23;
+    private javax.swing.JLabel label_laptop24;
+    private javax.swing.JLabel label_laptop25;
+    private javax.swing.JLabel label_laptop26;
+    private javax.swing.JLabel label_laptop27;
+    private javax.swing.JLabel label_laptop28;
+    private javax.swing.JLabel label_laptop29;
+    private javax.swing.JLabel label_laptop3;
+    private javax.swing.JLabel label_laptop30;
+    private javax.swing.JLabel label_laptop4;
+    private javax.swing.JLabel label_laptop5;
+    private javax.swing.JLabel label_laptop6;
+    private javax.swing.JLabel label_laptop7;
+    private javax.swing.JLabel label_laptop8;
+    private javax.swing.JLabel label_laptop9;
     private javax.swing.JLabel label_loginlogobig;
     private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_logo_planning;
@@ -5442,7 +6151,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
-    private javax.swing.JLabel label_returnToPlanningPhase;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_semester;
     private javax.swing.JLabel label_shopCreditsName;
@@ -5467,8 +6175,13 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_swapperUcoinsAmount;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
+    private javax.swing.JLabel label_warning1;
+    private javax.swing.JLabel label_warning2;
+    private javax.swing.JLabel label_warning3;
+    private javax.swing.JLabel label_warning5;
     private javax.swing.JLabel label_windowsclosed;
     private javax.swing.JLabel lable_aProfil;
+    private javax.swing.JLabel llabel_warning4;
     private javax.swing.JLabel loggedinas;
     private javax.swing.JLabel login_background;
     private javax.swing.JDialog noCheatsAvailableDialog;
@@ -5494,6 +6207,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_shopHeadline;
     private javax.swing.JPanel panel_shopInventory;
     private javax.swing.JPanel panel_shopItems;
+    private javax.swing.JPanel panel_stats;
     private javax.swing.JPanel panel_timerarea;
     private javax.swing.JPasswordField password_Pass;
     private javax.swing.JPasswordField password_pPass1;
@@ -5544,6 +6258,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JToggleButton toggleButton_teamwork;
     private javax.swing.JLabel ucoinsShop;
     private javax.swing.JDialog warningDialog;
+    private javax.swing.JDialog warningExitPlanningPhase;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid
@@ -5998,7 +6713,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 result[29]=button_stud30;              
         return result;
     }
-    
     private javax.swing.JButton[] constructPlanningPhaseButtons(){
         javax.swing.JButton[] result = new javax.swing.JButton[30];
                 result[0]=jBut_1;
@@ -6033,6 +6747,41 @@ public class Sims_1 extends javax.swing.JFrame {
                 result[29]=jBut_30;              
         return result;
     }
+    
+    private javax.swing.JLabel[] constructLaptopLabels(){
+        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
+                result[0]=label_laptop1;
+                result[1]=label_laptop2;
+                result[2]=label_laptop3;
+                result[3]=label_laptop4;
+                result[4]=label_laptop5;
+                result[5]=label_laptop6;
+                result[6]=label_laptop7;
+                result[7]=label_laptop8;
+                result[8]=label_laptop9;
+                result[9]=label_laptop10;
+                result[10]=label_laptop11;
+                result[11]=label_laptop12;
+                result[12]=label_laptop13;
+                result[13]=label_laptop14;
+                result[14]=label_laptop15;
+                result[15]=label_laptop16;
+                result[16]=label_laptop17;
+                result[17]=label_laptop18;
+                result[18]=label_laptop19;
+                result[19]=label_laptop20;
+                result[20]=label_laptop21;
+                result[21]=label_laptop22;
+                result[22]=label_laptop23;
+                result[23]=label_laptop24;
+                result[24]=label_laptop25;
+                result[25]=label_laptop26;
+                result[26]=label_laptop27;
+                result[27]=label_laptop28;
+                result[28]=label_laptop29;
+                result[29]=label_laptop30;              
+        return result;
+    }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
@@ -6051,7 +6800,7 @@ public void startActivityPhase(){
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels); // added by Jörg, Nadir
 }
 
 public void startPlanningPhase(){
