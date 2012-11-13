@@ -3000,11 +3000,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud5MouseClicked(evt);
             }
         });
-        button_stud5.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                button_stud5StateChanged(evt);
-            }
-        });
         panel_activityPhaseStudField.add(button_stud5);
         button_stud5.setBounds(540, 10, 60, 60);
 
@@ -5531,10 +5526,6 @@ if(_maingame.studentArray[2].laptopClosed== false)
    SetActivityPhaseOpacity();     // TODO add your handling code here:
     }//GEN-LAST:event_button_stud4StateChanged
 
-    private void button_stud5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud5StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
-    }//GEN-LAST:event_button_stud5StateChanged
-
     private void button_stud6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud6StateChanged
      SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud6StateChanged
@@ -5556,11 +5547,11 @@ if(_maingame.studentArray[2].laptopClosed== false)
     }//GEN-LAST:event_button_stud10StateChanged
 
     private void button_stud11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud11StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    //SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud11StateChanged
 
     private void button_stud12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud12StateChanged
-   SetActivityPhaseOpacity(); // TODO add your handling code here:
+    SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud12StateChanged
 
     private void button_stud13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud13StateChanged
@@ -6842,7 +6833,7 @@ public void switchPhase(){
     if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() != 7){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
-        switch(randGen.getRand(3)+1){
+        switch(1){//randGen.getRand(3)+1){
             case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
@@ -7385,5 +7376,8 @@ public void displayExamResults(int failed, int remaining){
     label_examFailed.setText(""+failed);
     label_examRemaining.setText(""+remaining);
     dialog_examResults.setVisible(true);
+}
+public void hideQuietingLabel(){
+    label_dozent_action.setVisible(false);
 }
 }

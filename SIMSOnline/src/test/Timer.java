@@ -81,7 +81,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 10) {
+            while ((System.currentTimeMillis() - millis) < 500) {
                 //do nothing
             }
             timer--;
@@ -101,6 +101,9 @@ public class Timer extends Thread {
             if (game.quietingCounter > 0) {
                 game.updateRoom(-1.65, -3.00);
                 game.quietingCounter--;
+                if(game.quietingCounter==0){
+                    activityPhase.sims.hideQuietingLabel();
+                }
             } else {
                 game.updateRoom(-1.65, 1.00);
             }
