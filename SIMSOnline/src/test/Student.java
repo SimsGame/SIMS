@@ -35,7 +35,7 @@ public class Student {
      * Creates a new student
      * @param student list with all needed data (comes from the save file)
      */
-    public Student(LinkedList<String> student){
+    public Student(LinkedList<String> student){ //by Dawid
         this.knowledge = new Double(student.pop());
         this.intelligence = new Double(student.pop());
         this.iconNum = new Integer(student.pop());
