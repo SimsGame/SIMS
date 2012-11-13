@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author rusinda
+ * @author Dawid Rusin
  */
 public class User {
 
@@ -96,6 +96,10 @@ public class User {
         return ucoins;
     }
 
+    /**
+     * A more useful toString()-method, overrides the standard one
+     * @return String with the user-data
+     */
     @Override
     public String toString() {
         String output = "accountname = " + accountname + "\n"
@@ -111,18 +115,14 @@ public class User {
         return output;
     }
 
-    @Deprecated public User() {
-        accountname = "blubb";
-        password = "blubb";
-        email = "blubb@blubb.com";
-        first_name = "Blubb";
-        last_name = "Blubber";
-        ucoins = 500;
-    }
-
+    /**
+     * Creates _mainuser in Sims_1, reads out the user-profile-file and sets the data
+     * @param accname account name of the logged in user
+     */
     public User(String accname) {
         String[] userData = null;
         try {
+            //reads the data from the file and sets it into _mainuser
             userData = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accname + "/" + Sims_1._profileFileName);
             accountname = userData[0];
             password = userData[1];
@@ -144,10 +144,21 @@ public class User {
         }
     }
 
+    /**
+     * Deletes the user specified
+     * @param user the user to delete
+     * @return true if the deletion was successful, false otherwise
+     */
     public static boolean deleteUser(User user) {
         return deleteUser(user.getAccountname(), user.getEmail());
     }
 
+    /**
+     * Deletes the user specified
+     * @param accountname account name of the user to delete
+     * @param email email of the user to delete
+     * @return true if the deletion was successful, false otherwise
+     */
     public static boolean deleteUser(String accountname, String email) {
 
         LinkedList<LinkedList> userlist = null;
@@ -176,6 +187,11 @@ public class User {
         return false;
     }
 
+    /**
+     * Deletes the game save file, the inventory file and the user folder
+     * @param accountname name of the user to delete
+     * @return true if the deletion was successful, false otherwise
+     */
     public static boolean deleteAllUserFiles(String accountname) {
 
         try {
@@ -191,22 +207,56 @@ public class User {
         return true;
     }
 
+    /**
+     * Saves the current Sims_1._mainuser to the profile-file
+     * @return true if successful, false otherwise
+     */
     public static boolean saveUser() {
         return createUser(Sims_1._mainuser);
     }
     
+    /**
+     * Saves the date on closing the program
+     * @return true if successful, false otherwise
+     */
     public static boolean saveLastLogin(){
         return createUser(Sims_1._mainuser.accountname, Sims_1._mainuser.password.toCharArray(), Sims_1._mainuser.email, Sims_1._mainuser.first_name, Sims_1._mainuser.last_name, Sims_1._mainuser.reg_date, new Date(), Sims_1._mainuser.time_played, Sims_1._mainuser.ucoins);
     }
 
+    /**
+     * Creates a new user (new profile-file)
+     * @param user the user to create
+     * @return true if successful, false otherwise
+     */
     public static boolean createUser(User user) {
         return createUser(user.getAccountname(), user.getPassword().toCharArray(), user.getEmail(), user.getFirst_name(), user.getLast_name(), user.getReg_date(), user.getLast_login(), user.getTime_played(), user.getUcoins());
     }
 
+    /**
+     * creates a new user (new profile-file)
+     * @param accountname the name of the account
+     * @param password user's password
+     * @param email user's email
+     * @param first_name user's first name
+     * @param last_name user's last name
+     * @return true if successful, false otherwise
+     */
     public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name) {
         return createUser(accountname, password, email, first_name, last_name, new Date(), new Date(), 0, 0);
     }
 
+    /**
+     * @param accountname the name of the account
+     * @param password user's password
+     * @param email user's email
+     * @param first_name user's first name
+     * @param last_name user's last name
+     * @param registerDate date of the registration
+     * @param lastLogin date of the last login
+     * @param timePlayed time played by the user
+     * @param UCoins ucoin-amount
+     * @return true if successful, false otherwise
+     */
     public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name, Date registerDate, Date lastLogin, long timePlayed, int UCoins) {
 
         //set up an array with the user-data to write:
