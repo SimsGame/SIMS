@@ -4019,20 +4019,29 @@ public class Sims_1 extends javax.swing.JFrame {
     }
     
     /**
+     * Button in the planningphase
      * Calls the function which helps switching the students.
      * @param evt the click on the button
      */
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch();
     }
-
+    
+    /**
+     * TEST ONLY (login screen): Entes the admin data to the field. 
+     * @param evt the click event
+     */
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
     }//GEN-LAST:event_buton_enterAdminActionPerformed
 
+    /**
+     * Starts a new game with initial values from the Game1.java
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuStartNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStartNewGameActionPerformed
-        // Starts a new game with initial values from the game_1.java.
         panel_stats.setVisible(false);
         Game1.initNewSavefile();
         Game1.loadGame();
@@ -4041,13 +4050,22 @@ public class Sims_1 extends javax.swing.JFrame {
         switchPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
+    /**
+     * Exits the game and closes the SIMS window
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
         // Closes the entire game.
         System.exit(0);
     }//GEN-LAST:event_button_menuExitActionPerformed
 
+    /**
+     * Loads and existing game which always starts with a planning phase
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
-        // Loads and existing game which always starts with a planning phase.
         panel_stats.setVisible(false);
         if (!noSave_overlay.isVisible()) {
             Game1.loadGame();
@@ -4057,6 +4075,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
+    /**
+     * Shows the developer credits to the user
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
         panel_stats.setVisible(false);
         panel_Profile.setVisible(false);
@@ -4064,6 +4087,8 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Credits.requestFocus();
         javax.swing.Timer timer;
         int delay = 100; //milliseconds
+        
+        // The action listener wihich make the field move
         ActionListener taskPerformer = new ActionListener() {
             int down = 0;
             public void actionPerformed(ActionEvent evt) {
@@ -4077,7 +4102,6 @@ public class Sims_1 extends javax.swing.JFrame {
                     }
                 }
                 else{
-                    //down = 0;
                     panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()+490);
                     if(panel_Credits.getY() >= +490)
                         down = 1;
@@ -4085,7 +4109,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         };
         timer = new javax.swing.Timer(delay, taskPerformer);
-        timer.start();
+        timer.start(); // The timer to start the actionlistener
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
