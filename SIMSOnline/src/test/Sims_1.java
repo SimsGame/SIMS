@@ -3992,17 +3992,23 @@ public class Sims_1 extends javax.swing.JFrame {
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
         Game1.saveGame();
-        planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
-        if (panel_gamePhases.isVisible() == false) {
-            panel_gamePhases.setVisible(true);
+        if(_maingame.getSemester() == 7){
+            label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
+            cl.show(panel_gamePhases, "card8");
         }
+        else{
+           planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
+            if (panel_gamePhases.isVisible() == false) {
+                panel_gamePhases.setVisible(true);
+            }
         
-        cl.show(panel_gamePhases, "card3");
-        gamePlanning.requestFocus();
-        jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
-        jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
-        jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
-        panel_menue.setVisible(false);
+            cl.show(panel_gamePhases, "card3");
+            gamePlanning.requestFocus();
+            jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
+            jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
+            jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
+            panel_menue.setVisible(false);
+        }
     }
 
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
@@ -6922,7 +6928,7 @@ public void switchPhase(){
     if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
-    if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() != 7){
+    if(_maingame.round%3 == 1 && present != 0){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
         switch(randGen.getRand(3)+1){
@@ -7468,5 +7474,8 @@ public void displayExamResults(int failed, int remaining){
     label_examFailed.setText(""+failed);
     label_examRemaining.setText(""+remaining);
     dialog_examResults.setVisible(true);
+}
+public void hideQuietingLabel(){
+    label_dozent_action.setVisible(false);
 }
 }

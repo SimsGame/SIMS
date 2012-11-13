@@ -156,11 +156,13 @@ public class Game1 {
          for (int i = 0; i < 30; i++) {
              if (studentArray[i].present){
                  double knowledge=studentArray[i].getKnowledge();
-                 if(knowledge<examvalue){
+                 if(knowledge<examvalue && !studentArray[i].getCheatAvailable()){
                    studentArray[i].present=false;
                    remainingStudents--;
                    failedStudents++;
-                 } 
+                 }else if(studentArray[i].getCheatAvailable()){
+                     studentArray[i].setCheatAvailable(false);
+                 }
              }
          }
      }
@@ -322,8 +324,8 @@ public class Game1 {
                 if(knowledge>255){
                     knowledge=255;
                 }
-                Color color = new Color(255-knowledge, knowledge, 0);
-                studButtons[i].setBackground(color);
+                //Color color = new Color(255-knowledge, knowledge, 0);
+                //studButtons[i].setBackground(color);
                 studButtons[i].setOpaque(true);
                 }
             }
