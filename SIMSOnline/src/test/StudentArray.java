@@ -18,15 +18,15 @@ package test;
     private Student[] studentArray;
 
     public StudentArray() {
-        initArray();
+     //   initArray();
     }
 
-    private void initArray() {
+  /*  private void initArray() {
         studentArray = new Student[30];
         for (int i = 0; i < 30; i++) {
             studentArray[i] = new Student(i);
         }
-    }
+    }*/
    
     public Student[] getArray(){
         return studentArray;
