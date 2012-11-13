@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -1052,6 +1053,11 @@ public class Sims_1 extends javax.swing.JFrame {
         setTitle("S.I.M.S.");
         setMinimumSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1000, 700));
@@ -1293,7 +1299,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         loggedinas.setFont(new java.awt.Font("Modern No. 20", 1, 24)); // NOI18N
         loggedinas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 540, 420, 30));
+        panel_menue.add(loggedinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 580, 70));
 
         label_handcursor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel_menue.add(label_handcursor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 170, 40));
@@ -5868,6 +5874,10 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private void button_statsErrorOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statsErrorOKActionPerformed
         dialog_statsError.setVisible(false);
     }//GEN-LAST:event_button_statsErrorOKActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        User.saveLastLogin();
+    }//GEN-LAST:event_formWindowClosed
     
     /**
      * @param args the command line arguments
@@ -6634,7 +6644,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
             String userPw = "";
             try {
                 userPw = CSVHandling.readCSVStringArr(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName)[1];
-                loggedinas.setText("Eingeloggt als: " + accountname); // by nadir , currentuser
+                //loggedinas.setText("Eingeloggt als: " + accountname); // by nadir , currentuser
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -6685,6 +6695,8 @@ if(_maingame.studentArray[2].laptopClosed== false)
         if (!new File(_dataFolderName + "/" + _mainuser.getAccountname() + "/" + _gameFileName).exists()) {
             noSave_overlay.setVisible(true);
         }
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-y");
+        loggedinas.setText("<html><body>Eingeloggt als: " + _mainuser.getAccountname() + "<br>Letzter Login: " + format.format(_mainuser.getLast_login()) + "</body></html>");
         System.out.println(noSave_overlay.isVisible());
         System.out.println(_mainuser);
     }
