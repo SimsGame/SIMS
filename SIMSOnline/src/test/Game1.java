@@ -329,7 +329,7 @@ public class Game1 {
         if (this.barNum == 0) {
             for (int i = 0; i < 30; i++) {
                 if (this.studentArray[i].present) {
-                    Color color = new Color(220, 220, 0);
+                    Color color = new Color(220, 220, 220);
                     studButtons[i].setBackground(color);
                     studButtons[i].setOpaque(true);
                 }
@@ -374,8 +374,8 @@ public class Game1 {
                     if (knowledge > 255) {
                         knowledge = 255;
                     }
-                    //Color color = new Color(255-knowledge, knowledge, 0);
-                    //studButtons[i].setBackground(color);
+                    Color color = new Color(255-knowledge, knowledge, 0);
+                    studButtons[i].setBackground(color);
                     studButtons[i].setOpaque(true);
                 }
             }
