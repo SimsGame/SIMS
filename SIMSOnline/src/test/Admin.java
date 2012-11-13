@@ -15,19 +15,27 @@ import java.util.LinkedList;
 
 /**
  *
- * @author rusinda
+ * @author Dawid Rusin
  */
 public class Admin {
 
-    LinkedList<User> users = new LinkedList();
-    JButton[] userButtons;
-    JPanel adminpanel;
-    JPanel userpanel;
-    JTextField[] userdata;
-    JSlider months;
-    User currentuser;
-    JLabel[] errMess;
+    LinkedList<User> users = new LinkedList();  //list of all user on the local system
+    JButton[] userButtons;      //buttons to open the user-data
+    JPanel adminpanel;          //panel where the admin-view is displayed in
+    JPanel userpanel;           //panel where the user-data is displayed in
+    JTextField[] userdata;      //textfields with the userdata and the gamestate-data
+    JSlider months;             //slider for the months/rounds ingame
+    User currentuser;           //the current user beeing edited
+    JLabel[] errMess;           //labels to display the errormessages
 
+    /**
+     * Constructor, creates the admin-view
+     * @param adminpanel panel to display the admin view
+     * @param userpanel panel to display the user-data
+     * @param userdata textfields containing the user- and game state-data
+     * @param months Slider to display the in-game rounds/months
+     * @param errMess labels to display error messages
+     */
     public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JSlider months, JLabel[] errMess) {
 
         this.errMess = errMess;
@@ -41,6 +49,7 @@ public class Admin {
         this.userdata = userdata;
         String[][] userList = null;
         try {
+            //read the list of all users
             userList = CSVHandling.readCSVStringArr2(Sims_1._usersFileName);
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,6 +57,7 @@ public class Admin {
         if (!(userList == null)) {
             for (int i = 0; i < userList.length; i++) {
                 try {
+                    //add the users to Admin.users
                     users.add(new User(userList[i][0]));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -55,10 +65,13 @@ public class Admin {
             }
         }
 
+        //init the array of buttons to open user-data
         userButtons = new JButton[users.size()];
         LinkedList<User> usersHelp = (LinkedList<User>) users.clone();
         for (int i = 0; i < userButtons.length; i++) {
+            //display the username as button-label
             userButtons[i] = new JButton(usersHelp.pop().getAccountname());
+            //set size of the buttons and the position in the panel
             userButtons[i].setSize(150, 50);
             userButtons[i].setLocation(10 + 160 * (i / 9), 80 + (i % 9) * 60);
             userButtons[i].addActionListener(new AdminActionListener(i));
@@ -68,6 +81,10 @@ public class Admin {
 
     }
 
+    /**
+     * Sets Admin.currentuser as the current user being edited, also initializes the text fields with the needed data
+     * @param index the number of the user-button
+     */
     private void getUser(int index) {
 
         currentuser = users.get(index);
@@ -94,6 +111,10 @@ public class Admin {
         userpanel.setVisible(true);
     }
 
+    /**
+     * Checks if the input done by the admin is valid
+     * @return true if the input is valid, false otherwise
+     */
     public boolean checkChanges() {
         JComponent[] toCheck = {userdata[0], new JPasswordField(userdata[1].getText()), new JPasswordField(userdata[1].getText()), userdata[2], userdata[2], userdata[3], userdata[4]};
         JLabel[] errMessLoc = {errMess[0], errMess[1], errMess[1], errMess[2], errMess[2], errMess[3], errMess[4]};
@@ -115,53 +136,17 @@ public class Admin {
         return (Sims_1.checkRegister_(toCheck, errMessLoc)) & checked;
     }
 
-    @Deprecated
-    public boolean checkChanges_() {
-
-        if (!Sims_1.checkAlphaNumm(userdata[0].getText().toCharArray()) | userdata[0].getText().length() < 5 | userdata[0].getText().length() > 15) {
-            userdata[0].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[0].setBackground(Color.white);
-        }
-        if (!Sims_1.checkAlphaNumm(userdata[1].getText().toCharArray()) | userdata[1].getText().length() < 5 | userdata[1].getText().length() > 15) {
-            userdata[1].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[1].setBackground(Color.white);
-        }
-        if (!Sims_1.checkEmail(userdata[2].getText())) {
-            userdata[2].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[2].setBackground(Color.white);
-        }
-        if (!Sims_1.checkName(userdata[3].getText())) {
-            userdata[3].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[3].setBackground(Color.white);
-        }
-        if (!Sims_1.checkName(userdata[4].getText())) {
-            userdata[4].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[4].setBackground(Color.white);
-        }
-        if (new Integer(userdata[5].getText()) < 0) {
-            userdata[5].setBackground(Color.red);
-            return false;
-        } else {
-            userdata[5].setBackground(Color.white);
-        }
-        return true;
-    }
-
+    /**
+     * Deletes the user currentuser from the local machine
+     */
     public void delSpecUser() {
         User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
         User.deleteAllUserFiles(currentuser.getAccountname());
     }
 
+    /**
+     * Saves the changes done by the admin
+     */
     public void saveChages() {
         User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
 
@@ -185,6 +170,9 @@ public class Admin {
         JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
     }
 
+    /**
+     * Custom ActionListener for the user buttons to determine the index of the user clicked
+     */
     private class AdminActionListener implements ActionListener {
 
         int index;
