@@ -215,6 +215,7 @@ public class Timer extends Thread {
       {
           if((game.studentArray[i].laptopClosed== false) && (game.studentArray[i].present==true)){
            studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
+           studLaptops[i].setOpaque(false);
           } 
       }   
   }
