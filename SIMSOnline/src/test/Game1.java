@@ -5,14 +5,14 @@ package test;
 
 import java.awt.Color;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 
 /**
- * Objects of this class are gameoject saving information relevant for each phase
+ *
  * @author Jannik
- * @author Jörg Woditschka
  */
 public class Game1 {
 
@@ -22,6 +22,8 @@ public class Game1 {
     public int overallCredits;
     public int points;
     public int round;
+    public Date startTimePlayed;
+    public Long timePlayed;
     public double averageKnowledge;
     public double avarageMotivation;
     public double averageTiredness;
@@ -34,7 +36,7 @@ public class Game1 {
                                                 };
     public int professorIconNum;    //needed for saving the game
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
-    public Student[] studentArray; // the array of students
+    public Student[] studentArray; //added by Jörg
     public double[] rowIntelligence;
     public double airQuality;
     public double noise;
@@ -243,10 +245,6 @@ public class Game1 {
         }
     }
 
-    /**
-     * This method retruns the aray of students
-     * @return array of students
-     */
     public Student[] getArray() {
         return studentArray;
     }
@@ -275,6 +273,7 @@ public class Game1 {
         this.professor = new Integer(help.pop());
         this.professorIconNum = new Integer(help.pop());
         this.professorIcon = professorIconPath[this.professorIconNum];
+        this.timePlayed = new Long(help.pop());
         help = savegame.pop();
         for(int i = 0; i<5; i++){
             if(help.pop().equals("0")){
@@ -364,6 +363,7 @@ public class Game1 {
         sublist.add("1");
         sublist.add(Integer.toString((int) Math.round(Math.random() * 100 + 1)));
         sublist.add("0");
+        sublist.add("0");
         mainlist.add(new LinkedList(sublist));
         sublist = new LinkedList();
         for(int i = 0; i<5; i++){
@@ -417,6 +417,7 @@ public class Game1 {
         sublist.add(Integer.toString(Sims_1._maingame.round));
         sublist.add(Integer.toString(Sims_1._maingame.professor));
         sublist.add(Integer.toString(Sims_1._maingame.professorIconNum));
+        sublist.add(Long.toString(Sims_1._maingame.timePlayed));
         mainlist.add(new LinkedList(sublist));
         sublist = new LinkedList();
         for(int i = 0; i<5; i++){
@@ -455,5 +456,13 @@ public class Game1 {
         }catch (Exception e){
             e.printStackTrace();
         }   
+    }
+    
+    public static void setTimeToSave(){
+        Sims_1._maingame.startTimePlayed = new Date();
+    }
+    
+    public static void saveTimePlayed(){
+        Sims_1._maingame.timePlayed += new Date().getTime() - Sims_1._maingame.startTimePlayed.getTime();
     }
 }
