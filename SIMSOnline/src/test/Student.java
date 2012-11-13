@@ -132,12 +132,12 @@ public class Student {
                 influence=0.005*rowIntelligence;
             }
             this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.001375)+influence-add;
-            if(this.knowledgeIncreasement<0){ // this if belongs above the this.knowledge
+            if(this.knowledgeIncreasement<0){ 
                 this.knowledgeIncreasement = 0;
             }
         }
         else {
-            this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
+            this.knowledgeIncreasement = 0;
         }
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100        
     }
