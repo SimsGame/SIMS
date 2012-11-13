@@ -60,7 +60,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 100) {
+            while ((System.currentTimeMillis() - millis) < 1000) {
                 //do nothing
             }
             timer--;
@@ -85,15 +85,15 @@ public class Timer extends Thread {
             }
             if (game.teamwork) {
                 add1 = (game.noise + 0.000001) / 200 * (2.5);
-                add2 = (100.000001 - game.airQuality) / 200 * 3.3;
+                add2 = (100.000001 - game.airQuality) / 200 * 2;
                 game.updateArray(add1, add2, 0.02);
             } else if (game.shortBreak) {
-                add1 = (game.noise + 0.000001) / 200 * (3.3);
-                add2 = (100.000001 - game.airQuality) / 200 * (-3.3);
+                add1 = (game.noise + 0.000001) / 200 * (2);
+                add2 = (100.000001 - game.airQuality) / 200 * (-6);
                 game.updateArray(add1, add2, -1);
             } else {
-                add1 = (game.noise + 0.000001) / 200 * (-3.3);
-                add2 = (100.000001 - game.airQuality) / 200 * 3.3;
+                add1 = (game.noise + 0.000001) / 200 * (-2);
+                add2 = (100.000001 - game.airQuality) / 200 * 2;
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
