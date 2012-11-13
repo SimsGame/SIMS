@@ -2831,7 +2831,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop13);
-        label_laptop13.setBounds(120, 230, 50, 30);
+        label_laptop13.setBounds(120, 235, 50, 30);
 
         label_laptop14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2840,7 +2840,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop14);
-        label_laptop14.setBounds(230, 230, 50, 30);
+        label_laptop14.setBounds(230, 235, 50, 30);
 
         label_laptop15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2849,7 +2849,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop15);
-        label_laptop15.setBounds(340, 230, 50, 30);
+        label_laptop15.setBounds(340, 235, 50, 30);
 
         label_laptop16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2858,7 +2858,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop16);
-        label_laptop16.setBounds(440, 230, 50, 30);
+        label_laptop16.setBounds(440, 235, 50, 30);
 
         label_laptop17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2867,7 +2867,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop17);
-        label_laptop17.setBounds(550, 230, 50, 30);
+        label_laptop17.setBounds(550, 235, 50, 30);
 
         label_laptop18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2876,7 +2876,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop18);
-        label_laptop18.setBounds(650, 230, 50, 30);
+        label_laptop18.setBounds(650, 235, 50, 30);
 
         label_laptop19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop19.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2885,7 +2885,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop19);
-        label_laptop19.setBounds(120, 310, 50, 30);
+        label_laptop19.setBounds(120, 315, 50, 30);
 
         label_laptop20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2894,7 +2894,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop20);
-        label_laptop20.setBounds(230, 310, 50, 30);
+        label_laptop20.setBounds(230, 315, 50, 30);
 
         label_laptop21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2903,7 +2903,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop21);
-        label_laptop21.setBounds(340, 310, 50, 30);
+        label_laptop21.setBounds(340, 315, 50, 30);
 
         label_laptop22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop22.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2912,7 +2912,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop22);
-        label_laptop22.setBounds(440, 310, 50, 30);
+        label_laptop22.setBounds(440, 315, 50, 30);
 
         label_laptop23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop23.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2921,7 +2921,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop23);
-        label_laptop23.setBounds(550, 310, 50, 30);
+        label_laptop23.setBounds(550, 315, 50, 30);
 
         label_laptop24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop24.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2930,7 +2930,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop24);
-        label_laptop24.setBounds(650, 320, 50, 30);
+        label_laptop24.setBounds(650, 315, 50, 30);
 
         label_laptop25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop25.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -5359,7 +5359,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
             {// set opacity on all buttons back
                 SetActivityPhaseOpacity();
                 
-            }           
+            }          
         }
     }//GEN-LAST:event_KnowledgeBarMouseClicked
 
@@ -5608,183 +5608,183 @@ if(_maingame.studentArray[2].laptopClosed== false)
     }//GEN-LAST:event_button_stud2StateChanged
 
     private void button_stud3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud3StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+      SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud3StateChanged
 
     private void button_stud4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud4StateChanged
-   SetActivityPhaseOpacity();     // TODO add your handling code here:
+   SetActivityPhaseOpacity();    
     }//GEN-LAST:event_button_stud4StateChanged
 
     private void button_stud5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud5StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud5StateChanged
 
     private void button_stud6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud6StateChanged
-     SetActivityPhaseOpacity(); // TODO add your handling code here:
+     SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud6StateChanged
 
     private void button_stud7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud7StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+   SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud7StateChanged
 
     private void button_stud8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud8StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+     SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud8StateChanged
 
     private void button_stud9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud9StateChanged
-    SetActivityPhaseOpacity();   // TODO add your handling code here:
+    SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud9StateChanged
 
     private void button_stud10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud10StateChanged
-    SetActivityPhaseOpacity();   // TODO add your handling code here:
+    SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud10StateChanged
 
     private void button_stud11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud11StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud11StateChanged
 
     private void button_stud12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud12StateChanged
-   SetActivityPhaseOpacity(); // TODO add your handling code here:
+   SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud12StateChanged
 
     private void button_stud13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud13StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud13StateChanged
 
     private void button_stud14StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud14StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud14StateChanged
 
     private void button_stud15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud15StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud15StateChanged
 
     private void button_stud16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud16StateChanged
-    SetActivityPhaseOpacity();// TODO add your handling code here:
+    SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud16StateChanged
 
     private void button_stud17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud17StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+   SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud17StateChanged
 
     private void button_stud18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud18StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud18StateChanged
 
     private void button_stud19StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud19StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+     SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud19StateChanged
 
     private void button_stud20StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud20StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+      SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud20StateChanged
 
     private void button_stud21StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud21StateChanged
-     SetActivityPhaseOpacity(); // TODO add your handling code here:
+     SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud21StateChanged
 
     private void button_stud22StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud22StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud22StateChanged
 
     private void button_stud23StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud23StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+   SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud23StateChanged
 
     private void button_stud24StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud24StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud24StateChanged
 
     private void button_stud25StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud25StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+     SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud25StateChanged
 
     private void button_stud26StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud26StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+      SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud26StateChanged
 
     private void button_stud27StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud27StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud27StateChanged
 
     private void button_stud28StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud28StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+      SetActivityPhaseOpacity(); 
     }//GEN-LAST:event_button_stud28StateChanged
 
     private void button_stud29StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud29StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+     SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud29StateChanged
 
     private void button_stud30StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud30StateChanged
-   SetActivityPhaseOpacity(); // TODO add your handling code here:
+   SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud30StateChanged
 
     private void jBut_DozentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_DozentActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jBut_DozentActionPerformed
 
     private void jBut_15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_15StateChanged
-      SetPlanningPhaseOpacity();  // TODO add your handling code here:
+      SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_15StateChanged
 
     private void jBut_2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_2StateChanged
-      SetPlanningPhaseOpacity();     // TODO add your handling code here:
+      SetPlanningPhaseOpacity();    
     }//GEN-LAST:event_jBut_2StateChanged
 
     private void jBut_3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_3StateChanged
-       SetPlanningPhaseOpacity();    // TODO add your handling code here:
+       SetPlanningPhaseOpacity();    
     }//GEN-LAST:event_jBut_3StateChanged
 
     private void jBut_4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_4StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_4StateChanged
 
     private void jBut_5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_5StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_5StateChanged
 
     private void jBut_6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_6StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_6StateChanged
 
     private void jBut_7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_7StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_7StateChanged
 
     private void jBut_8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_8StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_8StateChanged
 
     private void jBut_9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_9StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_9StateChanged
 
     private void jBut_12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_12StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+         SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_12StateChanged
 
     private void jBut_11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_11StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_11StateChanged
 
     private void jBut_10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_10StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_10StateChanged
 
     private void jBut_14StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_14StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_14StateChanged
 
     private void jBut_13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_13StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_13StateChanged
 
     private void jBut_16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_16StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+         SetPlanningPhaseOpacity();  
     }//GEN-LAST:event_jBut_16StateChanged
 
     private void jBut_17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_17StateChanged
-        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+        SetPlanningPhaseOpacity();   
     }//GEN-LAST:event_jBut_17StateChanged
 
     private void jBut_18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_18StateChanged
