@@ -44,6 +44,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static PlanningPhase planningPhase;
     protected static javax.swing.JButton[] activityPhaseButtons;
     protected static javax.swing.JButton[] planningPhaseButtons;
+    protected static javax.swing.JLabel[] laptopLabels;
     //***************************************************************
     //***************Section of global vars: end*********************
     //***************************************************************
@@ -103,6 +104,7 @@ public class Sims_1 extends javax.swing.JFrame {
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
+        this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
         panel_Credits.setVisible(false);
@@ -387,6 +389,36 @@ public class Sims_1 extends javax.swing.JFrame {
         label_timer = new javax.swing.JLabel();
         panel_activityPhaseStudField = new javax.swing.JPanel();
         button_dozent1 = new javax.swing.JButton();
+        label_laptop6 = new javax.swing.JLabel();
+        label_laptop5 = new javax.swing.JLabel();
+        label_laptop4 = new javax.swing.JLabel();
+        label_laptop3 = new javax.swing.JLabel();
+        label_laptop2 = new javax.swing.JLabel();
+        label_laptop1 = new javax.swing.JLabel();
+        label_laptop7 = new javax.swing.JLabel();
+        label_laptop8 = new javax.swing.JLabel();
+        label_laptop9 = new javax.swing.JLabel();
+        label_laptop10 = new javax.swing.JLabel();
+        label_laptop11 = new javax.swing.JLabel();
+        label_laptop12 = new javax.swing.JLabel();
+        label_laptop13 = new javax.swing.JLabel();
+        label_laptop14 = new javax.swing.JLabel();
+        label_laptop15 = new javax.swing.JLabel();
+        label_laptop16 = new javax.swing.JLabel();
+        label_laptop17 = new javax.swing.JLabel();
+        label_laptop18 = new javax.swing.JLabel();
+        label_laptop19 = new javax.swing.JLabel();
+        label_laptop20 = new javax.swing.JLabel();
+        label_laptop21 = new javax.swing.JLabel();
+        label_laptop22 = new javax.swing.JLabel();
+        label_laptop23 = new javax.swing.JLabel();
+        label_laptop24 = new javax.swing.JLabel();
+        label_laptop25 = new javax.swing.JLabel();
+        label_laptop26 = new javax.swing.JLabel();
+        label_laptop27 = new javax.swing.JLabel();
+        label_laptop28 = new javax.swing.JLabel();
+        label_laptop29 = new javax.swing.JLabel();
+        label_laptop30 = new javax.swing.JLabel();
         button_stud1 = new javax.swing.JButton();
         button_stud2 = new javax.swing.JButton();
         button_stud3 = new javax.swing.JButton();
@@ -826,7 +858,7 @@ public class Sims_1 extends javax.swing.JFrame {
             .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2388,9 +2420,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel5.add(button_window);
         button_window.setBounds(350, 10, 120, 23);
 
-        label_knowledgeBar_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/knowledgebalkenoverlay_2_00000.png"))); // NOI18N
+        label_knowledgeBar_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/barlayout.png"))); // NOI18N
         jPanel5.add(label_knowledgeBar_overlay);
-        label_knowledgeBar_overlay.setBounds(100, 0, 260, 80);
+        label_knowledgeBar_overlay.setBounds(80, 0, 300, 80);
 
         text_motivation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_motivation.setText("Motivation:");
@@ -2494,6 +2526,276 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_activityPhaseStudField.add(button_dozent1);
         button_dozent1.setBounds(370, 400, 90, 150);
 
+        label_laptop6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop6MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop6);
+        label_laptop6.setBounds(650, 65, 50, 30);
+
+        label_laptop5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop5MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop5);
+        label_laptop5.setBounds(550, 65, 50, 30);
+
+        label_laptop4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop4MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop4);
+        label_laptop4.setBounds(450, 65, 50, 30);
+
+        label_laptop3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop3MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop3);
+        label_laptop3.setBounds(340, 65, 50, 30);
+
+        label_laptop2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop2MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop2);
+        label_laptop2.setBounds(230, 65, 50, 30);
+
+        label_laptop1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop1MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop1);
+        label_laptop1.setBounds(130, 65, 50, 30);
+
+        label_laptop7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop7MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop7);
+        label_laptop7.setBounds(130, 150, 50, 30);
+
+        label_laptop8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop8MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop8);
+        label_laptop8.setBounds(230, 150, 50, 30);
+
+        label_laptop9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop9MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop9);
+        label_laptop9.setBounds(340, 150, 50, 30);
+
+        label_laptop10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop10MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop10);
+        label_laptop10.setBounds(430, 150, 50, 30);
+
+        label_laptop11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop11MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop11);
+        label_laptop11.setBounds(540, 150, 50, 30);
+
+        label_laptop12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop12MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop12);
+        label_laptop12.setBounds(640, 150, 50, 30);
+
+        label_laptop13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop13MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop13);
+        label_laptop13.setBounds(120, 230, 50, 30);
+
+        label_laptop14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop14MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop14);
+        label_laptop14.setBounds(230, 230, 50, 30);
+
+        label_laptop15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop15MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop15);
+        label_laptop15.setBounds(340, 230, 50, 30);
+
+        label_laptop16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop16MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop16);
+        label_laptop16.setBounds(440, 230, 50, 30);
+
+        label_laptop17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop17MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop17);
+        label_laptop17.setBounds(550, 230, 50, 30);
+
+        label_laptop18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop18MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop18);
+        label_laptop18.setBounds(650, 230, 50, 30);
+
+        label_laptop19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop19MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop19);
+        label_laptop19.setBounds(120, 310, 50, 30);
+
+        label_laptop20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop20MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop20);
+        label_laptop20.setBounds(230, 310, 50, 30);
+
+        label_laptop21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop21MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop21);
+        label_laptop21.setBounds(340, 310, 50, 30);
+
+        label_laptop22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop22MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop22);
+        label_laptop22.setBounds(440, 310, 50, 30);
+
+        label_laptop23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop23MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop23);
+        label_laptop23.setBounds(550, 310, 50, 30);
+
+        label_laptop24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop24MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop24);
+        label_laptop24.setBounds(650, 320, 50, 30);
+
+        label_laptop25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop25MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop25);
+        label_laptop25.setBounds(130, 400, 50, 30);
+
+        label_laptop26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop26MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop26);
+        label_laptop26.setBounds(230, 400, 50, 30);
+
+        label_laptop27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop27MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop27);
+        label_laptop27.setBounds(330, 400, 50, 30);
+
+        label_laptop28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop28MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop28);
+        label_laptop28.setBounds(440, 400, 50, 30);
+
+        label_laptop29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop29MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop29);
+        label_laptop29.setBounds(550, 400, 50, 30);
+
+        label_laptop30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
+        label_laptop30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_laptop30MouseClicked(evt);
+            }
+        });
+        panel_activityPhaseStudField.add(label_laptop30);
+        label_laptop30.setBounds(650, 400, 50, 30);
+
         button_stud1.setBackground(new java.awt.Color(255, 255, 255));
         button_stud1.setBorder(null);
         button_stud1.setBorderPainted(false);
@@ -2510,6 +2812,11 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 button_stud1StateChanged(evt);
+            }
+        });
+        button_stud1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_stud1ActionPerformed(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud1);
@@ -5043,6 +5350,278 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_1StateChanged
          SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
+
+    private void button_stud1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud1ActionPerformed
+
+    private void label_laptop1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop1MouseClicked
+if(_maingame.studentArray[0].laptopClosed== false)
+{
+    label_laptop1.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[0].laptopClosed = true;
+}// TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop1MouseClicked
+
+    private void label_laptop2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop2MouseClicked
+ if(_maingame.studentArray[1].laptopClosed== false)
+{
+    label_laptop2.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[1].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop2MouseClicked
+
+    private void label_laptop3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop3MouseClicked
+if(_maingame.studentArray[2].laptopClosed== false)
+{
+    label_laptop3.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[2].laptopClosed = true;
+    
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop3MouseClicked
+
+    private void label_laptop4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop4MouseClicked
+ if(_maingame.studentArray[3].laptopClosed== false)
+{
+    label_laptop4.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[3].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop4MouseClicked
+
+    private void label_laptop5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop5MouseClicked
+   if(_maingame.studentArray[4].laptopClosed== false)
+{
+    label_laptop5.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[4].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop5MouseClicked
+
+    private void label_laptop6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop6MouseClicked
+   if(_maingame.studentArray[5].laptopClosed== false)
+{
+    label_laptop6.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[5].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop6MouseClicked
+
+    private void label_laptop12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop12MouseClicked
+  if(_maingame.studentArray[11].laptopClosed== false)
+{
+    label_laptop12.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[11].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop12MouseClicked
+
+    private void label_laptop11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop11MouseClicked
+ if(_maingame.studentArray[10].laptopClosed== false)
+{
+    label_laptop11.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[10].laptopClosed = true;
+    
+}       // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop11MouseClicked
+
+    private void label_laptop10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop10MouseClicked
+   if(_maingame.studentArray[9].laptopClosed== false)
+{
+    label_laptop10.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[9].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop10MouseClicked
+
+    private void label_laptop9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop9MouseClicked
+  if(_maingame.studentArray[8].laptopClosed== false)
+{
+    label_laptop9.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[8].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop9MouseClicked
+
+    private void label_laptop8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop8MouseClicked
+    if(_maingame.studentArray[7].laptopClosed== false)
+{
+    label_laptop8.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[7].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop8MouseClicked
+
+    private void label_laptop7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop7MouseClicked
+   if(_maingame.studentArray[6].laptopClosed== false)
+{
+    label_laptop7.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[6].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop7MouseClicked
+
+    private void label_laptop18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop18MouseClicked
+   if(_maingame.studentArray[17].laptopClosed== false)
+{
+    label_laptop18.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[17].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop18MouseClicked
+
+    private void label_laptop17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop17MouseClicked
+  if(_maingame.studentArray[16].laptopClosed== false)
+{
+    label_laptop17.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[16].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop17MouseClicked
+
+    private void label_laptop16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop16MouseClicked
+   if(_maingame.studentArray[15].laptopClosed== false)
+{
+    label_laptop16.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[15].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop16MouseClicked
+
+    private void label_laptop15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop15MouseClicked
+     if(_maingame.studentArray[14].laptopClosed== false)
+{
+    label_laptop15.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[14].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop15MouseClicked
+
+    private void label_laptop14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop14MouseClicked
+  if(_maingame.studentArray[13].laptopClosed== false)
+{
+    label_laptop14.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[13].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop14MouseClicked
+
+    private void label_laptop13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop13MouseClicked
+  if(_maingame.studentArray[12].laptopClosed== false)
+{
+    label_laptop13.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[12].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop13MouseClicked
+
+    private void label_laptop24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop24MouseClicked
+   if(_maingame.studentArray[23].laptopClosed== false)
+{
+    label_laptop24.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[23].laptopClosed = true;
+    
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop24MouseClicked
+
+    private void label_laptop23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop23MouseClicked
+    if(_maingame.studentArray[22].laptopClosed== false)
+{
+    label_laptop23.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[22].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop23MouseClicked
+
+    private void label_laptop22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop22MouseClicked
+     if(_maingame.studentArray[21].laptopClosed== false)
+{
+    label_laptop22.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[21].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop22MouseClicked
+
+    private void label_laptop21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop21MouseClicked
+   if(_maingame.studentArray[20].laptopClosed== false)
+{
+    label_laptop21.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[20].laptopClosed = true;
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop21MouseClicked
+
+    private void label_laptop20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop20MouseClicked
+     if(_maingame.studentArray[19].laptopClosed== false)
+{
+    label_laptop20.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[19].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop20MouseClicked
+
+    private void label_laptop19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop19MouseClicked
+  if(_maingame.studentArray[18].laptopClosed== false)
+{
+    label_laptop19.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[18].laptopClosed = true;
+    
+}      // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop19MouseClicked
+
+    private void label_laptop30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop30MouseClicked
+    if(_maingame.studentArray[29].laptopClosed== false)
+{
+    label_laptop30.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[29].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop30MouseClicked
+
+    private void label_laptop29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop29MouseClicked
+     if(_maingame.studentArray[28].laptopClosed== false)
+{
+    label_laptop29.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[28].laptopClosed = true;
+    
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop29MouseClicked
+
+    private void label_laptop28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop28MouseClicked
+    if(_maingame.studentArray[27].laptopClosed== false)
+{
+    label_laptop28.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[27].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop28MouseClicked
+
+    private void label_laptop27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop27MouseClicked
+      if(_maingame.studentArray[26].laptopClosed== false)
+{
+    label_laptop27.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[26].laptopClosed = true;
+    
+}  // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop27MouseClicked
+
+    private void label_laptop26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop26MouseClicked
+    if(_maingame.studentArray[25].laptopClosed== false)
+{
+    label_laptop26.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[25].laptopClosed = true;
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop26MouseClicked
+
+    private void label_laptop25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop25MouseClicked
+      if(_maingame.studentArray[24].laptopClosed== false)
+{
+    label_laptop25.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+    _maingame.studentArray[24].laptopClosed = true;
+    
+}  // TODO add your handling code here:
+    }//GEN-LAST:event_label_laptop25MouseClicked
     
     /**
      * @param args the command line arguments
@@ -5329,6 +5908,36 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_item4Name;
     private javax.swing.JLabel label_knowledgeBar_overlay;
     private javax.swing.JLabel label_lErr;
+    private javax.swing.JLabel label_laptop1;
+    private javax.swing.JLabel label_laptop10;
+    private javax.swing.JLabel label_laptop11;
+    private javax.swing.JLabel label_laptop12;
+    private javax.swing.JLabel label_laptop13;
+    private javax.swing.JLabel label_laptop14;
+    private javax.swing.JLabel label_laptop15;
+    private javax.swing.JLabel label_laptop16;
+    private javax.swing.JLabel label_laptop17;
+    private javax.swing.JLabel label_laptop18;
+    private javax.swing.JLabel label_laptop19;
+    private javax.swing.JLabel label_laptop2;
+    private javax.swing.JLabel label_laptop20;
+    private javax.swing.JLabel label_laptop21;
+    private javax.swing.JLabel label_laptop22;
+    private javax.swing.JLabel label_laptop23;
+    private javax.swing.JLabel label_laptop24;
+    private javax.swing.JLabel label_laptop25;
+    private javax.swing.JLabel label_laptop26;
+    private javax.swing.JLabel label_laptop27;
+    private javax.swing.JLabel label_laptop28;
+    private javax.swing.JLabel label_laptop29;
+    private javax.swing.JLabel label_laptop3;
+    private javax.swing.JLabel label_laptop30;
+    private javax.swing.JLabel label_laptop4;
+    private javax.swing.JLabel label_laptop5;
+    private javax.swing.JLabel label_laptop6;
+    private javax.swing.JLabel label_laptop7;
+    private javax.swing.JLabel label_laptop8;
+    private javax.swing.JLabel label_laptop9;
     private javax.swing.JLabel label_loginlogobig;
     private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_logo_planning;
@@ -5923,7 +6532,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 result[29]=button_stud30;              
         return result;
     }
-    
     private javax.swing.JButton[] constructPlanningPhaseButtons(){
         javax.swing.JButton[] result = new javax.swing.JButton[30];
                 result[0]=jBut_1;
@@ -5958,6 +6566,41 @@ public class Sims_1 extends javax.swing.JFrame {
                 result[29]=jBut_30;              
         return result;
     }
+    
+    private javax.swing.JLabel[] constructLaptopLabels(){
+        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
+                result[0]=label_laptop1;
+                result[1]=label_laptop2;
+                result[2]=label_laptop3;
+                result[3]=label_laptop4;
+                result[4]=label_laptop5;
+                result[5]=label_laptop6;
+                result[6]=label_laptop7;
+                result[7]=label_laptop8;
+                result[8]=label_laptop9;
+                result[9]=label_laptop10;
+                result[10]=label_laptop11;
+                result[11]=label_laptop12;
+                result[12]=label_laptop13;
+                result[13]=label_laptop14;
+                result[14]=label_laptop15;
+                result[15]=label_laptop16;
+                result[16]=label_laptop17;
+                result[17]=label_laptop18;
+                result[18]=label_laptop19;
+                result[19]=label_laptop20;
+                result[20]=label_laptop21;
+                result[21]=label_laptop22;
+                result[22]=label_laptop23;
+                result[23]=label_laptop24;
+                result[24]=label_laptop25;
+                result[25]=label_laptop26;
+                result[26]=label_laptop27;
+                result[27]=label_laptop28;
+                result[28]=label_laptop29;
+                result[29]=label_laptop30;              
+        return result;
+    }
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
@@ -5976,7 +6619,7 @@ public void startActivityPhase(){
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels); // added by Jörg, Nadir
 }
 
 public void startPlanningPhase(){
