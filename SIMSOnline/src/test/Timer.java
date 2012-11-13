@@ -7,8 +7,9 @@ package test;
 import java.awt.Color;
 
 /**
- *
- * @author Jörg Woditschka @authot Nadir Yudlashev
+ * 
+ * @author Jörg Woditschka 
+ * @authot Nadir Yudlashev
  * @author Kira Schomber
  */
 public class Timer extends Thread {
@@ -28,6 +29,17 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
 
+    /**
+     * 
+     * @param jLabel_timer
+     * @param game
+     * @param jKnowledgeBar
+     * @param jAirBar
+     * @param jNoiseBar
+     * @param jMotivationBar
+     * @param jTirednessBar
+     * @param activityPhase 
+     */
     public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
         this.label_timer = jLabel_timer;
         initTimer();
@@ -98,7 +110,7 @@ public class Timer extends Thread {
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
-            if (timer == 1) {
+            if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
                     switch (round) {
@@ -136,6 +148,7 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
 
