@@ -24,7 +24,7 @@ package test;
     private void initArray() {
         studentArray = new Student[30];
         for (int i = 0; i < 30; i++) {
-            studentArray[i] = new Student(i);
+           // studentArray[i] = new Student(i);
         }
     }
    

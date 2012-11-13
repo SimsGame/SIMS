@@ -178,6 +178,7 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        game.gainBonusCredits();
         Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
