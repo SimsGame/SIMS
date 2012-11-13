@@ -88,6 +88,9 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
+        warningExitPlanningPhase.setSize(400, 320);
+        warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warningExitPlanningPhase.setLocationRelativeTo(null);        
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -166,6 +169,14 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        warningExitPlanningPhase = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jBut_confirmExit = new javax.swing.JButton();
+        jBut_cancelExit = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_Credits = new javax.swing.JPanel();
@@ -839,6 +850,80 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Achtung!");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("            Du bist grade dabei das Spiel  zu verlassen.");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Nicht gespeicherter Fortschritt geht verloren");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Wenn du trotzdem fortfahren willst, dann klicke auf \"Bestätigen\"");
+
+        jBut_confirmExit.setText("Bestätigen");
+        jBut_confirmExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_confirmExitMouseClicked(evt);
+            }
+        });
+
+        jBut_cancelExit.setText("Abbrechen");
+        jBut_cancelExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_cancelExitMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout warningExitPlanningPhaseLayout = new javax.swing.GroupLayout(warningExitPlanningPhase.getContentPane());
+        warningExitPlanningPhase.getContentPane().setLayout(warningExitPlanningPhaseLayout);
+        warningExitPlanningPhaseLayout.setHorizontalGroup(
+            warningExitPlanningPhaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                .addGroup(warningExitPlanningPhaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                        .addGap(358, 358, 358)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(warningExitPlanningPhaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addContainerGap())
+            .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jBut_confirmExit, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBut_cancelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+        );
+        warningExitPlanningPhaseLayout.setVerticalGroup(
+            warningExitPlanningPhaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(warningExitPlanningPhaseLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel6)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(warningExitPlanningPhaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBut_cancelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBut_confirmExit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -3623,11 +3708,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void label_logo_planningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_planningMouseClicked
-        // if the toggleButton is clicked for switching student and not a student the button will be deselected
-        jToggleBut_SwitchStud.setSelected(false);
-        
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+       warningExitPlanningPhase.setVisible(true);        
+       
     }//GEN-LAST:event_label_logo_planningMouseClicked
 
     private void label_logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseClicked
@@ -5038,6 +5120,20 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_1StateChanged
          SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
+
+    private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
+         // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_confirmExitMouseClicked
+
+    private void jBut_cancelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_cancelExitMouseClicked
+        // TODO add your handling code here:
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_cancelExitMouseClicked
     
     /**
      * @param args the command line arguments
@@ -5198,6 +5294,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_OKnotAllowedUseCheat;
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
+    private javax.swing.JButton jBut_cancelExit;
+    private javax.swing.JButton jBut_confirmExit;
     private javax.swing.JButton jBut_startShop;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
@@ -5221,7 +5319,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -5467,6 +5570,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JToggleButton toggleButton_teamwork;
     private javax.swing.JLabel ucoinsShop;
     private javax.swing.JDialog warningDialog;
+    private javax.swing.JDialog warningExitPlanningPhase;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid
