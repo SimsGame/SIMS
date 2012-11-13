@@ -7,8 +7,6 @@ package test;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -108,6 +106,14 @@ public class Sims_1 extends javax.swing.JFrame {
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
         panel_Credits.setVisible(false);
+        label_dozent_action.setVisible(false);
+        SetActivityOpaque();
+        SetPlanningOpaque();
+        label_windowsclosed.setVisible(false);
+      
+        
+        
+   
     }
 
     /**
@@ -280,6 +286,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_28 = new javax.swing.JButton();
         jBut_29 = new javax.swing.JButton();
         jBut_30 = new javax.swing.JButton();
+        label_PlanningPhaseoverlay = new javax.swing.JLabel();
         shop = new javax.swing.JPanel();
         panel_shopBackMainmenu = new javax.swing.JPanel();
         label_logo = new javax.swing.JLabel();
@@ -363,12 +370,13 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item1InvAmount = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         text_wissen = new javax.swing.JLabel();
+        button_window = new javax.swing.JButton();
+        label_knowledgeBar_overlay = new javax.swing.JLabel();
         text_motivation = new javax.swing.JLabel();
         text_tiredness = new javax.swing.JLabel();
         KnowledgeBar = new javax.swing.JProgressBar();
         MotivationBar = new javax.swing.JProgressBar();
         TirednessBar = new javax.swing.JProgressBar();
-        button_window = new javax.swing.JButton();
         text_noise = new javax.swing.JLabel();
         text_air = new javax.swing.JLabel();
         NoiseBar = new javax.swing.JProgressBar();
@@ -398,6 +406,7 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud17 = new javax.swing.JButton();
         button_stud18 = new javax.swing.JButton();
         button_stud19 = new javax.swing.JButton();
+        label_dozent_action = new javax.swing.JLabel();
         button_stud20 = new javax.swing.JButton();
         button_stud21 = new javax.swing.JButton();
         button_stud22 = new javax.swing.JButton();
@@ -409,12 +418,14 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud28 = new javax.swing.JButton();
         button_stud29 = new javax.swing.JButton();
         button_stud30 = new javax.swing.JButton();
+        label_windowsclosed = new javax.swing.JLabel();
+        label_GameFieldOverlay = new javax.swing.JLabel();
         jLab_DozSwitch2 = new javax.swing.JLabel();
         panel_gameOver = new javax.swing.JPanel();
+        button_retry = new javax.swing.JButton();
         label_gameOverPoints = new javax.swing.JLabel();
         label_gameOverSemester = new javax.swing.JLabel();
         label_gameOver = new javax.swing.JLabel();
-        button_retry = new javax.swing.JButton();
         panel_Login = new javax.swing.JPanel();
         panel_Register = new javax.swing.JPanel();
         textfield_rKontoname = new javax.swing.JTextField();
@@ -478,7 +489,6 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_aOMNI = new javax.swing.JTextField();
         label_aRedBull = new javax.swing.JLabel();
         label_aOMNI = new javax.swing.JLabel();
-        check_aSpicker = new javax.swing.JCheckBox();
         label_aSpicker = new javax.swing.JLabel();
         slider_aMonth = new javax.swing.JSlider();
         label_aMonth = new javax.swing.JLabel();
@@ -496,6 +506,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrDuplo = new javax.swing.JLabel();
         label_aErrRedBull = new javax.swing.JLabel();
         label_aErrOmni = new javax.swing.JLabel();
+        textfield_aSpicker = new javax.swing.JTextField();
         background_adminUser = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         background_admin = new javax.swing.JLabel();
@@ -815,7 +826,7 @@ public class Sims_1 extends javax.swing.JFrame {
             .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1378,25 +1389,36 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         StudField.setLayout(null);
 
-        jBut_Dozent.setText("Dozent");
         jBut_Dozent.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_DozentMouseClicked(evt);
             }
         });
+        jBut_Dozent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_DozentActionPerformed(evt);
+            }
+        });
         StudField.add(jBut_Dozent);
-        jBut_Dozent.setBounds(340, 470, 110, 50);
+        jBut_Dozent.setBounds(370, 400, 90, 150);
 
+        jBut_1.setBorderPainted(false);
         jBut_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBut_1.setOpaque(false);
         jBut_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBut_1MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBut_1MouseExited(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jBut_1MouseEntered(evt);
+        });
+        jBut_1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_1StateChanged(evt);
             }
         });
         jBut_1.addActionListener(new java.awt.event.ActionListener() {
@@ -1405,8 +1427,10 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         StudField.add(jBut_1);
-        jBut_1.setBounds(60, 10, 110, 50);
+        jBut_1.setBounds(130, 10, 60, 60);
 
+        jBut_2.setBorderPainted(false);
+        jBut_2.setOpaque(false);
         jBut_2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_2MouseClicked(evt);
@@ -1415,9 +1439,16 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_2MouseEntered(evt);
             }
         });
+        jBut_2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_2StateChanged(evt);
+            }
+        });
         StudField.add(jBut_2);
-        jBut_2.setBounds(210, 10, 110, 50);
+        jBut_2.setBounds(230, 10, 60, 60);
 
+        jBut_3.setBorderPainted(false);
+        jBut_3.setOpaque(false);
         jBut_3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_3MouseClicked(evt);
@@ -1426,9 +1457,16 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_3MouseEntered(evt);
             }
         });
+        jBut_3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_3StateChanged(evt);
+            }
+        });
         StudField.add(jBut_3);
-        jBut_3.setBounds(360, 10, 110, 50);
+        jBut_3.setBounds(330, 10, 60, 60);
 
+        jBut_4.setBorderPainted(false);
+        jBut_4.setOpaque(false);
         jBut_4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_4MouseClicked(evt);
@@ -1437,9 +1475,16 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_4MouseEntered(evt);
             }
         });
+        jBut_4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_4StateChanged(evt);
+            }
+        });
         StudField.add(jBut_4);
-        jBut_4.setBounds(510, 10, 110, 50);
+        jBut_4.setBounds(430, 10, 60, 60);
 
+        jBut_5.setBorderPainted(false);
+        jBut_5.setOpaque(false);
         jBut_5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_5MouseClicked(evt);
@@ -1448,100 +1493,189 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_5MouseEntered(evt);
             }
         });
+        jBut_5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_5StateChanged(evt);
+            }
+        });
         StudField.add(jBut_5);
-        jBut_5.setBounds(660, 10, 110, 50);
+        jBut_5.setBounds(540, 10, 60, 60);
 
+        jBut_6.setBorderPainted(false);
+        jBut_6.setOpaque(false);
         jBut_6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_6MouseClicked(evt);
             }
         });
+        jBut_6.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_6StateChanged(evt);
+            }
+        });
         StudField.add(jBut_6);
-        jBut_6.setBounds(60, 80, 110, 50);
+        jBut_6.setBounds(640, 10, 60, 60);
 
+        jBut_7.setBorderPainted(false);
+        jBut_7.setOpaque(false);
         jBut_7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_7MouseClicked(evt);
             }
         });
+        jBut_7.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_7StateChanged(evt);
+            }
+        });
         StudField.add(jBut_7);
-        jBut_7.setBounds(210, 80, 110, 50);
+        jBut_7.setBounds(120, 90, 60, 60);
 
+        jBut_8.setBorderPainted(false);
+        jBut_8.setOpaque(false);
         jBut_8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_8MouseClicked(evt);
             }
         });
+        jBut_8.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_8StateChanged(evt);
+            }
+        });
         StudField.add(jBut_8);
-        jBut_8.setBounds(360, 80, 110, 50);
+        jBut_8.setBounds(220, 90, 60, 60);
 
+        jBut_9.setBorderPainted(false);
+        jBut_9.setOpaque(false);
         jBut_9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_9MouseClicked(evt);
             }
         });
+        jBut_9.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_9StateChanged(evt);
+            }
+        });
         StudField.add(jBut_9);
-        jBut_9.setBounds(510, 80, 110, 50);
+        jBut_9.setBounds(330, 90, 60, 60);
 
+        jBut_10.setBorderPainted(false);
+        jBut_10.setOpaque(false);
         jBut_10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_10MouseClicked(evt);
             }
         });
+        jBut_10.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_10StateChanged(evt);
+            }
+        });
         StudField.add(jBut_10);
-        jBut_10.setBounds(660, 80, 110, 50);
+        jBut_10.setBounds(440, 90, 60, 60);
 
+        jBut_11.setBorderPainted(false);
+        jBut_11.setOpaque(false);
         jBut_11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_11MouseClicked(evt);
             }
         });
+        jBut_11.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_11StateChanged(evt);
+            }
+        });
         StudField.add(jBut_11);
-        jBut_11.setBounds(60, 150, 110, 50);
+        jBut_11.setBounds(540, 90, 60, 60);
 
+        jBut_12.setBorderPainted(false);
+        jBut_12.setOpaque(false);
         jBut_12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_12MouseClicked(evt);
             }
         });
+        jBut_12.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_12StateChanged(evt);
+            }
+        });
         StudField.add(jBut_12);
-        jBut_12.setBounds(210, 150, 110, 50);
+        jBut_12.setBounds(650, 90, 60, 60);
 
+        jBut_13.setBorderPainted(false);
+        jBut_13.setOpaque(false);
         jBut_13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_13MouseClicked(evt);
             }
         });
+        jBut_13.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_13StateChanged(evt);
+            }
+        });
         StudField.add(jBut_13);
-        jBut_13.setBounds(360, 150, 110, 50);
+        jBut_13.setBounds(120, 180, 60, 60);
 
+        jBut_14.setBorderPainted(false);
+        jBut_14.setOpaque(false);
         jBut_14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_14MouseClicked(evt);
             }
         });
+        jBut_14.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_14StateChanged(evt);
+            }
+        });
         StudField.add(jBut_14);
-        jBut_14.setBounds(510, 150, 110, 50);
+        jBut_14.setBounds(230, 180, 60, 60);
 
+        jBut_15.setBorderPainted(false);
+        jBut_15.setOpaque(false);
         jBut_15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_15MouseClicked(evt);
             }
         });
+        jBut_15.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_15StateChanged(evt);
+            }
+        });
         StudField.add(jBut_15);
-        jBut_15.setBounds(660, 150, 110, 50);
+        jBut_15.setBounds(330, 180, 60, 60);
 
+        jBut_16.setBorderPainted(false);
+        jBut_16.setOpaque(false);
         jBut_16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_16MouseClicked(evt);
             }
         });
+        jBut_16.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_16StateChanged(evt);
+            }
+        });
         StudField.add(jBut_16);
-        jBut_16.setBounds(60, 220, 110, 50);
+        jBut_16.setBounds(430, 180, 60, 60);
 
+        jBut_17.setBorderPainted(false);
+        jBut_17.setOpaque(false);
         jBut_17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_17MouseClicked(evt);
+            }
+        });
+        jBut_17.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_17StateChanged(evt);
             }
         });
         jBut_17.addActionListener(new java.awt.event.ActionListener() {
@@ -1550,113 +1684,208 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         StudField.add(jBut_17);
-        jBut_17.setBounds(210, 220, 110, 50);
+        jBut_17.setBounds(540, 180, 60, 60);
 
+        jBut_18.setBorderPainted(false);
+        jBut_18.setOpaque(false);
         jBut_18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_18MouseClicked(evt);
             }
         });
+        jBut_18.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_18StateChanged(evt);
+            }
+        });
         StudField.add(jBut_18);
-        jBut_18.setBounds(360, 220, 110, 50);
+        jBut_18.setBounds(640, 180, 60, 60);
 
         jBut_19.setToolTipText("");
+        jBut_19.setBorderPainted(false);
+        jBut_19.setOpaque(false);
         jBut_19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_19MouseClicked(evt);
             }
         });
+        jBut_19.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_19StateChanged(evt);
+            }
+        });
         StudField.add(jBut_19);
-        jBut_19.setBounds(510, 220, 110, 50);
+        jBut_19.setBounds(120, 260, 60, 60);
 
+        jBut_20.setBorderPainted(false);
+        jBut_20.setOpaque(false);
         jBut_20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_20MouseClicked(evt);
             }
         });
+        jBut_20.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_20StateChanged(evt);
+            }
+        });
         StudField.add(jBut_20);
-        jBut_20.setBounds(660, 220, 110, 50);
+        jBut_20.setBounds(230, 260, 60, 60);
 
+        jBut_21.setBorderPainted(false);
+        jBut_21.setOpaque(false);
         jBut_21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_21MouseClicked(evt);
             }
         });
+        jBut_21.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_21StateChanged(evt);
+            }
+        });
         StudField.add(jBut_21);
-        jBut_21.setBounds(60, 290, 110, 50);
+        jBut_21.setBounds(330, 260, 60, 60);
 
+        jBut_22.setBorderPainted(false);
+        jBut_22.setOpaque(false);
         jBut_22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_22MouseClicked(evt);
             }
         });
+        jBut_22.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_22StateChanged(evt);
+            }
+        });
         StudField.add(jBut_22);
-        jBut_22.setBounds(210, 290, 110, 50);
+        jBut_22.setBounds(430, 260, 60, 60);
 
+        jBut_23.setBorderPainted(false);
+        jBut_23.setOpaque(false);
         jBut_23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_23MouseClicked(evt);
             }
         });
+        jBut_23.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_23StateChanged(evt);
+            }
+        });
         StudField.add(jBut_23);
-        jBut_23.setBounds(360, 290, 110, 50);
+        jBut_23.setBounds(540, 260, 60, 60);
 
+        jBut_24.setBorderPainted(false);
+        jBut_24.setOpaque(false);
         jBut_24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_24MouseClicked(evt);
             }
         });
+        jBut_24.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_24StateChanged(evt);
+            }
+        });
         StudField.add(jBut_24);
-        jBut_24.setBounds(510, 290, 110, 50);
+        jBut_24.setBounds(640, 260, 60, 60);
 
+        jBut_25.setBorderPainted(false);
+        jBut_25.setOpaque(false);
         jBut_25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_25MouseClicked(evt);
             }
         });
+        jBut_25.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_25StateChanged(evt);
+            }
+        });
         StudField.add(jBut_25);
-        jBut_25.setBounds(660, 290, 110, 50);
+        jBut_25.setBounds(120, 340, 60, 60);
 
+        jBut_26.setBorderPainted(false);
+        jBut_26.setOpaque(false);
         jBut_26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_26MouseClicked(evt);
             }
         });
+        jBut_26.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_26StateChanged(evt);
+            }
+        });
         StudField.add(jBut_26);
-        jBut_26.setBounds(60, 360, 110, 50);
+        jBut_26.setBounds(230, 340, 60, 60);
 
         jBut_27.setToolTipText("");
+        jBut_27.setBorderPainted(false);
+        jBut_27.setOpaque(false);
         jBut_27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_27MouseClicked(evt);
             }
         });
+        jBut_27.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_27StateChanged(evt);
+            }
+        });
         StudField.add(jBut_27);
-        jBut_27.setBounds(210, 360, 110, 50);
+        jBut_27.setBounds(330, 340, 60, 60);
 
+        jBut_28.setBorderPainted(false);
+        jBut_28.setOpaque(false);
         jBut_28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_28MouseClicked(evt);
             }
         });
+        jBut_28.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_28StateChanged(evt);
+            }
+        });
         StudField.add(jBut_28);
-        jBut_28.setBounds(360, 360, 110, 50);
+        jBut_28.setBounds(430, 340, 60, 60);
 
+        jBut_29.setBorderPainted(false);
+        jBut_29.setOpaque(false);
         jBut_29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_29MouseClicked(evt);
             }
         });
+        jBut_29.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_29StateChanged(evt);
+            }
+        });
         StudField.add(jBut_29);
-        jBut_29.setBounds(510, 360, 110, 50);
+        jBut_29.setBounds(540, 340, 60, 60);
 
+        jBut_30.setBorderPainted(false);
+        jBut_30.setOpaque(false);
         jBut_30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBut_30MouseClicked(evt);
             }
         });
+        jBut_30.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jBut_30StateChanged(evt);
+            }
+        });
         StudField.add(jBut_30);
-        jBut_30.setBounds(660, 360, 110, 50);
+        jBut_30.setBounds(640, 340, 60, 60);
+
+        label_PlanningPhaseoverlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/fensterzu.png"))); // NOI18N
+        StudField.add(label_PlanningPhaseoverlay);
+        label_PlanningPhaseoverlay.setBounds(0, 0, 830, 550);
 
         gamePlanning.add(StudField);
         StudField.setBounds(150, 110, 830, 550);
@@ -2148,12 +2377,25 @@ public class Sims_1 extends javax.swing.JFrame {
         text_wissen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_wissen.setText("Wissen:");
         jPanel5.add(text_wissen);
-        text_wissen.setBounds(10, 10, 70, 20);
+        text_wissen.setBounds(10, 10, 70, 30);
+
+        button_window.setText("Fenster : ZU");
+        button_window.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_windowActionPerformed(evt);
+            }
+        });
+        jPanel5.add(button_window);
+        button_window.setBounds(350, 10, 120, 23);
+
+        label_knowledgeBar_overlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/knowledgebalkenoverlay_2_00000.png"))); // NOI18N
+        jPanel5.add(label_knowledgeBar_overlay);
+        label_knowledgeBar_overlay.setBounds(100, 0, 260, 80);
 
         text_motivation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_motivation.setText("Motivation:");
         jPanel5.add(text_motivation);
-        text_motivation.setBounds(10, 30, 80, 40);
+        text_motivation.setBounds(10, 40, 80, 40);
 
         text_tiredness.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_tiredness.setText("Müdigkeit:");
@@ -2166,7 +2408,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(KnowledgeBar);
-        KnowledgeBar.setBounds(80, 10, 260, 20);
+        KnowledgeBar.setBounds(80, 20, 260, 20);
         KnowledgeBar.getAccessibleContext().setAccessibleDescription("");
 
         MotivationBar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2175,8 +2417,10 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         jPanel5.add(MotivationBar);
-        MotivationBar.setBounds(80, 40, 260, 20);
+        MotivationBar.setBounds(80, 50, 260, 20);
 
+        TirednessBar.setRequestFocusEnabled(false);
+        TirednessBar.setString("100%");
         TirednessBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TirednessBarMouseClicked(evt);
@@ -2184,15 +2428,6 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         jPanel5.add(TirednessBar);
         TirednessBar.setBounds(80, 80, 260, 20);
-
-        button_window.setText("Fenster : ZU");
-        button_window.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_windowActionPerformed(evt);
-            }
-        });
-        jPanel5.add(button_window);
-        button_window.setBounds(350, 10, 120, 23);
 
         text_noise.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         text_noise.setText("Lärmpegel:");
@@ -2251,313 +2486,490 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         panel_activityPhaseStudField.setLayout(null);
 
-        button_dozent1.setText("Dozent");
         button_dozent1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_dozent1ActionPerformed(evt);
             }
         });
         panel_activityPhaseStudField.add(button_dozent1);
-        button_dozent1.setBounds(340, 470, 110, 50);
+        button_dozent1.setBounds(370, 400, 90, 150);
 
-        button_stud1.setText("Platz_1");
+        button_stud1.setBackground(new java.awt.Color(255, 255, 255));
+        button_stud1.setBorder(null);
+        button_stud1.setBorderPainted(false);
+        button_stud1.setFocusPainted(false);
+        button_stud1.setFocusable(false);
+        button_stud1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_stud1.setInheritsPopupMenu(true);
+        button_stud1.setOpaque(false);
         button_stud1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud1MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button_stud1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                button_stud1MouseExited(evt);
-            }
         });
-        button_stud1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_stud1ActionPerformed(evt);
+        button_stud1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud1StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud1);
-        button_stud1.setBounds(60, 10, 110, 50);
+        button_stud1.setBounds(120, 10, 60, 60);
 
-        button_stud2.setText("Platz_2");
+        button_stud2.setBorder(null);
+        button_stud2.setBorderPainted(false);
+        button_stud2.setFocusPainted(false);
+        button_stud2.setOpaque(false);
         button_stud2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud2MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button_stud2MouseEntered(evt);
+        });
+        button_stud2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud2StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud2);
-        button_stud2.setBounds(210, 10, 110, 50);
+        button_stud2.setBounds(230, 10, 60, 60);
 
-        button_stud3.setText("Platz_3");
+        button_stud3.setBorderPainted(false);
+        button_stud3.setFocusPainted(false);
+        button_stud3.setOpaque(false);
         button_stud3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud3MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button_stud3MouseEntered(evt);
+        });
+        button_stud3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud3StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud3);
-        button_stud3.setBounds(360, 10, 110, 50);
+        button_stud3.setBounds(340, 10, 60, 60);
 
-        button_stud4.setText("Platz_4");
+        button_stud4.setBorderPainted(false);
+        button_stud4.setFocusPainted(false);
         button_stud4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud4MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button_stud4MouseEntered(evt);
+        });
+        button_stud4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud4StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud4);
-        button_stud4.setBounds(510, 10, 110, 50);
+        button_stud4.setBounds(440, 10, 60, 60);
 
-        button_stud5.setText("Platz_5");
+        button_stud5.setBorderPainted(false);
+        button_stud5.setFocusPainted(false);
         button_stud5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud5MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button_stud5MouseEntered(evt);
+        });
+        button_stud5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud5StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud5);
-        button_stud5.setBounds(660, 10, 110, 50);
+        button_stud5.setBounds(540, 10, 60, 60);
 
-        button_stud6.setText("Platz_6");
+        button_stud6.setBorderPainted(false);
+        button_stud6.setFocusPainted(false);
         button_stud6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud6MouseClicked(evt);
             }
         });
+        button_stud6.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud6StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud6);
-        button_stud6.setBounds(60, 80, 110, 50);
+        button_stud6.setBounds(640, 10, 60, 60);
 
-        button_stud7.setText("Platz_7");
+        button_stud7.setBorderPainted(false);
+        button_stud7.setFocusPainted(false);
         button_stud7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud7MouseClicked(evt);
             }
         });
+        button_stud7.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud7StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud7);
-        button_stud7.setBounds(210, 80, 110, 50);
+        button_stud7.setBounds(120, 90, 60, 60);
 
-        button_stud8.setText("Platz_8");
+        button_stud8.setBorderPainted(false);
+        button_stud8.setFocusPainted(false);
         button_stud8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud8MouseClicked(evt);
             }
         });
+        button_stud8.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud8StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud8);
-        button_stud8.setBounds(360, 80, 110, 50);
+        button_stud8.setBounds(220, 90, 60, 60);
 
-        button_stud9.setText("Platz_9");
+        button_stud9.setBorderPainted(false);
+        button_stud9.setFocusPainted(false);
         button_stud9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud9MouseClicked(evt);
             }
         });
+        button_stud9.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud9StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud9);
-        button_stud9.setBounds(510, 80, 110, 50);
+        button_stud9.setBounds(330, 90, 60, 60);
 
-        button_stud10.setText("Platz_10");
+        button_stud10.setBorderPainted(false);
+        button_stud10.setFocusPainted(false);
         button_stud10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud10MouseClicked(evt);
             }
         });
+        button_stud10.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud10StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud10);
-        button_stud10.setBounds(660, 80, 110, 50);
+        button_stud10.setBounds(430, 90, 60, 60);
 
-        button_stud11.setText("Platz_11");
+        button_stud11.setBorderPainted(false);
+        button_stud11.setFocusPainted(false);
         button_stud11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud11MouseClicked(evt);
             }
         });
+        button_stud11.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud11StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud11);
-        button_stud11.setBounds(60, 150, 110, 50);
+        button_stud11.setBounds(540, 90, 60, 60);
 
-        button_stud12.setText("Platz_12");
+        button_stud12.setBorderPainted(false);
+        button_stud12.setFocusPainted(false);
         button_stud12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud12MouseClicked(evt);
             }
         });
+        button_stud12.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud12StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud12);
-        button_stud12.setBounds(210, 150, 110, 50);
+        button_stud12.setBounds(640, 90, 60, 60);
 
-        button_stud13.setText("Platz_13");
+        button_stud13.setBorderPainted(false);
+        button_stud13.setFocusPainted(false);
         button_stud13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud13MouseClicked(evt);
             }
         });
+        button_stud13.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud13StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud13);
-        button_stud13.setBounds(360, 150, 110, 50);
+        button_stud13.setBounds(120, 180, 60, 60);
 
-        button_stud14.setText("Platz_14");
+        button_stud14.setBorderPainted(false);
+        button_stud14.setFocusPainted(false);
         button_stud14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud14MouseClicked(evt);
             }
         });
+        button_stud14.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud14StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud14);
-        button_stud14.setBounds(510, 150, 110, 50);
+        button_stud14.setBounds(220, 180, 60, 60);
 
-        button_stud15.setText("Platz_15");
+        button_stud15.setBorderPainted(false);
+        button_stud15.setFocusPainted(false);
         button_stud15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud15MouseClicked(evt);
             }
         });
+        button_stud15.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud15StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud15);
-        button_stud15.setBounds(660, 150, 110, 50);
+        button_stud15.setBounds(330, 180, 60, 60);
 
-        button_stud16.setText("Platz_16");
+        button_stud16.setBorderPainted(false);
+        button_stud16.setFocusPainted(false);
         button_stud16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud16MouseClicked(evt);
             }
         });
+        button_stud16.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud16StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud16);
-        button_stud16.setBounds(60, 220, 110, 50);
+        button_stud16.setBounds(430, 180, 60, 60);
 
-        button_stud17.setText("Platz_17");
+        button_stud17.setBorderPainted(false);
+        button_stud17.setFocusPainted(false);
         button_stud17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud17MouseClicked(evt);
             }
         });
-        button_stud17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_stud17ActionPerformed(evt);
+        button_stud17.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud17StateChanged(evt);
             }
         });
         panel_activityPhaseStudField.add(button_stud17);
-        button_stud17.setBounds(210, 220, 110, 50);
+        button_stud17.setBounds(540, 180, 60, 60);
 
-        button_stud18.setText("Platz_18");
+        button_stud18.setBorderPainted(false);
+        button_stud18.setFocusPainted(false);
         button_stud18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud18MouseClicked(evt);
             }
         });
+        button_stud18.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud18StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud18);
-        button_stud18.setBounds(360, 220, 110, 50);
+        button_stud18.setBounds(640, 180, 60, 60);
 
-        button_stud19.setText("Platz_19");
+        button_stud19.setBorderPainted(false);
+        button_stud19.setFocusPainted(false);
         button_stud19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud19MouseClicked(evt);
             }
         });
+        button_stud19.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud19StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud19);
-        button_stud19.setBounds(510, 220, 110, 50);
+        button_stud19.setBounds(120, 260, 60, 60);
 
-        button_stud20.setText("Platz_20");
+        label_dozent_action.setBackground(new java.awt.Color(255, 0, 0));
+        label_dozent_action.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        label_dozent_action.setText("RUHE!");
+        panel_activityPhaseStudField.add(label_dozent_action);
+        label_dozent_action.setBounds(240, 440, 130, 60);
+
+        button_stud20.setBorderPainted(false);
+        button_stud20.setFocusPainted(false);
         button_stud20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud20MouseClicked(evt);
             }
         });
+        button_stud20.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud20StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud20);
-        button_stud20.setBounds(660, 220, 110, 50);
+        button_stud20.setBounds(220, 260, 60, 60);
 
-        button_stud21.setText("Platz_21");
+        button_stud21.setBorderPainted(false);
+        button_stud21.setFocusPainted(false);
         button_stud21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud21MouseClicked(evt);
             }
         });
+        button_stud21.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud21StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud21);
-        button_stud21.setBounds(60, 290, 110, 50);
+        button_stud21.setBounds(330, 260, 60, 60);
 
-        button_stud22.setText("Platz_22");
+        button_stud22.setBorderPainted(false);
+        button_stud22.setFocusPainted(false);
         button_stud22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud22MouseClicked(evt);
             }
         });
+        button_stud22.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud22StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud22);
-        button_stud22.setBounds(210, 290, 110, 50);
+        button_stud22.setBounds(430, 260, 60, 60);
 
-        button_stud23.setText("Platz_23");
+        button_stud23.setBorderPainted(false);
+        button_stud23.setFocusPainted(false);
         button_stud23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud23MouseClicked(evt);
             }
         });
+        button_stud23.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud23StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud23);
-        button_stud23.setBounds(360, 290, 110, 50);
+        button_stud23.setBounds(540, 260, 60, 60);
 
-        button_stud24.setText("Platz_24");
+        button_stud24.setBorderPainted(false);
+        button_stud24.setFocusPainted(false);
         button_stud24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud24MouseClicked(evt);
             }
         });
+        button_stud24.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud24StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud24);
-        button_stud24.setBounds(510, 290, 110, 50);
+        button_stud24.setBounds(650, 260, 60, 60);
 
-        button_stud25.setText("Platz_25");
+        button_stud25.setBorderPainted(false);
+        button_stud25.setFocusPainted(false);
         button_stud25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud25MouseClicked(evt);
             }
         });
+        button_stud25.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud25StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud25);
-        button_stud25.setBounds(660, 290, 110, 50);
+        button_stud25.setBounds(120, 340, 60, 60);
 
-        button_stud26.setText("Platz_26");
+        button_stud26.setBorderPainted(false);
+        button_stud26.setFocusPainted(false);
         button_stud26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud26MouseClicked(evt);
             }
         });
+        button_stud26.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud26StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud26);
-        button_stud26.setBounds(60, 360, 110, 50);
+        button_stud26.setBounds(220, 340, 60, 60);
 
-        button_stud27.setText("Platz_27");
         button_stud27.setToolTipText("");
+        button_stud27.setBorderPainted(false);
+        button_stud27.setFocusPainted(false);
         button_stud27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud27MouseClicked(evt);
             }
         });
+        button_stud27.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud27StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud27);
-        button_stud27.setBounds(210, 360, 110, 50);
+        button_stud27.setBounds(330, 340, 60, 60);
 
-        button_stud28.setText("Platz_28");
+        button_stud28.setBorderPainted(false);
+        button_stud28.setFocusPainted(false);
         button_stud28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud28MouseClicked(evt);
             }
         });
+        button_stud28.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud28StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud28);
-        button_stud28.setBounds(360, 360, 110, 50);
+        button_stud28.setBounds(430, 340, 60, 60);
 
-        button_stud29.setText("Platz_29");
+        button_stud29.setBorderPainted(false);
+        button_stud29.setFocusPainted(false);
         button_stud29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud29MouseClicked(evt);
             }
         });
+        button_stud29.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud29StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud29);
-        button_stud29.setBounds(510, 360, 110, 50);
+        button_stud29.setBounds(540, 340, 60, 60);
 
-        button_stud30.setText("Platz_30");
+        button_stud30.setBorderPainted(false);
+        button_stud30.setFocusPainted(false);
         button_stud30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_stud30MouseClicked(evt);
             }
         });
+        button_stud30.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                button_stud30StateChanged(evt);
+            }
+        });
         panel_activityPhaseStudField.add(button_stud30);
-        button_stud30.setBounds(660, 360, 110, 50);
+        button_stud30.setBounds(650, 340, 60, 60);
+
+        label_windowsclosed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/fensteroffen.png"))); // NOI18N
+        label_windowsclosed.setText("jLabel4");
+        label_windowsclosed.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        panel_activityPhaseStudField.add(label_windowsclosed);
+        label_windowsclosed.setBounds(0, 0, 830, 550);
+
+        label_GameFieldOverlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/fensterzu.png"))); // NOI18N
+        label_GameFieldOverlay.setText("jLabel4");
+        panel_activityPhaseStudField.add(label_GameFieldOverlay);
+        label_GameFieldOverlay.setBounds(0, 0, 830, 550);
         panel_activityPhaseStudField.add(jLab_DozSwitch2);
         jLab_DozSwitch2.setBounds(0, 0, 150, 110);
 
@@ -2568,31 +2980,33 @@ public class Sims_1 extends javax.swing.JFrame {
 
         panel_gameOver.setLayout(null);
 
-        label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
-        label_gameOverPoints.setText("Erreichte Punktzahl:");
-        panel_gameOver.add(label_gameOverPoints);
-        label_gameOverPoints.setBounds(610, 480, 380, 50);
-
-        label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
-        label_gameOverSemester.setText("Erreichtes Semester: ");
-        panel_gameOver.add(label_gameOverSemester);
-        label_gameOverSemester.setBounds(610, 450, 380, 30);
-
-        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/simsGameOver.png"))); // NOI18N
-        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label_gameOver.setOpaque(true);
-        panel_gameOver.add(label_gameOver);
-        label_gameOver.setBounds(0, -40, 1020, 770);
-
-        button_retry.setText("jButton1");
+        button_retry.setText("Nochmal!");
         button_retry.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_retry.setOpaque(false);
         button_retry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_retryActionPerformed(evt);
             }
         });
         panel_gameOver.add(button_retry);
-        button_retry.setBounds(370, 410, 170, 40);
+        button_retry.setBounds(390, 570, 190, 50);
+
+        label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverPoints.setForeground(new java.awt.Color(255, 255, 255));
+        label_gameOverPoints.setText("Erreichte Punktzahl:");
+        panel_gameOver.add(label_gameOverPoints);
+        label_gameOverPoints.setBounds(310, 500, 380, 50);
+
+        label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        label_gameOverSemester.setForeground(new java.awt.Color(255, 255, 255));
+        label_gameOverSemester.setText("Erreichtes Semester: ");
+        panel_gameOver.add(label_gameOverSemester);
+        label_gameOverSemester.setBounds(310, 470, 380, 30);
+
+        label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label_gameOver.setOpaque(true);
+        panel_gameOver.add(label_gameOver);
+        label_gameOver.setBounds(0, -40, 1020, 770);
 
         panel_gamePhases.add(panel_gameOver, "card8");
 
@@ -2971,7 +3385,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_aOMNI.setText("OMNI-Sense:");
         panel_adminUser.add(label_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
-        panel_adminUser.add(check_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         label_aSpicker.setText("Spicker:");
         panel_adminUser.add(label_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
@@ -3046,6 +3459,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrOmni.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrOmni.setText("Fehler?");
         panel_adminUser.add(label_aErrOmni, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
+        panel_adminUser.add(textfield_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 150, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
         panel_adminUser.add(background_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -3143,7 +3557,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
+        panel_Profile.setVisible(false);
         panel_Credits.setVisible(true);
+        panel_Credits.requestFocus();
         javax.swing.Timer timer;
         int delay = 100; //milliseconds
         ActionListener taskPerformer = new ActionListener() {
@@ -3152,8 +3568,9 @@ public class Sims_1 extends javax.swing.JFrame {
                 if(down == 1){
                     panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()-2);
                     System.out.print(panel_Credits.getY()+"\n");
-                    if(panel_Credits.getY() == -1200){
+                    if(panel_Credits.getY() == -1200 || panel_Credits.hasFocus() == false){
                         down = 0;
+                        panel_Credits.setVisible(false);
                         ((javax.swing.Timer)evt.getSource()).stop();
                     }
                 }
@@ -3388,6 +3805,7 @@ public class Sims_1 extends javax.swing.JFrame {
 //            System.out.println("TauschFlag = 1");
 //            PlanningPhase.storeStud(1);
 //        }
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
@@ -3404,20 +3822,24 @@ public class Sims_1 extends javax.swing.JFrame {
 //            PlanningPhase.storeStud(2);
 //            
 //        }
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
 
         planningPhase.StudButtonFunctions(2,jBut_3);
+          SetPlanningPhaseOpacity(); 
 
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
         planningPhase.StudButtonFunctions(3,jBut_4);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
         planningPhase.StudButtonFunctions(4,jBut_5);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
@@ -3460,126 +3882,151 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(5,jBut_6);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(6,jBut_7);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(7,jBut_8);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(8,jBut_9);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(9,jBut_10);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(10,jBut_11);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(11,jBut_12);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(12,jBut_13);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(13,jBut_14);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(14,jBut_15);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(15,jBut_16);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(16,jBut_17);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(17,jBut_18);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(18,jBut_19);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(19,jBut_20);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(20,jBut_21);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(21,jBut_22);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(22,jBut_23);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(23,jBut_24);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(24,jBut_25);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(25,jBut_26);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(26,jBut_27);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(27,jBut_28);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(28,jBut_29);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // functionality: see comment at jBut_1MouseClicked
         planningPhase.StudButtonFunctions(29,jBut_30);
+          SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_30MouseClicked
 
     private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
@@ -3611,6 +4058,7 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
+        SetActivityPhaseOpacity();
      //   activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
@@ -3762,155 +4210,184 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_PassFocusGained
 
     private void button_stud1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseClicked
+
         activityPhase.StudentClicked(0);
+     SetActivityPhaseOpacity();
+  
     }//GEN-LAST:event_button_stud1MouseClicked
 
-    private void button_stud1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseExited
-
-    }//GEN-LAST:event_button_stud1MouseExited
-
-    private void button_stud1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseEntered
-    
-    }//GEN-LAST:event_button_stud1MouseEntered
-
-    private void button_stud1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud1ActionPerformed
-       
-    }//GEN-LAST:event_button_stud1ActionPerformed
-
     private void button_stud2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseClicked
-        activityPhase.StudentClicked(1);
+   
+   activityPhase.StudentClicked(1);
+    SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud2MouseClicked
 
-    private void button_stud2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseEntered
-
-    }//GEN-LAST:event_button_stud2MouseEntered
-
     private void button_stud3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseClicked
-        activityPhase.StudentClicked(2);
+  
+   activityPhase.StudentClicked(2);
+  SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud3MouseClicked
 
-    private void button_stud3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseEntered
- 
-    }//GEN-LAST:event_button_stud3MouseEntered
-
     private void button_stud4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseClicked
+     
         activityPhase.StudentClicked(3);
+     SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud4MouseClicked
 
-    private void button_stud4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseEntered
-  
-    }//GEN-LAST:event_button_stud4MouseEntered
-
     private void button_stud5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseClicked
+       
         activityPhase.StudentClicked(4);
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud5MouseClicked
 
-    private void button_stud5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseEntered
-  
-    }//GEN-LAST:event_button_stud5MouseEntered
-
     private void button_stud6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud6MouseClicked
+   
         activityPhase.StudentClicked(5);
+              SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud6MouseClicked
 
     private void button_stud7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud7MouseClicked
+      
         activityPhase.StudentClicked(6);
+    SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud7MouseClicked
 
     private void button_stud8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud8MouseClicked
+       
         activityPhase.StudentClicked(7);
+          SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud8MouseClicked
 
     private void button_stud9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud9MouseClicked
         activityPhase.StudentClicked(8);
+             SetActivityPhaseOpacity();
+
     }//GEN-LAST:event_button_stud9MouseClicked
 
     private void button_stud10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud10MouseClicked
+        
         activityPhase.StudentClicked(9);
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud10MouseClicked
 
     private void button_stud11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud11MouseClicked
+        
         activityPhase.StudentClicked(10);
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud11MouseClicked
 
     private void button_stud12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud12MouseClicked
+         
         activityPhase.StudentClicked(11);
+       SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud12MouseClicked
 
     private void button_stud13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud13MouseClicked
+       
         activityPhase.StudentClicked(12);
+       SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud13MouseClicked
 
     private void button_stud14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud14MouseClicked
+        
         activityPhase.StudentClicked(13);
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud14MouseClicked
 
     private void button_stud15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud15MouseClicked
+        
         activityPhase.StudentClicked(14);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud15MouseClicked
 
     private void button_stud16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud16MouseClicked
+       
         activityPhase.StudentClicked(15);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud16MouseClicked
 
     private void button_stud17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud17MouseClicked
+  
         activityPhase.StudentClicked(16);
+   SetActivityPhaseOpacity();  
     }//GEN-LAST:event_button_stud17MouseClicked
-
-    private void button_stud17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud17ActionPerformed
-        
-    }//GEN-LAST:event_button_stud17ActionPerformed
 
     private void button_stud18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud18MouseClicked
         activityPhase.StudentClicked(17);
+           SetActivityPhaseOpacity();
+
     }//GEN-LAST:event_button_stud18MouseClicked
 
     private void button_stud19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud19MouseClicked
+        
         activityPhase.StudentClicked(18);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud19MouseClicked
 
     private void button_stud20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud20MouseClicked
+       
         activityPhase.StudentClicked(19);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud20MouseClicked
 
     private void button_stud21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud21MouseClicked
+        
         activityPhase.StudentClicked(20);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud21MouseClicked
 
     private void button_stud22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud22MouseClicked
+   
         activityPhase.StudentClicked(21);
+           SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud22MouseClicked
 
     private void button_stud23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud23MouseClicked
+      
         activityPhase.StudentClicked(22);
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud23MouseClicked
 
     private void button_stud24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud24MouseClicked
+         
         activityPhase.StudentClicked(23);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud24MouseClicked
 
     private void button_stud25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud25MouseClicked
+       
         activityPhase.StudentClicked(24);
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud25MouseClicked
 
     private void button_stud26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud26MouseClicked
+   
         activityPhase.StudentClicked(25);
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud26MouseClicked
 
     private void button_stud27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud27MouseClicked
+        
         activityPhase.StudentClicked(26);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud27MouseClicked
 
     private void button_stud28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud28MouseClicked
+          
         activityPhase.StudentClicked(27);
+      SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud28MouseClicked
 
     private void button_stud29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud29MouseClicked
+         
         activityPhase.StudentClicked(28);
+         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud29MouseClicked
 
     private void button_stud30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud30MouseClicked
+        
         activityPhase.StudentClicked(29);
+          SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud30MouseClicked
 
     private void panel_activityPhaseStudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseClicked
@@ -4080,11 +4557,17 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
         if(_maingame.barNum==1){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=1;
+            _maingame.barNum=0;    
+        }else{          
+            _maingame.barNum=1;         
         }
-        _maingame.barClicked(activityPhase.studButtons);
+        _maingame.barClicked(activityPhase.studButtons); 
+        if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetActivityPhaseOpacity();
+                
+            }           
+        }
     }//GEN-LAST:event_KnowledgeBarMouseClicked
 
     private void MotivationBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MotivationBarMouseClicked
@@ -4094,6 +4577,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.barNum=2;
         }
         _maingame.barClicked(activityPhase.studButtons);
+         if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetActivityPhaseOpacity();
+            
+            }           
+        }
     }//GEN-LAST:event_MotivationBarMouseClicked
 
     private void TirednessBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TirednessBarMouseClicked
@@ -4103,6 +4592,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.barNum=3;
         }
         _maingame.barClicked(activityPhase.studButtons);
+         if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetActivityPhaseOpacity();
+            
+            }           
+        }
     }//GEN-LAST:event_TirednessBarMouseClicked
 
     private void jBut_DozentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_DozentMouseClicked
@@ -4121,10 +4616,73 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.shortBreak=false;
             toggleButton_shortBreak.setSelected(false);
             _maingame.teamwork=true;
+            {button_stud1.setLocation(230, 10);
+            button_stud2.setLocation(290, 10);
+            button_stud3.setLocation(350, 10);
+            button_stud4.setLocation(410, 10);
+            button_stud5.setLocation(470, 10);
+            button_stud6.setLocation(530, 10);
+            button_stud7.setLocation(230, 90);
+            button_stud8.setLocation(290, 90);
+            button_stud9.setLocation(350, 90);
+            button_stud10.setLocation(410, 90);
+            button_stud11.setLocation(470, 90);
+            button_stud12.setLocation(530, 90);
+            button_stud13.setLocation(230, 180);
+            button_stud14.setLocation(290, 180);
+            button_stud15.setLocation(350, 180);
+            button_stud16.setLocation(410,180);
+            button_stud17.setLocation(470, 180);
+            button_stud18.setLocation(530, 180);
+            button_stud19.setLocation(230, 260);
+            button_stud20.setLocation(290, 260);
+            button_stud21.setLocation(350, 260);
+            button_stud22.setLocation(410, 260);
+            button_stud23.setLocation(470, 260);
+            button_stud24.setLocation(530, 260);
+            button_stud25.setLocation(230, 340);
+            button_stud26.setLocation(290, 340);
+            button_stud27.setLocation(350, 340);
+            button_stud28.setLocation(410, 340);
+            button_stud29.setLocation(470, 340);
+            button_stud30.setLocation(530, 340);
+            
+            
+            }
         }
         else {
             toggleButton_teamwork.setSelected(false);
             _maingame.teamwork=false;
+            button_stud1.setLocation(120, 10);
+            button_stud2.setLocation(220, 10);
+            button_stud3.setLocation(330, 10);
+            button_stud4.setLocation(430, 10);
+            button_stud5.setLocation(540, 10);
+            button_stud6.setLocation(640, 10);
+            button_stud7.setLocation(120, 90);
+            button_stud8.setLocation(220, 90);
+            button_stud9.setLocation(330, 90);
+            button_stud10.setLocation(430, 90);
+            button_stud11.setLocation(540, 90);
+            button_stud12.setLocation(640, 90);
+            button_stud13.setLocation(120, 180);
+            button_stud14.setLocation(220, 180);
+            button_stud15.setLocation(330, 180);
+            button_stud16.setLocation(430,180);
+            button_stud17.setLocation(540, 180);
+            button_stud18.setLocation(640, 180);
+            button_stud19.setLocation(120, 260);
+            button_stud20.setLocation(220, 260);
+            button_stud21.setLocation(330, 260);
+            button_stud22.setLocation(430, 260);
+            button_stud23.setLocation(540, 260);
+            button_stud24.setLocation(640, 260);
+            button_stud25.setLocation(120, 340);
+            button_stud26.setLocation(220, 340);
+            button_stud27.setLocation(330, 340);
+            button_stud28.setLocation(430, 340);
+            button_stud29.setLocation(540, 340);
+            button_stud30.setLocation(640, 340);
         }
     }//GEN-LAST:event_toggleButton_teamworkActionPerformed
 
@@ -4133,10 +4691,12 @@ public class Sims_1 extends javax.swing.JFrame {
         if (test.equals("Fenster : OFFEN")) {
             _maingame.windowClosed=true;
             button_window.setText("Fenster : ZU");
+            label_windowsclosed.setVisible(false);
         }
         if (test.equals("Fenster : ZU")) {
             _maingame.windowClosed=false;
             button_window.setText("Fenster : OFFEN");
+            label_windowsclosed.setVisible(true);
         }
     }//GEN-LAST:event_button_windowActionPerformed
 
@@ -4177,6 +4737,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.barNum=1;
         }
         _maingame.barClicked(planningPhaseButtons);
+          if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetPlanningPhaseOpacity();
+                
+            }           
+        }
     }//GEN-LAST:event_jProgB_WissenMouseClicked
 
     private void jProgB_MotivationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MotivationMouseClicked
@@ -4186,6 +4752,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.barNum=2;
         }
         _maingame.barClicked(planningPhaseButtons);
+              if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetPlanningPhaseOpacity();
+                
+            }           
+        }
     }//GEN-LAST:event_jProgB_MotivationMouseClicked
 
     private void jProgB_MüdigkeitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MüdigkeitMouseClicked
@@ -4195,6 +4767,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.barNum=3;
         }
         _maingame.barClicked(planningPhaseButtons);
+              if(_maingame.barNum==0){
+            {// set opacity on all buttons back
+                SetPlanningPhaseOpacity();
+                
+            }           
+        }
     }//GEN-LAST:event_jProgB_MüdigkeitMouseClicked
 
     private void jBut_OKnoCheatsAvailableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableMouseClicked
@@ -4210,7 +4788,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
 
     private void button_dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dozent1ActionPerformed
-        if (_maingame.lecturer_counter>0){
+      if (_maingame.lecturer_counter>0){
+            label_dozent_action.setVisible(true);
             _maingame.quietingCounter=5;
             _maingame.lecturer_counter--;
         }
@@ -4220,6 +4799,250 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_gamePhases.setVisible(false);
         panel_menue.setVisible(true);
     }//GEN-LAST:event_button_retryActionPerformed
+
+    private void button_stud1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud1StateChanged
+     SetActivityPhaseOpacity();   
+    }//GEN-LAST:event_button_stud1StateChanged
+
+    private void button_stud2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud2StateChanged
+     SetActivityPhaseOpacity();     
+    }//GEN-LAST:event_button_stud2StateChanged
+
+    private void button_stud3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud3StateChanged
+      SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud3StateChanged
+
+    private void button_stud4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud4StateChanged
+   SetActivityPhaseOpacity();     // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud4StateChanged
+
+    private void button_stud5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud5StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud5StateChanged
+
+    private void button_stud6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud6StateChanged
+     SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud6StateChanged
+
+    private void button_stud7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud7StateChanged
+   SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud7StateChanged
+
+    private void button_stud8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud8StateChanged
+     SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud8StateChanged
+
+    private void button_stud9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud9StateChanged
+    SetActivityPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud9StateChanged
+
+    private void button_stud10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud10StateChanged
+    SetActivityPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud10StateChanged
+
+    private void button_stud11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud11StateChanged
+    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud11StateChanged
+
+    private void button_stud12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud12StateChanged
+   SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud12StateChanged
+
+    private void button_stud13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud13StateChanged
+    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud13StateChanged
+
+    private void button_stud14StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud14StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud14StateChanged
+
+    private void button_stud15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud15StateChanged
+    SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud15StateChanged
+
+    private void button_stud16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud16StateChanged
+    SetActivityPhaseOpacity();// TODO add your handling code here:
+    }//GEN-LAST:event_button_stud16StateChanged
+
+    private void button_stud17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud17StateChanged
+   SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud17StateChanged
+
+    private void button_stud18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud18StateChanged
+      SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud18StateChanged
+
+    private void button_stud19StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud19StateChanged
+     SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud19StateChanged
+
+    private void button_stud20StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud20StateChanged
+      SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud20StateChanged
+
+    private void button_stud21StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud21StateChanged
+     SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud21StateChanged
+
+    private void button_stud22StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud22StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud22StateChanged
+
+    private void button_stud23StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud23StateChanged
+   SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud23StateChanged
+
+    private void button_stud24StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud24StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud24StateChanged
+
+    private void button_stud25StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud25StateChanged
+     SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud25StateChanged
+
+    private void button_stud26StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud26StateChanged
+      SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud26StateChanged
+
+    private void button_stud27StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud27StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud27StateChanged
+
+    private void button_stud28StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud28StateChanged
+      SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud28StateChanged
+
+    private void button_stud29StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud29StateChanged
+     SetActivityPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud29StateChanged
+
+    private void button_stud30StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud30StateChanged
+   SetActivityPhaseOpacity(); // TODO add your handling code here:
+    }//GEN-LAST:event_button_stud30StateChanged
+
+    private void jBut_DozentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_DozentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_DozentActionPerformed
+
+    private void jBut_15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_15StateChanged
+      SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_15StateChanged
+
+    private void jBut_2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_2StateChanged
+      SetPlanningPhaseOpacity();     // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_2StateChanged
+
+    private void jBut_3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_3StateChanged
+       SetPlanningPhaseOpacity();    // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_3StateChanged
+
+    private void jBut_4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_4StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_4StateChanged
+
+    private void jBut_5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_5StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_5StateChanged
+
+    private void jBut_6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_6StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_6StateChanged
+
+    private void jBut_7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_7StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_7StateChanged
+
+    private void jBut_8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_8StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_8StateChanged
+
+    private void jBut_9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_9StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_9StateChanged
+
+    private void jBut_12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_12StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_12StateChanged
+
+    private void jBut_11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_11StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_11StateChanged
+
+    private void jBut_10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_10StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_10StateChanged
+
+    private void jBut_14StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_14StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_14StateChanged
+
+    private void jBut_13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_13StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_13StateChanged
+
+    private void jBut_16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_16StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_16StateChanged
+
+    private void jBut_17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_17StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_17StateChanged
+
+    private void jBut_18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_18StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_18StateChanged
+
+    private void jBut_19StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_19StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_19StateChanged
+
+    private void jBut_20StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_20StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_20StateChanged
+
+    private void jBut_21StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_21StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_21StateChanged
+
+    private void jBut_22StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_22StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_22StateChanged
+
+    private void jBut_23StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_23StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_23StateChanged
+
+    private void jBut_24StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_24StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_24StateChanged
+
+    private void jBut_25StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_25StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_25StateChanged
+
+    private void jBut_26StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_26StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_26StateChanged
+
+    private void jBut_27StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_27StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_27StateChanged
+
+    private void jBut_28StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_28StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_28StateChanged
+
+    private void jBut_29StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_29StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_29StateChanged
+
+    private void jBut_30StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_30StateChanged
+        SetPlanningPhaseOpacity();   // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_30StateChanged
+
+    private void jBut_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_1StateChanged
+         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+    }//GEN-LAST:event_jBut_1StateChanged
     
     /**
      * @param args the command line arguments
@@ -4335,7 +5158,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_swapperExchange;
     private javax.swing.JButton button_window;
     private javax.swing.JDialog buyCoins;
-    private javax.swing.JCheckBox check_aSpicker;
     private javax.swing.JCheckBox check_autoLogin;
     private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
@@ -4427,6 +5249,8 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
     private javax.swing.JToggleButton jToggleBut_SwitchStud;
+    private javax.swing.JLabel label_GameFieldOverlay;
+    private javax.swing.JLabel label_PlanningPhaseoverlay;
     private javax.swing.JLabel label_aAccname;
     private javax.swing.JLabel label_aCredits;
     private javax.swing.JLabel label_aDuplo;
@@ -4463,6 +5287,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_creditsNames;
     private javax.swing.JLabel label_creditsSIMS;
     private javax.swing.JLabel label_currentExchange;
+    private javax.swing.JLabel label_dozent_action;
     private javax.swing.JLabel label_duploAmount;
     private javax.swing.JLabel label_duploImage;
     private javax.swing.JLabel label_duploLocked;
@@ -4502,6 +5327,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_item4;
     private javax.swing.JLabel label_item4Amount;
     private javax.swing.JLabel label_item4Name;
+    private javax.swing.JLabel label_knowledgeBar_overlay;
     private javax.swing.JLabel label_lErr;
     private javax.swing.JLabel label_loginlogobig;
     private javax.swing.JLabel label_logo;
@@ -4569,6 +5395,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_swapperUcoinsAmount;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
+    private javax.swing.JLabel label_windowsclosed;
     private javax.swing.JLabel lable_aProfil;
     private javax.swing.JLabel loggedinas;
     private javax.swing.JLabel login_background;
@@ -4627,6 +5454,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_aOMNI;
     private javax.swing.JTextField textfield_aPass;
     private javax.swing.JTextField textfield_aRedBull;
+    private javax.swing.JTextField textfield_aSpicker;
     private javax.swing.JTextField textfield_aSurename;
     private javax.swing.JTextField textfield_aUCoins;
     private javax.swing.JTextField textfield_pEmail1;
@@ -5029,7 +5857,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
         JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni};
-        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
+//        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin);
 
@@ -5195,14 +6023,528 @@ public void switchPhase(){
     }
     // Calls the page after the last Semester if there are still students available
     else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+     //   panel_gamePhases.setVisible(false);
+       // panel_menue.setVisible(true);
+     //unnecesary   label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
+        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png"))); 
+        cl.show(panel_gamePhases, "card8");
     }
     // Calls the gameOver screen if there are no students any more
    else{   
         label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
         label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
+        switch(_maingame.getSemester()){
+            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
+            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
+            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
+            case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
+            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
+            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
+        }
         cl.show(panel_gamePhases, "card8");
     }
+}
+public void SetActivityOpaque(){ //button properties for transparency
+        button_dozent1.setFocusPainted(false);
+        button_dozent1.setBorder(null);
+        button_dozent1.setOpaque(false);
+        button_dozent1.setFocusPainted(false);
+        button_dozent1.setBorderPainted(false);
+        button_dozent1.setContentAreaFilled(false);
+        button_dozent1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));    
+        button_stud1.setFocusPainted(false);
+        button_stud1.setBorder(null);
+        button_stud1.setOpaque(false);
+        button_stud1.setFocusPainted(false);
+        button_stud1.setBorderPainted(false);
+        button_stud1.setContentAreaFilled(false);
+        button_stud1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud2.setFocusPainted(false);
+        button_stud2.setBorder(null);
+        button_stud2.setOpaque(false);
+        button_stud2.setFocusPainted(false);
+        button_stud2.setBorderPainted(false);
+        button_stud2.setContentAreaFilled(false);
+        button_stud2.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud3.setFocusPainted(false);
+        button_stud3.setBorder(null);
+        button_stud3.setOpaque(false);
+        button_stud3.setFocusPainted(false);
+        button_stud3.setBorderPainted(false);
+        button_stud3.setContentAreaFilled(false);
+        button_stud3.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud4.setFocusPainted(false);
+        button_stud4.setBorder(null);
+        button_stud4.setOpaque(false);
+        button_stud4.setFocusPainted(false);
+        button_stud4.setBorderPainted(false);
+        button_stud4.setContentAreaFilled(false);
+        button_stud4.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud5.setFocusPainted(false);
+        button_stud5.setBorder(null);
+        button_stud5.setOpaque(false);
+        button_stud5.setFocusPainted(false);
+        button_stud5.setBorderPainted(false);
+        button_stud5.setContentAreaFilled(false);
+        button_stud5.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud6.setFocusPainted(false);
+        button_stud6.setBorder(null);
+        button_stud6.setOpaque(false);
+        button_stud6.setFocusPainted(false);
+        button_stud6.setBorderPainted(false);
+        button_stud6.setContentAreaFilled(false);
+        button_stud6.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud7.setFocusPainted(false);
+        button_stud7.setBorder(null);
+        button_stud7.setOpaque(false);
+        button_stud7.setFocusPainted(false);
+        button_stud7.setBorderPainted(false);
+        button_stud7.setContentAreaFilled(false);
+        button_stud7.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud8.setFocusPainted(false);
+        button_stud8.setBorder(null);
+        button_stud8.setOpaque(false);
+        button_stud8.setFocusPainted(false);
+        button_stud8.setBorderPainted(false);
+        button_stud8.setContentAreaFilled(false);
+        button_stud8.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud9.setFocusPainted(false);
+        button_stud9.setBorder(null);
+        button_stud9.setOpaque(false);
+        button_stud9.setFocusPainted(false);
+        button_stud9.setBorderPainted(false);
+        button_stud9.setContentAreaFilled(false);
+        button_stud9.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud10.setFocusPainted(false);
+        button_stud10.setBorder(null);
+        button_stud10.setOpaque(false);
+        button_stud10.setFocusPainted(false);
+        button_stud10.setBorderPainted(false);
+        button_stud10.setContentAreaFilled(false);
+        button_stud10.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud11.setFocusPainted(false);
+        button_stud11.setBorder(null);
+        button_stud11.setOpaque(false);
+        button_stud11.setFocusPainted(false);
+        button_stud11.setBorderPainted(false);
+        button_stud11.setContentAreaFilled(false);
+        button_stud11.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud12.setFocusPainted(false);
+        button_stud12.setBorder(null);
+        button_stud12.setOpaque(false);
+        button_stud12.setFocusPainted(false);
+        button_stud12.setBorderPainted(false);
+        button_stud12.setContentAreaFilled(false);
+        button_stud12.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud13.setFocusPainted(false);
+        button_stud13.setBorder(null);
+        button_stud13.setOpaque(false);
+        button_stud13.setFocusPainted(false);
+        button_stud13.setBorderPainted(false);
+        button_stud13.setContentAreaFilled(false);
+        button_stud13.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud14.setFocusPainted(false);
+        button_stud14.setBorder(null);
+        button_stud14.setOpaque(false);
+        button_stud14.setFocusPainted(false);
+        button_stud14.setBorderPainted(false);
+        button_stud14.setContentAreaFilled(false);
+        button_stud14.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud15.setFocusPainted(false);
+        button_stud15.setBorder(null);
+        button_stud15.setOpaque(false);
+        button_stud15.setFocusPainted(false);
+        button_stud15.setBorderPainted(false);
+        button_stud15.setContentAreaFilled(false);
+        button_stud15.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud16.setFocusPainted(false);
+        button_stud16.setBorder(null);
+        button_stud16.setOpaque(false);
+        button_stud16.setFocusPainted(false);
+        button_stud16.setBorderPainted(false);
+        button_stud16.setContentAreaFilled(false);
+        button_stud16.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud17.setFocusPainted(false);
+        button_stud17.setBorder(null);
+        button_stud17.setOpaque(false);
+        button_stud17.setFocusPainted(false);
+        button_stud17.setBorderPainted(false);
+        button_stud17.setContentAreaFilled(false);
+        button_stud17.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud18.setFocusPainted(false);
+        button_stud18.setBorder(null);
+        button_stud18.setOpaque(false);
+        button_stud18.setFocusPainted(false);
+        button_stud18.setBorderPainted(false);
+        button_stud18.setContentAreaFilled(false);
+        button_stud18.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud19.setFocusPainted(false);
+        button_stud19.setBorder(null);
+        button_stud19.setOpaque(false);
+        button_stud19.setFocusPainted(false);
+        button_stud19.setBorderPainted(false);
+        button_stud19.setContentAreaFilled(false);
+        button_stud19.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud20.setFocusPainted(false);
+        button_stud20.setBorder(null);
+        button_stud20.setOpaque(false);
+        button_stud20.setFocusPainted(false);
+        button_stud20.setBorderPainted(false);
+        button_stud20.setContentAreaFilled(false);
+        button_stud20.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud21.setFocusPainted(false);
+        button_stud21.setBorder(null);
+        button_stud21.setOpaque(false);
+        button_stud21.setFocusPainted(false);
+        button_stud21.setBorderPainted(false);
+        button_stud21.setContentAreaFilled(false);
+        button_stud21.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud22.setFocusPainted(false);
+        button_stud22.setBorder(null);
+        button_stud22.setOpaque(false);
+        button_stud22.setFocusPainted(false);
+        button_stud22.setBorderPainted(false);
+        button_stud22.setContentAreaFilled(false);
+        button_stud22.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud23.setFocusPainted(false);
+        button_stud23.setBorder(null);
+        button_stud23.setOpaque(false);
+        button_stud23.setFocusPainted(false);
+        button_stud23.setBorderPainted(false);
+        button_stud23.setContentAreaFilled(false);
+        button_stud23.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud24.setFocusPainted(false);
+        button_stud24.setBorder(null);
+        button_stud24.setOpaque(false);
+        button_stud24.setFocusPainted(false);
+        button_stud24.setBorderPainted(false);
+        button_stud24.setContentAreaFilled(false);
+        button_stud24.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud25.setFocusPainted(false);
+        button_stud25.setBorder(null);
+        button_stud25.setOpaque(false);
+        button_stud25.setFocusPainted(false);
+        button_stud25.setBorderPainted(false);
+        button_stud25.setContentAreaFilled(false);
+        button_stud25.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud26.setFocusPainted(false);
+        button_stud26.setBorder(null);
+        button_stud26.setOpaque(false);
+        button_stud26.setFocusPainted(false);
+        button_stud26.setBorderPainted(false);
+        button_stud26.setContentAreaFilled(false);
+        button_stud26.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud27.setFocusPainted(false);
+        button_stud27.setBorder(null);
+        button_stud27.setOpaque(false);
+        button_stud27.setFocusPainted(false);
+        button_stud27.setBorderPainted(false);
+        button_stud27.setContentAreaFilled(false);
+        button_stud27.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud28.setFocusPainted(false);
+        button_stud28.setBorder(null);
+        button_stud28.setOpaque(false);
+        button_stud28.setFocusPainted(false);
+        button_stud28.setBorderPainted(false);
+        button_stud28.setContentAreaFilled(false);
+        button_stud28.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud29.setFocusPainted(false);
+        button_stud29.setBorder(null);
+        button_stud29.setOpaque(false);
+        button_stud29.setFocusPainted(false);
+        button_stud29.setBorderPainted(false);
+        button_stud29.setContentAreaFilled(false);
+        button_stud29.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud30.setFocusPainted(false);
+        button_stud30.setBorder(null);
+        button_stud30.setOpaque(false);
+        button_stud30.setFocusPainted(false);
+        button_stud30.setBorderPainted(false);
+        button_stud30.setContentAreaFilled(false);
+        button_stud30.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        }
+public void SetPlanningOpaque(){ //button properties for transparency
+        jBut_Dozent.setFocusPainted(false);
+        jBut_Dozent.setBorder(null);
+        jBut_Dozent.setOpaque(false);
+        jBut_Dozent.setFocusPainted(false);
+        jBut_Dozent.setBorderPainted(false);
+        jBut_Dozent.setContentAreaFilled(false);
+        jBut_Dozent.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));    
+        jBut_1.setFocusPainted(false);
+        jBut_1.setBorder(null);
+        jBut_1.setOpaque(false);
+        jBut_1.setFocusPainted(false);
+        jBut_1.setBorderPainted(false);
+        jBut_1.setContentAreaFilled(false);
+        jBut_1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_2.setFocusPainted(false);
+        jBut_2.setBorder(null);
+        jBut_2.setOpaque(false);
+        jBut_2.setFocusPainted(false);
+        jBut_2.setBorderPainted(false);
+        jBut_2.setContentAreaFilled(false);
+        jBut_2.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_3.setFocusPainted(false);
+        jBut_3.setBorder(null);
+        jBut_3.setOpaque(false);
+        jBut_3.setFocusPainted(false);
+        jBut_3.setBorderPainted(false);
+        jBut_3.setContentAreaFilled(false);
+        jBut_3.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_4.setFocusPainted(false);
+        jBut_4.setBorder(null);
+        jBut_4.setOpaque(false);
+        jBut_4.setFocusPainted(false);
+        jBut_4.setBorderPainted(false);
+        jBut_4.setContentAreaFilled(false);
+        jBut_4.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_5.setFocusPainted(false);
+        jBut_5.setBorder(null);
+        jBut_5.setOpaque(false);
+        jBut_5.setFocusPainted(false);
+        jBut_5.setBorderPainted(false);
+        jBut_5.setContentAreaFilled(false);
+        jBut_5.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_6.setFocusPainted(false);
+        jBut_6.setBorder(null);
+        jBut_6.setOpaque(false);
+        jBut_6.setFocusPainted(false);
+        jBut_6.setBorderPainted(false);
+        jBut_6.setContentAreaFilled(false);
+        jBut_6.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_7.setFocusPainted(false);
+        jBut_7.setBorder(null);
+        jBut_7.setOpaque(false);
+        jBut_7.setFocusPainted(false);
+        jBut_7.setBorderPainted(false);
+        jBut_7.setContentAreaFilled(false);
+        jBut_7.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_8.setFocusPainted(false);
+        jBut_8.setBorder(null);
+        jBut_8.setOpaque(false);
+        jBut_8.setFocusPainted(false);
+        jBut_8.setBorderPainted(false);
+        jBut_8.setContentAreaFilled(false);
+        jBut_8.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_9.setFocusPainted(false);
+        jBut_9.setBorder(null);
+        jBut_9.setOpaque(false);
+        jBut_9.setFocusPainted(false);
+        jBut_9.setBorderPainted(false);
+        jBut_9.setContentAreaFilled(false);
+        jBut_9.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_10.setFocusPainted(false);
+        jBut_10.setBorder(null);
+        jBut_10.setOpaque(false);
+        jBut_10.setFocusPainted(false);
+        jBut_10.setBorderPainted(false);
+        jBut_10.setContentAreaFilled(false);
+        jBut_10.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_11.setFocusPainted(false);
+        jBut_11.setBorder(null);
+        jBut_11.setOpaque(false);
+        jBut_11.setFocusPainted(false);
+        jBut_11.setBorderPainted(false);
+        jBut_11.setContentAreaFilled(false);
+        jBut_11.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_12.setFocusPainted(false);
+        jBut_12.setBorder(null);
+        jBut_12.setOpaque(false);
+        jBut_12.setFocusPainted(false);
+        jBut_12.setBorderPainted(false);
+        jBut_12.setContentAreaFilled(false);
+        jBut_12.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_13.setFocusPainted(false);
+        jBut_13.setBorder(null);
+        jBut_13.setOpaque(false);
+        jBut_13.setFocusPainted(false);
+        jBut_13.setBorderPainted(false);
+        jBut_13.setContentAreaFilled(false);
+        jBut_13.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_14.setFocusPainted(false);
+        jBut_14.setBorder(null);
+        jBut_14.setOpaque(false);
+        jBut_14.setFocusPainted(false);
+        jBut_14.setBorderPainted(false);
+        jBut_14.setContentAreaFilled(false);
+        jBut_14.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_15.setFocusPainted(false);
+        jBut_15.setBorder(null);
+        jBut_15.setOpaque(false);
+        jBut_15.setFocusPainted(false);
+        jBut_15.setBorderPainted(false);
+        jBut_15.setContentAreaFilled(false);
+        jBut_15.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_16.setFocusPainted(false);
+        jBut_16.setBorder(null);
+        jBut_16.setOpaque(false);
+        jBut_16.setFocusPainted(false);
+        jBut_16.setBorderPainted(false);
+        jBut_16.setContentAreaFilled(false);
+        jBut_16.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_17.setFocusPainted(false);
+        jBut_17.setBorder(null);
+        jBut_17.setOpaque(false);
+        jBut_17.setFocusPainted(false);
+        jBut_17.setBorderPainted(false);
+        jBut_17.setContentAreaFilled(false);
+        jBut_17.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_18.setFocusPainted(false);
+        jBut_18.setBorder(null);
+        jBut_18.setOpaque(false);
+        jBut_18.setFocusPainted(false);
+        jBut_18.setBorderPainted(false);
+        jBut_18.setContentAreaFilled(false);
+        jBut_18.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_19.setFocusPainted(false);
+        jBut_19.setBorder(null);
+        jBut_19.setOpaque(false);
+        jBut_19.setFocusPainted(false);
+        jBut_19.setBorderPainted(false);
+        jBut_19.setContentAreaFilled(false);
+        jBut_19.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_20.setFocusPainted(false);
+        jBut_20.setBorder(null);
+        jBut_20.setOpaque(false);
+        jBut_20.setFocusPainted(false);
+        jBut_20.setBorderPainted(false);
+        jBut_20.setContentAreaFilled(false);
+        jBut_20.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_21.setFocusPainted(false);
+        jBut_21.setBorder(null);
+        jBut_21.setOpaque(false);
+        jBut_21.setFocusPainted(false);
+        jBut_21.setBorderPainted(false);
+        jBut_21.setContentAreaFilled(false);
+        jBut_21.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_22.setFocusPainted(false);
+        jBut_22.setBorder(null);
+        jBut_22.setOpaque(false);
+        jBut_22.setFocusPainted(false);
+        jBut_22.setBorderPainted(false);
+        jBut_22.setContentAreaFilled(false);
+        jBut_22.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_23.setFocusPainted(false);
+        jBut_23.setBorder(null);
+        jBut_23.setOpaque(false);
+        jBut_23.setFocusPainted(false);
+        jBut_23.setBorderPainted(false);
+        jBut_23.setContentAreaFilled(false);
+        jBut_23.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_24.setFocusPainted(false);
+        jBut_24.setBorder(null);
+        jBut_24.setOpaque(false);
+        jBut_24.setFocusPainted(false);
+        jBut_24.setBorderPainted(false);
+        jBut_24.setContentAreaFilled(false);
+        jBut_24.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_25.setFocusPainted(false);
+        jBut_25.setBorder(null);
+        jBut_25.setOpaque(false);
+        jBut_25.setFocusPainted(false);
+        jBut_25.setBorderPainted(false);
+        jBut_25.setContentAreaFilled(false);
+        jBut_25.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_26.setFocusPainted(false);
+        jBut_26.setBorder(null);
+        jBut_26.setOpaque(false);
+        jBut_26.setFocusPainted(false);
+        jBut_26.setBorderPainted(false);
+        jBut_26.setContentAreaFilled(false);
+        jBut_26.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_27.setFocusPainted(false);
+        jBut_27.setBorder(null);
+        jBut_27.setOpaque(false);
+        jBut_27.setFocusPainted(false);
+        jBut_27.setBorderPainted(false);
+        jBut_27.setContentAreaFilled(false);
+        jBut_27.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_28.setFocusPainted(false);
+        jBut_28.setBorder(null);
+        jBut_28.setOpaque(false);
+        jBut_28.setFocusPainted(false);
+        jBut_28.setBorderPainted(false);
+        jBut_28.setContentAreaFilled(false);
+        jBut_28.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_29.setFocusPainted(false);
+        jBut_29.setBorder(null);
+        jBut_29.setOpaque(false);
+        jBut_29.setFocusPainted(false);
+        jBut_29.setBorderPainted(false);
+        jBut_29.setContentAreaFilled(false);
+        jBut_29.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_30.setFocusPainted(false);
+        jBut_30.setBorder(null);
+        jBut_30.setOpaque(false);
+        jBut_30.setFocusPainted(false);
+        jBut_30.setBorderPainted(false);
+        jBut_30.setContentAreaFilled(false);
+        jBut_30.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        }
+public  void SetActivityPhaseOpacity(){
+                button_stud1.setOpaque(false);
+                button_stud2.setOpaque(false);
+                button_stud3.setOpaque(false);
+                button_stud4.setOpaque(false);
+                button_stud5.setOpaque(false);
+                button_stud6.setOpaque(false);
+                button_stud7.setOpaque(false);
+                button_stud8.setOpaque(false);
+                button_stud9.setOpaque(false);
+                button_stud10.setOpaque(false);
+                button_stud11.setOpaque(false);
+                button_stud12.setOpaque(false);
+                button_stud13.setOpaque(false);
+                button_stud14.setOpaque(false);
+                button_stud15.setOpaque(false);
+                button_stud16.setOpaque(false);
+                button_stud17.setOpaque(false);
+                button_stud18.setOpaque(false);
+                button_stud19.setOpaque(false);
+                button_stud20.setOpaque(false);
+                button_stud21.setOpaque(false);
+                button_stud22.setOpaque(false);
+                button_stud23.setOpaque(false);
+                button_stud24.setOpaque(false);
+                button_stud25.setOpaque(false);
+                button_stud26.setOpaque(false);
+                button_stud27.setOpaque(false);
+                button_stud28.setOpaque(false);
+                button_stud29.setOpaque(false);
+                button_stud30.setOpaque(false);
+}
+public  void SetPlanningPhaseOpacity(){
+                jBut_1.setOpaque(false);
+                jBut_2.setOpaque(false);
+                jBut_3.setOpaque(false);
+                jBut_4.setOpaque(false);
+                jBut_5.setOpaque(false);
+                jBut_6.setOpaque(false);
+                jBut_7.setOpaque(false);
+                jBut_8.setOpaque(false);
+                jBut_9.setOpaque(false);
+                jBut_10.setOpaque(false);
+                jBut_11.setOpaque(false);
+                jBut_12.setOpaque(false);
+                jBut_13.setOpaque(false);
+                jBut_14.setOpaque(false);
+                jBut_15.setOpaque(false);
+                jBut_16.setOpaque(false);
+                jBut_17.setOpaque(false);
+                jBut_18.setOpaque(false);
+                jBut_19.setOpaque(false);
+                jBut_20.setOpaque(false);
+                jBut_21.setOpaque(false);
+                jBut_22.setOpaque(false);
+                jBut_23.setOpaque(false);
+                jBut_24.setOpaque(false);
+                jBut_25.setOpaque(false);
+                jBut_26.setOpaque(false);
+                jBut_27.setOpaque(false);
+                jBut_28.setOpaque(false);
+                jBut_29.setOpaque(false);
+                jBut_30.setOpaque(false);
 }
 }
