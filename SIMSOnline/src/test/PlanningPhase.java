@@ -173,7 +173,7 @@ public class PlanningPhase {
                 studPresent2 = false;
             }
             System.out.println("Stud2 auf Platz: " + (stud2_nr + 1));
-            System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
+//            System.out.println("Stud2 ID = " + studArr[stud2_nr].getId());
             StudSwitch(stud1, stud2);
 
         }
@@ -188,7 +188,7 @@ public class PlanningPhase {
                 studPresent1 = false;
             }
             System.out.println("Stud1 auf Platz " + (stud1_nr + 1));
-            System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
+//            System.out.println("Stud1 ID = " + studArr[stud1_nr].getId());
         }
     }
 
@@ -201,8 +201,8 @@ public class PlanningPhase {
     private void StudSwitch(Student stud1, Student stud2) {
         
         if (stud1.present || stud2.present){
-        System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
-                + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
+//        System.out.println("VORHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId() + " <--> "
+//                + "Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // swtiching the two selected students 
         studArr[stud1_nr] = stud2;
@@ -218,8 +218,8 @@ public class PlanningPhase {
             studBut2.setIcon(new ImageIcon());
         }
 
-        System.out.println("NACHHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId()
-                + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
+//        System.out.println("NACHHER: Platz" + (stud1_nr + 1) + " = Student " + studArr[stud1_nr].getId()
+//                + " ---- Platz" + (stud2_nr + 1) + " = Stundent " + studArr[stud2_nr].getId());
 
         // initializing the default values switchFlag, studCounter and decrements the switchCounter
         //switchFlag = 0;
@@ -245,7 +245,7 @@ public class PlanningPhase {
             // switchFlag == 0 --> SwitchButton not clickeds
         switchFlag = switchStudToggleBut.isSelected();
         if (!switchFlag) {
-            System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
+//            System.out.println("clicked Student = " + studArr[stud_nr].getId() + " *** ");
             System.out.println("SwitchCounter = " + switchCounter);
             //System.out.println(studArr[stud_nr].getStudIcon());
             

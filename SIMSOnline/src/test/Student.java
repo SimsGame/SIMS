@@ -8,12 +8,12 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Objects of this class are one student of the game
  * @author Joerg Woditschka
  * @author Nadir Yuldashev
  */
 public class Student {
-    @Deprecated private int id = 0;
+
     private double knowledge=0;                 //in savefile
     private double knowledgeIncreasement;
     private double intelligence; //= initIntelligence(); //in savefile
@@ -32,20 +32,12 @@ public class Student {
     public int iconNum;
     
     /**
-     * 
-     * @param id 
-     */   
-    @Deprecated public Student(int id){
-        this.id=id;
-        initTiredness();
-        initMotivation();
-        initIcon();
-    }
-    
-    public Student(LinkedList<String> student){
+     * Creates a new student
+     * @param student list with all needed data (comes from the save file)
+     */
+    public Student(LinkedList<String> student){ //by Dawid
         this.knowledge = new Double(student.pop());
         this.intelligence = new Double(student.pop());
-        //System.out.println(this.intelligence);
         this.iconNum = new Integer(student.pop());
         this.studIconPath = iconPath[this.iconNum];
         this.cheatAvailable = Boolean.getBoolean(student.pop());
@@ -152,14 +144,6 @@ public class Student {
        setMotivation(this.motivation+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
     }
     
-    /**
-     *
-     * @return the id attribute of the student is returned
-     */
-    public double getId() {
-        return this.id;
-    }
-    
        /**
      *
      * @return the knowledge attribute of the student is returned
@@ -170,7 +154,7 @@ public class Student {
 
     /**
      *
-     * @param value
+     * @param value sets the knowledge of the students
      */
     public void setKnowledge(double value) {
         if(value<0){
@@ -208,7 +192,7 @@ public class Student {
 
     /**
      *
-     * @param value
+     * @param value sets the tiredness of the student
      */
     public void setTiredness(double value) {
         value=value+Sims_1._maingame.professor/100;
