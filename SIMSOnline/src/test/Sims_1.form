@@ -288,7 +288,7 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#x9;&#x9;Achtung!  &#xa;Spicker ist ein mal im Semester einstzbarer&#xa;Jocker. Du kannst den nur EIN MAL pro Semester&#xa;einem beliebigen Studenten schenken.&#xa;Dann wird er die Klausuren auf jeden Fall&#xa;bestehen. &#xa;&#xa;Willst du wirklich den Spicker einsetzen?&#xa;Wenn ja, klicke auf &quot;JA&quot; Button und w&#xe4;hle&#xa;danach deinen Lieblingsstudenten."/>
+                <Property name="text" type="java.lang.String" value="&#x9;&#x9;Achtung!  &#xa;&#xa;Du kannst den Spicker nur EIN MAL pro Semester&#xa;einem beliebigen Studenten schenken.&#xa;Dann wird er die Klausuren auf jeden Fall&#xa;bestehen. &#xa;&#xa;Willst du wirklich den Spicker einsetzen?&#xa;Wenn ja, klicke auf &quot;JA&quot; Button und w&#xe4;hle&#xa;danach deinen Lieblingsstudenten."/>
               </Properties>
             </Component>
           </SubComponents>
