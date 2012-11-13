@@ -8,7 +8,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
- * 
+ * Objects of this class are timers, which are displayed in the timer label of the activity phase
  * @author Jörg Woditschka 
  * @authot Nadir Yudlashev
  * @author Kira Schomber
@@ -31,20 +31,19 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JLabel[] studLaptops;
-    private javax.swing.JLabel label_dozent_action;
 
     /**
-     * 
-     * @param jLabel_timer
-     * @param game
-     * @param jKnowledgeBar
-     * @param jAirBar
-     * @param jNoiseBar
-     * @param jMotivationBar
-     * @param jTirednessBar
-     * @param activityPhase 
+     * Constructor of a timer
+     * @param jLabel_timer the timer label of the activity phase
+     * @param game a gameobject
+     * @param jKnowledgeBar the bar displaying the students average knowledge on the activity phase view
+     * @param jAirBar the bar displaying the air quality on the activity phase view
+     * @param jNoiseBar the bar displaying the noise on the activity phase view
+     * @param jMotivationBar the bar displaying the students average motivation on the activity phase view
+     * @param jTirednessBar the bar displaying the students average knowledge on the activity phase view
+     * @param activityPhase an object of the activityPhase
      */
-    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops, javax.swing.JLabel jlabel_dozent_action) {
+    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game = game;
@@ -55,9 +54,10 @@ public class Timer extends Thread {
         this.NoiseBar = jNoiseBar;
         this.studLaptops = jstudLaptops;
         this.activityPhase = activityPhase;
-        this.label_dozent_action =jlabel_dozent_action;
     }
-
+/**
+ * This method updates the averages of the students attribute values in this class.
+ */
     private void updateAvrg() {
         int cnt=0;
         for (int i = 0; i < 30; i++) {
@@ -72,10 +72,14 @@ public class Timer extends Thread {
         averageMotivation /= cnt;
         averageTiredness /= cnt;
 
-        System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "Knowledge" + averageKnowledge);
+        //System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "  Knowledge" + averageKnowledge);
     }
 
     @Override
+    /**
+     * This method is called when a timer thread is started.
+     * It updates the value of the timer label and updates everything that needs to be calculated in each second.
+     */
     public void run() {
         label_timer.setForeground(Color.black);
         while (timer > 0 && activityPhase.runTimer) {
@@ -124,7 +128,6 @@ public class Timer extends Thread {
             }
             updateAvrg();
             checkLaptops();
-            checkDozent();
             if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
@@ -175,10 +178,13 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        Game1.saveTimePlayed(); //added by Dawid
         Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
-
+/**
+ * the bars at the top of the activity phase are painted using the average student attributes.
+ */
     private void paintBars() {
         KnowledgeBar.setValue((int) (averageKnowledge));
         MotivationBar.setValue((int) averageMotivation);
@@ -187,6 +193,7 @@ public class Timer extends Thread {
         MotivationBar.repaint();
         TirednessBar.repaint();
     }
+    
     private void paintRoomBars(){
         AirBar.setValue((int) game.airQuality);
         NoiseBar.setValue((int) game.noise);
@@ -194,7 +201,11 @@ public class Timer extends Thread {
         NoiseBar.repaint();
     }
 
+    /**
+     * this method initializes the timer to a value of 180s (3:00)
+     */
     private void initTimer() {
+        Game1.setTimeToSave();  //added by Dawid
         label_timer.setText("3:00");
         this.timer = 180;
 
@@ -206,18 +217,7 @@ public class Timer extends Thread {
       {
           if(game.studentArray[i].laptopClosed== false){
            studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
-           studLaptops[i].setOpaque(false);
           } 
       }   
-  }
-   private void checkDozent(){
-  if(label_dozent_action.isVisible()==true)
-  {
-  for(int i= Timer.timer;i<1000;i++)
-  {
-      
-  }
-  label_dozent_action.setVisible(false);
-  }
   }
 }

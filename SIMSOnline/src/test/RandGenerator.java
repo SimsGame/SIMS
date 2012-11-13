@@ -1,5 +1,6 @@
 /*
- * Creates real random numbers using a salt
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
 package test;
 
@@ -7,18 +8,13 @@ import java.util.Random;
 
 /**
  *
- * @author Jannik
+ * @author Stazzer
  */
 public class RandGenerator {
     
     public int numberPlace = -1;
 	public Random number = new Random();
 	
-        /**
-         * Creates the random number with a given modulo.
-         * @param mod the modulo to not get too large numbers
-         * @return returns the generated random number
-         */
 	public int getRand(int mod) {
 		while(numberPlace < 0) {
 			numberPlace = number.nextInt()%mod;

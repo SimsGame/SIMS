@@ -45,9 +45,6 @@ public class Item {
      * @param amount Item in inventory.
      * @param availibility Which semester is needed to get this item.
      * @param currency Either UCoins or Credits.
-     * @param motivation the motivation of the student
-     * @param tiredness how tired the student is
-     * @param knowledge how much knowledge the student has, can't be changed later
      */
     public String name;
     public int price;
@@ -58,24 +55,23 @@ public class Item {
     public int tiredness;
     public int knowledge;
 
+    //public Item item;
     public Item() {
     }
 
     /**
-     * Sets a new item with testing values.
-     * @param name the items name 
+     * Creates a new Item and stores it in the Game.java file.
+     *
+     * @param name
+     * @param price
+     * @param currency
+     * @param amount
+     * @param availibility
      */
     public Item(String name) {
         this(name, 0, 5);
     }
 
-    /**
-     * Creates a new item with values storred in the inventory.txt
-     * All other values are defined final
-     * @param name the items name
-     * @param amount the current amount of th item
-     * @param available if the item is currently available in the shop
-     */
     public Item(String name, int amount, int available) {
         switch (name) {
             case _redBullName:
@@ -107,6 +103,7 @@ public class Item {
                 this.motivation = _spickerMotivation;
                 this.tiredness = _spickerTiredness;
                 this.knowledge = _spickerKnowledge;
+                //Sims_1._maingame.putItem(this);
                 break;
             case _omniSenseName:
                 this.name = _omniSenseName;
@@ -117,6 +114,7 @@ public class Item {
                 this.motivation = _omniSenseMotivation;
                 this.tiredness = _omniSenseTiredness;
                 this.knowledge = _omniSenseKnowledge;
+                //Sims_1._maingame.putItem(this);
                 break;
         }
     }
@@ -130,7 +128,8 @@ public class Item {
      * @param name    Container in which the items name will be storred.
      * @param amaount Container which will hold the current amount of the item.
      * @param item    The item which will be displayed in the container.
-     */    
+     */
+    
     public void createItemInventory(JLabel field, JLabel name, JLabel amount, Item item){
         int boxFactor = 100; 
         int itemBoxX = 30;
@@ -146,8 +145,7 @@ public class Item {
         int itemAmountY = 100;
         int itemAmountWidth = 80;
         int itemAmountHeight = 20;
-        
-        // Switches the name to set the right Z-Index of the container
+              
         switch(item.name){
             case _redBullName:{
                 field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/items/RedBullPainting80x80.png")));
@@ -175,10 +173,12 @@ public class Item {
             } 
         }
         
+        //name.setText(item.name);
         name.setText("");
         name.setHorizontalAlignment(name.CENTER);
         name.setBackground(Color.black);
         name.setForeground(Color.white);
+        //name.setOpaque(true);
         amount.setText(String.valueOf(item.amount)+" x");
         amount.setHorizontalAlignment(name.CENTER);
         amount.setBackground(Color.black);
@@ -264,7 +264,7 @@ public class Item {
         name.setHorizontalAlignment(JLabel.CENTER);
         price.setHorizontalAlignment(JLabel.CENTER);
         
-        if(item.available > Sims_1._maingame.getSemester()){
+        if(item.available > Sims_1._maingame.getSemester()){  //angepasst by Dawid
             name.setText("Verfügbar ab Semester "+item.available);
             price.setVisible(false);
         }else{
@@ -311,7 +311,8 @@ public class Item {
      * @param item   The item that the player clicked.
      * @param locked Looks if the player is allowed to buy this item.
      * @return 
-     */   
+     */
+    
     public static int managePurchase(Item item, JLabel locked){
         if(locked.isVisible() == true){
             return 1;

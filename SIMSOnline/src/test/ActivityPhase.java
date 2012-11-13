@@ -8,7 +8,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Objects of this class are activity phases ("Aktionsphasen"). 
  * @author Jörg Woditschka
  * @author Nadir Yuldashev
  */
@@ -35,10 +35,25 @@ public class ActivityPhase {
     public javax.swing.JLabel[] studLaptops;
     private javax.swing.JButton professorButton; //added by Julia
     private Game1 game;
-    private javax.swing.JLabel label_dozent_action;
     
-    
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent,javax.swing.JLabel[] studLaptops, javax.swing.JLabel jlabel_dozent_action) {        
+    /**
+     * Constructor of an activityPhase
+     * @param label_timer the label of the timer on the activity phase view
+     * @param jKnowledgeBar the bar displaying the students average knowledge on the activity phase view
+     * @param jAirBar the bar displaying the air quality on the activity phase view
+     * @param jNoiseBar the bar displaying the noise on the activity phase view
+     * @param jMotivationBar the bar displaying the students average motivation on the activity phase view
+     * @param jTirednessBar the bar displaying the students average knowledge on the activity phase view
+     * @param label_redBull the label displaying the amount of "redBull"s on the activity phase view
+     * @param label_duplo the label displaying the amount of "duplo"s on the activity phase view
+     * @param label_omniSense the label displaying the amount of "Omni Sense audio books"s on the activity phase view
+     * @param studButtons the Array of buttons of the Students on the activity phase view
+     * @param score the actual score
+     * @param sims the SIMS object
+     * @param jBut_Dozent the button of the lecturer
+     * @param studLaptops an arrray of the labels of the students laptops
+     */
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent,javax.swing.JLabel[] studLaptops) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -57,18 +72,22 @@ public class ActivityPhase {
         this.studLaptops = studLaptops;
         this.professorButton  = jBut_Dozent; //added by Julia
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added byJulia
-        this.label_dozent_action =jlabel_dozent_action;
         activityPhaseMain();
      
     }
-    
+    /**
+     * a method which is called from the cunstructor to make it more readable
+     */
     private void activityPhaseMain(){
         game.calculateRowIntelligence();
-        timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this,studLaptops,label_dozent_action));
+        timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this,studLaptops));
         timer.start(); 
-        
     }
     
+    /**
+     * This method checks wether an item was selected and uses it on a clicked student
+     * @param studNum the number of the Student clicked
+     */
     public void StudentClicked(int studNum) {
                 this.studentDisplayed=studNum;
         if (redBullPressed) {
@@ -107,11 +126,10 @@ public class ActivityPhase {
         
     }
     
+    /**
+     * This method makes the bars at the top of the activity phases view display one students attributes
+     */
     public void displayStudentBars(){
-        
-
-        
-        
         
         MotivationBar.setValue((int)game.studentArray[this.studentDisplayed].getMotivation());
         TirednessBar.setValue((int)game.studentArray[this.studentDisplayed].getTiredness());
