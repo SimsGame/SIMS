@@ -350,7 +350,6 @@ public class Sims_1 extends javax.swing.JFrame {
         gamePlaying = new javax.swing.JPanel();
         panel_logoarea = new javax.swing.JPanel();
         label_logo_playing = new javax.swing.JLabel();
-        text_backtomenue = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         text_inventar = new javax.swing.JLabel();
         label_item3Inv = new javax.swing.JLabel();
@@ -2273,12 +2272,6 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_logoarea.add(label_logo_playing);
         label_logo_playing.setBounds(0, 0, 150, 110);
 
-        text_backtomenue.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
-        text_backtomenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        text_backtomenue.setText("<- zurück zum Menü");
-        panel_logoarea.add(text_backtomenue);
-        text_backtomenue.setBounds(0, 90, 150, 14);
-
         gamePlaying.add(panel_logoarea);
         panel_logoarea.setBounds(0, 0, 150, 110);
 
@@ -3668,9 +3661,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_startExchangeActionPerformed
 
     private void label_logo_playingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_playingMouseClicked
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
-        activityPhase.runTimer=false;
+        //panel_gamePhases.setVisible(false);
+        //panel_menue.setVisible(true);
+        //activityPhase.runTimer=false;
     }//GEN-LAST:event_label_logo_playingMouseClicked
 
     private void button_menuStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStatisticActionPerformed
@@ -4737,10 +4730,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.teamwork=false;
             toggleButton_teamwork.setSelected(false);
             _maingame.shortBreak=true;
+            System.out.println("You just started a break: " +_maingame.shortBreak);
         }
         else {
             toggleButton_shortBreak.setSelected(false);
             _maingame.shortBreak=false; 
+            System.out.println("You just ended the break: " +_maingame.shortBreak);
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
 
@@ -5467,7 +5462,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel shop;
     private javax.swing.JSlider slider_aMonth;
     private javax.swing.JLabel text_air;
-    private javax.swing.JLabel text_backtomenue;
     private javax.swing.JLabel text_backtomenue1;
     private javax.swing.JLabel text_backtomenue2;
     private javax.swing.JLabel text_inventar;

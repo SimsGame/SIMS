@@ -137,6 +137,7 @@ public class Student {
             }
         }
         else {
+            System.out.println("While doing the break, your knowledge increases by this value: "+ knowledgeIncreasement);
             this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
         }
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100        
