@@ -603,24 +603,26 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
 
+        label_shopMessage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_shopMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage.setText("Shop -  Mitteilung");
         dialog_error.getContentPane().add(label_shopMessage);
-        label_shopMessage.setBounds(50, 10, 290, 70);
+        label_shopMessage.setBounds(60, 10, 290, 70);
 
         label_shopMessage1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage1.setText("Erwerbe neue Credits im Spiel oder tausche UCoins!");
         dialog_error.getContentPane().add(label_shopMessage1);
-        label_shopMessage1.setBounds(10, 110, 380, 70);
+        label_shopMessage1.setBounds(0, 130, 420, 70);
 
         label_shopMessage2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins");
         dialog_error.getContentPane().add(label_shopMessage2);
-        label_shopMessage2.setBounds(10, 80, 380, 70);
+        label_shopMessage2.setBounds(20, 90, 380, 30);
 
+        label_shopMessage3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage3.setText("oder das Item ist gesperrt!");
         dialog_error.getContentPane().add(label_shopMessage3);
-        label_shopMessage3.setBounds(100, 146, 240, 40);
+        label_shopMessage3.setBounds(0, 110, 400, 30);
 
         button_shopMessageOk.setText("OK");
         button_shopMessageOk.addActionListener(new java.awt.event.ActionListener() {
@@ -629,7 +631,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 47, 23);
+        button_shopMessageOk.setBounds(120, 210, 160, 30);
 
         warningDialog.setModal(true);
         warningDialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -845,6 +847,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         warningExitPlanningPhase.setMinimumSize(new java.awt.Dimension(600, 320));
         warningExitPlanningPhase.setModal(true);
+        warningExitPlanningPhase.setPreferredSize(new java.awt.Dimension(600, 320));
         warningExitPlanningPhase.getContentPane().setLayout(null);
 
         label_warning1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -861,7 +864,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_warning3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_warning3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_warning3.setText("Das Spiel wird an dieser Stelle nicht gespeichert");
+        label_warning3.setText("Dein Fortschritt wird an dieser Stelle nicht gespeichert");
         warningExitPlanningPhase.getContentPane().add(label_warning3);
         label_warning3.setBounds(-2, 114, 580, 15);
 
