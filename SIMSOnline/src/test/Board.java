@@ -128,13 +128,6 @@ public class Board extends javax.swing.JPanel implements ActionListener {
      * @param g the field where the text has to be printed
      */
     public void gameOver(Graphics g) {
-        String msg = "Game Over";
-        Font small = new Font("Helvetica", Font.BOLD, 14);
-        FontMetrics metr = this.getFontMetrics(small);
-
-        g.setColor(Color.white);
-        g.setFont(small);
-        g.drawString(msg, (WIDTH - metr.stringWidth(msg)) / 2, HEIGHT / 2);
         endTime = System.currentTimeMillis();
         long finalTime = (endTime - startTime)/1000;
         if(endCounter == 0){
