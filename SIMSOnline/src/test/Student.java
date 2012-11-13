@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Nadir Yuldashev
  */
 public class Student {
-    @Deprecated private int id = 0;
+
     private double knowledge=0;                 //in savefile
     private double knowledgeIncreasement;
     private double intelligence; //= initIntelligence(); //in savefile
@@ -32,20 +32,12 @@ public class Student {
     public int iconNum;
     
     /**
-     * 
-     * @param id 
-     */   
-    @Deprecated public Student(int id){
-        this.id=id;
-        initTiredness();
-        initMotivation();
-        initIcon();
-    }
-    
+     * Creates a new student
+     * @param student list with all needed data (comes from the save file)
+     */
     public Student(LinkedList<String> student){
         this.knowledge = new Double(student.pop());
         this.intelligence = new Double(student.pop());
-        //System.out.println(this.intelligence);
         this.iconNum = new Integer(student.pop());
         this.studIconPath = iconPath[this.iconNum];
         this.cheatAvailable = Boolean.getBoolean(student.pop());
@@ -150,14 +142,6 @@ public class Student {
     void changeMotivation(double factor)
     {
        setMotivation(this.motivation+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
-    }
-    
-    /**
-     *
-     * @return the id attribute of the student is returned
-     */
-    public double getId() {
-        return this.id;
     }
     
        /**
