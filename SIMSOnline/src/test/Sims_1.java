@@ -122,10 +122,6 @@ public class Sims_1 extends javax.swing.JFrame {
         SetPlanningOpaque();
         label_windowsclosed.setVisible(false);
         panel_stats.setVisible(false);
-      
-        
-        
-   
     }
 
     /**
