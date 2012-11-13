@@ -131,7 +131,7 @@ public class Student {
             else if (rowIntelligence>1.65){
                 influence=0.005*rowIntelligence;
             }
-            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.001375)+influence-add;
+            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.00075)+influence-add;
             if(this.knowledgeIncreasement<0){ 
                 this.knowledgeIncreasement = 0;
             }
@@ -213,7 +213,7 @@ public class Student {
     public void setTiredness(double value) {
         value=value+Sims_1._maingame.professor/100;
         if (!laptopClosed){
-            value=value+0.9; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
+            value=value+2; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
         }
         if(value<0){
             this.tiredness= 0;

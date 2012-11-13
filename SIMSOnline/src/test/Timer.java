@@ -21,6 +21,7 @@ public class Timer extends Thread {
     public static double averageMotivation;
     public static double averageTiredness;
     public static double averageKnowledge;
+    private int windowCnt=30;
     private double add1;
     private double add2;
     private javax.swing.JProgressBar KnowledgeBar;
@@ -53,14 +54,18 @@ public class Timer extends Thread {
     }
 
     private void updateAvrg() {
+        int cnt=0;
         for (int i = 0; i < 30; i++) {
+            if(game.studentArray[i].present){
             averageKnowledge += game.studentArray[i].getKnowledge();
             averageMotivation += game.studentArray[i].getMotivation();
             averageTiredness += game.studentArray[i].getTiredness();
+            cnt++;
+            }
         }
-        averageKnowledge /= 30;
-        averageMotivation /= 30;
-        averageTiredness /= 30;
+        averageKnowledge /= cnt;
+        averageMotivation /= cnt;
+        averageTiredness /= cnt;
 
         System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "Knowledge" + averageKnowledge);
     }
@@ -73,7 +78,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 1000) {
+            while ((System.currentTimeMillis() - millis) < 10) {
                 //do nothing
             }
             timer--;
@@ -91,10 +96,10 @@ public class Timer extends Thread {
      }
              */
             if (game.quietingCounter > 0) {
-                game.updateRoom(-1.65, -3.65);
+                game.updateRoom(-1.65, -3.00);
                 game.quietingCounter--;
             } else {
-                game.updateRoom(-1.65, 1.65);
+                game.updateRoom(-1.65, 1.00);
             }
             if (game.teamwork) {
                 add1 = (game.noise + 0.000001) / 200 * (2.5);
@@ -106,7 +111,7 @@ public class Timer extends Thread {
                 game.updateArray(add1, add2, -1);
             } else {
                 add1 = (game.noise + 0.000001) / 200 * (-2);
-                add2 = (100.000001 - game.airQuality) / 200 * 2;
+                add2 = (100.000001 - game.airQuality) / 200;
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
@@ -116,6 +121,7 @@ public class Timer extends Thread {
                     switch (round) {
                         case 3:
                             game.examTime(10);
+                            System.out.println("das war das erste Semester!");
                             break;
                         case 6:
                             game.examTime(20);
@@ -135,16 +141,27 @@ public class Timer extends Thread {
                         default:
                             break;
                     }
+                    activityPhase.sims.displayExamResults(game.failedStudents, game.remainingStudents);
+                    game.failedStudents=0;
                 }
             }
             if (!this.activityPhase.doNotPaintFlag) {
                 paintBars();
             }
+            paintRoomBars();
             if (game.barNum != 0) {
                 game.barClicked(activityPhase.studButtons);
             }
             if (activityPhase.studentDisplayed != -1) {
                 activityPhase.displayStudentBars();
+            }
+            if(!game.windowChangesNoise){
+                if(windowCnt==0){
+                    game.windowChangesNoise=true;
+                    windowCnt=30;
+                }else{
+                    windowCnt--;
+                }
             }
         }
         game.round += 1;
@@ -156,11 +173,13 @@ public class Timer extends Thread {
         KnowledgeBar.setValue((int) (averageKnowledge));
         MotivationBar.setValue((int) averageMotivation);
         TirednessBar.setValue((int) averageTiredness);
-        AirBar.setValue((int) game.airQuality);
-        NoiseBar.setValue((int) game.noise);
         KnowledgeBar.repaint();
         MotivationBar.repaint();
         TirednessBar.repaint();
+    }
+    private void paintRoomBars(){
+        AirBar.setValue((int) game.airQuality);
+        NoiseBar.setValue((int) game.noise);
         AirBar.repaint();
         NoiseBar.repaint();
     }

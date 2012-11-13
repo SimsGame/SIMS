@@ -563,6 +563,100 @@
         </Container>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="dialog_examResults">
+      <Properties>
+        <Property name="locationByPlatform" type="boolean" value="true"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[436, 295]"/>
+        </Property>
+        <Property name="modal" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="label_examHeading" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label_examFailed" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label_examFailedText" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label_examRemainingText1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label_examRemaining" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label_examRemainingText2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="136" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="label_examHeading" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="label_examFailed" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_examFailedText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="label_examRemainingText1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_examRemaining" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_examRemainingText2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="137" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="label_examHeading">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Klausurergebnisse"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_examFailed">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel4"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_examFailedText">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="sind durchgefallen."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_examRemainingText1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Es bleiben"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_examRemaining">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel7"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="label_examRemainingText2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Studenten."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -1869,7 +1963,6 @@
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_1MouseClicked"/>
@@ -1887,7 +1980,6 @@
                     <Component class="javax.swing.JButton" name="jBut_2">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_2MouseClicked"/>
@@ -1903,7 +1995,6 @@
                     <Component class="javax.swing.JButton" name="jBut_3">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_3MouseClicked"/>
@@ -1919,7 +2010,6 @@
                     <Component class="javax.swing.JButton" name="jBut_4">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_4MouseClicked"/>
@@ -1935,7 +2025,6 @@
                     <Component class="javax.swing.JButton" name="jBut_5">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_5MouseClicked"/>
@@ -1951,7 +2040,6 @@
                     <Component class="javax.swing.JButton" name="jBut_6">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_6MouseClicked"/>
@@ -1966,7 +2054,6 @@
                     <Component class="javax.swing.JButton" name="jBut_7">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_7MouseClicked"/>
@@ -1981,7 +2068,6 @@
                     <Component class="javax.swing.JButton" name="jBut_8">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_8MouseClicked"/>
@@ -1996,7 +2082,6 @@
                     <Component class="javax.swing.JButton" name="jBut_9">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_9MouseClicked"/>
@@ -2011,7 +2096,6 @@
                     <Component class="javax.swing.JButton" name="jBut_10">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_10MouseClicked"/>
@@ -2026,7 +2110,6 @@
                     <Component class="javax.swing.JButton" name="jBut_11">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_11MouseClicked"/>
@@ -2041,7 +2124,6 @@
                     <Component class="javax.swing.JButton" name="jBut_12">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_12MouseClicked"/>
@@ -2056,7 +2138,6 @@
                     <Component class="javax.swing.JButton" name="jBut_13">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_13MouseClicked"/>
@@ -2071,7 +2152,6 @@
                     <Component class="javax.swing.JButton" name="jBut_14">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_14MouseClicked"/>
@@ -2086,7 +2166,6 @@
                     <Component class="javax.swing.JButton" name="jBut_15">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_15MouseClicked"/>
@@ -2101,7 +2180,6 @@
                     <Component class="javax.swing.JButton" name="jBut_16">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_16MouseClicked"/>
@@ -2116,7 +2194,6 @@
                     <Component class="javax.swing.JButton" name="jBut_17">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_17MouseClicked"/>
@@ -2132,7 +2209,6 @@
                     <Component class="javax.swing.JButton" name="jBut_18">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_18MouseClicked"/>
@@ -2148,7 +2224,6 @@
                       <Properties>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_19MouseClicked"/>
@@ -2163,7 +2238,6 @@
                     <Component class="javax.swing.JButton" name="jBut_20">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_20MouseClicked"/>
@@ -2178,7 +2252,6 @@
                     <Component class="javax.swing.JButton" name="jBut_21">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_21MouseClicked"/>
@@ -2193,7 +2266,6 @@
                     <Component class="javax.swing.JButton" name="jBut_22">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_22MouseClicked"/>
@@ -2208,7 +2280,6 @@
                     <Component class="javax.swing.JButton" name="jBut_23">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_23MouseClicked"/>
@@ -2223,7 +2294,6 @@
                     <Component class="javax.swing.JButton" name="jBut_24">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_24MouseClicked"/>
@@ -2238,7 +2308,6 @@
                     <Component class="javax.swing.JButton" name="jBut_25">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_25MouseClicked"/>
@@ -2253,7 +2322,6 @@
                     <Component class="javax.swing.JButton" name="jBut_26">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_26MouseClicked"/>
@@ -2269,7 +2337,6 @@
                       <Properties>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_27MouseClicked"/>
@@ -2284,7 +2351,6 @@
                     <Component class="javax.swing.JButton" name="jBut_28">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_28MouseClicked"/>
@@ -2299,7 +2365,6 @@
                     <Component class="javax.swing.JButton" name="jBut_29">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_29MouseClicked"/>
@@ -2314,7 +2379,6 @@
                     <Component class="javax.swing.JButton" name="jBut_30">
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBut_30MouseClicked"/>
@@ -3802,7 +3866,6 @@
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                         <Property name="inheritsPopupMenu" type="boolean" value="true"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_stud1MouseClicked"/>
@@ -3821,7 +3884,6 @@
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_stud2MouseClicked"/>
@@ -3837,7 +3899,6 @@
                       <Properties>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_stud3MouseClicked"/>
@@ -4326,7 +4387,6 @@
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Standardcursor"/>
                     </Property>
-                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_retryActionPerformed"/>
