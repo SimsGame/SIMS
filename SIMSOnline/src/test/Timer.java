@@ -31,6 +31,7 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JLabel[] studLaptops;
+    private javax.swing.JLabel label_dozent_action;
 
     /**
      * 
@@ -43,7 +44,7 @@ public class Timer extends Thread {
      * @param jTirednessBar
      * @param activityPhase 
      */
-    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops) {
+    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops, javax.swing.JLabel jlabel_dozent_action) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game = game;
@@ -54,6 +55,7 @@ public class Timer extends Thread {
         this.NoiseBar = jNoiseBar;
         this.studLaptops = jstudLaptops;
         this.activityPhase = activityPhase;
+        this.label_dozent_action =jlabel_dozent_action;
     }
 
     private void updateAvrg() {
@@ -122,6 +124,7 @@ public class Timer extends Thread {
             }
             updateAvrg();
             checkLaptops();
+            checkDozent();
             if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
@@ -205,5 +208,15 @@ public class Timer extends Thread {
            studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
           } 
       }   
+  }
+   private void checkDozent(){
+  if(label_dozent_action.isVisible()==true)
+  {
+  for(int i= Timer.timer;i<1000;i++)
+  {
+      
+  }
+  label_dozent_action.setVisible(false);
+  }
   }
 }
