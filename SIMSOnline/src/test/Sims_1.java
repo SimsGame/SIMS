@@ -95,7 +95,9 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setLocationRelativeTo(null);
        // warningExitPlanningPhase.setSize(500, 320);
         warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        warningExitPlanningPhase.setLocationRelativeTo(null);        
+        warningExitPlanningPhase.setLocationRelativeTo(null);
+        dialog_statsError.setLocationRelativeTo(null);
+        dialog_examResults.setLocationRelativeTo(null);
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -167,8 +169,6 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotchanged = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         noCheatsAvailableDialog = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea6 = new javax.swing.JTextArea();
@@ -193,6 +193,12 @@ public class Sims_1 extends javax.swing.JFrame {
         label_examRemainingText1 = new javax.swing.JLabel();
         label_examRemaining = new javax.swing.JLabel();
         label_examRemainingText2 = new javax.swing.JLabel();
+        dialog_statsError = new javax.swing.JDialog();
+        label_statsErrorHeadline = new javax.swing.JLabel();
+        label_statsErrorText1 = new javax.swing.JLabel();
+        label_statsErrorText2 = new javax.swing.JLabel();
+        label_statsErrorText3 = new javax.swing.JLabel();
+        button_statsErrorOK = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
         panel_stats = new javax.swing.JPanel();
@@ -355,7 +361,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopPointsName = new javax.swing.JLabel();
         label_shopName = new javax.swing.JLabel();
         panel_shopBackPlanningPhase = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        button_shopReturn = new javax.swing.JButton();
         panel_shopItems = new javax.swing.JPanel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
@@ -823,10 +829,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("jLabel1");
-
-        jLabel3.setText("jLabel3");
-
         noCheatsAvailableDialog.setModal(true);
 
         jTextArea6.setColumns(20);
@@ -1007,6 +1009,43 @@ public class Sims_1 extends javax.swing.JFrame {
                     .addComponent(label_examRemainingText2))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
+
+        dialog_statsError.setTitle("Statistik Fehler");
+        dialog_statsError.setLocationByPlatform(true);
+        dialog_statsError.setMinimumSize(new java.awt.Dimension(450, 320));
+        dialog_statsError.setModal(true);
+        dialog_statsError.setPreferredSize(new java.awt.Dimension(450, 320));
+        dialog_statsError.getContentPane().setLayout(null);
+
+        label_statsErrorHeadline.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        label_statsErrorHeadline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_statsErrorHeadline.setText("Fehler");
+        dialog_statsError.getContentPane().add(label_statsErrorHeadline);
+        label_statsErrorHeadline.setBounds(10, 0, 420, 80);
+
+        label_statsErrorText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_statsErrorText1.setText("Statistik kann aus technischen Gründen nicht angezeigt werden.");
+        dialog_statsError.getContentPane().add(label_statsErrorText1);
+        label_statsErrorText1.setBounds(10, 70, 420, 20);
+
+        label_statsErrorText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_statsErrorText2.setText("Bitte klick auf \"Neues Spiel\" oder \"Spiel Laden\" und versuchen sie es erneut.");
+        dialog_statsError.getContentPane().add(label_statsErrorText2);
+        label_statsErrorText2.setBounds(10, 100, 420, 14);
+
+        label_statsErrorText3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_statsErrorText3.setText("Falls alles nicht hilft wende dich an den Administrator.");
+        dialog_statsError.getContentPane().add(label_statsErrorText3);
+        label_statsErrorText3.setBounds(10, 140, 420, 30);
+
+        button_statsErrorOK.setText("Ich hasse euch!");
+        button_statsErrorOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_statsErrorOKActionPerformed(evt);
+            }
+        });
+        dialog_statsError.getContentPane().add(button_statsErrorOK);
+        button_statsErrorOK.setBounds(150, 210, 130, 23);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
@@ -2223,16 +2262,16 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopBackPlanningPhase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopBackPlanningPhase.setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton1.setText("<HTML><BODY><DIV style=\"text-align: center;\">Zurück<BR\\>zur<BR\\>Planung</DIV></BODY></HTML>");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button_shopReturn.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        button_shopReturn.setText("<HTML><BODY><DIV style=\"text-align: center;\">Zurück<BR\\>zur<BR\\>Planung</DIV></BODY></HTML>");
+        button_shopReturn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_shopReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button_shopReturnActionPerformed(evt);
             }
         });
-        panel_shopBackPlanningPhase.add(jButton1);
-        jButton1.setBounds(5, 5, 120, 100);
+        panel_shopBackPlanningPhase.add(button_shopReturn);
+        button_shopReturn.setBounds(5, 5, 120, 100);
 
         shop.add(panel_shopBackPlanningPhase);
         panel_shopBackPlanningPhase.setBounds(850, 0, 130, 110);
@@ -4120,7 +4159,7 @@ public class Sims_1 extends javax.swing.JFrame {
             panel_stats.setVisible(true);
         }
         catch(NullPointerException e){
-            System.out.printf("Existiert noch nicht");
+            dialog_statsError.setVisible(true);
         }
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
@@ -5798,6 +5837,8 @@ if(_maingame.studentArray[2].laptopClosed== false)
         _mainuser.setTime_played(_mainuser.getTime_played()+(endTime - startTime));
         
         panel_gamePhases.setVisible(false);
+        User.saveUser();
+        Game1.saveGame();
         panel_menue.setVisible(true);
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_confirmExitMouseClicked
@@ -5807,14 +5848,18 @@ if(_maingame.studentArray[2].laptopClosed== false)
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_cancelExitMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void button_shopReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopReturnActionPerformed
         // Returns from the shop back to the planning phase
         User.saveUser();
         Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
         //planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_button_shopReturnActionPerformed
+
+    private void button_statsErrorOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statsErrorOKActionPerformed
+        dialog_statsError.setVisible(false);
+    }//GEN-LAST:event_button_statsErrorOKActionPerformed
     
     /**
      * @param args the command line arguments
@@ -5895,7 +5940,9 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JButton button_rRegister;
     private javax.swing.JButton button_retry;
     private javax.swing.JButton button_shopMessageOk;
+    private javax.swing.JButton button_shopReturn;
     private javax.swing.JButton button_startExchange;
+    private javax.swing.JButton button_statsErrorOK;
     private javax.swing.JButton button_stud1;
     private javax.swing.JButton button_stud10;
     private javax.swing.JButton button_stud11;
@@ -5935,6 +5982,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel creditsShop;
     private javax.swing.JDialog dialog_error;
     private javax.swing.JDialog dialog_examResults;
+    private javax.swing.JDialog dialog_statsError;
     private javax.swing.JPanel gamePlanning;
     private javax.swing.JPanel gamePlaying;
     private javax.swing.JButton jBut_1;
@@ -5979,7 +6027,6 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JButton jBut_cancelExit;
     private javax.swing.JButton jBut_confirmExit;
     private javax.swing.JButton jBut_startShop;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -5999,10 +6046,8 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private static javax.swing.JLabel jLab_Redbull;
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
@@ -6201,6 +6246,10 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel label_shopUCoinsName;
     private javax.swing.JLabel label_statsCurrentCredits;
     private javax.swing.JLabel label_statsEarnedCredits;
+    private javax.swing.JLabel label_statsErrorHeadline;
+    private javax.swing.JLabel label_statsErrorText1;
+    private javax.swing.JLabel label_statsErrorText2;
+    private javax.swing.JLabel label_statsErrorText3;
     private javax.swing.JLabel label_statsHeadline;
     private javax.swing.JLabel label_statsOverallTime;
     private javax.swing.JLabel label_statsPoints;
