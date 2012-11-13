@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
  * @author Dawid Rusin
  * @author Jannik
  * @author Jörg Woditschka
- * @author Kira Schomber
  */
 public class Game1 {
 
@@ -519,5 +518,43 @@ public class Game1 {
                 e.printStackTrace();
             }
         }
+    }
+        /**
+         * This method adds bonus credits on the users credits on base of the knowledge of the students at the end of a round.
+         */
+    public void gainBonusCredits(){
+            int smstr = getSemester();
+            int sub;
+            switch (smstr) {
+                case 1:
+                    sub = 0;
+                    break;
+                case 2:
+                    sub = 10;
+                    break;
+                case 3:
+                    sub = 20;
+                    break;
+                case 4:
+                    sub = 35;
+                    break;
+                case 5:
+                    sub = 50;
+                    break;
+                case 6:
+                    sub = 70;
+                    break;
+                default:
+                    sub = 0;
+                    break;
+}
+        double result=0;
+        for(int i=0; i<30; i++){
+            if(studentArray[i].present){
+                result+=studentArray[i].getKnowledge()-sub;
+            }
+        }
+        credits+=(int)result;
+        //System.out.println("Credits gained: "+(int)result);
     }
 }

@@ -7180,10 +7180,7 @@ public class Sims_1 extends javax.swing.JFrame {
             cl.show(panel_gamePhases, "card3");
             startPlanningPhase();
         } // Calls the page after the last Semester if there are still students available
-        else if (_maingame.round % 3 == 1 && present != 0 && _maingame.getSemester() == 7) {
-            //   panel_gamePhases.setVisible(false);
-            // panel_menue.setVisible(true);
-            //unnecesary   label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+        else if (_maingame.round % 3 == 1 && present != 0 && _maingame.getSemester() == 7) {   
             label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
             cl.show(panel_gamePhases, "card8");
@@ -7193,6 +7190,7 @@ public class Sims_1 extends javax.swing.JFrame {
             label_gameOverSemester.setText("Erreichtes Semester:   " + String.valueOf(_maingame.getSemester()-1));
             label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
                switch(_maingame.getSemester()-1){
+                   // this switch changes the icon for label_gameOver to appropriate the result the player has given and readjustes the labels and the retrybutton
             case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
             case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
             case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_3.png")));label_gameOverSemester.setLocation(310, 490);label_gameOverPoints.setLocation(310, 520);button_retry.setLocation(450, 550);break;}
@@ -7201,11 +7199,14 @@ public class Sims_1 extends javax.swing.JFrame {
             case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));label_gameOverSemester.setLocation(310, 470);label_gameOverPoints.setLocation(310, 500);button_retry.setLocation(450, 530);break;}
            
         }
-            cl.show(panel_gamePhases, "card8");
+            cl.show(panel_gamePhases, "card8");  // show panel_gameOver
         }
     }
 
-    public void SetActivityOpaque() { //button properties for transparency
+    /**
+ * this sets the style for all student buttons and the dozent button in the activityphase
+ */
+    public void SetActivityOpaque() { 
         button_dozent1.setFocusPainted(false);
         button_dozent1.setBorder(null);
         button_dozent1.setOpaque(false);
@@ -7424,8 +7425,10 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud30.setContentAreaFilled(false);
         button_stud30.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }
-
-    public void SetPlanningOpaque() { //button properties for transparency
+/**
+ * this sets the style for all student buttons in the planningphase
+ */
+    public void SetPlanningOpaque() { 
         jBut_Dozent.setFocusPainted(false);
         jBut_Dozent.setBorder(null);
         jBut_Dozent.setOpaque(false);
@@ -7644,7 +7647,9 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_30.setContentAreaFilled(false);
         jBut_30.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }
-
+/**
+ * this sets all the student buttons in the planning phase to transparent
+ */
     public void SetActivityPhaseOpacity() {
         button_stud1.setOpaque(false);
         button_stud2.setOpaque(false);
@@ -7677,7 +7682,9 @@ public class Sims_1 extends javax.swing.JFrame {
         button_stud29.setOpaque(false);
         button_stud30.setOpaque(false);
     }
-
+/**
+ * this sets all the student buttons in the planning phase to transparent 
+ */
     public void SetPlanningPhaseOpacity() {
         jBut_1.setOpaque(false);
         jBut_2.setOpaque(false);

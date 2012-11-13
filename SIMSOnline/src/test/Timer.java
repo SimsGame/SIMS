@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  */
 public class Timer extends Thread {
 
-    public static int timer; // changed to public by nadir to use in updatebars
+    public static int timer; 
     private javax.swing.JLabel label_timer;
     private ActivityPhase activityPhase;
     public Game1 game;
@@ -90,7 +90,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 100) {
+            while ((System.currentTimeMillis() - millis) < 1000) {
                 //do nothing
             }
             timer--;
@@ -184,6 +184,7 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        game.gainBonusCredits();
         Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
@@ -215,7 +216,9 @@ public class Timer extends Thread {
 
     }
     
-    
+/**
+ * checks if laptopflag was changed and if student is still present, then creates transparent open laptops 
+ */    
   private void checkLaptops(){
       for(int i=0;i<30;i++)
       {
