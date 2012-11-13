@@ -3516,6 +3516,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
+        Game1.saveGame();
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
@@ -3648,6 +3649,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
         // Returns from the shop back to the planning phase
+        User.saveUser();
+        Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
         //planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
