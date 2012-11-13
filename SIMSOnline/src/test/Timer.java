@@ -8,8 +8,9 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
- *
- * @author Jörg Woditschka @authot Nadir Yudlashev
+ * 
+ * @author Jörg Woditschka 
+ * @authot Nadir Yudlashev
  * @author Kira Schomber
  */
 public class Timer extends Thread {
@@ -28,8 +29,8 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar TirednessBar;
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
-    private javax.swing.JLabel[] studLaptops;
-/**
+
+    /**
      * 
      * @param jLabel_timer
      * @param game
@@ -40,8 +41,7 @@ public class Timer extends Thread {
      * @param jTirednessBar
      * @param activityPhase 
      */
-    
-    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase,javax.swing.JLabel[] jstudLaptops) {
+    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game = game;
@@ -69,12 +69,13 @@ public class Timer extends Thread {
 
     @Override
     public void run() {
+        label_timer.setForeground(Color.black);
         while (timer > 0 && activityPhase.runTimer) {
             if(timer==30){
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 100) {
+            while ((System.currentTimeMillis() - millis) < 1000) {
                 //do nothing
             }
             timer--;
@@ -99,20 +100,19 @@ public class Timer extends Thread {
             }
             if (game.teamwork) {
                 add1 = (game.noise + 0.000001) / 200 * (2.5);
-                add2 = (100.000001 - game.airQuality) / 200 * 3.3;
+                add2 = (100.000001 - game.airQuality) / 200 * 2;
                 game.updateArray(add1, add2, 0.02);
             } else if (game.shortBreak) {
-                add1 = (game.noise + 0.000001) / 200 * (3.3);
-                add2 = (100.000001 - game.airQuality) / 200 * (-3.3);
+                add1 = (game.noise + 0.000001) / 200 * (2);
+                add2 = (100.000001 - game.airQuality) / 200 * (-6);
                 game.updateArray(add1, add2, -1);
             } else {
-                add1 = (game.noise + 0.000001) / 200 * (-3.3);
-                add2 = (100.000001 - game.airQuality) / 200 * 3.3;
+                add1 = (game.noise + 0.000001) / 200 * (-2);
+                add2 = (100.000001 - game.airQuality) / 200 * 2;
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
-            checkLaptops();
-            if (timer == 1) {
+            if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
                     switch (round) {
@@ -150,6 +150,7 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
 

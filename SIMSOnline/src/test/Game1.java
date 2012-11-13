@@ -18,8 +18,12 @@ public class Game1 {
     public static final int _startCredits = 100;
     
     public int credits;
+    public int overallCredits;
     public int points;
     public int round;
+    public double averageKnowledge;
+    public double avarageMotivation;
+    public double averageTiredness;
     public int professor; //added by Julia
     public String professorIcon; //="/pictures/prof1_transparent.png"; //added by Julia - now has a value just for test will be loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
     public final String professorIconPath[] = { 
@@ -283,27 +287,35 @@ public class Game1 {
     public void barClicked(javax.swing.JButton[] studButtons){        
         if(this.barNum==0){
             for(int i=0; i<30; i++){
-            Color color = new Color(220, 220, 220);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
+                if(this.studentArray[i].present){
+                Color color = new Color(220, 220, 220);
+                studButtons[i].setBackground(color);
+                studButtons[i].setOpaque(true);
+                }
             }
         }else if(this.barNum==1){
             for(int i=0; i<30; i++){
-            Color color = new Color((int)(this.studentArray[i].getKnowledge()*2.55)+50, 0, 0);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
+                if(this.studentArray[i].present){
+                Color color = new Color(255-(int)(this.studentArray[i].getKnowledge()*2.55), (int)(this.studentArray[i].getKnowledge()*2.55), 0);
+                studButtons[i].setBackground(color);
+                studButtons[i].setOpaque(true);
+                }
             }
         } else if(this.barNum==2){
             for(int i=0; i<30; i++){
-            Color color = new Color(0, (int)(this.studentArray[i].getMotivation()*2.55), 0);
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
+                if(this.studentArray[i].present){
+                Color color = new Color(255-(int)(this.studentArray[i].getMotivation()*2.55), (int)(this.studentArray[i].getMotivation()*2.55), 0);
+                studButtons[i].setBackground(color);
+                studButtons[i].setOpaque(true);
+                }
             }
         } else if(this.barNum==3){
             for(int i=0; i<30; i++){
-            Color color = new Color(0, 0, (int)(this.studentArray[i].getTiredness()*2.55));
-            studButtons[i].setBackground(color);
-            studButtons[i].setOpaque(true);
+                if(this.studentArray[i].present){
+                Color color = new Color((int)(this.studentArray[i].getTiredness()*2.55), 255-(int)(this.studentArray[i].getTiredness()*2.55), 0);
+                studButtons[i].setBackground(color);
+                studButtons[i].setOpaque(true);
+                }
             }
         }
     }

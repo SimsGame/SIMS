@@ -7,6 +7,7 @@ package test;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -89,6 +90,9 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
+       // warningExitPlanningPhase.setSize(500, 320);
+        warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        warningExitPlanningPhase.setLocationRelativeTo(null);        
         panel_gamePhases.setVisible(false);                  //changes by Dawid
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
@@ -144,6 +148,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage = new javax.swing.JLabel();
         label_shopMessage1 = new javax.swing.JLabel();
         label_shopMessage2 = new javax.swing.JLabel();
+        label_shopMessage3 = new javax.swing.JLabel();
         button_shopMessageOk = new javax.swing.JButton();
         warningDialog = new javax.swing.JDialog();
         jBut_JA = new javax.swing.JButton();
@@ -168,8 +173,26 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        warningExitPlanningPhase = new javax.swing.JDialog();
+        label_warning1 = new javax.swing.JLabel();
+        label_warning2 = new javax.swing.JLabel();
+        label_warning3 = new javax.swing.JLabel();
+        llabel_warning4 = new javax.swing.JLabel();
+        label_warning5 = new javax.swing.JLabel();
+        jBut_confirmExit = new javax.swing.JButton();
+        jBut_cancelExit = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
+        panel_stats = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         panel_Credits = new javax.swing.JPanel();
         label_creditsHeadline = new javax.swing.JLabel();
         label_creditsHeadline1 = new javax.swing.JLabel();
@@ -321,7 +344,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopPointsName = new javax.swing.JLabel();
         label_shopName = new javax.swing.JLabel();
         panel_shopBackPlanningPhase = new javax.swing.JPanel();
-        label_returnToPlanningPhase = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_shopItems = new javax.swing.JPanel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
@@ -350,7 +373,6 @@ public class Sims_1 extends javax.swing.JFrame {
         gamePlaying = new javax.swing.JPanel();
         panel_logoarea = new javax.swing.JPanel();
         label_logo_playing = new javax.swing.JLabel();
-        text_backtomenue = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         text_inventar = new javax.swing.JLabel();
         label_item3Inv = new javax.swing.JLabel();
@@ -538,6 +560,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrDuplo = new javax.swing.JLabel();
         label_aErrRedBull = new javax.swing.JLabel();
         label_aErrOmni = new javax.swing.JLabel();
+        label_aErrSpicker = new javax.swing.JLabel();
         textfield_aSpicker = new javax.swing.JTextField();
         background_adminUser = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
@@ -621,20 +644,26 @@ public class Sims_1 extends javax.swing.JFrame {
         dialog_error.setModal(true);
         dialog_error.getContentPane().setLayout(null);
 
+        label_shopMessage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_shopMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage.setText("Shop -  Mitteilung");
         dialog_error.getContentPane().add(label_shopMessage);
-        label_shopMessage.setBounds(50, 10, 290, 70);
+        label_shopMessage.setBounds(60, 10, 290, 70);
 
         label_shopMessage1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_shopMessage1.setText("Erwerbe neue Credits im Spiel oder tausche UCoins!");
         dialog_error.getContentPane().add(label_shopMessage1);
-        label_shopMessage1.setBounds(10, 110, 380, 70);
+        label_shopMessage1.setBounds(0, 130, 420, 70);
 
         label_shopMessage2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins!");
+        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins");
         dialog_error.getContentPane().add(label_shopMessage2);
-        label_shopMessage2.setBounds(10, 80, 380, 70);
+        label_shopMessage2.setBounds(20, 90, 380, 30);
+
+        label_shopMessage3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_shopMessage3.setText("oder das Item ist gesperrt!");
+        dialog_error.getContentPane().add(label_shopMessage3);
+        label_shopMessage3.setBounds(0, 110, 400, 30);
 
         button_shopMessageOk.setText("OK");
         button_shopMessageOk.addActionListener(new java.awt.event.ActionListener() {
@@ -643,7 +672,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         dialog_error.getContentPane().add(button_shopMessageOk);
-        button_shopMessageOk.setBounds(170, 210, 47, 23);
+        button_shopMessageOk.setBounds(120, 210, 160, 30);
 
         warningDialog.setModal(true);
         warningDialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -832,6 +861,7 @@ public class Sims_1 extends javax.swing.JFrame {
         );
 
         notAllowedUseCheatDialog.setModal(true);
+        notAllowedUseCheatDialog.getContentPane().setLayout(null);
 
         jBut_OKnotAllowedUseCheat.setText("OK");
         jBut_OKnotAllowedUseCheat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -844,6 +874,8 @@ public class Sims_1 extends javax.swing.JFrame {
                 jBut_OKnotAllowedUseCheatActionPerformed(evt);
             }
         });
+        notAllowedUseCheatDialog.getContentPane().add(jBut_OKnotAllowedUseCheat);
+        jBut_OKnotAllowedUseCheat.setBounds(134, 259, 118, 50);
 
         jTextArea4.setColumns(20);
         jTextArea4.setEditable(false);
@@ -851,28 +883,63 @@ public class Sims_1 extends javax.swing.JFrame {
         jTextArea4.setText("\n      Du darfst den Spicker \n      jetzt nicht einsetzen");
         jScrollPane4.setViewportView(jTextArea4);
 
-        javax.swing.GroupLayout notAllowedUseCheatDialogLayout = new javax.swing.GroupLayout(notAllowedUseCheatDialog.getContentPane());
-        notAllowedUseCheatDialog.getContentPane().setLayout(notAllowedUseCheatDialogLayout);
-        notAllowedUseCheatDialogLayout.setHorizontalGroup(
-            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-        );
-        notAllowedUseCheatDialogLayout.setVerticalGroup(
-            notAllowedUseCheatDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notAllowedUseCheatDialogLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jBut_OKnotAllowedUseCheat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        notAllowedUseCheatDialog.getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(83, 137, 238, 113);
+
+        warningExitPlanningPhase.setMinimumSize(new java.awt.Dimension(600, 320));
+        warningExitPlanningPhase.setModal(true);
+        warningExitPlanningPhase.setPreferredSize(new java.awt.Dimension(600, 320));
+        warningExitPlanningPhase.getContentPane().setLayout(null);
+
+        label_warning1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_warning1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning1.setText("Achtung!");
+        warningExitPlanningPhase.getContentPane().add(label_warning1);
+        label_warning1.setBounds(0, 11, 580, 50);
+
+        label_warning2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_warning2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning2.setText("Du bist grade dabei das Spiel  zu verlassen.");
+        warningExitPlanningPhase.getContentPane().add(label_warning2);
+        label_warning2.setBounds(0, 80, 580, 24);
+
+        label_warning3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label_warning3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_warning3.setText("Dein Fortschritt wird an dieser Stelle nicht gespeichert");
+        warningExitPlanningPhase.getContentPane().add(label_warning3);
+        label_warning3.setBounds(-2, 114, 580, 15);
+
+        llabel_warning4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        llabel_warning4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        llabel_warning4.setText("Wenn du trotzdem fortfahren willst, dann klicke auf \"Bestätigen\"");
+        warningExitPlanningPhase.getContentPane().add(llabel_warning4);
+        llabel_warning4.setBounds(0, 140, 580, 15);
+        warningExitPlanningPhase.getContentPane().add(label_warning5);
+        label_warning5.setBounds(358, 201, 110, 0);
+
+        jBut_confirmExit.setText("Bestätigen");
+        jBut_confirmExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_confirmExitMouseClicked(evt);
+            }
+        });
+        warningExitPlanningPhase.getContentPane().add(jBut_confirmExit);
+        jBut_confirmExit.setBounds(90, 220, 141, 43);
+
+        jBut_cancelExit.setText("Abbrechen");
+        jBut_cancelExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBut_cancelExitMouseClicked(evt);
+            }
+        });
+        warningExitPlanningPhase.getContentPane().add(jBut_cancelExit);
+        jBut_cancelExit.setBounds(350, 220, 148, 43);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Das Spiel wird automatisch nach der Aktivitätsphase gespeichert");
+        warningExitPlanningPhase.getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 170, 570, 15);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("S.I.M.S.");
@@ -890,6 +957,43 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setName(""); // NOI18N
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_stats.setLayout(null);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Statistik");
+        panel_stats.add(jLabel2);
+        jLabel2.setBounds(170, 74, 120, 40);
+
+        jLabel4.setText("Erhaltene Credits:");
+        panel_stats.add(jLabel4);
+        jLabel4.setBounds(50, 140, 160, 20);
+
+        jLabel5.setText("Momentane Credits:");
+        panel_stats.add(jLabel5);
+        jLabel5.setBounds(50, 160, 180, 20);
+
+        jLabel6.setText("Erreichte Punktzahl: ");
+        panel_stats.add(jLabel6);
+        jLabel6.setBounds(50, 260, 180, 20);
+
+        jLabel7.setText("Gesamtspielzeit (in Stunden):");
+        panel_stats.add(jLabel7);
+        jLabel7.setBounds(50, 180, 180, 20);
+
+        jLabel9.setText("Gespielte Semster: ");
+        panel_stats.add(jLabel9);
+        jLabel9.setBounds(50, 200, 180, 20);
+
+        jLabel10.setText("Erfolgs-/ Durchfallquote:");
+        panel_stats.add(jLabel10);
+        jLabel10.setBounds(50, 220, 180, 20);
+
+        jLabel11.setText("Kursattribute (Durchschnitt): ");
+        panel_stats.add(jLabel11);
+        jLabel11.setBounds(50, 240, 180, 20);
+
+        panel_menue.add(panel_stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panel_Credits.setMinimumSize(new java.awt.Dimension(0, 1700));
         panel_Credits.setOpaque(false);
@@ -2044,6 +2148,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopHeadline.add(punkteShop);
         punkteShop.setBounds(80, 70, 70, 17);
 
+        button_startExchange.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         button_startExchange.setText("UCoins Tauschen");
         button_startExchange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2051,7 +2156,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_shopHeadline.add(button_startExchange);
-        button_startExchange.setBounds(230, 10, 160, 90);
+        button_startExchange.setBounds(200, 10, 190, 90);
 
         label_shopUCoinsName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_shopUCoinsName.setText("UCoins:");
@@ -2079,16 +2184,16 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopBackPlanningPhase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopBackPlanningPhase.setLayout(null);
 
-        label_returnToPlanningPhase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        label_returnToPlanningPhase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_returnToPlanningPhase.setText("zurück zum  Spiel");
-        label_returnToPlanningPhase.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_returnToPlanningPhaseMouseClicked(evt);
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jButton1.setText("<HTML><BODY><DIV style=\"text-align: center;\">Zurück<BR\\>zur<BR\\>Planung</DIV></BODY></HTML>");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        panel_shopBackPlanningPhase.add(label_returnToPlanningPhase);
-        label_returnToPlanningPhase.setBounds(0, 0, 130, 110);
+        panel_shopBackPlanningPhase.add(jButton1);
+        jButton1.setBounds(5, 5, 120, 100);
 
         shop.add(panel_shopBackPlanningPhase);
         panel_shopBackPlanningPhase.setBounds(850, 0, 130, 110);
@@ -2297,12 +2402,6 @@ public class Sims_1 extends javax.swing.JFrame {
         });
         panel_logoarea.add(label_logo_playing);
         label_logo_playing.setBounds(0, 0, 150, 110);
-
-        text_backtomenue.setFont(new java.awt.Font("Arial Narrow", 1, 11)); // NOI18N
-        text_backtomenue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        text_backtomenue.setText("<- zurück zum Menü");
-        panel_logoarea.add(text_backtomenue);
-        text_backtomenue.setBounds(0, 90, 150, 14);
 
         gamePlaying.add(panel_logoarea);
         panel_logoarea.setBounds(0, 0, 150, 110);
@@ -3766,6 +3865,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrOmni.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrOmni.setText("Fehler?");
         panel_adminUser.add(label_aErrOmni, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
+
+        label_aErrSpicker.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrSpicker.setText("Fehler?");
+        panel_adminUser.add(label_aErrSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
         panel_adminUser.add(textfield_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 150, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
@@ -3819,6 +3922,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
+        Game1.saveGame();
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
@@ -3856,11 +3960,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
         // Loads and existing game which always starts with a planning phase.
-        Game1.loadGame();
-       
-        System.out.println("Current round " +Sims_1._maingame.round +" Current Semester " +Sims_1._maingame.getSemester());
-        
-        
+        if (!noSave_overlay.isVisible()) {
+            Game1.loadGame();
+            switchPhase();
+            System.out.println("Current round " + Sims_1._maingame.round + " Current Semester " + Sims_1._maingame.getSemester());
+        }
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
@@ -3937,24 +4041,13 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void label_logo_planningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_planningMouseClicked
-        // if the toggleButton is clicked for switching student and not a student the button will be deselected
-        jToggleBut_SwitchStud.setSelected(false);
-        
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+       warningExitPlanningPhase.setVisible(true);        
+       
     }//GEN-LAST:event_label_logo_planningMouseClicked
 
     private void label_logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseClicked
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
+        warningExitPlanningPhase.setVisible(true);
     }//GEN-LAST:event_label_logoMouseClicked
-
-    private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
-        // Returns from the shop back to the planning phase
-        cl.show(panel_gamePhases, "card3");
-        //planningPhase.startPlanningPhase();
-        panel_menue.setVisible(false);  
-    }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
 
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
         // Starts the exchange dialog in the shop
@@ -3964,9 +4057,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_startExchangeActionPerformed
 
     private void label_logo_playingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_playingMouseClicked
-        panel_gamePhases.setVisible(false);
-        panel_menue.setVisible(true);
-        activityPhase.runTimer=false;
+        //panel_gamePhases.setVisible(false);
+        //panel_menue.setVisible(true);
+        //activityPhase.runTimer=false;
     }//GEN-LAST:event_label_logo_playingMouseClicked
 
     private void button_menuStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStatisticActionPerformed
@@ -4843,11 +4936,30 @@ public class Sims_1 extends javax.swing.JFrame {
         JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
         JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
         JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        JLabel inputLabel = new JLabel("Bitte aktuelles Passwort eingeben!");
         JPasswordField inputPw = new JPasswordField();
-        Object[] ob = {inputPw};
+        Object[] ob = {inputLabel, inputPw};
+        Boolean okPressed = false;
+        Boolean changePass = false;
 
         if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
-            if (JOptionPane.showConfirmDialog(null, ob, "Bitte aktuelles Passwort eingeben!", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION & inputPw.getPassword().equals(_mainuser.getPassword().toCharArray())) {
+            if (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION) {
+                if (new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                    changePass = true;
+                } else {
+                    inputLabel.setText("Falsches Passwort! Bitte aktuelles Passwort eingeben!");
+                    inputPw.setText("");
+                    while ((okPressed = (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION)) & !new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                        inputPw.setText("");
+                    }
+                    System.out.println(okPressed);
+                    if (okPressed & new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                        changePass = true;
+                    }
+                }
+            }
+            System.out.println(changePass);
+            if (changePass) {
                 if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
                     User.deleteUser(_mainuser);
                 }
@@ -4855,6 +4967,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 _mainuser = new User(textfield_pKontoname.getText());
             }
             panel_Profile.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
         }
     }//GEN-LAST:event_button_pSaveActionPerformed
 
@@ -5013,10 +5126,12 @@ public class Sims_1 extends javax.swing.JFrame {
             _maingame.teamwork=false;
             toggleButton_teamwork.setSelected(false);
             _maingame.shortBreak=true;
+            System.out.println("You just started a break: " +_maingame.shortBreak);
         }
         else {
             toggleButton_shortBreak.setSelected(false);
             _maingame.shortBreak=false; 
+            System.out.println("You just ended the break: " +_maingame.shortBreak);
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
 
@@ -5351,277 +5466,28 @@ public class Sims_1 extends javax.swing.JFrame {
          SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
 
-    private void button_stud1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stud1ActionPerformed
+    private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
+         // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        jToggleBut_SwitchStud.setSelected(false);
+        
+        panel_gamePhases.setVisible(false);
+        panel_menue.setVisible(true);
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_confirmExitMouseClicked
+
+    private void jBut_cancelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_cancelExitMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_stud1ActionPerformed
+        warningExitPlanningPhase.setVisible(false);
+    }//GEN-LAST:event_jBut_cancelExitMouseClicked
 
-    private void label_laptop1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop1MouseClicked
-if(_maingame.studentArray[0].laptopClosed== false)
-{
-    label_laptop1.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[0].laptopClosed = true;
-}// TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop1MouseClicked
-
-    private void label_laptop2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop2MouseClicked
- if(_maingame.studentArray[1].laptopClosed== false)
-{
-    label_laptop2.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[1].laptopClosed = true;
-    
-}       // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop2MouseClicked
-
-    private void label_laptop3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop3MouseClicked
-if(_maingame.studentArray[2].laptopClosed== false)
-{
-    label_laptop3.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[2].laptopClosed = true;
-    
-}        // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop3MouseClicked
-
-    private void label_laptop4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop4MouseClicked
- if(_maingame.studentArray[3].laptopClosed== false)
-{
-    label_laptop4.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[3].laptopClosed = true;
-    
-}       // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop4MouseClicked
-
-    private void label_laptop5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop5MouseClicked
-   if(_maingame.studentArray[4].laptopClosed== false)
-{
-    label_laptop5.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[4].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop5MouseClicked
-
-    private void label_laptop6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop6MouseClicked
-   if(_maingame.studentArray[5].laptopClosed== false)
-{
-    label_laptop6.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[5].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop6MouseClicked
-
-    private void label_laptop12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop12MouseClicked
-  if(_maingame.studentArray[11].laptopClosed== false)
-{
-    label_laptop12.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[11].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop12MouseClicked
-
-    private void label_laptop11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop11MouseClicked
- if(_maingame.studentArray[10].laptopClosed== false)
-{
-    label_laptop11.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[10].laptopClosed = true;
-    
-}       // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop11MouseClicked
-
-    private void label_laptop10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop10MouseClicked
-   if(_maingame.studentArray[9].laptopClosed== false)
-{
-    label_laptop10.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[9].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop10MouseClicked
-
-    private void label_laptop9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop9MouseClicked
-  if(_maingame.studentArray[8].laptopClosed== false)
-{
-    label_laptop9.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[8].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop9MouseClicked
-
-    private void label_laptop8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop8MouseClicked
-    if(_maingame.studentArray[7].laptopClosed== false)
-{
-    label_laptop8.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[7].laptopClosed = true;
-    
-}    // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop8MouseClicked
-
-    private void label_laptop7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop7MouseClicked
-   if(_maingame.studentArray[6].laptopClosed== false)
-{
-    label_laptop7.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[6].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop7MouseClicked
-
-    private void label_laptop18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop18MouseClicked
-   if(_maingame.studentArray[17].laptopClosed== false)
-{
-    label_laptop18.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[17].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop18MouseClicked
-
-    private void label_laptop17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop17MouseClicked
-  if(_maingame.studentArray[16].laptopClosed== false)
-{
-    label_laptop17.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[16].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop17MouseClicked
-
-    private void label_laptop16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop16MouseClicked
-   if(_maingame.studentArray[15].laptopClosed== false)
-{
-    label_laptop16.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[15].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop16MouseClicked
-
-    private void label_laptop15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop15MouseClicked
-     if(_maingame.studentArray[14].laptopClosed== false)
-{
-    label_laptop15.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[14].laptopClosed = true;
-    
-}   // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop15MouseClicked
-
-    private void label_laptop14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop14MouseClicked
-  if(_maingame.studentArray[13].laptopClosed== false)
-{
-    label_laptop14.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[13].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop14MouseClicked
-
-    private void label_laptop13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop13MouseClicked
-  if(_maingame.studentArray[12].laptopClosed== false)
-{
-    label_laptop13.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[12].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop13MouseClicked
-
-    private void label_laptop24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop24MouseClicked
-   if(_maingame.studentArray[23].laptopClosed== false)
-{
-    label_laptop24.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[23].laptopClosed = true;
-    
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop24MouseClicked
-
-    private void label_laptop23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop23MouseClicked
-    if(_maingame.studentArray[22].laptopClosed== false)
-{
-    label_laptop23.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[22].laptopClosed = true;
-    
-}    // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop23MouseClicked
-
-    private void label_laptop22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop22MouseClicked
-     if(_maingame.studentArray[21].laptopClosed== false)
-{
-    label_laptop22.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[21].laptopClosed = true;
-    
-}   // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop22MouseClicked
-
-    private void label_laptop21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop21MouseClicked
-   if(_maingame.studentArray[20].laptopClosed== false)
-{
-    label_laptop21.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[20].laptopClosed = true;
-}     // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop21MouseClicked
-
-    private void label_laptop20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop20MouseClicked
-     if(_maingame.studentArray[19].laptopClosed== false)
-{
-    label_laptop20.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[19].laptopClosed = true;
-    
-}   // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop20MouseClicked
-
-    private void label_laptop19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop19MouseClicked
-  if(_maingame.studentArray[18].laptopClosed== false)
-{
-    label_laptop19.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[18].laptopClosed = true;
-    
-}      // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop19MouseClicked
-
-    private void label_laptop30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop30MouseClicked
-    if(_maingame.studentArray[29].laptopClosed== false)
-{
-    label_laptop30.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[29].laptopClosed = true;
-    
-}    // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop30MouseClicked
-
-    private void label_laptop29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop29MouseClicked
-     if(_maingame.studentArray[28].laptopClosed== false)
-{
-    label_laptop29.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[28].laptopClosed = true;
-    
-}   // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop29MouseClicked
-
-    private void label_laptop28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop28MouseClicked
-    if(_maingame.studentArray[27].laptopClosed== false)
-{
-    label_laptop28.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[27].laptopClosed = true;
-    
-}    // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop28MouseClicked
-
-    private void label_laptop27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop27MouseClicked
-      if(_maingame.studentArray[26].laptopClosed== false)
-{
-    label_laptop27.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[26].laptopClosed = true;
-    
-}  // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop27MouseClicked
-
-    private void label_laptop26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop26MouseClicked
-    if(_maingame.studentArray[25].laptopClosed== false)
-{
-    label_laptop26.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[25].laptopClosed = true;
-    
-}    // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop26MouseClicked
-
-    private void label_laptop25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_laptop25MouseClicked
-      if(_maingame.studentArray[24].laptopClosed== false)
-{
-    label_laptop25.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-    _maingame.studentArray[24].laptopClosed = true;
-    
-}  // TODO add your handling code here:
-    }//GEN-LAST:event_label_laptop25MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Returns from the shop back to the planning phase
+        User.saveUser();
+        Game1.saveGame();
+        cl.show(panel_gamePhases, "card3");
+        //planningPhase.startPlanningPhase();
+        panel_menue.setVisible(false);  
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -5782,7 +5648,10 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JButton jBut_OKnotAllowedUseCheat;
     private javax.swing.JButton jBut_OKnotchanged;
     private javax.swing.JButton jBut_Play;
+    private javax.swing.JButton jBut_cancelExit;
+    private javax.swing.JButton jBut_confirmExit;
     private javax.swing.JButton jBut_startShop;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -5803,9 +5672,18 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -5843,6 +5721,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel label_aErrOmni;
     private javax.swing.JLabel label_aErrPass;
     private javax.swing.JLabel label_aErrRedBull;
+    private javax.swing.JLabel label_aErrSpicker;
     private javax.swing.JLabel label_aErrUCoins;
     private javax.swing.JLabel label_aFirstName;
     private javax.swing.JLabel label_aGame;
@@ -5980,13 +5859,13 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
-    private javax.swing.JLabel label_returnToPlanningPhase;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_semester;
     private javax.swing.JLabel label_shopCreditsName;
     private javax.swing.JLabel label_shopMessage;
     private javax.swing.JLabel label_shopMessage1;
     private javax.swing.JLabel label_shopMessage2;
+    private javax.swing.JLabel label_shopMessage3;
     private javax.swing.JLabel label_shopName;
     private javax.swing.JLabel label_shopPointsName;
     private javax.swing.JLabel label_shopRemainingSemesters;
@@ -6004,8 +5883,13 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel label_swapperUcoinsAmount;
     private javax.swing.JLabel label_timer;
     private javax.swing.JLabel label_ucoinsInv;
+    private javax.swing.JLabel label_warning1;
+    private javax.swing.JLabel label_warning2;
+    private javax.swing.JLabel label_warning3;
+    private javax.swing.JLabel label_warning5;
     private javax.swing.JLabel label_windowsclosed;
     private javax.swing.JLabel lable_aProfil;
+    private javax.swing.JLabel llabel_warning4;
     private javax.swing.JLabel loggedinas;
     private javax.swing.JLabel login_background;
     private javax.swing.JDialog noCheatsAvailableDialog;
@@ -6031,6 +5915,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JPanel panel_shopHeadline;
     private javax.swing.JPanel panel_shopInventory;
     private javax.swing.JPanel panel_shopItems;
+    private javax.swing.JPanel panel_stats;
     private javax.swing.JPanel panel_timerarea;
     private javax.swing.JPasswordField password_Pass;
     private javax.swing.JPasswordField password_pPass1;
@@ -6043,7 +5928,6 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JPanel shop;
     private javax.swing.JSlider slider_aMonth;
     private javax.swing.JLabel text_air;
-    private javax.swing.JLabel text_backtomenue;
     private javax.swing.JLabel text_backtomenue1;
     private javax.swing.JLabel text_backtomenue2;
     private javax.swing.JLabel text_inventar;
@@ -6082,6 +5966,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JToggleButton toggleButton_teamwork;
     private javax.swing.JLabel ucoinsShop;
     private javax.swing.JDialog warningDialog;
+    private javax.swing.JDialog warningExitPlanningPhase;
     // End of variables declaration//GEN-END:variables
 
     //***********************************************************************  /by Dawid
@@ -6404,6 +6289,10 @@ if(_maingame.studentArray[2].laptopClosed== false)
 //        }
         panel_Login.setVisible(false);
         panel_menue.setVisible(true);
+        if (!new File(_dataFolderName + "/" + _mainuser.getAccountname() + "/" + _gameFileName).exists()) {
+            noSave_overlay.setVisible(true);
+        }
+        System.out.println(noSave_overlay.isVisible());
         System.out.println(_mainuser);
     }
 
@@ -6464,9 +6353,9 @@ if(_maingame.studentArray[2].laptopClosed== false)
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
-        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
-        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni};
-//        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
+        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI, textfield_aSpicker};
+        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni, label_aErrSpicker};
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin);
 
