@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Jannik
+ * @author Jannik, Julia, Dawid, Jörg
  */
 public class Game1 {
 
     public static final int _startCredits = 100;
     
     public int credits;
-    public int overallCredits;
+    public int overallCredits; //Credits for the stats
     public int points;
     public int round;
     public double averageKnowledge;
@@ -55,7 +55,10 @@ public class Game1 {
     public Item cheatSheet;
     public Item omniSenseAudio;
 
-
+    /**
+     * Get the current Semester by calculating the round
+     * @return the calculated Semster
+     */
     public int getSemester() {
         return ((round -1 ) / 3 + 1);
     }
@@ -175,9 +178,8 @@ public class Game1 {
      }
      
      /**
-      * @param value    The value of the airQuality
-      * 
       * Setter used to avoid values x<0 or x>100
+      * @param value    The value of the airQuality
       */
      
      public void setAirQuality(double value) {
@@ -194,9 +196,8 @@ public class Game1 {
     }
      
       /**
-      * @param value    The value of the noise
-      * 
       * Setter used to avoid values x<0 or x>100
+      * @param value    The value of the noise
       */
     public void setNoise(double value) {
         if (!windowClosed){
@@ -211,21 +212,20 @@ public class Game1 {
         }
     }
      /**
+      * This function updates the attributes of the room.
       * @param factor1  describes how much value AirQuality changes. Regularly a negative value.
       * @param factor2  describes how much value Noise changes. Regularly a positive value.
-      * 
-      * This function updates the attributes of the room.
       */
      public void updateRoom(double factor1, double factor2){
          setAirQuality(this.airQuality + factor1);
          setNoise(this.noise + factor2);
      }
+    
      /**
      * Receives data (Item Objects) from Item.java and
-     * stores them in the fitting Item Objects in this class.
+     * stores them in the fitting Item objects in this class,
      * That's how each item can be called by name.
      */
-    
     public final void putItem(String name, int amount, int available) {
 
         if (name.equals(Item._duploName)) {

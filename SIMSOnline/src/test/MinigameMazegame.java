@@ -1765,6 +1765,11 @@ public class MinigameMazegame extends javax.swing.JPanel {
         label_spawn4.setBounds(860, 20, 80, 60);
     }
     
+    /**
+     * Notices the key events left, up, right, down if the key remains pressed. 
+     * If one of this occures the car is moved. 
+     * @param evt the key event
+     */
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
         if(timerflag == 0){
             startTime = System.currentTimeMillis();
@@ -1798,11 +1803,19 @@ public class MinigameMazegame extends javax.swing.JPanel {
                     }    
         }
     }                               
-
+    
+    /**
+     * Notices if a key was released and calls the function for moving the car
+     * @param evt the key release event
+     */
     private void formKeyReleased(java.awt.event.KeyEvent evt) {                                 
         formKeyPressed(evt);
     }                                
-
+    
+    /**
+     * Notices if a key was typed and calls the function for moving the car
+     * @param evt the key type event
+     */
     private void formKeyTyped(java.awt.event.KeyEvent evt) {                              
         formKeyPressed(evt);
     }                             

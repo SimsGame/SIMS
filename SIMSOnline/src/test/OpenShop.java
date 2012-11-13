@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Stazzer
+ * @author Jannik
  */
 public class OpenShop{
     
@@ -19,8 +19,7 @@ public class OpenShop{
     /**
      * Sets UCoins, Credits and points of the player.
      * At the same moment only in the shop.
-     */
-    
+     */   
     public void changeLabels(JLabel credits, JLabel points, JLabel ucoins){
         credits.setText(""+Sims_1._maingame.credits);
         points.setText(""+Sims_1._maingame.points);
