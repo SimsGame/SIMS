@@ -1029,7 +1029,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_statsErrorText1.setBounds(10, 70, 420, 20);
 
         label_statsErrorText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_statsErrorText2.setText("Bitte klick auf \"Neues Spiel\" oder \"Spiel Laden\" und versuchen sie es erneut.");
+        label_statsErrorText2.setText("Bitte klick auf \"Neues Spiel\" oder \"Spiel Laden\" und versuch es erneut.");
         dialog_statsError.getContentPane().add(label_statsErrorText2);
         label_statsErrorText2.setBounds(10, 100, 420, 14);
 

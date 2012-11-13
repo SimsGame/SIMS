@@ -799,7 +799,7 @@
         <Component class="javax.swing.JLabel" name="label_statsErrorText2">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Bitte klick auf &quot;Neues Spiel&quot; oder &quot;Spiel Laden&quot; und versuchen sie es erneut."/>
+            <Property name="text" type="java.lang.String" value="Bitte klick auf &quot;Neues Spiel&quot; oder &quot;Spiel Laden&quot; und versuch es erneut."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
