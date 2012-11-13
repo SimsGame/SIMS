@@ -24,6 +24,7 @@ public class StudIcons {
             Sims_1.laptopLabels[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             } else {
                 studButtons[i].setIcon(new ImageIcon());
+                Sims_1.laptopLabels[i].setIcon(new ImageIcon());
             }
         }
     }
