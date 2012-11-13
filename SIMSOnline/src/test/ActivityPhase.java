@@ -35,6 +35,7 @@ public class ActivityPhase {
     private javax.swing.JButton professorButton; //added by Julia
     private Game1 game;
     
+    
     public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
@@ -54,12 +55,14 @@ public class ActivityPhase {
         this.professorButton  = jBut_Dozent; //added by Julia
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added byJulia
         activityPhaseMain();
+     
     }
     
     private void activityPhaseMain(){
         game.calculateRowIntelligence();
         timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this));
-        timer.start();  
+        timer.start(); 
+        
     }
     
     public void StudentClicked(int studNum) {
@@ -97,18 +100,23 @@ public class ActivityPhase {
             }
         }
         displayStudentBars();
+        
     }
     
     public void displayStudentBars(){
         
+
+        
+        
+        
         MotivationBar.setValue((int)game.studentArray[this.studentDisplayed].getMotivation());
         TirednessBar.setValue((int)game.studentArray[this.studentDisplayed].getTiredness());
-        KnowledgeBar.setValue((int)((game.studentArray[this.studentDisplayed].getKnowledge()))); // 250 is the facot we set so we see growth faster, change later by Nadir
+        KnowledgeBar.setValue((int)((game.studentArray[this.studentDisplayed].getKnowledge()))); 
         KnowledgeBar.repaint();
         MotivationBar.repaint();
         TirednessBar.repaint();
         this.doNotPaintFlag = true;
-        game.barClicked(studButtons);
+        game.barClicked(studButtons);     
     }
 
 }

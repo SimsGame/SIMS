@@ -24,11 +24,11 @@ public class Student {
     private String studIconPath;    // added by Tobias
     private boolean cheatAvailable; //added by Julia   
     public final String[] iconPath = {  // added by Tobias
-            "/pictures/studentface1transparent.png",
-            "/pictures/studentface2transparent.png",
-            "/pictures/studentface3transparent.png",
-            "/pictures/studentface4transparent.png",
-            "/pictures/studentface5transparent.png"};
+            "/pictures/studentface1_60x60.png",
+            "/pictures/studentface2_60x60.png",
+            "/pictures/studentface3_60x60.png",
+            "/pictures/studentface4_60x60.png",
+            "/pictures/studentface5_60x60.png"};
     public int iconNum;
     
     /**

@@ -18,14 +18,15 @@ import javax.swing.JTextField;
  */
 public class User {
 
-    private String accountname = "";
-    private String password = "";
-    private String email = "";
-    private String first_name = "";
-    private String last_name = "";
-    private Date reg_date = new Date();
-    private Date last_login = new Date();
-    private int ucoins;
+    private String accountname;// = "";
+    private String password;// = "";
+    private String email;// = "";
+    private String first_name;// = "";
+    private String last_name;// = "";
+    private Date reg_date;// = new Date();
+    private Date last_login;// = new Date();
+    private int time_played;// = 0;
+    private int ucoins;//;
 
     public void setAccountname(String accountname) {
         this.accountname = accountname;
@@ -90,7 +91,6 @@ public class User {
     public int getUcoins() {
         return ucoins;
     }
-    private int time_played = 0;
 
     @Override
     public String toString() {
@@ -107,7 +107,7 @@ public class User {
         return output;
     }
 
-    public User() {
+    @Deprecated public User() {
         accountname = "blubb";
         password = "blubb";
         email = "blubb@blubb.com";
@@ -161,13 +161,7 @@ public class User {
 
         try {
             CSVHandling.writeCSV(userlist, Sims_1._usersFileName);
-            File fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
-            fileToDelete.delete();
-            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
-            fileToDelete.delete();
-            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
-            fileToDelete.delete();
-            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname);
+            File fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
             fileToDelete.delete();
 
             return true;
@@ -177,8 +171,23 @@ public class User {
 
         return false;
     }
-    
-    public static boolean saveUser(){
+
+    public static boolean deleteAllUserFiles(String accountname) {
+
+        try {
+            File fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
+            fileToDelete.delete();
+            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
+            fileToDelete.delete();
+            fileToDelete = new File(Sims_1._dataFolderName + "/" + accountname);
+            fileToDelete.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public static boolean saveUser() {
         return createUser(Sims_1._mainuser);
     }
 
@@ -214,8 +223,8 @@ public class User {
         try {
             //create the userfolder (automatically through through writeCSV()) and create the needed userfiles
             CSVHandling.writeCSV(str, Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._profileFileName);
-            CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
-            CSVHandling.writeFile("0", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
+            //CSVHandling.writeFile("", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._inventoryFileName);
+            //CSVHandling.writeFile("0", Sims_1._dataFolderName + "/" + accountname + "/" + Sims_1._gameFileName);
             JTextField[] toCheck = {new JTextField(accountname), new JTextField(email)};
             JLabel[] placebo = {new JLabel(), new JLabel()};
             if (!Sims_1.checkGlobUser(toCheck, placebo)) {

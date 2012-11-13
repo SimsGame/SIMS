@@ -55,6 +55,7 @@ public class Timer extends Thread {
 
     @Override
     public void run() {
+        label_timer.setForeground(Color.black);
         while (timer > 0 && activityPhase.runTimer) {
             if(timer==30){
                 label_timer.setForeground(Color.red);

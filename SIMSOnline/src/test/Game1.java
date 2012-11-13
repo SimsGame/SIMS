@@ -127,12 +127,10 @@ public class Game1 {
         rowIntelligence = new double[6];
         int rowStart=0;
         int rowEnd=5;
-        int helper=0;
         double row=0;
         for (int i=0; i<6; i++){
             for (int j=rowStart; j<rowEnd;j++){
                 row = row+studentArray[j].getIntelligence();
-                helper++;
             }
             row=row/5;
             rowIntelligence[i]=row;
@@ -285,27 +283,35 @@ public class Game1 {
     public void barClicked(javax.swing.JButton[] studButtons){        
         if(this.barNum==0){
             for(int i=0; i<30; i++){
+                if(this.studentArray[i].present){
             Color color = new Color(220, 220, 220);
             studButtons[i].setBackground(color);
             studButtons[i].setOpaque(true);
+                }
             }
         }else if(this.barNum==1){
             for(int i=0; i<30; i++){
-            Color color = new Color((int)(this.studentArray[i].getKnowledge()*2.55), 0, 0);
+                                if(this.studentArray[i].present){
+            Color color = new Color(255-(int)(this.studentArray[i].getKnowledge()*2.55), (int)(this.studentArray[i].getKnowledge()*2.55), 0);
             studButtons[i].setBackground(color);
             studButtons[i].setOpaque(true);
+                                }
             }
         } else if(this.barNum==2){
             for(int i=0; i<30; i++){
-            Color color = new Color(0, (int)(this.studentArray[i].getMotivation()*2.55), 0);
+                                if(this.studentArray[i].present){
+            Color color = new Color(255-(int)(this.studentArray[i].getMotivation()*2.55), (int)(this.studentArray[i].getMotivation()*2.55), 0);
             studButtons[i].setBackground(color);
             studButtons[i].setOpaque(true);
+                                }
             }
         } else if(this.barNum==3){
             for(int i=0; i<30; i++){
-            Color color = new Color(0, 0, (int)(this.studentArray[i].getTiredness()*2.55));
+                                if(this.studentArray[i].present){
+            Color color = new Color((int)(this.studentArray[i].getTiredness()*2.55), 255-(int)(this.studentArray[i].getTiredness()*2.55), 0);
             studButtons[i].setBackground(color);
             studButtons[i].setOpaque(true);
+                                }
             }
         }
     }

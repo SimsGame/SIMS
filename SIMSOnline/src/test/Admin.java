@@ -23,12 +23,11 @@ public class Admin {
     JPanel adminpanel;
     JPanel userpanel;
     JTextField[] userdata;
-    JCheckBox spicker;
     JSlider months;
     User currentuser;
     JLabel[] errMess;
 
-    public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JCheckBox spicker, JSlider months, JLabel[] errMess) {
+    public Admin(JPanel adminpanel, JPanel userpanel, JTextField[] userdata, JSlider months, JLabel[] errMess) {
 
         this.errMess = errMess;
         for (int i = 0; i < this.errMess.length; i++) {
@@ -39,7 +38,6 @@ public class Admin {
         this.userpanel = userpanel;
         this.months = months;
         this.userdata = userdata;
-        this.spicker = spicker;
         String[][] userList = null;
         try {
             userList = CSVHandling.readCSVStringArr2(Sims_1._usersFileName);
@@ -84,11 +82,7 @@ public class Admin {
         userdata[7].setText(Integer.toString(Sims_1._maingame.duplo.amount));
         userdata[8].setText(Integer.toString(Sims_1._maingame.redBull.amount));
         userdata[9].setText(Integer.toString(Sims_1._maingame.omniSenseAudio.amount));
-        if (Sims_1._maingame.cheatSheet.amount > 0) {
-            spicker.setSelected(true);     //aus Spielstand
-        } else {
-            spicker.setSelected(false);
-        }
+        userdata[10].setText((Integer.toString(Sims_1._maingame.cheatSheet.amount)));
         months.setValue(Sims_1._maingame.round);             //aus Spielstand
 
         adminpanel.setVisible(false);
@@ -100,7 +94,7 @@ public class Admin {
         JLabel[] errMessLoc = {errMess[0], errMess[1], errMess[1], errMess[2], errMess[2], errMess[3], errMess[4]};
         boolean checked = true;
         int check = -1;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             check = -1;
             try {
                 check = new Integer(userdata[6 + i].getText());
@@ -108,7 +102,7 @@ public class Admin {
                 e.printStackTrace();
             }
             if (check < 0) {
-                errMess[5 + i].setText("Ungültige eingabe");
+                errMess[6 + i].setText("Ungültige eingabe");
                 checked = false;
             }
 
@@ -160,10 +154,11 @@ public class Admin {
 
     public void delSpecUser() {
         User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
+        User.deleteAllUserFiles(currentuser.getAccountname());
     }
 
     public void saveChages() {
-        delSpecUser();
+        User.deleteUser(currentuser.getAccountname(), currentuser.getEmail());
 
         currentuser.setAccountname(userdata[0].getText());
         currentuser.setPassword(userdata[1].getText());
@@ -181,6 +176,8 @@ public class Admin {
 
         User.createUser(currentuser);
         Game1.saveGame();
+        
+        JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
     }
 
     private class AdminActionListener implements ActionListener {
