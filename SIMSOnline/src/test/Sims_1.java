@@ -7,6 +7,7 @@ package test;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -145,6 +146,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage = new javax.swing.JLabel();
         label_shopMessage1 = new javax.swing.JLabel();
         label_shopMessage2 = new javax.swing.JLabel();
+        label_shopMessage3 = new javax.swing.JLabel();
         button_shopMessageOk = new javax.swing.JButton();
         warningDialog = new javax.swing.JDialog();
         jBut_JA = new javax.swing.JButton();
@@ -516,6 +518,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrDuplo = new javax.swing.JLabel();
         label_aErrRedBull = new javax.swing.JLabel();
         label_aErrOmni = new javax.swing.JLabel();
+        label_aErrSpicker = new javax.swing.JLabel();
         textfield_aSpicker = new javax.swing.JTextField();
         background_adminUser = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
@@ -610,9 +613,13 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopMessage1.setBounds(10, 110, 380, 70);
 
         label_shopMessage2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins!");
+        label_shopMessage2.setText("Du hast leider nicht mehr genug Credits/UCoins");
         dialog_error.getContentPane().add(label_shopMessage2);
         label_shopMessage2.setBounds(10, 80, 380, 70);
+
+        label_shopMessage3.setText("oder das Item ist gesperrt!");
+        dialog_error.getContentPane().add(label_shopMessage3);
+        label_shopMessage3.setBounds(100, 146, 240, 40);
 
         button_shopMessageOk.setText("OK");
         button_shopMessageOk.addActionListener(new java.awt.event.ActionListener() {
@@ -3537,6 +3544,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrOmni.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrOmni.setText("Fehler?");
         panel_adminUser.add(label_aErrOmni, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
+
+        label_aErrSpicker.setForeground(new java.awt.Color(255, 0, 0));
+        label_aErrSpicker.setText("Fehler?");
+        panel_adminUser.add(label_aErrSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
         panel_adminUser.add(textfield_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 150, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
@@ -3590,6 +3601,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
+        Game1.saveGame();
         planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
@@ -3627,11 +3639,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
         // Loads and existing game which always starts with a planning phase.
-        Game1.loadGame();
-       
-        System.out.println("Current round " +Sims_1._maingame.round +" Current Semester " +Sims_1._maingame.getSemester());
-        
-        
+        if (!noSave_overlay.isVisible()) {
+            Game1.loadGame();
+            switchPhase();
+            System.out.println("Current round " + Sims_1._maingame.round + " Current Semester " + Sims_1._maingame.getSemester());
+        }
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
@@ -3719,6 +3731,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
         // Returns from the shop back to the planning phase
+        User.saveUser();
+        Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
         //planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
@@ -4611,11 +4625,30 @@ public class Sims_1 extends javax.swing.JFrame {
         JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
         JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
         JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        JLabel inputLabel = new JLabel("Bitte aktuelles Passwort eingeben!");
         JPasswordField inputPw = new JPasswordField();
-        Object[] ob = {inputPw};
+        Object[] ob = {inputLabel, inputPw};
+        Boolean okPressed = false;
+        Boolean changePass = false;
 
         if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
-            if (JOptionPane.showConfirmDialog(null, ob, "Bitte aktuelles Passwort eingeben!", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION & inputPw.getPassword().equals(_mainuser.getPassword().toCharArray())) {
+            if (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION) {
+                if (new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                    changePass = true;
+                } else {
+                    inputLabel.setText("Falsches Passwort! Bitte aktuelles Passwort eingeben!");
+                    inputPw.setText("");
+                    while ((okPressed = (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION)) & !new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                        inputPw.setText("");
+                    }
+                    System.out.println(okPressed);
+                    if (okPressed & new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                        changePass = true;
+                    }
+                }
+            }
+            System.out.println(changePass);
+            if (changePass) {
                 if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
                     User.deleteUser(_mainuser);
                 }
@@ -4623,6 +4656,7 @@ public class Sims_1 extends javax.swing.JFrame {
                 _mainuser = new User(textfield_pKontoname.getText());
             }
             panel_Profile.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
         }
     }//GEN-LAST:event_button_pSaveActionPerformed
 
@@ -5362,6 +5396,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_aErrOmni;
     private javax.swing.JLabel label_aErrPass;
     private javax.swing.JLabel label_aErrRedBull;
+    private javax.swing.JLabel label_aErrSpicker;
     private javax.swing.JLabel label_aErrUCoins;
     private javax.swing.JLabel label_aFirstName;
     private javax.swing.JLabel label_aGame;
@@ -5476,6 +5511,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_shopMessage;
     private javax.swing.JLabel label_shopMessage1;
     private javax.swing.JLabel label_shopMessage2;
+    private javax.swing.JLabel label_shopMessage3;
     private javax.swing.JLabel label_shopName;
     private javax.swing.JLabel label_shopPointsName;
     private javax.swing.JLabel label_shopRemainingSemesters;
@@ -5893,6 +5929,10 @@ public class Sims_1 extends javax.swing.JFrame {
 //        }
         panel_Login.setVisible(false);
         panel_menue.setVisible(true);
+        if (!new File(_dataFolderName + "/" + _mainuser.getAccountname() + "/" + _gameFileName).exists()) {
+            noSave_overlay.setVisible(true);
+        }
+        System.out.println(noSave_overlay.isVisible());
         System.out.println(_mainuser);
     }
 
@@ -5953,9 +5993,9 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
-        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
-        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni};
-//        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
+        JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI, textfield_aSpicker};
+        JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni, label_aErrSpicker};
+        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, slider_aMonth, errMess);
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin);
 
