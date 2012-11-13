@@ -172,6 +172,7 @@ public class Timer extends Thread {
             }
         }
         game.round += 1;
+        Game1.updateTimePlayed();   //added by Dawid
         Game1.saveGame();
         activityPhase.sims.switchPhase();
     }
@@ -192,6 +193,7 @@ public class Timer extends Thread {
     }
 
     private void initTimer() {
+        Sims_1._maingame.startAct = new java.util.Date();
         label_timer.setText("3:00");
         this.timer = 180;
 

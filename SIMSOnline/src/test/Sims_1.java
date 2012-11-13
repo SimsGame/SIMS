@@ -3991,7 +3991,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
-        Game1.saveGame();
+        //Game1.saveGame();
         if(_maingame.getSemester() == 7){
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
             cl.show(panel_gamePhases, "card8");
