@@ -809,7 +809,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -917,7 +917,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1029,7 +1029,7 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1056,7 +1056,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1068,7 +1068,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor1">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1080,7 +1080,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor2">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1092,7 +1092,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor3">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1104,7 +1104,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor4">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1116,7 +1116,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor5">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1128,7 +1128,7 @@
             <Component class="javax.swing.JLabel" name="label_handcursor6">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1157,7 +1157,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Overlay_hauptmen&#xfc;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1170,7 +1170,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Beenden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1186,7 +1186,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Neues Spiel"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1202,7 +1202,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spiel Laden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1218,7 +1218,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Credits"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1235,7 +1235,7 @@
                 <Property name="text" type="java.lang.String" value="Profil"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1251,7 +1251,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abmelden"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1267,7 +1267,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Statistik"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1332,7 +1332,7 @@
                           <Image iconType="3" name="/pictures/coollogo150x110_transparent.png"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Standardcursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2217,7 +2217,7 @@
                           <Image iconType="3" name="/pictures/coollogo150x110_transparent.png"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Standardcursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -3129,7 +3129,7 @@
                           <Image iconType="3" name="/pictures/coollogo150x110_transparent.png"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Standardcursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -4079,7 +4079,7 @@
                       <Image iconType="3" name="/pictures/simsGameOver.png"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -4093,7 +4093,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jButton1"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -4230,7 +4230,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registrieren"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -4359,7 +4359,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abbrechen"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Standardcursor"/>
                     </Property>
                   </Properties>
                   <AccessibilityProperties>
@@ -4522,7 +4522,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4538,7 +4538,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrieren"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4723,7 +4723,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xdc;bernehmen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -4791,7 +4791,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abbrechen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -5011,7 +5011,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Profil l&#xf6;schen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -5177,7 +5177,7 @@
         <Container class="javax.swing.JPanel" name="panel_Admin">
           <Properties>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Standardcursor"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 700]"/>
@@ -5223,7 +5223,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel4"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
               </Properties>
             </Component>
@@ -5231,7 +5231,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abbrechen"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[300, 50]"/>

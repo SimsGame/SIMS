@@ -32,6 +32,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static final String _loginFileName = "login.txt";
     public static final String _adminName = "administr4t0r";
     public static final String _adminPass = "p4ssw0rd";
+    
     //***************************************************************
     //***************Section of constants: end***********************
     //***************************************************************
