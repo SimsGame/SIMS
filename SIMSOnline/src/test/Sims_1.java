@@ -6011,19 +6011,30 @@ public class Sims_1 extends javax.swing.JFrame {
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_cancelExitMouseClicked
 
+    /**
+     * Returns from the shop back to the planning phase and saves the user data to his profile
+     * @param evt 
+     */
     private void button_shopReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopReturnActionPerformed
-        // Returns from the shop back to the planning phase
         User.saveUser();
         Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
-        //planningPhase.startPlanningPhase();
         panel_menue.setVisible(false);  
     }//GEN-LAST:event_button_shopReturnActionPerformed
 
+    /**
+     * Shows an error if ther are no stats available yet.
+     * Player has to play or load the game first
+     * @param evt 
+     */
     private void button_statsErrorOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statsErrorOKActionPerformed
         dialog_statsError.setVisible(false);
     }//GEN-LAST:event_button_statsErrorOKActionPerformed
 
+    /**
+     * Saves the last login from the user
+     * @param evt 
+     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         User.saveLastLogin();
     }//GEN-LAST:event_formWindowClosed
@@ -6830,13 +6841,6 @@ public class Sims_1 extends javax.swing.JFrame {
             e.printStackTrace();
         }
         _mainuser = new User(accountname);
-        //_maingame = new Game1();
-//        CSVRead read = new CSVRead();
-//        try {
-//            read.readCSV();
-//        } catch (Exception ex) {
-//            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         panel_Login.setVisible(false);
         panel_menue.setVisible(true);
         if (!new File(_dataFolderName + "/" + _mainuser.getAccountname() + "/" + _gameFileName).exists()) {
@@ -7086,6 +7090,10 @@ public void startPlanningPhase(){
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
 }
 
+/**
+ * This function handels the order of the game phases.
+ * It loads a minigame after each semester and images of the player looses
+ */
 public void switchPhase(){
     //Checks the Students that are still present
     int present = 0;
@@ -7116,9 +7124,6 @@ public void switchPhase(){
     }
     // Calls the page after the last Semester if there are still students available
     else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
-     //   panel_gamePhases.setVisible(false);
-       // panel_menue.setVisible(true);
-     //unnecesary   label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
         label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
         label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png"))); 
         cl.show(panel_gamePhases, "card8");
