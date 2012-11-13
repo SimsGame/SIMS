@@ -87,7 +87,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 1000) {
+            while ((System.currentTimeMillis() - millis) < 10) {
                 //do nothing
             }
             timer--;
@@ -214,8 +214,9 @@ public class Timer extends Thread {
   private void checkLaptops(){
       for(int i=0;i<30;i++)
       {
-          if(game.studentArray[i].laptopClosed== false){
+          if((game.studentArray[i].laptopClosed== false) && (game.studentArray[i].present==true)){
            studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
+           studLaptops[i].setOpaque(false);
           } 
       }   
   }
