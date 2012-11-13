@@ -1055,6 +1055,9 @@ public class Sims_1 extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
         });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
@@ -3991,7 +3994,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
-        Game1.saveGame();
+        //Game1.saveGame(); //removed due possible abuse by Dawid
         if (_maingame.getSemester() == 7) {
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
             cl.show(panel_gamePhases, "card8");
@@ -6034,8 +6037,14 @@ public class Sims_1 extends javax.swing.JFrame {
      * @param evt
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        User.saveLastLogin();
+        
     }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if(_mainuser != null){
+            User.saveLastLogin();
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -6874,6 +6883,7 @@ public class Sims_1 extends javax.swing.JFrame {
      * Logs the current user out
      */
     private void logOut() {
+        User.saveLastLogin();
         _mainuser = null;
         _maingame = null;
         panel_Profile.setVisible(false);
@@ -7165,6 +7175,7 @@ public class Sims_1 extends javax.swing.JFrame {
             cl.show(panel_gamePhases, "card8");
         } // Calls the gameOver screen if there are no students any more
         else {
+            _maingame.gameover = true;
             label_gameOverSemester.setText("Erreichtes Semester:   " + String.valueOf(_maingame.getSemester()));
             label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
             switch (_maingame.getSemester()) {

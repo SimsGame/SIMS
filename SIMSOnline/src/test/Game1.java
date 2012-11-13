@@ -21,6 +21,7 @@ public class Game1 {
     public int overallCredits;
     public int points;
     public int round;
+    public boolean gameover = false;
     public Date startTimePlayed;
     public Long timePlayed;
     public double averageKnowledge;
@@ -40,8 +41,8 @@ public class Game1 {
     public double airQuality;
     public double noise;
     public int quietingCounter = 0;
-    public int lecturer_counter = 3;
-    public int remainingStudents = 30;
+    public int lecturer_counter;
+    public int remainingStudents;
     public int failedStudents = 0;
     public boolean teamwork = false;
     public boolean shortBreak = false;
@@ -117,6 +118,9 @@ public class Game1 {
         int i = 0;
         while (!students.isEmpty()) {
             studentArray[i] = new Student(students.pop());
+            if (studentArray[i].present) {
+                this.remainingStudents++;
+            }
             i++;
         }
     }
@@ -276,6 +280,7 @@ public class Game1 {
 
     /**
      * Loads the game, creates _maingame in Sims_1
+     *
      * @param savegame list with the content of the save file
      * @param inventory list with the content of the inventory
      */
@@ -283,12 +288,14 @@ public class Game1 {
         LinkedList<String> help;
 //        savegame.pop();
         help = savegame.pop();
+        this.remainingStudents = 0;
         this.credits = new Integer(help.pop());
         this.points = new Integer(help.pop());
         this.round = new Integer(help.pop());
         this.professor = new Integer(help.pop());
         this.professorIconNum = new Integer(help.pop());
         this.professorIcon = professorIconPath[this.professorIconNum];
+        this.lecturer_counter = new Integer(help.pop());
 //        this.timePlayed = new Long(help.pop());
         help = savegame.pop();
         for (int i = 0; i < 5; i++) {
@@ -322,7 +329,7 @@ public class Game1 {
         if (this.barNum == 0) {
             for (int i = 0; i < 30; i++) {
                 if (this.studentArray[i].present) {
-                    Color color = new Color(220, 220, 220);
+                    Color color = new Color(220, 220, 0);
                     studButtons[i].setBackground(color);
                     studButtons[i].setOpaque(true);
                 }
@@ -367,8 +374,8 @@ public class Game1 {
                     if (knowledge > 255) {
                         knowledge = 255;
                     }
-                    Color color = new Color(255-knowledge, knowledge, 0);
-                    studButtons[i].setBackground(color);
+                    //Color color = new Color(255-knowledge, knowledge, 0);
+                    //studButtons[i].setBackground(color);
                     studButtons[i].setOpaque(true);
                 }
             }
@@ -407,7 +414,7 @@ public class Game1 {
         sublist.add("1");   //round
         sublist.add(Integer.toString((int) Math.round(Math.random() * 100 + 1)));   //professor
         sublist.add("0");   //professorIconNumber
-//        sublist.add("0");   //timePlayed
+        sublist.add("3");   //lecturer_counter
         mainlist.add(new LinkedList(sublist));
         sublist = new LinkedList();
         for (int i = 0; i < 5; i++) {
@@ -459,56 +466,57 @@ public class Game1 {
      * saves the current game, same scheme as initNewSavefile()
      */
     public static void saveGame() {
-        LinkedList<LinkedList> mainlist = new LinkedList();
-        LinkedList<String> sublist = new LinkedList();
+        if (!Sims_1._maingame.gameover) {
+            LinkedList<LinkedList> mainlist = new LinkedList();
+            LinkedList<String> sublist = new LinkedList();
 //        sublist.add("1");
 //        mainlist.add(new LinkedList(sublist));
 //        sublist = new LinkedList();
-        sublist.add(Integer.toString(Sims_1._maingame.credits));
-        sublist.add(Integer.toString(Sims_1._maingame.points));
-        sublist.add(Integer.toString(Sims_1._maingame.round));
-        sublist.add(Integer.toString(Sims_1._maingame.professor));
-        sublist.add(Integer.toString(Sims_1._maingame.professorIconNum));
+            sublist.add(Integer.toString(Sims_1._maingame.credits));
+            sublist.add(Integer.toString(Sims_1._maingame.points));
+            sublist.add(Integer.toString(Sims_1._maingame.round));
+            sublist.add(Integer.toString(Sims_1._maingame.professor));
+            sublist.add(Integer.toString(Sims_1._maingame.professorIconNum));
+            sublist.add(Integer.toString(Sims_1._maingame.lecturer_counter));
 //        sublist.add(Long.toString(Sims_1._maingame.timePlayed));
-        mainlist.add(new LinkedList(sublist));
-        sublist = new LinkedList();
-        for (int i = 0; i < 5; i++) {
-            if (Sims_1._maingame.cheated[i] == false) {
-                sublist.add("0");
-            } else {
-                sublist.add("1");
-            }
-        }
-        mainlist.add(new LinkedList(sublist));
-        for (int i = 0; i < 30; i++) {
+            mainlist.add(new LinkedList(sublist));
             sublist = new LinkedList();
-            sublist.add(Double.toString(Sims_1._maingame.getArray()[i].getKnowledge()));
-            sublist.add(Double.toString(Sims_1._maingame.getArray()[i].getIntelligence()));
-            sublist.add(Integer.toString(Sims_1._maingame.getArray()[i].iconNum));
-            if (Sims_1._maingame.getArray()[i].getCheatAvailable() == false) {
-                sublist.add("0");
-            } else {
-                sublist.add("1");
-            }
-            if (Sims_1._maingame.getArray()[i].present == false) {
-                sublist.add("0");
-            } else {
-                sublist.add("1");
+            for (int i = 0; i < 5; i++) {
+                if (Sims_1._maingame.cheated[i] == false) {
+                    sublist.add("0");
+                } else {
+                    sublist.add("1");
+                }
             }
             mainlist.add(new LinkedList(sublist));
-        }
-        String inventory = "";
-        inventory += Sims_1._maingame.duplo.amount + "," + Sims_1._maingame.duplo.available + "\n";
-        inventory += Sims_1._maingame.redBull.amount + "," + Sims_1._maingame.redBull.available + "\n";
-        inventory += Sims_1._maingame.cheatSheet.amount + "," + Sims_1._maingame.cheatSheet.available + "\n";
-        inventory += Sims_1._maingame.omniSenseAudio.amount + "," + Sims_1._maingame.omniSenseAudio.available + "\n";
-        try {
-            CSVHandling.writeCSV(mainlist, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._gameFileName);
-            CSVHandling.writeFile(inventory, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._inventoryFileName);
-        } catch (Exception e) {
-            e.printStackTrace();
+            for (int i = 0; i < 30; i++) {
+                sublist = new LinkedList();
+                sublist.add(Double.toString(Sims_1._maingame.getArray()[i].getKnowledge()));
+                sublist.add(Double.toString(Sims_1._maingame.getArray()[i].getIntelligence()));
+                sublist.add(Integer.toString(Sims_1._maingame.getArray()[i].iconNum));
+                if (Sims_1._maingame.getArray()[i].getCheatAvailable() == false) {
+                    sublist.add("0");
+                } else {
+                    sublist.add("1");
+                }
+                if (Sims_1._maingame.getArray()[i].present == false) {
+                    sublist.add("0");
+                } else {
+                    sublist.add("1");
+                }
+                mainlist.add(new LinkedList(sublist));
+            }
+            String inventory = "";
+            inventory += Sims_1._maingame.duplo.amount + "," + Sims_1._maingame.duplo.available + "\n";
+            inventory += Sims_1._maingame.redBull.amount + "," + Sims_1._maingame.redBull.available + "\n";
+            inventory += Sims_1._maingame.cheatSheet.amount + "," + Sims_1._maingame.cheatSheet.available + "\n";
+            inventory += Sims_1._maingame.omniSenseAudio.amount + "," + Sims_1._maingame.omniSenseAudio.available + "\n";
+            try {
+                CSVHandling.writeCSV(mainlist, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._gameFileName);
+                CSVHandling.writeFile(inventory, Sims_1._dataFolderName + "/" + Sims_1._mainuser.getAccountname() + "/" + Sims_1._inventoryFileName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-
-
 }
