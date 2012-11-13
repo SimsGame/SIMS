@@ -392,6 +392,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_logo_playing = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         text_inventar = new javax.swing.JLabel();
+        text_rounds = new javax.swing.JLabel();
         label_item3Inv = new javax.swing.JLabel();
         text_students = new javax.swing.JLabel();
         label_students = new javax.swing.JLabel();
@@ -409,6 +410,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item2InvName = new javax.swing.JLabel();
         label_item2InvAmount = new javax.swing.JLabel();
         label_item1InvAmount = new javax.swing.JLabel();
+        label_round = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         text_wissen = new javax.swing.JLabel();
         button_window = new javax.swing.JButton();
@@ -2496,6 +2498,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jPanel4.add(text_inventar);
         text_inventar.setBounds(30, 0, 120, 40);
 
+        text_rounds.setText("Runde:");
+        jPanel4.add(text_rounds);
+        text_rounds.setBounds(10, 490, 80, 14);
+
         label_item3Inv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         label_item3Inv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2580,6 +2586,8 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
         label_item1InvAmount.setBounds(30, 110, 80, 14);
+        jPanel4.add(label_round);
+        label_round.setBounds(80, 490, 60, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -6246,6 +6254,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
+    private javax.swing.JLabel label_round;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_semester;
     private javax.swing.JLabel label_shopCreditsName;
@@ -6332,6 +6341,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
     private javax.swing.JLabel text_inventar;
     private javax.swing.JLabel text_motivation;
     private javax.swing.JLabel text_noise;
+    private javax.swing.JLabel text_rounds;
     private javax.swing.JLabel text_score;
     private javax.swing.JLabel text_semester;
     private javax.swing.JLabel text_students;
@@ -6910,7 +6920,7 @@ public void startActivityPhase(){
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels,label_dozent_action); // added by Jörg, Nadir
 }
 
 public void startPlanningPhase(){
@@ -6937,6 +6947,7 @@ public void switchPhase(){
     }
     label_students.setText(String.valueOf(present)+" / 30");
     label_semester.setText(String.valueOf(_maingame.getSemester())+" / 6"); // show curent semester in the activityphase
+    label_round.setText(String.valueOf(_maingame.round));
     if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }

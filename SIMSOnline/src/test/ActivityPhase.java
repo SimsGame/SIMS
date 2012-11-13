@@ -35,9 +35,10 @@ public class ActivityPhase {
     public javax.swing.JLabel[] studLaptops;
     private javax.swing.JButton professorButton; //added by Julia
     private Game1 game;
+    private javax.swing.JLabel label_dozent_action;
     
     
-    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent,javax.swing.JLabel[] studLaptops) {        
+    public ActivityPhase(javax.swing.JLabel label_timer, javax.swing.JProgressBar jKnowledgeBar,javax.swing.JProgressBar jAirBar,javax.swing.JProgressBar jNoiseBar,javax.swing.JProgressBar jMotivationBar,javax.swing.JProgressBar jTirednessBar, javax.swing.JLabel label_redBull, javax.swing.JLabel label_duplo, javax.swing.JLabel label_omniSense, javax.swing.JButton[] studButtons, javax.swing.JLabel score, Sims_1 sims, javax.swing.JButton jBut_Dozent,javax.swing.JLabel[] studLaptops, javax.swing.JLabel jlabel_dozent_action) {        
         this.label_timer = label_timer;
         this.label_redBull = label_redBull;
         this.label_duplo = label_duplo;
@@ -56,13 +57,14 @@ public class ActivityPhase {
         this.studLaptops = studLaptops;
         this.professorButton  = jBut_Dozent; //added by Julia
         this.professorButton.setIcon(new ImageIcon(getClass().getResource(Sims_1._maingame.professorIcon))); //added byJulia
+        this.label_dozent_action =jlabel_dozent_action;
         activityPhaseMain();
      
     }
     
     private void activityPhaseMain(){
         game.calculateRowIntelligence();
-        timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this,studLaptops));
+        timer = new Thread(new Timer(label_timer, game, KnowledgeBar,AirBar,NoiseBar, MotivationBar,TirednessBar, this,studLaptops,label_dozent_action));
         timer.start(); 
         
     }
