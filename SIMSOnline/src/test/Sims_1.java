@@ -16,7 +16,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Jannik, Yulia, Tobias, Nadir, Jörg, Dawid
+ * @author Jannik, Julia, Tobias, Nadir, Jörg, Dawid
  */
 public class Sims_1 extends javax.swing.JFrame {
 
@@ -73,7 +73,7 @@ public class Sims_1 extends javax.swing.JFrame {
         miniGameFinished.add(button_afterGame);
         initComponents();
         setSize(1000, 700);
-        buyCoins.setSize(400, 320);
+        buyCoins.setSize(400, 320); // Jannik
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         buyCoins.setLocationRelativeTo(null);
         dialog_error.setSize(400, 320);
@@ -94,12 +94,11 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
-       // warningExitPlanningPhase.setSize(500, 320);
         warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         warningExitPlanningPhase.setLocationRelativeTo(null);
         dialog_statsError.setLocationRelativeTo(null);
         dialog_examResults.setLocationRelativeTo(null);
-        panel_gamePhases.setVisible(false);                  //changes by Dawid
+        panel_gamePhases.setVisible(false);                  
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
@@ -110,9 +109,9 @@ public class Sims_1 extends javax.swing.JFrame {
         label_easteregg.setVisible(false);
         cl = (CardLayout) (panel_gamePhases.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        setLocationRelativeTo(null); // Fenster zentrieren by Nadir
+        setLocationRelativeTo(null); 
         autoLogin();
-        panel_Admin.setVisible(false); // change by Nadir
+        panel_Admin.setVisible(false); 
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
         this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
@@ -3989,8 +3988,12 @@ public class Sims_1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void goToNextPage() {
-        // Flipes to the planning phase after a minigame.
+    /**
+     * Flipes to the planning phase after a minigame.
+     * Saves the current game.
+     * If the semester is 7 the game is over.
+     */
+    private void goToNextPage() {       
         Game1.saveGame();
         if(_maingame.getSemester() == 7){
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
@@ -4010,10 +4013,13 @@ public class Sims_1 extends javax.swing.JFrame {
             panel_menue.setVisible(false);
         }
     }
-
+    
+    /**
+     * Calls the function which helps switching the students.
+     * @param evt the click on the button
+     */
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch();
-
     }
 
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
