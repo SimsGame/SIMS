@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
  * Objects of this class are activity phases ("Aktionsphasen"). 
  * @author Jörg Woditschka
  * @author Nadir Yuldashev
+ * @author Kira Schomber
  */
 public class ActivityPhase {
     public Thread timer;
@@ -85,7 +86,7 @@ public class ActivityPhase {
     }
     
     /**
-     * This method checks wether an item was selected and uses it on a clicked student
+     * This method checks whether an item was selected and uses it on a clicked student
      * @param studNum the number of the Student clicked
      */
     public void StudentClicked(int studNum) {
@@ -130,7 +131,6 @@ public class ActivityPhase {
      * This method makes the bars at the top of the activity phases view display one students attributes
      */
     public void displayStudentBars(){
-        
         MotivationBar.setValue((int)game.studentArray[this.studentDisplayed].getMotivation());
         TirednessBar.setValue((int)game.studentArray[this.studentDisplayed].getTiredness());
         KnowledgeBar.setValue((int)((game.studentArray[this.studentDisplayed].getKnowledge()))); 

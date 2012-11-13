@@ -60,6 +60,9 @@ public class Timer extends Thread {
  */
     private void updateAvrg() {
         int cnt=0;
+        averageKnowledge=0;
+        averageMotivation=0;
+        averageTiredness=0;
         for (int i = 0; i < 30; i++) {
             if(game.studentArray[i].present){
             averageKnowledge += game.studentArray[i].getKnowledge();
@@ -87,7 +90,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 10) {
+            while ((System.currentTimeMillis() - millis) < 100) {
                 //do nothing
             }
             timer--;
@@ -164,7 +167,12 @@ public class Timer extends Thread {
                 game.barClicked(activityPhase.studButtons);
             }
             if (activityPhase.studentDisplayed != -1) {
-                activityPhase.displayStudentBars();
+                if (game.studentArray[activityPhase.studentDisplayed].present){
+                    activityPhase.displayStudentBars();
+                }
+                else{
+                    paintBars();
+                }
             }
             if(!game.windowChangesNoise){ //makes sure it's impossible to misuse the feature of the decreasing noise value upon closing the window.
                 if(windowCnt==0){
