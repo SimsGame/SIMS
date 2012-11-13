@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Arrays;
 import javax.swing.*;
 import java.util.LinkedList;
@@ -71,20 +72,24 @@ public class Admin {
 
         currentuser = users.get(index);
         Sims_1._mainuser = currentuser;
-        Game1.loadGame();
         userdata[0].setText(currentuser.getAccountname());
         userdata[1].setText(currentuser.getPassword());
         userdata[2].setText(currentuser.getEmail());
         userdata[3].setText(currentuser.getFirst_name());
         userdata[4].setText(currentuser.getLast_name());
         userdata[5].setText(Integer.toString(currentuser.getUcoins()));
+        
+        if (new File(Sims_1._dataFolderName + "/" + currentuser.getAccountname() + "/" + Sims_1._gameFileName).exists()) {
+        Game1.loadGame();
         userdata[6].setText(Integer.toString(Sims_1._maingame.credits));
         userdata[7].setText(Integer.toString(Sims_1._maingame.duplo.amount));
         userdata[8].setText(Integer.toString(Sims_1._maingame.redBull.amount));
         userdata[9].setText(Integer.toString(Sims_1._maingame.omniSenseAudio.amount));
         userdata[10].setText((Integer.toString(Sims_1._maingame.cheatSheet.amount)));
         months.setValue(Sims_1._maingame.round);             //aus Spielstand
-
+        } else {
+            months.setValue(1);
+        }
         adminpanel.setVisible(false);
         userpanel.setVisible(true);
     }
@@ -166,7 +171,7 @@ public class Admin {
         currentuser.setFirst_name(userdata[3].getText());
         currentuser.setLast_name(userdata[4].getText());
         currentuser.setUcoins(new Integer(userdata[5].getText()));
-        
+
         Sims_1._maingame.credits = new Integer(userdata[6].getText());
         Sims_1._maingame.duplo.amount = new Integer(userdata[7].getText());
         Sims_1._maingame.redBull.amount = new Integer(userdata[8].getText());
@@ -176,7 +181,7 @@ public class Admin {
 
         User.createUser(currentuser);
         Game1.saveGame();
-        
+
         JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
     }
 
