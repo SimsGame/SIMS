@@ -274,6 +274,11 @@ public class Game1 {
         return studentArray;
     }
 
+    /**
+     * Loads the game, creates _maingame in Sims_1
+     * @param savegame list with the content of the save file
+     * @param inventory list with the content of the inventory
+     */
     public Game1(LinkedList<LinkedList> savegame, LinkedList<LinkedList> inventory) {
         LinkedList<String> help;
 //        savegame.pop();
@@ -284,7 +289,7 @@ public class Game1 {
         this.professor = new Integer(help.pop());
         this.professorIconNum = new Integer(help.pop());
         this.professorIcon = professorIconPath[this.professorIconNum];
-        this.timePlayed = new Long(help.pop());
+//        this.timePlayed = new Long(help.pop());
         help = savegame.pop();
         for (int i = 0; i < 5; i++) {
             if (help.pop().equals("0")) {
@@ -505,11 +510,5 @@ public class Game1 {
         }
     }
 
-//    public static void setTimeToSave() {
-//        Sims_1._maingame.startTimePlayed = new Date();
-//    }
-//
-//    public static void saveTimePlayed() {
-//        Sims_1._maingame.timePlayed += new Date().getTime() - Sims_1._maingame.startTimePlayed.getTime();
-//    }
+
 }
