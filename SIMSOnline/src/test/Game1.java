@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author Dawid Rusin
  * @author Jannik
  * @author Jörg Woditschka
+ * @author Kira Schomber
  */
 public class Game1 {
 

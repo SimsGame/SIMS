@@ -60,6 +60,9 @@ public class Timer extends Thread {
  */
     private void updateAvrg() {
         int cnt=0;
+        averageKnowledge=0;
+        averageMotivation=0;
+        averageTiredness=0;
         for (int i = 0; i < 30; i++) {
             if(game.studentArray[i].present){
             averageKnowledge += game.studentArray[i].getKnowledge();
@@ -74,7 +77,7 @@ public class Timer extends Thread {
 
         //System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "  Knowledge" + averageKnowledge);
     }
-
+    
     @Override
     /**
      * This method is called when a timer thread is started.
@@ -98,21 +101,19 @@ public class Timer extends Thread {
             timerText += timer % 60;
             label_timer.setText(timerText);
             //You can only have teamwork OR break. One will override the other.
-/*
-             * public void updateRoom(double factor1, double factor2){
-             * setAirQuality(this.airQuality + factor1); setNoise(this.noise +
-             * factor2);
-     }
-             */
+            //This part updates the room depending of the quietingCounter
             if (game.quietingCounter > 0) {
                 game.updateRoom(-1.65, -3.00);
                 game.quietingCounter--;
+                // this part will make the label dissappear once the effect of the quieting has worn off.
                 if(game.quietingCounter==0){
                     activityPhase.sims.hideQuietingLabel();
                 }
+            // defaul calling of updateRoom method
             } else {
                 game.updateRoom(-1.65, 1.00);
             }
+            // determines the changing of the students attributes by calculating the values that are given to the update method. Taken into consideration are the teamwor and the break.
             if (game.teamwork) {
                 add1 = (game.noise + 0.000001) / 200 * (2.5);
                 add2 = (100.000001 - game.airQuality) / 200 * 2;
@@ -121,6 +122,7 @@ public class Timer extends Thread {
                 add1 = (game.noise + 0.000001) / 200 * (2);
                 add2 = (100.000001 - game.airQuality) / 200 * (-6);
                 game.updateArray(add1, add2, -1);
+            // default calling of the updateArray method.
             } else {
                 add1 = (game.noise + 0.000001) / 200 * (-2);
                 add2 = (100.000001 - game.airQuality) / 200;
@@ -130,11 +132,10 @@ public class Timer extends Thread {
             checkLaptops();
             if (timer == 0) {
                 int round = game.round;
-                if (round % 3 == 0) {
+                if (round % 3 == 0) { // the case makes sure the minimal value of knowledge needed to pass a semester will change accordingly to the present semester.
                     switch (round) {
                         case 3:
                             game.examTime(10);
-                            System.out.println("das war das erste Semester!");
                             break;
                         case 6:
                             game.examTime(20);
@@ -154,8 +155,8 @@ public class Timer extends Thread {
                         default:
                             break;
                     }
-                    activityPhase.sims.displayExamResults(game.failedStudents, game.remainingStudents);
-                    game.failedStudents=0;
+                    activityPhase.sims.displayExamResults(game.failedStudents, game.remainingStudents); // displays the results in a popup window
+                    game.failedStudents=0; //resets the value, so that the there will only ever be displayed the number of students that didn't pass the current exam.
                 }
             }
             if (!this.activityPhase.doNotPaintFlag) {
@@ -166,9 +167,14 @@ public class Timer extends Thread {
                 game.barClicked(activityPhase.studButtons);
             }
             if (activityPhase.studentDisplayed != -1) {
-                activityPhase.displayStudentBars();
+                if (game.studentArray[activityPhase.studentDisplayed].present){
+                    activityPhase.displayStudentBars();
+                }
+                else{
+                    paintBars();
+                }
             }
-            if(!game.windowChangesNoise){
+            if(!game.windowChangesNoise){ //makes sure it's impossible to misuse the feature of the decreasing noise value upon closing the window.
                 if(windowCnt==0){
                     game.windowChangesNoise=true;
                     windowCnt=30;

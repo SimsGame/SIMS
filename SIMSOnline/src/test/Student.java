@@ -92,28 +92,13 @@ public class Student {
      * Updated by Kira: Added 'add', to realize the decreasing knowledgeIncreasement during teamwork and the nonexistent knowledgeIncreasement during shortBreak.
      */
     
-    /*
-     * Old version without rowIntelligence
-     * 
-    void updateKnowledge(double add, double rowIntelligence) {
-        double influence=0;
-        if (add!=-1){
-            this.knowledgeIncreasement = ((this.motivation - this.tiredness) * this.intelligence * 0.000375)+influence-add;
-            if(this.knowledgeIncreasement<0){ // this if belongs above the this.knowledge
-                this.knowledgeIncreasement = 0;
-            }
-        }
-        else {
-            this.knowledgeIncreasement = 0; // wtf!? in both cases the knowledgeIncreasement is zero!?!?
-        }
-        setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100
-        
-    }
+    /**
+    * This function updates the knowledge through calculating the knowledgeIncreasement and summing it and the knowledge up.
+    * The knowledgeIncreasement is influenced by the intelligence of the row a certain student is seated in and the surroundings, such as break and teamwork.
     * 
+    * @param add    If add=-1, the knowledgeIncreasement will be 0. In case of a break, it will be 0.02, and per default it's 0, so that it won't influence the knowledgeIncreasement.
+    * @param rowIntelligence    The average of the intelligence of the students in one row.
     */
- /*   
-  * New Version with rowIntelligence
-  */ 
     void updateKnowledge(double add, double rowIntelligence) {
         double influence=0;
         if (add!=-1){
@@ -134,18 +119,29 @@ public class Student {
         setKnowledge(this.knowledge + this.knowledgeIncreasement); //edited by Jörg: use setter to make sure that 0<value<100        
     }
    
-    void changeTiredness(double factor)
+    /**
+     * Changes the tiredness value by calling the setTiredness function.
+     * 
+     * @param factor    The value by which the tiredness is increased.
+     */
+    public void changeTiredness(double factor)
     {
-       setTiredness(this.tiredness+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
+       setTiredness(this.tiredness+factor);
     }
      
-    void changeMotivation(double factor)
+    /**
+     * Changes the motivation value by calling the setMotivation function.
+     * 
+     * @param factor    The value by which the motivation is decreased.
+     */
+    public void changeMotivation(double factor)
     {
        setMotivation(this.motivation+1*factor); //edited by Jörg: use setter to make sure that 0<value<100
     }
     
        /**
-     *
+     *getMethod for the knowledge-value.
+     * 
      * @return the knowledge attribute of the student is returned
      */
     public double getKnowledge() {
@@ -153,7 +149,8 @@ public class Student {
     }
 
     /**
-     *
+     *setter for the Knowledge. Main functionality is that it won't allow a value x<1 or x>100.
+     * 
      * @param value sets the knowledge of the students
      */
     public void setKnowledge(double value) {
@@ -167,7 +164,8 @@ public class Student {
     }
 
     /**
-     *
+     * getMethod for the intelligence-value.
+     * 
      * @return the intelligence attribute of the student is returned
      */
     public double getIntelligence() {
@@ -175,7 +173,8 @@ public class Student {
     }
 
     /**
-     *
+     *getMethod for the tiredness-value.
+     * 
      * @return the tiredness attribute of the student is returned
      */
     public double getTiredness() {
@@ -183,7 +182,8 @@ public class Student {
     }
     
     /**
-     *
+     *getMethod for the Student icon path.
+     * 
      * @return the 
      */
     public String getStudIcon() {
@@ -191,13 +191,15 @@ public class Student {
     }
 
     /**
-     *
+     *Setter for the tiredness value. Takes the state of a students laptop into consideration. It makes the value grow faster if the laptop is open. Is also influenced by the values of the professor.
+     * Prevents a value x<0 and x>100.
+     * 
      * @param value sets the tiredness of the student
      */
     public void setTiredness(double value) {
         value=value+Sims_1._maingame.professor/100;
         if (!laptopClosed){
-            value=value+2; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect; Changing constant to relative value? (value= value+ (value/100))
+            value=value+2; // Making the tiredness grow faster than usual, but not as fast as motivation, so that it will have an effect;
         }
         if(value<0){
             this.tiredness= 0;
@@ -209,6 +211,7 @@ public class Student {
     }
 
     /**
+     * getMethod for the motivation-value.
      *
      * @return the motivation attribute of the student is returned
      */
@@ -217,22 +220,21 @@ public class Student {
     }
 
     /**
-     *
-     * @param value the new value of motivation
+     * Setter for the motivation value. Takes the state of a students laptop into consideration. It makes the value grow faster if the laptop is open. Is also influenced by the values of the professor.
+     * Prevents a value x<0 and x>100.
+     * Also responsible for the random opening of the students laptops if their motivation drops below a value of 30. The lower the value the higher the possibility of the student opening their laptop.
      * 
-     * Added the implementation of the increase when the laptop is opened. Also added the automatic opening of the laptop once the motivation goes below 30
-     * Problem = Motivation will NEVER go below 30!
-     * A number of times the student can open their laptop? Random?
+     * @param value the new value of motivation
      */
     public void setMotivation(double value) {
-        value=value+Sims_1._maingame.professor/100;
+        value=value+(Sims_1._maingame.professor/100);
         if (!laptopClosed){
             value=value+2.5;
         }
         else if (value<30 && laptopClosed) {
                 double helper = 31-this.motivation;
                 double i = Math.round(Math.random());
-                if (helper*i>15){
+                if (helper*i>17){
                     laptopClosed=false;
                 }
             }
@@ -254,6 +256,7 @@ public class Student {
     }
     
     /**
+     * getMethod for the motivation-value.
      * 
      * @return  true if a student has the CheatSheet.
      */
