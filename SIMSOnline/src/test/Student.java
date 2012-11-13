@@ -241,7 +241,7 @@ public class Student {
      * A number of times the student can open their laptop? Random?
      */
     public void setMotivation(double value) {
-        value=value+Sims_1._maingame.professor/100;
+        value=value+(Sims_1._maingame.professor/100);
         if (!laptopClosed){
             value=value+2.5;
         }
