@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  */
 public class Timer extends Thread {
 
-    public static int timer; // changed to public by nadir to use in updatebars
+    public static int timer; 
     private javax.swing.JLabel label_timer;
     private ActivityPhase activityPhase;
     public Game1 game;
@@ -209,7 +209,9 @@ public class Timer extends Thread {
 
     }
     
-    
+/**
+ * checks if laptopflag was changed and if student is still present, then creates transparent open laptops 
+ */    
   private void checkLaptops(){
       for(int i=0;i<30;i++)
       {
