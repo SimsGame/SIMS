@@ -21,6 +21,7 @@ public class StudIcons {
         for (i=0;i<30;i++){
             if (studArray[i].present){
             studButtons[i].setIcon(new ImageIcon(getClass().getResource(studArray[i].getStudIcon())));
+            Sims_1.laptopLabels[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             } else {
                 studButtons[i].setIcon(new ImageIcon());
             }
