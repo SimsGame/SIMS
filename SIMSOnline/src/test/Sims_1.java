@@ -53,7 +53,6 @@ public class Sims_1 extends javax.swing.JFrame {
     Item item = new Item();
     CoinExchange exchange = new CoinExchange();
     public JDialog miniGameFinished = new JDialog();
-
     /**
      * Sets up and initializes each component and some additional settings. The
      * auto login function is called from here as well.
@@ -173,6 +172,15 @@ public class Sims_1 extends javax.swing.JFrame {
         jBut_OKnotAllowedUseCheat = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        warningExitPlanningPhase = new javax.swing.JDialog();
+        label_warning1 = new javax.swing.JLabel();
+        label_warning2 = new javax.swing.JLabel();
+        label_warning3 = new javax.swing.JLabel();
+        llabel_warning4 = new javax.swing.JLabel();
+        label_warning5 = new javax.swing.JLabel();
+        jBut_confirmExit = new javax.swing.JButton();
+        jBut_cancelExit = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         dialog_examResults = new javax.swing.JDialog();
         label_examHeading = new javax.swing.JLabel();
         label_examFailed = new javax.swing.JLabel();
@@ -882,7 +890,7 @@ public class Sims_1 extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextArea4);
 
         notAllowedUseCheatDialog.getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(83, 137, 238, 113);
+        jScrollPane4.setBounds(83, 137, 238, 87);
 
         warningExitPlanningPhase.setMinimumSize(new java.awt.Dimension(600, 320));
         warningExitPlanningPhase.setModal(true);
@@ -6713,6 +6721,7 @@ if(_maingame.studentArray[2].laptopClosed== false)
                 result[29]=button_stud30;              
         return result;
     }
+    
     private javax.swing.JButton[] constructPlanningPhaseButtons(){
         javax.swing.JButton[] result = new javax.swing.JButton[30];
                 result[0]=jBut_1;

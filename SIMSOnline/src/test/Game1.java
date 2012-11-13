@@ -39,9 +39,12 @@ public class Game1 {
     public double noise;
     public int quietingCounter=0;
     public int lecturer_counter=3;
+    public int remainingStudents=30;
+    public int failedStudents=0;
     public boolean teamwork = false;
     public boolean shortBreak = false;
     public boolean windowClosed = true;
+    public boolean windowChangesNoise = true; //flag that sets whether noise is changed when closing the window
     private Boolean[] cheated = new Boolean[5];
     
     /**
@@ -150,6 +153,8 @@ public class Game1 {
                  double knowledge=studentArray[i].getKnowledge();
                  if(knowledge<examvalue){
                    studentArray[i].present=false;
+                   remainingStudents--;
+                   failedStudents++;
                  } 
              }
          }
