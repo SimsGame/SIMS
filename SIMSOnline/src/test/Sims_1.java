@@ -4101,22 +4101,27 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_logo_playingMouseClicked
 
     private void button_menuStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStatisticActionPerformed
-        label_statsCurrentCredits.setText("Aktueller Creditstand: "+_maingame.credits);
-        label_statsEarnedCredits.setText("Verdiente Credits: "+(_maingame.overallCredits+100));
-        double time = (double) _mainuser.getTime_played();
-        DecimalFormat df = new DecimalFormat("#.##");
-        label_statsOverallTime.setText("Gesamtspielzeit(Minuten): "+df.format((time/1000/60)));
-        label_statsPoints.setText("Gesamtpunktzahl: "+_maingame.points);
-        label_statsSemester.setText("Gespielte Semster: "+_maingame.getSemester());
-        int present = 0;
-        for(int i=0; i<_maingame.studentArray.length; i++){
-            if(_maingame.studentArray[i].present == true){
-                present++;
+        try{
+            label_statsCurrentCredits.setText("Aktueller Creditstand: "+_maingame.credits);
+            label_statsEarnedCredits.setText("Verdiente Credits: "+(_maingame.overallCredits+100));
+            double time = (double) _mainuser.getTime_played();
+            DecimalFormat df = new DecimalFormat("#.##");
+            label_statsOverallTime.setText("Gesamtspielzeit(Minuten): "+df.format((time/1000/60)));
+            label_statsPoints.setText("Gesamtpunktzahl: "+_maingame.points);
+            label_statsSemester.setText("Gespielte Semster: "+_maingame.getSemester());
+            int present = 0;
+            for(int i=0; i<_maingame.studentArray.length; i++){
+                if(_maingame.studentArray[i].present == true){
+                    present++;
+                }
             }
+            label_statsRate.setText("Studenten: "+String.valueOf(present)+" / 30");
+            label_statsStudentArrtibutes.setText("Durchschnittswerte: "+"Wissen: "+_maingame.averageKnowledge+" Motivation: "+_maingame.avarageMotivation+" Müdigkeit: "+_maingame.averageTiredness);
+            panel_stats.setVisible(true);
         }
-        label_statsRate.setText("Studenten: "+String.valueOf(present)+" / 30");
-        label_statsStudentArrtibutes.setText("Durchschnittswerte: "+"Wissen: "+_maingame.averageKnowledge+" Motivation: "+_maingame.avarageMotivation+" Müdigkeit: "+_maingame.averageTiredness);
-        panel_stats.setVisible(true);
+        catch(NullPointerException e){
+            System.out.printf("Existiert noch nicht");
+        }
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
     private void jBut_OKnoCheatsAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableActionPerformed
