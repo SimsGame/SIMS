@@ -94,7 +94,7 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
-       // warningExitPlanningPhase.setSize(500, 320);
+        // warningExitPlanningPhase.setSize(500, 320);
         warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         warningExitPlanningPhase.setLocationRelativeTo(null);
         dialog_statsError.setLocationRelativeTo(null);
@@ -113,9 +113,9 @@ public class Sims_1 extends javax.swing.JFrame {
         setLocationRelativeTo(null); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
-        this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
-        this.laptopLabels=constructLaptopLabels();
-        this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
+        this.activityPhaseButtons = constructActivityPhaseButtons(); //added by Jörg
+        this.laptopLabels = constructLaptopLabels();
+        this.planningPhaseButtons = constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
         panel_Credits.setVisible(false);
         label_dozent_action.setVisible(false);
@@ -123,10 +123,10 @@ public class Sims_1 extends javax.swing.JFrame {
         SetPlanningOpaque();
         label_windowsclosed.setVisible(false);
         panel_stats.setVisible(false);
-      
-        
-        
-   
+
+
+
+
     }
 
     /**
@@ -3992,16 +3992,15 @@ public class Sims_1 extends javax.swing.JFrame {
     private void goToNextPage() {
         // Flipes to the planning phase after a minigame.
         Game1.saveGame();
-        if(_maingame.getSemester() == 7){
+        if (_maingame.getSemester() == 7) {
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
             cl.show(panel_gamePhases, "card8");
-        }
-        else{
-           planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud,jLab_StudCounter, jBut_Dozent);
+        } else {
+            planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter, jBut_Dozent);
             if (panel_gamePhases.isVisible() == false) {
                 panel_gamePhases.setVisible(true);
             }
-        
+
             cl.show(panel_gamePhases, "card3");
             gamePlanning.requestFocus();
             jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
@@ -4027,7 +4026,7 @@ public class Sims_1 extends javax.swing.JFrame {
         Game1.initNewSavefile();
         Game1.loadGame();
         startTime = System.currentTimeMillis();
-        
+
         switchPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
@@ -4055,33 +4054,35 @@ public class Sims_1 extends javax.swing.JFrame {
         javax.swing.Timer timer;
         int delay = 100; //milliseconds
         ActionListener taskPerformer = new ActionListener() {
+
             int down = 0;
+
             public void actionPerformed(ActionEvent evt) {
-                if(down == 1){
-                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()-2);
-                    System.out.print(panel_Credits.getY()+"\n");
-                    if(panel_Credits.getY() == -1200 || panel_Credits.hasFocus() == false){
+                if (down == 1) {
+                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY() - 2);
+                    System.out.print(panel_Credits.getY() + "\n");
+                    if (panel_Credits.getY() == -1200 || panel_Credits.hasFocus() == false) {
                         down = 0;
                         panel_Credits.setVisible(false);
-                        ((javax.swing.Timer)evt.getSource()).stop();
+                        ((javax.swing.Timer) evt.getSource()).stop();
                     }
-                }
-                else{
+                } else {
                     //down = 0;
-                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()+490);
-                    if(panel_Credits.getY() >= +490)
+                    panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY() + 490);
+                    if (panel_Credits.getY() >= +490) {
                         down = 1;
+                    }
                 }
             }
         };
         timer = new javax.swing.Timer(delay, taskPerformer);
         timer.start();
     }//GEN-LAST:event_button_menuCreditsActionPerformed
-    
+
     /**
-     * Shows the current user his profile.
-     * He can change his data and save them
+     * Shows the current user his profile. He can change his data and save them
      * Available in the menu
+     *
      * @param evt the click
      */
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
@@ -4092,6 +4093,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Loggs the user out of the game so that a new user can log in
+     *
      * @param evt the click
      */
     private void button_menuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLogOutActionPerformed
@@ -4100,10 +4102,11 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_menuLogOutActionPerformed
 
     /**
-     * This function is called from the shop, after the coin exchanger was opened and
-     * the amount that shall be swapped was entered.
-     * To finish the exchange the exchange button has to be pressed. After that the ucoins are reduced and
-     * the credits increased.
+     * This function is called from the shop, after the coin exchanger was
+     * opened and the amount that shall be swapped was entered. To finish the
+     * exchange the exchange button has to be pressed. After that the ucoins are
+     * reduced and the credits increased.
+     *
      * @param evt the click
      */
     private void button_swapperExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperExchangeActionPerformed
@@ -4126,9 +4129,11 @@ public class Sims_1 extends javax.swing.JFrame {
             textfield_swapperCredits.setText("");
         }
     }//GEN-LAST:event_button_swapperExchangeActionPerformed
-    
+
     /**
-     * This function closes the exchange window if the user does not want to exchange more.
+     * This function closes the exchange window if the user does not want to
+     * exchange more.
+     *
      * @param evt the click
      */
     private void button_swapperAbordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapperAbordActionPerformed
@@ -4136,27 +4141,29 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_swapperAbordActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * Shows a dialog which asks the user if he really wants to leave the game.
-     * @param evt the click on the S.I.M.S label 
+     *
+     * @param evt the click on the S.I.M.S label
      */
     private void label_logo_planningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logo_planningMouseClicked
-       warningExitPlanningPhase.setVisible(true);          
+        warningExitPlanningPhase.setVisible(true);
     }//GEN-LAST:event_label_logo_planningMouseClicked
-    
+
     /**
      * Shows a dialog which asks the user if he really wants to leave the game.
-     * @param evt the click on the S.I.M.S label 
+     *
+     * @param evt the click on the S.I.M.S label
      */
     private void label_logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoMouseClicked
         warningExitPlanningPhase.setVisible(true);
     }//GEN-LAST:event_label_logoMouseClicked
-    
+
     /**
      * Starts the exchange dialog in the shop
+     *
      * @param evt the click
      */
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
@@ -4172,320 +4179,288 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_logo_playingMouseClicked
 
     /**
-     * Fills the stats-labels with the data and displays them
-     * Available in the menu
+     * Fills the stats-labels with the data and displays them Available in the
+     * menu
+     *
      * @param evt the click
      */
     private void button_menuStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStatisticActionPerformed
-        try{
-            label_statsCurrentCredits.setText("Aktueller Creditstand: "+_maingame.credits);
-            label_statsEarnedCredits.setText("Verdiente Credits: "+(_maingame.overallCredits+100));
+        try {
+            label_statsCurrentCredits.setText("Aktueller Creditstand: " + _maingame.credits);
+            label_statsEarnedCredits.setText("Verdiente Credits: " + (_maingame.overallCredits + 100));
             double time = (double) _mainuser.getTime_played();
             DecimalFormat df = new DecimalFormat("#.##");
-            label_statsOverallTime.setText("Gesamtspielzeit(Minuten): "+df.format((time/1000/60)));
-            label_statsPoints.setText("Gesamtpunktzahl: "+_maingame.points);
-            label_statsSemester.setText("Gespielte Semster: "+_maingame.getSemester());
+            label_statsOverallTime.setText("Gesamtspielzeit(Minuten): " + df.format((time / 1000 / 60)));
+            label_statsPoints.setText("Gesamtpunktzahl: " + _maingame.points);
+            label_statsSemester.setText("Gespielte Semster: " + _maingame.getSemester());
             int present = 0; // The students which are still present
-            for(int i=0; i<_maingame.studentArray.length; i++){
-                if(_maingame.studentArray[i].present == true){
+            for (int i = 0; i < _maingame.studentArray.length; i++) {
+                if (_maingame.studentArray[i].present == true) {
                     present++;
                 }
             }
-            label_statsRate.setText("Studenten: "+String.valueOf(present)+" / 30");
-            label_statsStudentArrtibutes.setText("Durchschnittswerte: "+"Wissen: "+_maingame.averageKnowledge+" Motivation: "+_maingame.avarageMotivation+" Müdigkeit: "+_maingame.averageTiredness);
+            label_statsRate.setText("Studenten: " + String.valueOf(present) + " / 30");
+            label_statsStudentArrtibutes.setText("Durchschnittswerte: " + "Wissen: " + _maingame.averageKnowledge + " Motivation: " + _maingame.avarageMotivation + " Müdigkeit: " + _maingame.averageTiredness);
             panel_stats.setVisible(true);
-        }
-        catch(NullPointerException e){
+        } catch (NullPointerException e) {
             dialog_statsError.setVisible(true);
         }
     }//GEN-LAST:event_button_menuStatisticActionPerformed
 
     private void jBut_OKnoCheatsAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableActionPerformed
-
     }//GEN-LAST:event_jBut_OKnoCheatsAvailableActionPerformed
 
     private void jBut_ChangeProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorActionPerformed
-
     }//GEN-LAST:event_jBut_ChangeProfessorActionPerformed
 
     private void jBut_startShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_startShopActionPerformed
-
     }//GEN-LAST:event_jBut_startShopActionPerformed
 
     private void jBut_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_17ActionPerformed
-
     }//GEN-LAST:event_jBut_17ActionPerformed
     /**
-     * Each of this functions handels the click on a laptop image.
-     * Closes the laptop if it is open.
+     * Each of this functions handels the click on a laptop image. Closes the
+     * laptop if it is open.
+     *
      * @param evt the click
      */
-    private void label_laptop1MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[0].laptopClosed== false)
-        {
+    private void label_laptop1MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[0].laptopClosed == false) {
             label_laptop1.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[0].laptopClosed = true;
         }
-    }                                          
+    }
 
-    private void label_laptop2MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[1].laptopClosed== false)
-        {
+    private void label_laptop2MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[1].laptopClosed == false) {
             label_laptop2.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[1].laptopClosed = true;
-        } 
-    }                                          
+        }
+    }
 
-    private void label_laptop3MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[2].laptopClosed== false)
-        {
+    private void label_laptop3MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[2].laptopClosed == false) {
             label_laptop3.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[2].laptopClosed = true;
         }
-    }                                          
+    }
 
-    private void label_laptop4MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[3].laptopClosed== false)
-        {
+    private void label_laptop4MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[3].laptopClosed == false) {
             label_laptop4.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[3].laptopClosed = true;
-        }       
-    }                                          
+        }
+    }
 
-    private void label_laptop5MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[4].laptopClosed== false)
-        {
+    private void label_laptop5MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[4].laptopClosed == false) {
             label_laptop5.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[4].laptopClosed = true;
-        }    
-    }                                          
+        }
+    }
 
-    private void label_laptop6MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[5].laptopClosed== false)
-        {
+    private void label_laptop6MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[5].laptopClosed == false) {
             label_laptop6.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[5].laptopClosed = true;
         }
-    }                                          
+    }
 
-    private void label_laptop12MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[11].laptopClosed== false)
-        {
+    private void label_laptop12MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[11].laptopClosed == false) {
             label_laptop12.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[11].laptopClosed = true;
         }
-    }                                           
+    }
 
-    private void label_laptop11MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[10].laptopClosed== false)
-        {
+    private void label_laptop11MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[10].laptopClosed == false) {
             label_laptop11.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[10].laptopClosed = true;
-        }  
-    }                                           
+        }
+    }
 
-    private void label_laptop10MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[9].laptopClosed== false)
-        {
+    private void label_laptop10MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[9].laptopClosed == false) {
             label_laptop10.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[9].laptopClosed = true;
-        }  
-    }                                           
+        }
+    }
 
-    private void label_laptop9MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[8].laptopClosed== false)
-        {
+    private void label_laptop9MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[8].laptopClosed == false) {
             label_laptop9.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[8].laptopClosed = true;
-        }      
-    }                                          
-
-    private void label_laptop8MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[7].laptopClosed== false)
-        {
-            label_laptop8.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-            _maingame.studentArray[7].laptopClosed = true;  
-        }    
-    }                                          
-
-    private void label_laptop7MouseClicked(java.awt.event.MouseEvent evt) {                                           
-        if(_maingame.studentArray[6].laptopClosed== false)
-        {
-            label_laptop7.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-            _maingame.studentArray[6].laptopClosed = true;  
         }
-    }                                          
+    }
 
-    private void label_laptop18MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[17].laptopClosed== false)
-        {
+    private void label_laptop8MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[7].laptopClosed == false) {
+            label_laptop8.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+            _maingame.studentArray[7].laptopClosed = true;
+        }
+    }
+
+    private void label_laptop7MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[6].laptopClosed == false) {
+            label_laptop7.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
+            _maingame.studentArray[6].laptopClosed = true;
+        }
+    }
+
+    private void label_laptop18MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[17].laptopClosed == false) {
             label_laptop18.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
-            _maingame.studentArray[17].laptopClosed = true;   
-        }  
-    }                                           
+            _maingame.studentArray[17].laptopClosed = true;
+        }
+    }
 
-    private void label_laptop17MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[16].laptopClosed== false)
-        {
+    private void label_laptop17MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[16].laptopClosed == false) {
             label_laptop17.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[16].laptopClosed = true;
-        }      
-    }                                           
+        }
+    }
 
-    private void label_laptop16MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[15].laptopClosed== false)
-        {
+    private void label_laptop16MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[15].laptopClosed == false) {
             label_laptop16.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[15].laptopClosed = true;
-        }     
-    }                                           
+        }
+    }
 
-    private void label_laptop15MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[14].laptopClosed== false)
-        {
+    private void label_laptop15MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[14].laptopClosed == false) {
             label_laptop15.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[14].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop14MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[13].laptopClosed== false)
-        {
+    private void label_laptop14MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[13].laptopClosed == false) {
             label_laptop14.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[13].laptopClosed = true;
-        }    
-    }                                           
+        }
+    }
 
-    private void label_laptop13MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[12].laptopClosed== false)
-        {
+    private void label_laptop13MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[12].laptopClosed == false) {
             label_laptop13.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[12].laptopClosed = true;
-        }      
-    }                                           
+        }
+    }
 
-    private void label_laptop24MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[23].laptopClosed== false)
-        {
+    private void label_laptop24MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[23].laptopClosed == false) {
             label_laptop24.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[23].laptopClosed = true;
-        }    
-    }                                           
+        }
+    }
 
-    private void label_laptop23MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[22].laptopClosed== false)
-        {
+    private void label_laptop23MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[22].laptopClosed == false) {
             label_laptop23.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[22].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop22MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[21].laptopClosed== false)
-        {
+    private void label_laptop22MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[21].laptopClosed == false) {
             label_laptop22.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[21].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop21MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[20].laptopClosed== false)
-        {
+    private void label_laptop21MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[20].laptopClosed == false) {
             label_laptop21.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[20].laptopClosed = true;
-        }     
-    }                                           
+        }
+    }
 
-    private void label_laptop20MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[19].laptopClosed== false)
-        {
+    private void label_laptop20MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[19].laptopClosed == false) {
             label_laptop20.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[19].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop19MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[18].laptopClosed== false)
-        {
+    private void label_laptop19MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[18].laptopClosed == false) {
             label_laptop19.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[18].laptopClosed = true;
-        }      
-    }                                           
+        }
+    }
 
-    private void label_laptop30MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[29].laptopClosed== false)
-        {
+    private void label_laptop30MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[29].laptopClosed == false) {
             label_laptop30.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[29].laptopClosed = true;
-        }    
-    }                                           
+        }
+    }
 
-    private void label_laptop29MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[28].laptopClosed== false)
-        {
+    private void label_laptop29MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[28].laptopClosed == false) {
             label_laptop29.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[28].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop28MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[27].laptopClosed== false)
-        {
+    private void label_laptop28MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[27].laptopClosed == false) {
             label_laptop28.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[27].laptopClosed = true;
-        }   
-    }                                           
+        }
+    }
 
-    private void label_laptop27MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[26].laptopClosed== false)
-        {
+    private void label_laptop27MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[26].laptopClosed == false) {
             label_laptop27.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[26].laptopClosed = true;
-        }  
-    }                                           
+        }
+    }
 
-    private void label_laptop26MouseClicked(java.awt.event.MouseEvent evt) {                                            
-            if(_maingame.studentArray[25].laptopClosed== false)
-        {
+    private void label_laptop26MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[25].laptopClosed == false) {
             label_laptop26.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[25].laptopClosed = true;
-        }    
-    }                                           
+        }
+    }
 
-    private void label_laptop25MouseClicked(java.awt.event.MouseEvent evt) {                                            
-        if(_maingame.studentArray[24].laptopClosed== false)
-        {
+    private void label_laptop25MouseClicked(java.awt.event.MouseEvent evt) {
+        if (_maingame.studentArray[24].laptopClosed == false) {
             label_laptop25.setIcon(new ImageIcon(getClass().getResource("/pictures/laptopzu.png")));
             _maingame.studentArray[24].laptopClosed = true;
-        }  
+        }
     }
-    
+
     /**
-     * Calls the shop from the planning phase and setts it up with initial values.
-     * Loads the current inventory to the shop
+     * Calls the shop from the planning phase and setts it up with initial
+     * values. Loads the current inventory to the shop
+     *
      * @param evt the click
      */
     private void jBut_startShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_startShopMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        
+
         // This function is called after the shop button from the planning phase was pressed.
         // It opens the shop, creates the inventory and the objects that can be bought.
         cl.show(panel_gamePhases, "card4");
         panel_menue.setVisible(false);
-        
+
         OpenShop labels = new OpenShop();
         labels.changeLabels(creditsShop, punkteShop, ucoinsShop);
         //Checks the Students that are still present
         int present = 0;
-        for(int i=0; i<_maingame.studentArray.length; i++){
-            if(_maingame.studentArray[i].present == true){
+        for (int i = 0; i < _maingame.studentArray.length; i++) {
+            if (_maingame.studentArray[i].present == true) {
                 present++;
             }
         }
-        label_shopRemainingStudents.setText(String.valueOf(present)+" / 30");
-        label_shopRemainingSemesters.setText(String.valueOf(_maingame.getSemester())+" / 6");
-        
+        label_shopRemainingStudents.setText(String.valueOf(present) + " / 30");
+        label_shopRemainingSemesters.setText(String.valueOf(_maingame.getSemester()) + " / 6");
+
         item.createItemInventory(label_item1, label_item1Name, label_item1Amount, _maingame.redBull);
         item.createItemInventory(label_item2, label_item2Name, label_item2Amount, _maingame.duplo);
         item.createItemInventory(label_item3, label_item3Name, label_item3Amount, _maingame.omniSenseAudio);
@@ -4497,7 +4472,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
     /**
-     * On click Red Bull can be bought if the user has enough credits 
+     * On click Red Bull can be bought if the user has enough credits
+     *
      * @param evt click
      */
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
@@ -4512,7 +4488,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
     /**
-     * On click Duplo can be bought if the user has enough credits 
+     * On click Duplo can be bought if the user has enough credits
+     *
      * @param evt click
      */
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
@@ -4527,7 +4504,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
     /**
-     * On click Cheat Sheet can be bought if the user has enough credits 
+     * On click Cheat Sheet can be bought if the user has enough credits
+     *
      * @param evt click
      */
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
@@ -4541,7 +4519,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
     /**
-     * On click an Omni Sense Audiobook can be bought if the user has enough credits 
+     * On click an Omni Sense Audiobook can be bought if the user has enough
+     * credits
+     *
      * @param evt click
      */
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
@@ -4557,6 +4537,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * On click the dialog if the user can't buy the item is hidden
+     *
      * @param evt click
      */
     private void button_shopMessageOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopMessageOkActionPerformed
@@ -4564,11 +4545,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
 
     private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
-
     }//GEN-LAST:event_jBut_1ActionPerformed
-    
+
     /**
-     * If the user types something in the exchange dialog the changed amount is displayed directly.
+     * If the user types something in the exchange dialog the changed amount is
+     * displayed directly.
+     *
      * @param evt the click
      */
     private void textfield_swapperUcoinsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_swapperUcoinsKeyReleased
@@ -4585,13 +4567,14 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Sets the student buttons in the planningpahse
+     *
      * @param evt the click
      */
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
         /**
          * @author Tobias Mauritz
          */
-        planningPhase.StudButtonFunctions(0,jBut_1);
+        planningPhase.StudButtonFunctions(0, jBut_1);
         // !!! kann nicht funzen!! wir brauchen akutelles Objekt von PLanningPhase, hier ist nur das generelle!
         // --> alles auslagern in Planungsphasen-Mehtode
 //        if (PlanningPhase.getSwitchFlag() == 0){
@@ -4606,12 +4589,12 @@ public class Sims_1 extends javax.swing.JFrame {
 //            System.out.println("TauschFlag = 1");
 //            PlanningPhase.storeStud(1);
 //        }
-          SetPlanningPhaseOpacity(); 
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_1MouseClicked
 
     private void jBut_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(1,jBut_2);
+        planningPhase.StudButtonFunctions(1, jBut_2);
 
 //        if (PlanningPhase.getSwitchFlag() == 0){
 //            
@@ -4623,39 +4606,37 @@ public class Sims_1 extends javax.swing.JFrame {
 //            PlanningPhase.storeStud(2);
 //            
 //        }
-          SetPlanningPhaseOpacity(); 
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-        planningPhase.StudButtonFunctions(2,jBut_3);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(2, jBut_3);
+        SetPlanningPhaseOpacity();
 
     }//GEN-LAST:event_jBut_3MouseClicked
 
     private void jBut_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseClicked
-        planningPhase.StudButtonFunctions(3,jBut_4);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(3, jBut_4);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_4MouseClicked
 
     private void jBut_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseClicked
-        planningPhase.StudButtonFunctions(4,jBut_5);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(4, jBut_5);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_5MouseClicked
 
     private void jBut_1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseEntered
-
     }//GEN-LAST:event_jBut_1MouseEntered
 
     private void jBut_1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseExited
-
     }//GEN-LAST:event_jBut_1MouseExited
 
     private void StudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseEntered
-
     }//GEN-LAST:event_StudFieldMouseEntered
-    
+
     /**
      * Shows the average values of each student on the progress bars
+     *
      * @param evt click on the field
      */
     private void StudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseClicked
@@ -4665,179 +4646,176 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_StudFieldMouseClicked
 
     private void jBut_2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_2MouseEntered
-
     }//GEN-LAST:event_jBut_2MouseEntered
 
     private void jBut_3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseEntered
-
     }//GEN-LAST:event_jBut_3MouseEntered
 
     private void jBut_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_4MouseEntered
-  
     }//GEN-LAST:event_jBut_4MouseEntered
 
     private void jBut_5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_5MouseEntered
-      
     }//GEN-LAST:event_jBut_5MouseEntered
 
     private void jBut_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_6MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(5,jBut_6);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(5, jBut_6);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_6MouseClicked
 
     private void jBut_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_7MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(6,jBut_7);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(6, jBut_7);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_7MouseClicked
 
     private void jBut_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_8MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(7,jBut_8);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(7, jBut_8);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_8MouseClicked
 
     private void jBut_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_9MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(8,jBut_9);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(8, jBut_9);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_9MouseClicked
 
     private void jBut_10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_10MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(9,jBut_10);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(9, jBut_10);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_10MouseClicked
 
     private void jBut_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_11MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(10,jBut_11);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(10, jBut_11);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_11MouseClicked
 
     private void jBut_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_12MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(11,jBut_12);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(11, jBut_12);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_12MouseClicked
 
     private void jBut_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_13MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(12,jBut_13);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(12, jBut_13);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_13MouseClicked
 
     private void jBut_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_14MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(13,jBut_14);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(13, jBut_14);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_14MouseClicked
 
     private void jBut_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_15MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(14,jBut_15);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(14, jBut_15);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_15MouseClicked
 
     private void jBut_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_16MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(15,jBut_16);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(15, jBut_16);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_16MouseClicked
 
     private void jBut_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_17MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(16,jBut_17);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(16, jBut_17);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_17MouseClicked
 
     private void jBut_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_18MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(17,jBut_18);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(17, jBut_18);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_18MouseClicked
 
     private void jBut_19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_19MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(18,jBut_19);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(18, jBut_19);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_19MouseClicked
 
     private void jBut_20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_20MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(19,jBut_20);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(19, jBut_20);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_20MouseClicked
 
     private void jBut_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_21MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(20,jBut_21);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(20, jBut_21);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_21MouseClicked
 
     private void jBut_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_22MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(21,jBut_22);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(21, jBut_22);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_22MouseClicked
 
     private void jBut_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_23MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(22,jBut_23);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(22, jBut_23);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_23MouseClicked
 
     private void jBut_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_24MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(23,jBut_24);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(23, jBut_24);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_24MouseClicked
 
     private void jBut_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_25MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(24,jBut_25);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(24, jBut_25);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_25MouseClicked
 
     private void jBut_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_26MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(25,jBut_26);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(25, jBut_26);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_26MouseClicked
 
     private void jBut_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_27MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(26,jBut_27);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(26, jBut_27);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_27MouseClicked
 
     private void jBut_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_28MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(27,jBut_28);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(27, jBut_28);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_28MouseClicked
 
     private void jBut_29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_29MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(28,jBut_29);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(28, jBut_29);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_29MouseClicked
 
     private void jBut_30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_30MouseClicked
         // functionality: see comment at jBut_1MouseClicked
-        planningPhase.StudButtonFunctions(29,jBut_30);
-          SetPlanningPhaseOpacity(); 
+        planningPhase.StudButtonFunctions(29, jBut_30);
+        SetPlanningPhaseOpacity();
     }//GEN-LAST:event_jBut_30MouseClicked
 
     /**
      * Changes the lector if clicked improves noise in the room
+     *
      * @param evt click on the lector
      */
     private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        
+
         //check if can change lector. If so - do this, else -  show error 
         boolean allowed = planningPhase.checkProffesorChangeability();
         if (allowed) {
@@ -4864,7 +4842,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
         SetActivityPhaseOpacity();
-     //   activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
+        //   activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
@@ -4873,7 +4851,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rKontonameFocusGained
 
     private void textfield_rEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rEmail1ActionPerformed
-
     }//GEN-LAST:event_textfield_rEmail1ActionPerformed
 
     private void textfield_rEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rEmail1FocusGained
@@ -4907,11 +4884,14 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_rPass2FocusGained
 
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
+        //need to build the component array for checkRegister_()
         JComponent[] toCheck = {textfield_rKontoname, password_rPass1, password_rPass2, textfield_rEmail1, textfield_rEmail2, textfield_rName, textfield_rSurename};
         JLabel[] errMess = {label_rErrAccname, label_rErrPass1, label_rErrPass2, label_rErrEmail1, label_rErrEmail2, label_rErrFirstName, label_rErrLastName};
+        //need to bild the component arrays for checkGlobUser
         JTextField[] accName_eMail = {textfield_rKontoname, textfield_rEmail1};
         JLabel[] errMess2 = {label_rErrAccname, label_rErrEmail1};
         if (checkRegister_(toCheck, errMess) & !checkGlobUser(accName_eMail, errMess2)) {  //by Dawid
+            //register the user if everything is valid
             User.createUser(textfield_rKontoname.getText(), password_rPass1.getPassword(), textfield_rEmail1.getText(), textfield_rName.getText(), textfield_rSurename.getText());
             panel_Login.setVisible(true);
             panel_Register.setVisible(false);
@@ -4921,6 +4901,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
         if (checkLogIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
+            //log the user in if the data put in is correct
             logIn(textfield_Kontoname.getText());
         }
     }//GEN-LAST:event_button_LoginActionPerformed
@@ -4932,15 +4913,12 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_RegisterActionPerformed
 
     private void textfield_KontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_KontonameActionPerformed
-
     }//GEN-LAST:event_textfield_KontonameActionPerformed
 
     private void check_saveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_saveUserActionPerformed
-     
     }//GEN-LAST:event_check_saveUserActionPerformed
 
     private void textfield_rKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rKontonameActionPerformed
-   
     }//GEN-LAST:event_textfield_rKontonameActionPerformed
 
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
@@ -4952,9 +4930,9 @@ public class Sims_1 extends javax.swing.JFrame {
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
          */
-        int currentSemester=Sims_1._maingame.getSemester(); // current Semester
-        boolean usedCheat=Sims_1._maingame.getCheated(currentSemester); //checks if Cheat was already used in this semester
-        
+        int currentSemester = Sims_1._maingame.getSemester(); // current Semester
+        boolean usedCheat = Sims_1._maingame.getCheated(currentSemester); //checks if Cheat was already used in this semester
+
         javax.swing.JComboBox box = (javax.swing.JComboBox) evt.getSource();
         String selected = (String) box.getSelectedItem();
         System.out.println("Right now selected " + selected);
@@ -4962,7 +4940,7 @@ public class Sims_1 extends javax.swing.JFrame {
             if (Sims_1._maingame.cheatSheet.amount == 0) {
                 System.out.println("Kein Spicker verfügbar");
                 noCheatsAvailableDialog.setVisible(true);
-            } else if ((currentSemester>=2)&&(currentSemester<=6)&&!usedCheat){
+            } else if ((currentSemester >= 2) && (currentSemester <= 6) && !usedCheat) {
                 warningDialog.setVisible(true);
                 System.out.println("show warning");
             } else {
@@ -4989,11 +4967,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_warningDialogWindowClosed
 
     private void jBut_NEINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_NEINActionPerformed
-   
     }//GEN-LAST:event_jBut_NEINActionPerformed
 
     private void jBut_JAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_JAActionPerformed
-
     }//GEN-LAST:event_jBut_JAActionPerformed
 
     private void jBut_OKlectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKlectorMouseClicked
@@ -5017,191 +4993,190 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_stud1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud1MouseClicked
 
         activityPhase.StudentClicked(0);
-     SetActivityPhaseOpacity();
-  
+        SetActivityPhaseOpacity();
+
     }//GEN-LAST:event_button_stud1MouseClicked
 
     private void button_stud2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud2MouseClicked
-   
-   activityPhase.StudentClicked(1);
-    SetActivityPhaseOpacity();
+
+        activityPhase.StudentClicked(1);
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud2MouseClicked
 
     private void button_stud3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud3MouseClicked
-  
-   activityPhase.StudentClicked(2);
-  SetActivityPhaseOpacity();
+
+        activityPhase.StudentClicked(2);
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud3MouseClicked
 
     private void button_stud4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud4MouseClicked
-     
+
         activityPhase.StudentClicked(3);
-     SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud4MouseClicked
 
     private void button_stud5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud5MouseClicked
-       
+
         activityPhase.StudentClicked(4);
-      SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud5MouseClicked
 
     private void button_stud6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud6MouseClicked
-   
+
         activityPhase.StudentClicked(5);
-              SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud6MouseClicked
 
     private void button_stud7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud7MouseClicked
-      
+
         activityPhase.StudentClicked(6);
-    SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud7MouseClicked
 
     private void button_stud8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud8MouseClicked
-       
+
         activityPhase.StudentClicked(7);
-          SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud8MouseClicked
 
     private void button_stud9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud9MouseClicked
         activityPhase.StudentClicked(8);
-             SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
 
     }//GEN-LAST:event_button_stud9MouseClicked
 
     private void button_stud10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud10MouseClicked
-        
+
         activityPhase.StudentClicked(9);
-      SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud10MouseClicked
 
     private void button_stud11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud11MouseClicked
-        
+
         activityPhase.StudentClicked(10);
-      SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud11MouseClicked
 
     private void button_stud12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud12MouseClicked
-         
+
         activityPhase.StudentClicked(11);
-       SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud12MouseClicked
 
     private void button_stud13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud13MouseClicked
-       
+
         activityPhase.StudentClicked(12);
-       SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud13MouseClicked
 
     private void button_stud14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud14MouseClicked
-        
+
         activityPhase.StudentClicked(13);
         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud14MouseClicked
 
     private void button_stud15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud15MouseClicked
-        
+
         activityPhase.StudentClicked(14);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud15MouseClicked
 
     private void button_stud16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud16MouseClicked
-       
+
         activityPhase.StudentClicked(15);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud16MouseClicked
 
     private void button_stud17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud17MouseClicked
-  
+
         activityPhase.StudentClicked(16);
-   SetActivityPhaseOpacity();  
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud17MouseClicked
 
     private void button_stud18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud18MouseClicked
         activityPhase.StudentClicked(17);
-           SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
 
     }//GEN-LAST:event_button_stud18MouseClicked
 
     private void button_stud19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud19MouseClicked
-        
+
         activityPhase.StudentClicked(18);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud19MouseClicked
 
     private void button_stud20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud20MouseClicked
-       
+
         activityPhase.StudentClicked(19);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud20MouseClicked
 
     private void button_stud21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud21MouseClicked
-        
+
         activityPhase.StudentClicked(20);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud21MouseClicked
 
     private void button_stud22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud22MouseClicked
-   
+
         activityPhase.StudentClicked(21);
-           SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud22MouseClicked
 
     private void button_stud23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud23MouseClicked
-      
+
         activityPhase.StudentClicked(22);
-      SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud23MouseClicked
 
     private void button_stud24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud24MouseClicked
-         
+
         activityPhase.StudentClicked(23);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud24MouseClicked
 
     private void button_stud25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud25MouseClicked
-       
+
         activityPhase.StudentClicked(24);
         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud25MouseClicked
 
     private void button_stud26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud26MouseClicked
-   
+
         activityPhase.StudentClicked(25);
         SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud26MouseClicked
 
     private void button_stud27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud27MouseClicked
-        
+
         activityPhase.StudentClicked(26);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud27MouseClicked
 
     private void button_stud28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud28MouseClicked
-          
+
         activityPhase.StudentClicked(27);
-      SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud28MouseClicked
 
     private void button_stud29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud29MouseClicked
-         
+
         activityPhase.StudentClicked(28);
-         SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud29MouseClicked
 
     private void button_stud30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_stud30MouseClicked
-        
+
         activityPhase.StudentClicked(29);
-          SetActivityPhaseOpacity();
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud30MouseClicked
 
     private void panel_activityPhaseStudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseClicked
-    activityPhase.doNotPaintFlag= false;
-    activityPhase.studentDisplayed = -1;
+        activityPhase.doNotPaintFlag = false;
+        activityPhase.studentDisplayed = -1;
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseClicked
 
     private void panel_activityPhaseStudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_activityPhaseStudFieldMouseEntered
- 
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseEntered
 
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
@@ -5241,6 +5216,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_label_item3InvMouseClicked
 
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
+        //if the changes made by the admin are valid, save them and show the admin overview
         if (_mainadmin.checkChanges()) {
             _mainadmin.saveChages();
             adminLogin();
@@ -5248,19 +5224,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_aSaveActionPerformed
 
     private void textfield_aKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aKontonameActionPerformed
-       
     }//GEN-LAST:event_textfield_aKontonameActionPerformed
 
     private void textfield_aKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aKontonameFocusGained
-        
     }//GEN-LAST:event_textfield_aKontonameFocusGained
 
     private void textfield_aEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_aEmailActionPerformed
-  
     }//GEN-LAST:event_textfield_aEmailActionPerformed
 
     private void textfield_aEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aEmailFocusGained
-        
     }//GEN-LAST:event_textfield_aEmailFocusGained
 
     private void button_auCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_auCancel1ActionPerformed
@@ -5269,11 +5241,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_auCancel1ActionPerformed
 
     private void textfield_aSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aSurenameFocusGained
-        
     }//GEN-LAST:event_textfield_aSurenameFocusGained
 
     private void textfield_aNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_aNameFocusGained
-        
     }//GEN-LAST:event_textfield_aNameFocusGained
 
     private void slider_aMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slider_aMonthStateChanged
@@ -5281,7 +5251,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_slider_aMonthStateChanged
 
     private void textfield_rNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_rNameActionPerformed
-        
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
@@ -5297,80 +5266,78 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_aCancelActionPerformed
 
     private void textfield_pKontonameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pKontonameActionPerformed
-      
     }//GEN-LAST:event_textfield_pKontonameActionPerformed
 
     private void textfield_pKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pKontonameFocusGained
-      
     }//GEN-LAST:event_textfield_pKontonameFocusGained
 
     private void textfield_pEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pEmail1ActionPerformed
-        
     }//GEN-LAST:event_textfield_pEmail1ActionPerformed
 
     private void textfield_pEmail1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail1FocusGained
-        
     }//GEN-LAST:event_textfield_pEmail1FocusGained
 
     private void textfield_pEmail2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pEmail2FocusGained
-       
     }//GEN-LAST:event_textfield_pEmail2FocusGained
 
     private void textfield_pNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_pNameActionPerformed
-       
     }//GEN-LAST:event_textfield_pNameActionPerformed
 
     private void textfield_pNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pNameFocusGained
-        
     }//GEN-LAST:event_textfield_pNameFocusGained
 
     private void textfield_pSurenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_pSurenameFocusGained
-        
     }//GEN-LAST:event_textfield_pSurenameFocusGained
 
     private void password_pPass1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass1FocusGained
-        
     }//GEN-LAST:event_password_pPass1FocusGained
 
     private void password_pPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password_pPass2FocusGained
-       
     }//GEN-LAST:event_password_pPass2FocusGained
 
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
+        //need to build the array of components for checkRegister_()
         JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
         JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
+        //need to build the array of components for checkGlobUserVar()
         JTextField[] toCheck2 = {textfield_pKontoname, textfield_pEmail1};
         JLabel[] errMess2 = {label_pErrAccname, label_pErrEmail1};
+        //Let's build the "enter password"-message
         JLabel inputLabel = new JLabel("Bitte aktuelles Passwort eingeben!");
         JPasswordField inputPw = new JPasswordField();
         Object[] ob = {inputLabel, inputPw};
+        //needed for usability
         Boolean okPressed = false;
         Boolean changePass = false;
 
         if (((_mainuser.getAccountname().equals(textfield_pKontoname.getText()) & _mainuser.getEmail().equals(textfield_pEmail1.getText())) | !checkGlobUserVar(toCheck2, errMess2)) & checkRegister_(toCheck, errMess)) {
             if (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION) {
                 if (new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                    //if everything went right the first time, save the changes
                     changePass = true;
                 } else {
+                    //if the password was wrong tell it to the user
                     inputLabel.setText("Falsches Passwort! Bitte aktuelles Passwort eingeben!");
                     inputPw.setText("");
                     while ((okPressed = (JOptionPane.showConfirmDialog(null, ob, "", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION)) & !new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
+                        //just repeat if the user keeps hitting "yes" with the wrong password put in
                         inputPw.setText("");
                     }
-                    System.out.println(okPressed);
+                    //If the user entered the correct password save the changes
                     if (okPressed & new String(inputPw.getPassword()).equals(_mainuser.getPassword())) {
                         changePass = true;
                     }
                 }
             }
-            System.out.println(changePass);
             if (changePass) {
+                //changes are saved
                 if (!_mainuser.getAccountname().equals(textfield_pKontoname.getText()) | !_mainuser.getEmail().equals(textfield_pEmail1.getText())) {
                     User.deleteUser(_mainuser);
                 }
                 User.createUser(textfield_pKontoname.getText(), password_pPass1.getPassword(), textfield_pEmail1.getText(), textfield_pName.getText(), textfield_pSurename.getText(), _mainuser.getReg_date(), _mainuser.getLast_login(), _mainuser.getTime_played(), _mainuser.getUcoins());
                 _mainuser = new User(textfield_pKontoname.getText());
             }
+            //close the profile panel and tell the user he was successfull
             panel_Profile.setVisible(false);
             JOptionPane.showMessageDialog(null, "Daten erfolgreich geändert!");
         }
@@ -5381,47 +5348,47 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_pCancelActionPerformed
 
     private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
-        if(_maingame.barNum==1){
-            _maingame.barNum=0;    
-        }else{          
-            _maingame.barNum=1;         
+        if (_maingame.barNum == 1) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 1;
         }
-        _maingame.barClicked(activityPhase.studButtons); 
-        if(_maingame.barNum==0){
+        _maingame.barClicked(activityPhase.studButtons);
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetActivityPhaseOpacity();
-                
-            }           
+
+            }
         }
     }//GEN-LAST:event_KnowledgeBarMouseClicked
 
     private void MotivationBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MotivationBarMouseClicked
-        if(_maingame.barNum==2){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=2;
+        if (_maingame.barNum == 2) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 2;
         }
         _maingame.barClicked(activityPhase.studButtons);
-         if(_maingame.barNum==0){
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetActivityPhaseOpacity();
-            
-            }           
+
+            }
         }
     }//GEN-LAST:event_MotivationBarMouseClicked
 
     private void TirednessBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TirednessBarMouseClicked
-        if(_maingame.barNum==3){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=3;
+        if (_maingame.barNum == 3) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 3;
         }
         _maingame.barClicked(activityPhase.studButtons);
-         if(_maingame.barNum==0){
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetActivityPhaseOpacity();
-            
-            }           
+
+            }
         }
     }//GEN-LAST:event_TirednessBarMouseClicked
 
@@ -5436,48 +5403,48 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
 
     private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
-        if (!_maingame.teamwork){
+        if (!_maingame.teamwork) {
             toggleButton_teamwork.setSelected(true);
-            _maingame.shortBreak=false;
+            _maingame.shortBreak = false;
             toggleButton_shortBreak.setSelected(false);
-            _maingame.teamwork=true;
-            {button_stud1.setLocation(230, 10);
-            button_stud2.setLocation(290, 10);
-            button_stud3.setLocation(350, 10);
-            button_stud4.setLocation(410, 10);
-            button_stud5.setLocation(470, 10);
-            button_stud6.setLocation(530, 10);
-            button_stud7.setLocation(230, 90);
-            button_stud8.setLocation(290, 90);
-            button_stud9.setLocation(350, 90);
-            button_stud10.setLocation(410, 90);
-            button_stud11.setLocation(470, 90);
-            button_stud12.setLocation(530, 90);
-            button_stud13.setLocation(230, 180);
-            button_stud14.setLocation(290, 180);
-            button_stud15.setLocation(350, 180);
-            button_stud16.setLocation(410,180);
-            button_stud17.setLocation(470, 180);
-            button_stud18.setLocation(530, 180);
-            button_stud19.setLocation(230, 260);
-            button_stud20.setLocation(290, 260);
-            button_stud21.setLocation(350, 260);
-            button_stud22.setLocation(410, 260);
-            button_stud23.setLocation(470, 260);
-            button_stud24.setLocation(530, 260);
-            button_stud25.setLocation(230, 340);
-            button_stud26.setLocation(290, 340);
-            button_stud27.setLocation(350, 340);
-            button_stud28.setLocation(410, 340);
-            button_stud29.setLocation(470, 340);
-            button_stud30.setLocation(530, 340);
-            
-            
+            _maingame.teamwork = true;
+            {
+                button_stud1.setLocation(230, 10);
+                button_stud2.setLocation(290, 10);
+                button_stud3.setLocation(350, 10);
+                button_stud4.setLocation(410, 10);
+                button_stud5.setLocation(470, 10);
+                button_stud6.setLocation(530, 10);
+                button_stud7.setLocation(230, 90);
+                button_stud8.setLocation(290, 90);
+                button_stud9.setLocation(350, 90);
+                button_stud10.setLocation(410, 90);
+                button_stud11.setLocation(470, 90);
+                button_stud12.setLocation(530, 90);
+                button_stud13.setLocation(230, 180);
+                button_stud14.setLocation(290, 180);
+                button_stud15.setLocation(350, 180);
+                button_stud16.setLocation(410, 180);
+                button_stud17.setLocation(470, 180);
+                button_stud18.setLocation(530, 180);
+                button_stud19.setLocation(230, 260);
+                button_stud20.setLocation(290, 260);
+                button_stud21.setLocation(350, 260);
+                button_stud22.setLocation(410, 260);
+                button_stud23.setLocation(470, 260);
+                button_stud24.setLocation(530, 260);
+                button_stud25.setLocation(230, 340);
+                button_stud26.setLocation(290, 340);
+                button_stud27.setLocation(350, 340);
+                button_stud28.setLocation(410, 340);
+                button_stud29.setLocation(470, 340);
+                button_stud30.setLocation(530, 340);
+
+
             }
-        }
-        else {
+        } else {
             toggleButton_teamwork.setSelected(false);
-            _maingame.teamwork=false;
+            _maingame.teamwork = false;
             button_stud1.setLocation(120, 10);
             button_stud2.setLocation(220, 10);
             button_stud3.setLocation(330, 10);
@@ -5493,7 +5460,7 @@ public class Sims_1 extends javax.swing.JFrame {
             button_stud13.setLocation(120, 180);
             button_stud14.setLocation(220, 180);
             button_stud15.setLocation(330, 180);
-            button_stud16.setLocation(430,180);
+            button_stud16.setLocation(430, 180);
             button_stud17.setLocation(540, 180);
             button_stud18.setLocation(640, 180);
             button_stud19.setLocation(120, 260);
@@ -5514,33 +5481,32 @@ public class Sims_1 extends javax.swing.JFrame {
     private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
         String test = button_window.getText();
         if (test.equals("Fenster : OFFEN")) {
-            _maingame.windowClosed=true;
+            _maingame.windowClosed = true;
             button_window.setText("Fenster : ZU");
-            if(_maingame.windowChangesNoise){
-            _maingame.updateRoom(0, -10);
-            _maingame.windowChangesNoise=false;
+            if (_maingame.windowChangesNoise) {
+                _maingame.updateRoom(0, -10);
+                _maingame.windowChangesNoise = false;
             }
             label_windowsclosed.setVisible(false);
         }
         if (test.equals("Fenster : ZU")) {
-            _maingame.windowClosed=false;
+            _maingame.windowClosed = false;
             button_window.setText("Fenster : OFFEN");
             label_windowsclosed.setVisible(true);
         }
     }//GEN-LAST:event_button_windowActionPerformed
 
     private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
-        if (!_maingame.shortBreak){
+        if (!_maingame.shortBreak) {
             toggleButton_shortBreak.setSelected(true);
-            _maingame.teamwork=false;
+            _maingame.teamwork = false;
             toggleButton_teamwork.setSelected(false);
-            _maingame.shortBreak=true;
-            System.out.println("You just started a break: " +_maingame.shortBreak);
-        }
-        else {
+            _maingame.shortBreak = true;
+            System.out.println("You just started a break: " + _maingame.shortBreak);
+        } else {
             toggleButton_shortBreak.setSelected(false);
-            _maingame.shortBreak=false; 
-            System.out.println("You just ended the break: " +_maingame.shortBreak);
+            _maingame.shortBreak = false;
+            System.out.println("You just ended the break: " + _maingame.shortBreak);
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
 
@@ -5553,56 +5519,53 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_onmouseleave_easteregg
 
     private void login_backgroundMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_backgroundMouseEntered
-       
     }//GEN-LAST:event_login_backgroundMouseEntered
 
-
     private void login_backgroundMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_backgroundMouseExited
-  
     }//GEN-LAST:event_login_backgroundMouseExited
 
     private void jProgB_WissenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_WissenMouseClicked
-        if(_maingame.barNum==1){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=1;
+        if (_maingame.barNum == 1) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 1;
         }
         _maingame.barClicked(planningPhaseButtons);
-          if(_maingame.barNum==0){
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetPlanningPhaseOpacity();
-                
-            }           
+
+            }
         }
     }//GEN-LAST:event_jProgB_WissenMouseClicked
 
     private void jProgB_MotivationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MotivationMouseClicked
-        if(_maingame.barNum==2){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=2;
+        if (_maingame.barNum == 2) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 2;
         }
         _maingame.barClicked(planningPhaseButtons);
-              if(_maingame.barNum==0){
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetPlanningPhaseOpacity();
-                
-            }           
+
+            }
         }
     }//GEN-LAST:event_jProgB_MotivationMouseClicked
 
     private void jProgB_MüdigkeitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MüdigkeitMouseClicked
-        if(_maingame.barNum==3){
-            _maingame.barNum=0;
-        }else{
-            _maingame.barNum=3;
+        if (_maingame.barNum == 3) {
+            _maingame.barNum = 0;
+        } else {
+            _maingame.barNum = 3;
         }
         _maingame.barClicked(planningPhaseButtons);
-              if(_maingame.barNum==0){
+        if (_maingame.barNum == 0) {
             {// set opacity on all buttons back
                 SetPlanningPhaseOpacity();
-                
-            }           
+
+            }
         }
     }//GEN-LAST:event_jProgB_MüdigkeitMouseClicked
 
@@ -5611,7 +5574,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_OKnoCheatsAvailableMouseClicked
 
     private void jBut_OKnotAllowedUseCheatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatActionPerformed
-      
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatActionPerformed
 
     private void jBut_OKnotAllowedUseCheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatMouseClicked
@@ -5619,9 +5581,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
 
     private void button_dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dozent1ActionPerformed
-      if (_maingame.lecturer_counter>0){
+        if (_maingame.lecturer_counter > 0) {
             label_dozent_action.setVisible(true);
-            _maingame.quietingCounter=10;
+            _maingame.quietingCounter = 10;
             _maingame.lecturer_counter--;
         }
     }//GEN-LAST:event_button_dozent1ActionPerformed
@@ -5632,123 +5594,123 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_retryActionPerformed
 
     private void button_stud1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud1StateChanged
-     SetActivityPhaseOpacity();   
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud1StateChanged
 
     private void button_stud2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud2StateChanged
-     SetActivityPhaseOpacity();     
+        SetActivityPhaseOpacity();
     }//GEN-LAST:event_button_stud2StateChanged
 
     private void button_stud3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud3StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud3StateChanged
 
     private void button_stud4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud4StateChanged
-   SetActivityPhaseOpacity();     // TODO add your handling code here:
+        SetActivityPhaseOpacity();     // TODO add your handling code here:
     }//GEN-LAST:event_button_stud4StateChanged
 
     private void button_stud5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud5StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud5StateChanged
 
     private void button_stud6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud6StateChanged
-     SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud6StateChanged
 
     private void button_stud7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud7StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud7StateChanged
 
     private void button_stud8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud8StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud8StateChanged
 
     private void button_stud9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud9StateChanged
-    SetActivityPhaseOpacity();   // TODO add your handling code here:
+        SetActivityPhaseOpacity();   // TODO add your handling code here:
     }//GEN-LAST:event_button_stud9StateChanged
 
     private void button_stud10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud10StateChanged
-    SetActivityPhaseOpacity();   // TODO add your handling code here:
+        SetActivityPhaseOpacity();   // TODO add your handling code here:
     }//GEN-LAST:event_button_stud10StateChanged
 
     private void button_stud11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud11StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud11StateChanged
 
     private void button_stud12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud12StateChanged
-   SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud12StateChanged
 
     private void button_stud13StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud13StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud13StateChanged
 
     private void button_stud14StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud14StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud14StateChanged
 
     private void button_stud15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud15StateChanged
-    SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud15StateChanged
 
     private void button_stud16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud16StateChanged
-    SetActivityPhaseOpacity();// TODO add your handling code here:
+        SetActivityPhaseOpacity();// TODO add your handling code here:
     }//GEN-LAST:event_button_stud16StateChanged
 
     private void button_stud17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud17StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud17StateChanged
 
     private void button_stud18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud18StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud18StateChanged
 
     private void button_stud19StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud19StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud19StateChanged
 
     private void button_stud20StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud20StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud20StateChanged
 
     private void button_stud21StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud21StateChanged
-     SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud21StateChanged
 
     private void button_stud22StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud22StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud22StateChanged
 
     private void button_stud23StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud23StateChanged
-   SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud23StateChanged
 
     private void button_stud24StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud24StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud24StateChanged
 
     private void button_stud25StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud25StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud25StateChanged
 
     private void button_stud26StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud26StateChanged
-      SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud26StateChanged
 
     private void button_stud27StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud27StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud27StateChanged
 
     private void button_stud28StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud28StateChanged
-      SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud28StateChanged
 
     private void button_stud29StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud29StateChanged
-     SetActivityPhaseOpacity();  // TODO add your handling code here:
+        SetActivityPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_button_stud29StateChanged
 
     private void button_stud30StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_button_stud30StateChanged
-   SetActivityPhaseOpacity(); // TODO add your handling code here:
+        SetActivityPhaseOpacity(); // TODO add your handling code here:
     }//GEN-LAST:event_button_stud30StateChanged
 
     private void jBut_DozentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_DozentActionPerformed
@@ -5756,15 +5718,15 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_DozentActionPerformed
 
     private void jBut_15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_15StateChanged
-      SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_15StateChanged
 
     private void jBut_2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_2StateChanged
-      SetPlanningPhaseOpacity();     // TODO add your handling code here:
+        SetPlanningPhaseOpacity();     // TODO add your handling code here:
     }//GEN-LAST:event_jBut_2StateChanged
 
     private void jBut_3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_3StateChanged
-       SetPlanningPhaseOpacity();    // TODO add your handling code here:
+        SetPlanningPhaseOpacity();    // TODO add your handling code here:
     }//GEN-LAST:event_jBut_3StateChanged
 
     private void jBut_4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_4StateChanged
@@ -5792,7 +5754,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_9StateChanged
 
     private void jBut_12StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_12StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_12StateChanged
 
     private void jBut_11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_11StateChanged
@@ -5812,7 +5774,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_13StateChanged
 
     private void jBut_16StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_16StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_16StateChanged
 
     private void jBut_17StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_17StateChanged
@@ -5820,7 +5782,7 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_17StateChanged
 
     private void jBut_18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_18StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_18StateChanged
 
     private void jBut_19StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_19StateChanged
@@ -5836,31 +5798,31 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_21StateChanged
 
     private void jBut_22StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_22StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_22StateChanged
 
     private void jBut_23StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_23StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_23StateChanged
 
     private void jBut_24StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_24StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_24StateChanged
 
     private void jBut_25StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_25StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_25StateChanged
 
     private void jBut_26StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_26StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_26StateChanged
 
     private void jBut_27StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_27StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_27StateChanged
 
     private void jBut_28StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_28StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_28StateChanged
 
     private void jBut_29StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_29StateChanged
@@ -5872,16 +5834,16 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_30StateChanged
 
     private void jBut_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jBut_1StateChanged
-         SetPlanningPhaseOpacity();  // TODO add your handling code here:
+        SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
 
     private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
-         // if the toggleButton is clicked for switching student and not a student the button will be deselected
+        // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
-        
+
         endTime = System.currentTimeMillis();
-        _mainuser.setTime_played(_mainuser.getTime_played()+(endTime - startTime));
-        
+        _mainuser.setTime_played(_mainuser.getTime_played() + (endTime - startTime));
+
         panel_gamePhases.setVisible(false);
         User.saveUser();
         Game1.saveGame();
@@ -5900,7 +5862,7 @@ public class Sims_1 extends javax.swing.JFrame {
         Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
         //planningPhase.startPlanningPhase();
-        panel_menue.setVisible(false);  
+        panel_menue.setVisible(false);
     }//GEN-LAST:event_button_shopReturnActionPerformed
 
     private void button_statsErrorOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statsErrorOKActionPerformed
@@ -5910,7 +5872,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         User.saveLastLogin();
     }//GEN-LAST:event_formWindowClosed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -6498,6 +6460,12 @@ public class Sims_1 extends javax.swing.JFrame {
         return true;
     }
 
+    /**
+     * Special form of checkGlobUser needed for the profile management
+     * @param input 1-dim-array with the text fields for the username and the email address
+     * @param errMess 1-dim-array with the labels to display error messages
+     * @return true if the user already exists, false otherwise
+     */
     private static boolean checkGlobUserVar(JTextField[] input, JLabel[] errMess) {
         JTextField[] test1 = {new JTextField("t"), input[1]};
         JTextField[] test2 = {input[0], new JTextField("t")};
@@ -6505,10 +6473,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }
 
     /**
-     * Checks in the global user-file if the user already exists
-     *
-     * @param str String with the name of the user to check
-     * @return true if user already exists, false otherwise
+     * Checks if a user already exists on the current system
+     * @param input 1-dim-array of text fields with the username and the email
+     * @param errMess 1-dim-array of labels for the error-messages
+     * @return true if the user already exists, false otherwise
      */
     public static boolean checkGlobUser(JTextField[] input, JLabel[] errMess) {
 
@@ -6538,6 +6506,19 @@ public class Sims_1 extends javax.swing.JFrame {
         return false;
     }
 
+    /**
+     * Checks if the data put in to create/update a user is valid
+     * @param toCheck 1-dim-array of JComponets with the needed data:
+     * -JTextfield with the account name
+     * -JPassword with the password
+     * -JPassword with the repeated password
+     * -JTextfield with the email
+     * -JTextfield with the repeated email
+     * -JTextfield with the first name of the user
+     * -JTextfield with the last name of the user
+     * @param errMess 1-dim-array of labels to display error messages
+     * @return true if the data put in is correct, false otherwise
+     */
     public static boolean checkRegister_(JComponent[] toCheck, JLabel[] errMess) {
         JTextField account = (JTextField) toCheck[0];
         JPasswordField pass1 = (JPasswordField) toCheck[1];
@@ -6732,24 +6713,8 @@ public class Sims_1 extends javax.swing.JFrame {
     }
 
     /**
-     * Standardized login with a fictional user, just for dev-purposes
+     * Logs the current user out
      */
-    @Deprecated private void logIn() {
-        _mainuser = new User();  //by Dawid
-        _maingame = new Game1();
-        CSVRead read = new CSVRead();
-        try {
-            read.readCSV();
-        } catch (Exception ex) {
-            Logger.getLogger(Sims_1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        panel_Login.setVisible(false);
-        panel_Admin.setVisible(false);
-        panel_adminUser.setVisible(false);
-        panel_menue.setVisible(true);
-        System.out.println(_mainuser);
-    }
-
     private void logOut() {
         _mainuser = null;
         _maingame = null;
@@ -6784,6 +6749,9 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Logs the admin in and makes the admin-panel visible
+     */
     private void adminLogin() {
         panel_Login.setVisible(false);
         panel_Admin.setVisible(true);
@@ -6796,6 +6764,9 @@ public class Sims_1 extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Initializes the fields and labels for displaying/editing the user-profile
+     */
     private void initProfile() {
         label_pErrEmail1.setText("");
         label_pErrAccname.setText("");
@@ -6821,118 +6792,118 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_pName.setText(_mainuser.getFirst_name());
         textfield_pSurename.setText(_mainuser.getLast_name());
     }
-    
-    private javax.swing.JButton[] constructActivityPhaseButtons(){
-        javax.swing.JButton[] result = new javax.swing.JButton[30];
-                result[0]=button_stud1;
-                result[1]=button_stud2;
-                result[2]=button_stud3;
-                result[3]=button_stud4;
-                result[4]=button_stud5;
-                result[5]=button_stud6;
-                result[6]=button_stud7;
-                result[7]=button_stud8;
-                result[8]=button_stud9;
-                result[9]=button_stud10;
-                result[10]=button_stud11;
-                result[11]=button_stud12;
-                result[12]=button_stud13;
-                result[13]=button_stud14;
-                result[14]=button_stud15;
-                result[15]=button_stud16;
-                result[16]=button_stud17;
-                result[17]=button_stud18;
-                result[18]=button_stud19;
-                result[19]=button_stud20;
-                result[20]=button_stud21;
-                result[21]=button_stud22;
-                result[22]=button_stud23;
-                result[23]=button_stud24;
-                result[24]=button_stud25;
-                result[25]=button_stud26;
-                result[26]=button_stud27;
-                result[27]=button_stud28;
-                result[28]=button_stud29;
-                result[29]=button_stud30;              
-        return result;
-    }
-    
-    private javax.swing.JButton[] constructPlanningPhaseButtons(){
-        javax.swing.JButton[] result = new javax.swing.JButton[30];
-                result[0]=jBut_1;
-                result[1]=jBut_2;
-                result[2]=jBut_3;
-                result[3]=jBut_4;
-                result[4]=jBut_5;
-                result[5]=jBut_6;
-                result[6]=jBut_7;
-                result[7]=jBut_8;
-                result[8]=jBut_9;
-                result[9]=jBut_10;
-                result[10]=jBut_11;
-                result[11]=jBut_12;
-                result[12]=jBut_13;
-                result[13]=jBut_14;
-                result[14]=jBut_15;
-                result[15]=jBut_16;
-                result[16]=jBut_17;
-                result[17]=jBut_18;
-                result[18]=jBut_19;
-                result[19]=jBut_20;
-                result[20]=jBut_21;
-                result[21]=jBut_22;
-                result[22]=jBut_23;
-                result[23]=jBut_24;
-                result[24]=jBut_25;
-                result[25]=jBut_26;
-                result[26]=jBut_27;
-                result[27]=jBut_28;
-                result[28]=jBut_29;
-                result[29]=jBut_30;              
-        return result;
-    }
-    
-    private javax.swing.JLabel[] constructLaptopLabels(){
-        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
-                result[0]=label_laptop1;
-                result[1]=label_laptop2;
-                result[2]=label_laptop3;
-                result[3]=label_laptop4;
-                result[4]=label_laptop5;
-                result[5]=label_laptop6;
-                result[6]=label_laptop7;
-                result[7]=label_laptop8;
-                result[8]=label_laptop9;
-                result[9]=label_laptop10;
-                result[10]=label_laptop11;
-                result[11]=label_laptop12;
-                result[12]=label_laptop13;
-                result[13]=label_laptop14;
-                result[14]=label_laptop15;
-                result[15]=label_laptop16;
-                result[16]=label_laptop17;
-                result[17]=label_laptop18;
-                result[18]=label_laptop19;
-                result[19]=label_laptop20;
-                result[20]=label_laptop21;
-                result[21]=label_laptop22;
-                result[22]=label_laptop23;
-                result[23]=label_laptop24;
-                result[24]=label_laptop25;
-                result[25]=label_laptop26;
-                result[26]=label_laptop27;
-                result[27]=label_laptop28;
-                result[28]=label_laptop29;
-                result[29]=label_laptop30;              
-        return result;
-    }
+
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
-    
-public void startActivityPhase(){
-        
-    if (panel_gamePhases.isVisible() == false) {
+    private javax.swing.JButton[] constructActivityPhaseButtons() {
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+        result[0] = button_stud1;
+        result[1] = button_stud2;
+        result[2] = button_stud3;
+        result[3] = button_stud4;
+        result[4] = button_stud5;
+        result[5] = button_stud6;
+        result[6] = button_stud7;
+        result[7] = button_stud8;
+        result[8] = button_stud9;
+        result[9] = button_stud10;
+        result[10] = button_stud11;
+        result[11] = button_stud12;
+        result[12] = button_stud13;
+        result[13] = button_stud14;
+        result[14] = button_stud15;
+        result[15] = button_stud16;
+        result[16] = button_stud17;
+        result[17] = button_stud18;
+        result[18] = button_stud19;
+        result[19] = button_stud20;
+        result[20] = button_stud21;
+        result[21] = button_stud22;
+        result[22] = button_stud23;
+        result[23] = button_stud24;
+        result[24] = button_stud25;
+        result[25] = button_stud26;
+        result[26] = button_stud27;
+        result[27] = button_stud28;
+        result[28] = button_stud29;
+        result[29] = button_stud30;
+        return result;
+    }
+
+    private javax.swing.JButton[] constructPlanningPhaseButtons() {
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+        result[0] = jBut_1;
+        result[1] = jBut_2;
+        result[2] = jBut_3;
+        result[3] = jBut_4;
+        result[4] = jBut_5;
+        result[5] = jBut_6;
+        result[6] = jBut_7;
+        result[7] = jBut_8;
+        result[8] = jBut_9;
+        result[9] = jBut_10;
+        result[10] = jBut_11;
+        result[11] = jBut_12;
+        result[12] = jBut_13;
+        result[13] = jBut_14;
+        result[14] = jBut_15;
+        result[15] = jBut_16;
+        result[16] = jBut_17;
+        result[17] = jBut_18;
+        result[18] = jBut_19;
+        result[19] = jBut_20;
+        result[20] = jBut_21;
+        result[21] = jBut_22;
+        result[22] = jBut_23;
+        result[23] = jBut_24;
+        result[24] = jBut_25;
+        result[25] = jBut_26;
+        result[26] = jBut_27;
+        result[27] = jBut_28;
+        result[28] = jBut_29;
+        result[29] = jBut_30;
+        return result;
+    }
+
+    private javax.swing.JLabel[] constructLaptopLabels() {
+        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
+        result[0] = label_laptop1;
+        result[1] = label_laptop2;
+        result[2] = label_laptop3;
+        result[3] = label_laptop4;
+        result[4] = label_laptop5;
+        result[5] = label_laptop6;
+        result[6] = label_laptop7;
+        result[7] = label_laptop8;
+        result[8] = label_laptop9;
+        result[9] = label_laptop10;
+        result[10] = label_laptop11;
+        result[11] = label_laptop12;
+        result[12] = label_laptop13;
+        result[13] = label_laptop14;
+        result[14] = label_laptop15;
+        result[15] = label_laptop16;
+        result[16] = label_laptop17;
+        result[17] = label_laptop18;
+        result[18] = label_laptop19;
+        result[19] = label_laptop20;
+        result[20] = label_laptop21;
+        result[21] = label_laptop22;
+        result[22] = label_laptop23;
+        result[23] = label_laptop24;
+        result[24] = label_laptop25;
+        result[25] = label_laptop26;
+        result[26] = label_laptop27;
+        result[27] = label_laptop28;
+        result[28] = label_laptop29;
+        result[29] = label_laptop30;
+        return result;
+    }
+
+    public void startActivityPhase() {
+
+        if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
         cl.show(panel_gamePhases, "card2");
@@ -6942,13 +6913,13 @@ public void startActivityPhase(){
         item.createItemInventory(label_item3Inv, label_item3InvName, label_item3InvAmount, _maingame.omniSenseAudio);
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
-            // sets StudIcons on StudButtons
+        // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels); // added by Jörg, Nadir
-}
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar, AirBar, NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1, laptopLabels); // added by Jörg, Nadir
+    }
 
-public void startPlanningPhase(){
- if (panel_gamePhases.isVisible() == false) {
+    public void startPlanningPhase() {
+        if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
         cl.show(panel_gamePhases, "card3");
@@ -6960,568 +6931,608 @@ public void startPlanningPhase(){
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
-}
-public void switchPhase(){
-    //Checks the Students that are still present
-    int present = 0;
-    for(int i=0; i<_maingame.studentArray.length; i++){
-        if(_maingame.studentArray[i].present == true){
-            present++;
-        }
     }
-    label_students.setText(String.valueOf(present)+" / 30");
-    label_semester.setText(String.valueOf(_maingame.getSemester())+" / 6"); // show curent semester in the activityphase
-    if (panel_gamePhases.isVisible() == false) {
+
+    public void switchPhase() {
+        //Checks the Students that are still present
+        int present = 0;
+        for (int i = 0; i < _maingame.studentArray.length; i++) {
+            if (_maingame.studentArray[i].present == true) {
+                present++;
+            }
+        }
+        label_students.setText(String.valueOf(present) + " / 30");
+        label_semester.setText(String.valueOf(_maingame.getSemester()) + " / 6"); // show curent semester in the activityphase
+        if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
-    if(_maingame.round%3 == 1 && present != 0){
-        // Create a random minigame
-        RandGenerator randGen = new RandGenerator();
-        switch(randGen.getRand(3)+1){
-            case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
-            case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
-            case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
-            default: {goToNextPage(); break;}
+        if (_maingame.round % 3 == 1 && present != 0) {
+            // Create a random minigame
+            RandGenerator randGen = new RandGenerator();
+            switch (randGen.getRand(3) + 1) {
+                case 1: {
+                    JPanel panel_snakeMinigame = new Board();
+                    panel_gamePhases.add(panel_snakeMinigame, "card5");
+                    cl.show(panel_gamePhases, "card5");
+                    panel_snakeMinigame.requestFocus();
+                    panel_menue.setVisible(false);
+                    break;
+                }
+                case 2: {
+                    JPanel panel_numberMinigame = new MinigameNumbergame();
+                    panel_gamePhases.add(panel_numberMinigame, "card6");
+                    cl.show(panel_gamePhases, "card6");
+                    panel_numberMinigame.requestFocus();
+                    panel_menue.setVisible(false);
+                    break;
+                }
+                case 3: {
+                    JPanel panel_mazeMinigame = new MinigameMazegame();
+                    panel_gamePhases.add(panel_mazeMinigame, "card7");
+                    cl.show(panel_gamePhases, "card7");
+                    panel_mazeMinigame.requestFocus();
+                    panel_menue.setVisible(false);
+                    break;
+                }
+                default: {
+                    goToNextPage();
+                    break;
+                }
+            }
+        } // Calls the planninghpase without having a minigame
+        else if (_maingame.round % 3 != 1 && present != 0) {
+            cl.show(panel_gamePhases, "card3");
+            startPlanningPhase();
+        } // Calls the page after the last Semester if there are still students available
+        else if (_maingame.round % 3 == 1 && present != 0 && _maingame.getSemester() == 7) {
+            //   panel_gamePhases.setVisible(false);
+            // panel_menue.setVisible(true);
+            //unnecesary   label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+            label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
+            label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
+            cl.show(panel_gamePhases, "card8");
+        } // Calls the gameOver screen if there are no students any more
+        else {
+            label_gameOverSemester.setText("Erreichtes Semester:   " + String.valueOf(_maingame.getSemester()));
+            label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
+            switch (_maingame.getSemester()) {
+                case 1: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
+                }
+                case 2: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
+                }
+                case 3: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
+                }
+                case 4: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
+                }
+                case 5: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
+                }
+                case 6: {
+                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
+                }
+            }
+            cl.show(panel_gamePhases, "card8");
         }
     }
-    // Calls the planninghpase without having a minigame
-    else if(_maingame.round%3 != 1 && present != 0){
-        cl.show(panel_gamePhases, "card3");
-        startPlanningPhase();
-    }
-    // Calls the page after the last Semester if there are still students available
-    else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
-     //   panel_gamePhases.setVisible(false);
-       // panel_menue.setVisible(true);
-     //unnecesary   label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
-        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
-        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png"))); 
-        cl.show(panel_gamePhases, "card8");
-    }
-    // Calls the gameOver screen if there are no students any more
-   else{   
-        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
-        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
-        switch(_maingame.getSemester()){
-            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-        }
-        cl.show(panel_gamePhases, "card8");
-    }
-}
-public void SetActivityOpaque(){ //button properties for transparency
+
+    public void SetActivityOpaque() { //button properties for transparency
         button_dozent1.setFocusPainted(false);
         button_dozent1.setBorder(null);
         button_dozent1.setOpaque(false);
         button_dozent1.setFocusPainted(false);
         button_dozent1.setBorderPainted(false);
         button_dozent1.setContentAreaFilled(false);
-        button_dozent1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));    
+        button_dozent1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud1.setFocusPainted(false);
         button_stud1.setBorder(null);
         button_stud1.setOpaque(false);
         button_stud1.setFocusPainted(false);
         button_stud1.setBorderPainted(false);
         button_stud1.setContentAreaFilled(false);
-        button_stud1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud2.setFocusPainted(false);
         button_stud2.setBorder(null);
         button_stud2.setOpaque(false);
         button_stud2.setFocusPainted(false);
         button_stud2.setBorderPainted(false);
         button_stud2.setContentAreaFilled(false);
-        button_stud2.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud3.setFocusPainted(false);
         button_stud3.setBorder(null);
         button_stud3.setOpaque(false);
         button_stud3.setFocusPainted(false);
         button_stud3.setBorderPainted(false);
         button_stud3.setContentAreaFilled(false);
-        button_stud3.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud3.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud4.setFocusPainted(false);
         button_stud4.setBorder(null);
         button_stud4.setOpaque(false);
         button_stud4.setFocusPainted(false);
         button_stud4.setBorderPainted(false);
         button_stud4.setContentAreaFilled(false);
-        button_stud4.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud4.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud5.setFocusPainted(false);
         button_stud5.setBorder(null);
         button_stud5.setOpaque(false);
         button_stud5.setFocusPainted(false);
         button_stud5.setBorderPainted(false);
         button_stud5.setContentAreaFilled(false);
-        button_stud5.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud5.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud6.setFocusPainted(false);
         button_stud6.setBorder(null);
         button_stud6.setOpaque(false);
         button_stud6.setFocusPainted(false);
         button_stud6.setBorderPainted(false);
         button_stud6.setContentAreaFilled(false);
-        button_stud6.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud6.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud7.setFocusPainted(false);
         button_stud7.setBorder(null);
         button_stud7.setOpaque(false);
         button_stud7.setFocusPainted(false);
         button_stud7.setBorderPainted(false);
         button_stud7.setContentAreaFilled(false);
-        button_stud7.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud7.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud8.setFocusPainted(false);
         button_stud8.setBorder(null);
         button_stud8.setOpaque(false);
         button_stud8.setFocusPainted(false);
         button_stud8.setBorderPainted(false);
         button_stud8.setContentAreaFilled(false);
-        button_stud8.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud8.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud9.setFocusPainted(false);
         button_stud9.setBorder(null);
         button_stud9.setOpaque(false);
         button_stud9.setFocusPainted(false);
         button_stud9.setBorderPainted(false);
         button_stud9.setContentAreaFilled(false);
-        button_stud9.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud9.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud10.setFocusPainted(false);
         button_stud10.setBorder(null);
         button_stud10.setOpaque(false);
         button_stud10.setFocusPainted(false);
         button_stud10.setBorderPainted(false);
         button_stud10.setContentAreaFilled(false);
-        button_stud10.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud11.setFocusPainted(false);
         button_stud11.setBorder(null);
         button_stud11.setOpaque(false);
         button_stud11.setFocusPainted(false);
         button_stud11.setBorderPainted(false);
         button_stud11.setContentAreaFilled(false);
-        button_stud11.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud11.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud12.setFocusPainted(false);
         button_stud12.setBorder(null);
         button_stud12.setOpaque(false);
         button_stud12.setFocusPainted(false);
         button_stud12.setBorderPainted(false);
         button_stud12.setContentAreaFilled(false);
-        button_stud12.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud12.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud13.setFocusPainted(false);
         button_stud13.setBorder(null);
         button_stud13.setOpaque(false);
         button_stud13.setFocusPainted(false);
         button_stud13.setBorderPainted(false);
         button_stud13.setContentAreaFilled(false);
-        button_stud13.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud13.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud14.setFocusPainted(false);
         button_stud14.setBorder(null);
         button_stud14.setOpaque(false);
         button_stud14.setFocusPainted(false);
         button_stud14.setBorderPainted(false);
         button_stud14.setContentAreaFilled(false);
-        button_stud14.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud14.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud15.setFocusPainted(false);
         button_stud15.setBorder(null);
         button_stud15.setOpaque(false);
         button_stud15.setFocusPainted(false);
         button_stud15.setBorderPainted(false);
         button_stud15.setContentAreaFilled(false);
-        button_stud15.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud15.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud16.setFocusPainted(false);
         button_stud16.setBorder(null);
         button_stud16.setOpaque(false);
         button_stud16.setFocusPainted(false);
         button_stud16.setBorderPainted(false);
         button_stud16.setContentAreaFilled(false);
-        button_stud16.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud16.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud17.setFocusPainted(false);
         button_stud17.setBorder(null);
         button_stud17.setOpaque(false);
         button_stud17.setFocusPainted(false);
         button_stud17.setBorderPainted(false);
         button_stud17.setContentAreaFilled(false);
-        button_stud17.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud17.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud18.setFocusPainted(false);
         button_stud18.setBorder(null);
         button_stud18.setOpaque(false);
         button_stud18.setFocusPainted(false);
         button_stud18.setBorderPainted(false);
         button_stud18.setContentAreaFilled(false);
-        button_stud18.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud18.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud19.setFocusPainted(false);
         button_stud19.setBorder(null);
         button_stud19.setOpaque(false);
         button_stud19.setFocusPainted(false);
         button_stud19.setBorderPainted(false);
         button_stud19.setContentAreaFilled(false);
-        button_stud19.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud19.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud20.setFocusPainted(false);
         button_stud20.setBorder(null);
         button_stud20.setOpaque(false);
         button_stud20.setFocusPainted(false);
         button_stud20.setBorderPainted(false);
         button_stud20.setContentAreaFilled(false);
-        button_stud20.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud20.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud21.setFocusPainted(false);
         button_stud21.setBorder(null);
         button_stud21.setOpaque(false);
         button_stud21.setFocusPainted(false);
         button_stud21.setBorderPainted(false);
         button_stud21.setContentAreaFilled(false);
-        button_stud21.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud21.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud22.setFocusPainted(false);
         button_stud22.setBorder(null);
         button_stud22.setOpaque(false);
         button_stud22.setFocusPainted(false);
         button_stud22.setBorderPainted(false);
         button_stud22.setContentAreaFilled(false);
-        button_stud22.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud22.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud23.setFocusPainted(false);
         button_stud23.setBorder(null);
         button_stud23.setOpaque(false);
         button_stud23.setFocusPainted(false);
         button_stud23.setBorderPainted(false);
         button_stud23.setContentAreaFilled(false);
-        button_stud23.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud23.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud24.setFocusPainted(false);
         button_stud24.setBorder(null);
         button_stud24.setOpaque(false);
         button_stud24.setFocusPainted(false);
         button_stud24.setBorderPainted(false);
         button_stud24.setContentAreaFilled(false);
-        button_stud24.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud24.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud25.setFocusPainted(false);
         button_stud25.setBorder(null);
         button_stud25.setOpaque(false);
         button_stud25.setFocusPainted(false);
         button_stud25.setBorderPainted(false);
         button_stud25.setContentAreaFilled(false);
-        button_stud25.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud25.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud26.setFocusPainted(false);
         button_stud26.setBorder(null);
         button_stud26.setOpaque(false);
         button_stud26.setFocusPainted(false);
         button_stud26.setBorderPainted(false);
         button_stud26.setContentAreaFilled(false);
-        button_stud26.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud26.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud27.setFocusPainted(false);
         button_stud27.setBorder(null);
         button_stud27.setOpaque(false);
         button_stud27.setFocusPainted(false);
         button_stud27.setBorderPainted(false);
         button_stud27.setContentAreaFilled(false);
-        button_stud27.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud27.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud28.setFocusPainted(false);
         button_stud28.setBorder(null);
         button_stud28.setOpaque(false);
         button_stud28.setFocusPainted(false);
         button_stud28.setBorderPainted(false);
         button_stud28.setContentAreaFilled(false);
-        button_stud28.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud28.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud29.setFocusPainted(false);
         button_stud29.setBorder(null);
         button_stud29.setOpaque(false);
         button_stud29.setFocusPainted(false);
         button_stud29.setBorderPainted(false);
         button_stud29.setContentAreaFilled(false);
-        button_stud29.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        button_stud29.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button_stud30.setFocusPainted(false);
         button_stud30.setBorder(null);
         button_stud30.setOpaque(false);
         button_stud30.setFocusPainted(false);
         button_stud30.setBorderPainted(false);
         button_stud30.setContentAreaFilled(false);
-        button_stud30.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-        }
-public void SetPlanningOpaque(){ //button properties for transparency
+        button_stud30.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }
+
+    public void SetPlanningOpaque() { //button properties for transparency
         jBut_Dozent.setFocusPainted(false);
         jBut_Dozent.setBorder(null);
         jBut_Dozent.setOpaque(false);
         jBut_Dozent.setFocusPainted(false);
         jBut_Dozent.setBorderPainted(false);
         jBut_Dozent.setContentAreaFilled(false);
-        jBut_Dozent.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));    
+        jBut_Dozent.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_1.setFocusPainted(false);
         jBut_1.setBorder(null);
         jBut_1.setOpaque(false);
         jBut_1.setFocusPainted(false);
         jBut_1.setBorderPainted(false);
         jBut_1.setContentAreaFilled(false);
-        jBut_1.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_2.setFocusPainted(false);
         jBut_2.setBorder(null);
         jBut_2.setOpaque(false);
         jBut_2.setFocusPainted(false);
         jBut_2.setBorderPainted(false);
         jBut_2.setContentAreaFilled(false);
-        jBut_2.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_3.setFocusPainted(false);
         jBut_3.setBorder(null);
         jBut_3.setOpaque(false);
         jBut_3.setFocusPainted(false);
         jBut_3.setBorderPainted(false);
         jBut_3.setContentAreaFilled(false);
-        jBut_3.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_3.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_4.setFocusPainted(false);
         jBut_4.setBorder(null);
         jBut_4.setOpaque(false);
         jBut_4.setFocusPainted(false);
         jBut_4.setBorderPainted(false);
         jBut_4.setContentAreaFilled(false);
-        jBut_4.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_4.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_5.setFocusPainted(false);
         jBut_5.setBorder(null);
         jBut_5.setOpaque(false);
         jBut_5.setFocusPainted(false);
         jBut_5.setBorderPainted(false);
         jBut_5.setContentAreaFilled(false);
-        jBut_5.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_5.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_6.setFocusPainted(false);
         jBut_6.setBorder(null);
         jBut_6.setOpaque(false);
         jBut_6.setFocusPainted(false);
         jBut_6.setBorderPainted(false);
         jBut_6.setContentAreaFilled(false);
-        jBut_6.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_6.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_7.setFocusPainted(false);
         jBut_7.setBorder(null);
         jBut_7.setOpaque(false);
         jBut_7.setFocusPainted(false);
         jBut_7.setBorderPainted(false);
         jBut_7.setContentAreaFilled(false);
-        jBut_7.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_7.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_8.setFocusPainted(false);
         jBut_8.setBorder(null);
         jBut_8.setOpaque(false);
         jBut_8.setFocusPainted(false);
         jBut_8.setBorderPainted(false);
         jBut_8.setContentAreaFilled(false);
-        jBut_8.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_8.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_9.setFocusPainted(false);
         jBut_9.setBorder(null);
         jBut_9.setOpaque(false);
         jBut_9.setFocusPainted(false);
         jBut_9.setBorderPainted(false);
         jBut_9.setContentAreaFilled(false);
-        jBut_9.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_9.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_10.setFocusPainted(false);
         jBut_10.setBorder(null);
         jBut_10.setOpaque(false);
         jBut_10.setFocusPainted(false);
         jBut_10.setBorderPainted(false);
         jBut_10.setContentAreaFilled(false);
-        jBut_10.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_11.setFocusPainted(false);
         jBut_11.setBorder(null);
         jBut_11.setOpaque(false);
         jBut_11.setFocusPainted(false);
         jBut_11.setBorderPainted(false);
         jBut_11.setContentAreaFilled(false);
-        jBut_11.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_11.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_12.setFocusPainted(false);
         jBut_12.setBorder(null);
         jBut_12.setOpaque(false);
         jBut_12.setFocusPainted(false);
         jBut_12.setBorderPainted(false);
         jBut_12.setContentAreaFilled(false);
-        jBut_12.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_12.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_13.setFocusPainted(false);
         jBut_13.setBorder(null);
         jBut_13.setOpaque(false);
         jBut_13.setFocusPainted(false);
         jBut_13.setBorderPainted(false);
         jBut_13.setContentAreaFilled(false);
-        jBut_13.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_13.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_14.setFocusPainted(false);
         jBut_14.setBorder(null);
         jBut_14.setOpaque(false);
         jBut_14.setFocusPainted(false);
         jBut_14.setBorderPainted(false);
         jBut_14.setContentAreaFilled(false);
-        jBut_14.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_14.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_15.setFocusPainted(false);
         jBut_15.setBorder(null);
         jBut_15.setOpaque(false);
         jBut_15.setFocusPainted(false);
         jBut_15.setBorderPainted(false);
         jBut_15.setContentAreaFilled(false);
-        jBut_15.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_15.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_16.setFocusPainted(false);
         jBut_16.setBorder(null);
         jBut_16.setOpaque(false);
         jBut_16.setFocusPainted(false);
         jBut_16.setBorderPainted(false);
         jBut_16.setContentAreaFilled(false);
-        jBut_16.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_16.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_17.setFocusPainted(false);
         jBut_17.setBorder(null);
         jBut_17.setOpaque(false);
         jBut_17.setFocusPainted(false);
         jBut_17.setBorderPainted(false);
         jBut_17.setContentAreaFilled(false);
-        jBut_17.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_17.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_18.setFocusPainted(false);
         jBut_18.setBorder(null);
         jBut_18.setOpaque(false);
         jBut_18.setFocusPainted(false);
         jBut_18.setBorderPainted(false);
         jBut_18.setContentAreaFilled(false);
-        jBut_18.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_18.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_19.setFocusPainted(false);
         jBut_19.setBorder(null);
         jBut_19.setOpaque(false);
         jBut_19.setFocusPainted(false);
         jBut_19.setBorderPainted(false);
         jBut_19.setContentAreaFilled(false);
-        jBut_19.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_19.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_20.setFocusPainted(false);
         jBut_20.setBorder(null);
         jBut_20.setOpaque(false);
         jBut_20.setFocusPainted(false);
         jBut_20.setBorderPainted(false);
         jBut_20.setContentAreaFilled(false);
-        jBut_20.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_20.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_21.setFocusPainted(false);
         jBut_21.setBorder(null);
         jBut_21.setOpaque(false);
         jBut_21.setFocusPainted(false);
         jBut_21.setBorderPainted(false);
         jBut_21.setContentAreaFilled(false);
-        jBut_21.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_21.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_22.setFocusPainted(false);
         jBut_22.setBorder(null);
         jBut_22.setOpaque(false);
         jBut_22.setFocusPainted(false);
         jBut_22.setBorderPainted(false);
         jBut_22.setContentAreaFilled(false);
-        jBut_22.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_22.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_23.setFocusPainted(false);
         jBut_23.setBorder(null);
         jBut_23.setOpaque(false);
         jBut_23.setFocusPainted(false);
         jBut_23.setBorderPainted(false);
         jBut_23.setContentAreaFilled(false);
-        jBut_23.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_23.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_24.setFocusPainted(false);
         jBut_24.setBorder(null);
         jBut_24.setOpaque(false);
         jBut_24.setFocusPainted(false);
         jBut_24.setBorderPainted(false);
         jBut_24.setContentAreaFilled(false);
-        jBut_24.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_24.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_25.setFocusPainted(false);
         jBut_25.setBorder(null);
         jBut_25.setOpaque(false);
         jBut_25.setFocusPainted(false);
         jBut_25.setBorderPainted(false);
         jBut_25.setContentAreaFilled(false);
-        jBut_25.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_25.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_26.setFocusPainted(false);
         jBut_26.setBorder(null);
         jBut_26.setOpaque(false);
         jBut_26.setFocusPainted(false);
         jBut_26.setBorderPainted(false);
         jBut_26.setContentAreaFilled(false);
-        jBut_26.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_26.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_27.setFocusPainted(false);
         jBut_27.setBorder(null);
         jBut_27.setOpaque(false);
         jBut_27.setFocusPainted(false);
         jBut_27.setBorderPainted(false);
         jBut_27.setContentAreaFilled(false);
-        jBut_27.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_27.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_28.setFocusPainted(false);
         jBut_28.setBorder(null);
         jBut_28.setOpaque(false);
         jBut_28.setFocusPainted(false);
         jBut_28.setBorderPainted(false);
         jBut_28.setContentAreaFilled(false);
-        jBut_28.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_28.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_29.setFocusPainted(false);
         jBut_29.setBorder(null);
         jBut_29.setOpaque(false);
         jBut_29.setFocusPainted(false);
         jBut_29.setBorderPainted(false);
         jBut_29.setContentAreaFilled(false);
-        jBut_29.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        jBut_29.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jBut_30.setFocusPainted(false);
         jBut_30.setBorder(null);
         jBut_30.setOpaque(false);
         jBut_30.setFocusPainted(false);
         jBut_30.setBorderPainted(false);
         jBut_30.setContentAreaFilled(false);
-        jBut_30.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-        }
-public  void SetActivityPhaseOpacity(){
-                button_stud1.setOpaque(false);
-                button_stud2.setOpaque(false);
-                button_stud3.setOpaque(false);
-                button_stud4.setOpaque(false);
-                button_stud5.setOpaque(false);
-                button_stud6.setOpaque(false);
-                button_stud7.setOpaque(false);
-                button_stud8.setOpaque(false);
-                button_stud9.setOpaque(false);
-                button_stud10.setOpaque(false);
-                button_stud11.setOpaque(false);
-                button_stud12.setOpaque(false);
-                button_stud13.setOpaque(false);
-                button_stud14.setOpaque(false);
-                button_stud15.setOpaque(false);
-                button_stud16.setOpaque(false);
-                button_stud17.setOpaque(false);
-                button_stud18.setOpaque(false);
-                button_stud19.setOpaque(false);
-                button_stud20.setOpaque(false);
-                button_stud21.setOpaque(false);
-                button_stud22.setOpaque(false);
-                button_stud23.setOpaque(false);
-                button_stud24.setOpaque(false);
-                button_stud25.setOpaque(false);
-                button_stud26.setOpaque(false);
-                button_stud27.setOpaque(false);
-                button_stud28.setOpaque(false);
-                button_stud29.setOpaque(false);
-                button_stud30.setOpaque(false);
-}
-public  void SetPlanningPhaseOpacity(){
-                jBut_1.setOpaque(false);
-                jBut_2.setOpaque(false);
-                jBut_3.setOpaque(false);
-                jBut_4.setOpaque(false);
-                jBut_5.setOpaque(false);
-                jBut_6.setOpaque(false);
-                jBut_7.setOpaque(false);
-                jBut_8.setOpaque(false);
-                jBut_9.setOpaque(false);
-                jBut_10.setOpaque(false);
-                jBut_11.setOpaque(false);
-                jBut_12.setOpaque(false);
-                jBut_13.setOpaque(false);
-                jBut_14.setOpaque(false);
-                jBut_15.setOpaque(false);
-                jBut_16.setOpaque(false);
-                jBut_17.setOpaque(false);
-                jBut_18.setOpaque(false);
-                jBut_19.setOpaque(false);
-                jBut_20.setOpaque(false);
-                jBut_21.setOpaque(false);
-                jBut_22.setOpaque(false);
-                jBut_23.setOpaque(false);
-                jBut_24.setOpaque(false);
-                jBut_25.setOpaque(false);
-                jBut_26.setOpaque(false);
-                jBut_27.setOpaque(false);
-                jBut_28.setOpaque(false);
-                jBut_29.setOpaque(false);
-                jBut_30.setOpaque(false);
-}
-public void displayExamResults(int failed, int remaining){
-    System.out.println(failed+"failed : remaining"+remaining);
-    label_examFailed.setText(""+failed);
-    label_examRemaining.setText(""+remaining);
-    dialog_examResults.setVisible(true);
-}
-public void hideQuietingLabel(){
-    label_dozent_action.setVisible(false);
-}
+        jBut_30.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }
+
+    public void SetActivityPhaseOpacity() {
+        button_stud1.setOpaque(false);
+        button_stud2.setOpaque(false);
+        button_stud3.setOpaque(false);
+        button_stud4.setOpaque(false);
+        button_stud5.setOpaque(false);
+        button_stud6.setOpaque(false);
+        button_stud7.setOpaque(false);
+        button_stud8.setOpaque(false);
+        button_stud9.setOpaque(false);
+        button_stud10.setOpaque(false);
+        button_stud11.setOpaque(false);
+        button_stud12.setOpaque(false);
+        button_stud13.setOpaque(false);
+        button_stud14.setOpaque(false);
+        button_stud15.setOpaque(false);
+        button_stud16.setOpaque(false);
+        button_stud17.setOpaque(false);
+        button_stud18.setOpaque(false);
+        button_stud19.setOpaque(false);
+        button_stud20.setOpaque(false);
+        button_stud21.setOpaque(false);
+        button_stud22.setOpaque(false);
+        button_stud23.setOpaque(false);
+        button_stud24.setOpaque(false);
+        button_stud25.setOpaque(false);
+        button_stud26.setOpaque(false);
+        button_stud27.setOpaque(false);
+        button_stud28.setOpaque(false);
+        button_stud29.setOpaque(false);
+        button_stud30.setOpaque(false);
+    }
+
+    public void SetPlanningPhaseOpacity() {
+        jBut_1.setOpaque(false);
+        jBut_2.setOpaque(false);
+        jBut_3.setOpaque(false);
+        jBut_4.setOpaque(false);
+        jBut_5.setOpaque(false);
+        jBut_6.setOpaque(false);
+        jBut_7.setOpaque(false);
+        jBut_8.setOpaque(false);
+        jBut_9.setOpaque(false);
+        jBut_10.setOpaque(false);
+        jBut_11.setOpaque(false);
+        jBut_12.setOpaque(false);
+        jBut_13.setOpaque(false);
+        jBut_14.setOpaque(false);
+        jBut_15.setOpaque(false);
+        jBut_16.setOpaque(false);
+        jBut_17.setOpaque(false);
+        jBut_18.setOpaque(false);
+        jBut_19.setOpaque(false);
+        jBut_20.setOpaque(false);
+        jBut_21.setOpaque(false);
+        jBut_22.setOpaque(false);
+        jBut_23.setOpaque(false);
+        jBut_24.setOpaque(false);
+        jBut_25.setOpaque(false);
+        jBut_26.setOpaque(false);
+        jBut_27.setOpaque(false);
+        jBut_28.setOpaque(false);
+        jBut_29.setOpaque(false);
+        jBut_30.setOpaque(false);
+    }
+
+    public void displayExamResults(int failed, int remaining) {
+        System.out.println(failed + "failed : remaining" + remaining);
+        label_examFailed.setText("" + failed);
+        label_examRemaining.setText("" + remaining);
+        dialog_examResults.setVisible(true);
+    }
+
+    public void hideQuietingLabel() {
+        label_dozent_action.setVisible(false);
+    }
 }
