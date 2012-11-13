@@ -18,8 +18,12 @@ public class Game1 {
     public static final int _startCredits = 100;
     
     public int credits;
+    public int overallCredits;
     public int points;
     public int round;
+    public double averageKnowledge;
+    public double avarageMotivation;
+    public double averageTiredness;
     public int professor; //added by Julia
     public String professorIcon; //="/pictures/prof1_transparent.png"; //added by Julia - now has a value just for test will be loaded from game file, initial value on the beginning: "/pictures/prof1_transparent.png"
     public final String professorIconPath[] = { 

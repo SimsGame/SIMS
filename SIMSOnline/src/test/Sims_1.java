@@ -182,6 +182,15 @@ public class Sims_1 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panel_menue = new javax.swing.JPanel();
+        panel_stats = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         panel_Credits = new javax.swing.JPanel();
         label_creditsHeadline = new javax.swing.JLabel();
         label_creditsHeadline1 = new javax.swing.JLabel();
@@ -916,6 +925,43 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_menue.setName(""); // NOI18N
         panel_menue.setPreferredSize(new java.awt.Dimension(1000, 700));
         panel_menue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_stats.setLayout(null);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Statistik");
+        panel_stats.add(jLabel2);
+        jLabel2.setBounds(170, 74, 120, 40);
+
+        jLabel4.setText("Erhaltene Credits:");
+        panel_stats.add(jLabel4);
+        jLabel4.setBounds(50, 140, 160, 20);
+
+        jLabel5.setText("Momentane Credits:");
+        panel_stats.add(jLabel5);
+        jLabel5.setBounds(50, 160, 180, 20);
+
+        jLabel6.setText("Erreichte Punktzahl: ");
+        panel_stats.add(jLabel6);
+        jLabel6.setBounds(50, 260, 180, 20);
+
+        jLabel7.setText("Gesamtspielzeit (in Stunden):");
+        panel_stats.add(jLabel7);
+        jLabel7.setBounds(50, 180, 180, 20);
+
+        jLabel9.setText("Gespielte Semster: ");
+        panel_stats.add(jLabel9);
+        jLabel9.setBounds(50, 200, 180, 20);
+
+        jLabel10.setText("Erfolgs-/ Durchfallquote:");
+        panel_stats.add(jLabel10);
+        jLabel10.setBounds(50, 220, 180, 20);
+
+        jLabel11.setText("Kursattribute (Durchschnitt): ");
+        panel_stats.add(jLabel11);
+        jLabel11.setBounds(50, 240, 180, 20);
+
+        panel_menue.add(panel_stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panel_Credits.setMinimumSize(new java.awt.Dimension(0, 1700));
         panel_Credits.setOpaque(false);
@@ -5319,10 +5365,18 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLab_StudCounter;
     private javax.swing.JLabel jLab_StudSwitch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPan_DozSwitch;
     private javax.swing.JPanel jPan_ItemSelect;
     private javax.swing.JPanel jPan_ItemStorage;
@@ -5524,6 +5578,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_shopHeadline;
     private javax.swing.JPanel panel_shopInventory;
     private javax.swing.JPanel panel_shopItems;
+    private javax.swing.JPanel panel_stats;
     private javax.swing.JPanel panel_timerarea;
     private javax.swing.JPasswordField password_Pass;
     private javax.swing.JPasswordField password_pPass1;

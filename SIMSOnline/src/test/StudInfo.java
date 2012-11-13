@@ -93,7 +93,10 @@ public class StudInfo {
         this.knowledge = (int) (this.knowledge_H / 30);
         this.motivation = (int) (this.motivation_H / 30);
         this.tiredness = (int) (this.tiredness_H / 30);
-
+        
+        Sims_1._maingame.avarageMotivation = this.motivation;
+        Sims_1._maingame.averageKnowledge = this.knowledge;
+        Sims_1._maingame.averageTiredness = this.tiredness;
         StudInfoSetBars();
     }
 
