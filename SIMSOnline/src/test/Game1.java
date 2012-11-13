@@ -127,10 +127,12 @@ public class Game1 {
         rowIntelligence = new double[6];
         int rowStart=0;
         int rowEnd=5;
+        int helper=0;
         double row=0;
         for (int i=0; i<6; i++){
             for (int j=rowStart; j<rowEnd;j++){
                 row = row+studentArray[j].getIntelligence();
+                helper++;
             }
             row=row/5;
             rowIntelligence[i]=row;
