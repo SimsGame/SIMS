@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Jannik
+ * @author Jörg Woditschka
  */
 public class Game1 {
 
@@ -245,6 +246,10 @@ public class Game1 {
         }
     }
 
+    /**
+     * This method retruns the aray of students
+     * @return array of students
+     */
     public Student[] getArray() {
         return studentArray;
     }

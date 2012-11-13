@@ -72,7 +72,7 @@ public class Timer extends Thread {
         averageMotivation /= cnt;
         averageTiredness /= cnt;
 
-        System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "Knowledge" + averageKnowledge);
+        //System.out.println("motivation" + averageMotivation + "   " + "Tiredness" + averageTiredness + "  Knowledge" + averageKnowledge);
     }
 
     @Override
