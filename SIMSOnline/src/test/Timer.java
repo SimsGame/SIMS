@@ -5,6 +5,7 @@
 package test;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  * 
@@ -28,6 +29,7 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar TirednessBar;
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
+    private javax.swing.JLabel[] studLaptops;
 
     /**
      * 
@@ -40,7 +42,7 @@ public class Timer extends Thread {
      * @param jTirednessBar
      * @param activityPhase 
      */
-    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase) {
+    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game = game;
@@ -49,6 +51,7 @@ public class Timer extends Thread {
         this.TirednessBar = jTirednessBar;
         this.AirBar = jAirBar;
         this.NoiseBar = jNoiseBar;
+        this.studLaptops = jstudLaptops;
         this.activityPhase = activityPhase;
     }
 
@@ -110,6 +113,7 @@ public class Timer extends Thread {
                 game.updateArray(add1, add2, 0);
             }
             updateAvrg();
+            checkLaptops();
             if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
@@ -170,4 +174,14 @@ public class Timer extends Thread {
         this.timer = 180;
 
     }
+    
+    
+  private void checkLaptops(){
+      for(int i=0;i<30;i++)
+      {
+          if(game.studentArray[i].laptopClosed== false){
+           studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
+          } 
+      }   
+  }
 }
