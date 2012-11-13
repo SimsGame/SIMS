@@ -2995,11 +2995,6 @@ public class Sims_1 extends javax.swing.JFrame {
                 button_stud1StateChanged(evt);
             }
         });
-        button_stud1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                button_stud1MouseMoved(evt);
-            }
-        });
         panel_activityPhaseStudField.add(button_stud1);
         button_stud1.setBounds(120, 10, 60, 60);
 

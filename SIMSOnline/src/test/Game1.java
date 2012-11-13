@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Game1 {
 
+    
     public static final int _startCredits = 100;
     
     public int credits;
@@ -110,9 +111,15 @@ public class Game1 {
             i++;
         }
     }
+    
     /**
+     * The function updates the array and is usually called from within Timer.java. First value for motivation, second for tiredness and third for intelligence.
+     * Goes through the array according to the rows of students, so that the correct rowIntelligence will be used.
+     * Also takes into consideration whether the professor is currently telling the students to quiet down.
+     * 
      * @param add1  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a negative value.
      * @param add2  used to determine the changing of the students motivation in relation to the outward conditions (laptop open, teamwork, etc.). Regularly a positive value.
+     * @param add3  used to determine the changing of the students knowledge, namely influencing the knowledgeIncreasement value.
      */
      public void updateArray (double add1, double add2, double add3){
       int counter = 0;
@@ -127,13 +134,18 @@ public class Game1 {
                 }
                 studentArray[i].changeMotivation(add1);
                 studentArray[i].changeTiredness(add2);
-                studentArray[i].updateKnowledge(add3, rowIntelligence[j]);   //changed by Kira: Added another variable and changed updateKnowledge in Student.java
+                studentArray[i].updateKnowledge(add3, rowIntelligence[j]); 
             }
             counter=counter+5;
             endCounter=endCounter+5;
        }
      }
 
+     /**
+      * This function calculates the intelligence of the rows and stores them in the rowIntelligence array. Position i=0 denotes the first row, i=5 the last.
+      * Therefore it sums up the individual intelligence value of each present student in the studentarray, and afterward divides it with the number of calculations made.
+      * The variables rowStart and rowEnd are used to separate the student array in parts corresponding to the rows the students are seated in.
+      */
      public void calculateRowIntelligence(){
         rowIntelligence = new double[6];
         int rowStart=0;
@@ -156,6 +168,14 @@ public class Game1 {
         }
      }
      
+     /**
+      * 
+      * This function is responsible for examining the students. It is called with a value accordingly to the current semester and if a student is present and does not have a cheatsheet, that student has to have a knowledge value bigger than the exam value.
+      * Otherwise the students 'present' value will be changed to false. If a cheatsheet had been applied to a student, it will be removed after the exam.
+      * The two counter 'remainingStudents' and 'failedStudents' are used when displaying the exam's results.
+      * 
+      * @param examvalue    The value that is needed to pass the exam. Increases with each semester. Possible values: 10, 20, 35, 50, 70, 90.
+      */
      public void examTime(double examvalue){
          for (int i = 0; i < 30; i++) {
              if (studentArray[i].present){
@@ -171,7 +191,7 @@ public class Game1 {
          }
      }
      /**
-      * initializes the attributes of the room in general
+      * initializes the attributes of the room in general.
       */
      public void initRoom(){
          this.airQuality=100;
@@ -179,9 +199,10 @@ public class Game1 {
      }
      
      /**
-      * @param value    The value of the airQuality
+      * Setter used to avoid values x<0 or x>100. Also takes the state of the window into consideration. If the window is open, the airQuality will increase instead of decrease.
+      * Since a closed window is default state, it won't influence the value the function is called with.
       * 
-      * Setter used to avoid values x<0 or x>100
+      * @param value    The new value of airQuality.
       */
      
      public void setAirQuality(double value) {
@@ -198,9 +219,10 @@ public class Game1 {
     }
      
       /**
-      * @param value    The value of the noise
+       *Setter used to avoid values x<0 or x>100. Also takes the state of the window into consideration. If the window is open, the noise will increase slightly faster.
+      * Since a closed window is default state, the value the function is called with won't be influenced when windowClosed=true.
       * 
-      * Setter used to avoid values x<0 or x>100
+      * @param value    The new value of noise.
       */
     public void setNoise(double value) {
         if (!windowClosed){
@@ -215,10 +237,10 @@ public class Game1 {
         }
     }
      /**
+      * This function updates the attributes of the room.
+      * 
       * @param factor1  describes how much value AirQuality changes. Regularly a negative value.
       * @param factor2  describes how much value Noise changes. Regularly a positive value.
-      * 
-      * This function updates the attributes of the room.
       */
      public void updateRoom(double factor1, double factor2){
          setAirQuality(this.airQuality + factor1);

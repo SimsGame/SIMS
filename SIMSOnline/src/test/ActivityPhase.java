@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
  * Objects of this class are activity phases ("Aktionsphasen"). 
  * @author Jörg Woditschka
  * @author Nadir Yuldashev
+ * @author Kira Schomber
  */
 public class ActivityPhase {
     public Thread timer;
@@ -76,7 +77,7 @@ public class ActivityPhase {
      
     }
     /**
-     * a method which is called from the cunstructor to make it more readable
+     * A method which is called from the constructor to make it more readable
      */
     private void activityPhaseMain(){
         game.calculateRowIntelligence();
@@ -85,7 +86,7 @@ public class ActivityPhase {
     }
     
     /**
-     * This method checks wether an item was selected and uses it on a clicked student
+     * This method checks whether an item was selected and uses it on a clicked student
      * @param studNum the number of the Student clicked
      */
     public void StudentClicked(int studNum) {
