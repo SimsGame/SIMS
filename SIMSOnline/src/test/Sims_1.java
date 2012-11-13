@@ -396,6 +396,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item3Inv = new javax.swing.JLabel();
         text_students = new javax.swing.JLabel();
         label_students = new javax.swing.JLabel();
+        label_round = new javax.swing.JLabel();
         text_semester = new javax.swing.JLabel();
         label_semester = new javax.swing.JLabel();
         label_ucoinsInv = new javax.swing.JLabel();
@@ -410,6 +411,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item2InvName = new javax.swing.JLabel();
         label_item2InvAmount = new javax.swing.JLabel();
         label_item1InvAmount = new javax.swing.JLabel();
+        text_rounds = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         text_wissen = new javax.swing.JLabel();
         button_window = new javax.swing.JButton();
@@ -2516,6 +2518,8 @@ public class Sims_1 extends javax.swing.JFrame {
         label_students.setText("4 / 30");
         jPanel4.add(label_students);
         label_students.setBounds(80, 450, 50, 14);
+        jPanel4.add(label_round);
+        label_round.setBounds(80, 490, 50, 20);
 
         text_semester.setText("Semester: ");
         jPanel4.add(text_semester);
@@ -2584,6 +2588,10 @@ public class Sims_1 extends javax.swing.JFrame {
         label_item1InvAmount.setText("3 x");
         jPanel4.add(label_item1InvAmount);
         label_item1InvAmount.setBounds(30, 110, 80, 14);
+
+        text_rounds.setText("Runde:");
+        jPanel4.add(text_rounds);
+        text_rounds.setBounds(10, 490, 60, 14);
 
         gamePlaying.add(jPanel4);
         jPanel4.setBounds(0, 110, 150, 550);
@@ -2826,7 +2834,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop13);
-        label_laptop13.setBounds(120, 230, 50, 30);
+        label_laptop13.setBounds(120, 235, 50, 30);
 
         label_laptop14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2835,7 +2843,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop14);
-        label_laptop14.setBounds(230, 230, 50, 30);
+        label_laptop14.setBounds(230, 235, 50, 30);
 
         label_laptop15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2844,7 +2852,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop15);
-        label_laptop15.setBounds(340, 230, 50, 30);
+        label_laptop15.setBounds(340, 235, 50, 30);
 
         label_laptop16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2853,7 +2861,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop16);
-        label_laptop16.setBounds(440, 230, 50, 30);
+        label_laptop16.setBounds(440, 235, 50, 30);
 
         label_laptop17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2862,7 +2870,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop17);
-        label_laptop17.setBounds(550, 230, 50, 30);
+        label_laptop17.setBounds(550, 235, 50, 30);
 
         label_laptop18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2871,7 +2879,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop18);
-        label_laptop18.setBounds(650, 230, 50, 30);
+        label_laptop18.setBounds(650, 235, 50, 30);
 
         label_laptop19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop19.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2880,7 +2888,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop19);
-        label_laptop19.setBounds(120, 310, 50, 30);
+        label_laptop19.setBounds(120, 315, 50, 30);
 
         label_laptop20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2889,7 +2897,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop20);
-        label_laptop20.setBounds(230, 310, 50, 30);
+        label_laptop20.setBounds(230, 315, 50, 30);
 
         label_laptop21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2898,7 +2906,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop21);
-        label_laptop21.setBounds(340, 310, 50, 30);
+        label_laptop21.setBounds(340, 315, 50, 30);
 
         label_laptop22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop22.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2907,7 +2915,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop22);
-        label_laptop22.setBounds(440, 310, 50, 30);
+        label_laptop22.setBounds(440, 315, 50, 30);
 
         label_laptop23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop23.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2916,7 +2924,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop23);
-        label_laptop23.setBounds(550, 310, 50, 30);
+        label_laptop23.setBounds(550, 315, 50, 30);
 
         label_laptop24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop24.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2925,7 +2933,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_activityPhaseStudField.add(label_laptop24);
-        label_laptop24.setBounds(650, 320, 50, 30);
+        label_laptop24.setBounds(650, 315, 50, 30);
 
         label_laptop25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/laptopzu.png"))); // NOI18N
         label_laptop25.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3467,19 +3475,19 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_gameOver.add(button_retry);
-        button_retry.setBounds(390, 570, 190, 50);
+        button_retry.setBounds(450, 520, 190, 50);
 
         label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         label_gameOverPoints.setForeground(new java.awt.Color(255, 255, 255));
         label_gameOverPoints.setText("Erreichte Punktzahl:");
         panel_gameOver.add(label_gameOverPoints);
-        label_gameOverPoints.setBounds(310, 500, 380, 50);
+        label_gameOverPoints.setBounds(30, 80, 380, 50);
 
         label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         label_gameOverSemester.setForeground(new java.awt.Color(255, 255, 255));
         label_gameOverSemester.setText("Erreichtes Semester: ");
         panel_gameOver.add(label_gameOverSemester);
-        label_gameOverSemester.setBounds(310, 470, 380, 30);
+        label_gameOverSemester.setBounds(30, 40, 380, 30);
 
         label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label_gameOver.setOpaque(true);
@@ -3997,6 +4005,9 @@ public class Sims_1 extends javax.swing.JFrame {
         //Game1.saveGame(); //removed due possible abuse by Dawid
         if (_maingame.getSemester() == 7) {
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
+            label_gameOverSemester.setLocation(310, 470);
+            label_gameOverPoints.setLocation(310, 500);
+            button_retry.setLocation(450, 530);
             cl.show(panel_gamePhases, "card8");
         } else {
             planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter, jBut_Dozent);
@@ -6415,6 +6426,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
+    private javax.swing.JLabel label_round;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_semester;
     private javax.swing.JLabel label_shopCreditsName;
@@ -6501,6 +6513,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel text_inventar;
     private javax.swing.JLabel text_motivation;
     private javax.swing.JLabel text_noise;
+    private javax.swing.JLabel text_rounds;
     private javax.swing.JLabel text_score;
     private javax.swing.JLabel text_semester;
     private javax.swing.JLabel text_students;
@@ -7125,6 +7138,7 @@ public class Sims_1 extends javax.swing.JFrame {
         }
         label_students.setText(String.valueOf(present) + " / 30");
         label_semester.setText(String.valueOf(_maingame.getSemester()) + " / 6"); // show curent semester in the activityphase
+        label_round.setText(String.valueOf(_maingame.round));
         if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
@@ -7176,28 +7190,17 @@ public class Sims_1 extends javax.swing.JFrame {
         } // Calls the gameOver screen if there are no students any more
         else {
             _maingame.gameover = true;
-            label_gameOverSemester.setText("Erreichtes Semester:   " + String.valueOf(_maingame.getSemester()));
+            label_gameOverSemester.setText("Erreichtes Semester:   " + String.valueOf(_maingame.getSemester()-1));
             label_gameOverPoints.setText("Erreichte Punktzahl:   " + String.valueOf(_maingame.points));
-            switch (_maingame.getSemester()) {
-                case 1: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
-                }
-                case 2: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
-                }
-                case 3: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));
-                }
-                case 4: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
-                }
-                case 5: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
-                }
-                case 6: {
-                    label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));
-                }
-            }
+               switch(_maingame.getSemester()-1){
+            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
+            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
+            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_3.png")));label_gameOverSemester.setLocation(310, 490);label_gameOverPoints.setLocation(310, 520);button_retry.setLocation(450, 550);break;}
+           case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_3.png")));label_gameOverSemester.setLocation(310, 490);label_gameOverPoints.setLocation(310, 520);button_retry.setLocation(450, 550);break;}
+            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));label_gameOverSemester.setLocation(310, 470);label_gameOverPoints.setLocation(310, 500);button_retry.setLocation(450, 530);break;}
+            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));label_gameOverSemester.setLocation(310, 470);label_gameOverPoints.setLocation(310, 500);button_retry.setLocation(450, 530);break;}
+           
+        }
             cl.show(panel_gamePhases, "card8");
         }
     }
