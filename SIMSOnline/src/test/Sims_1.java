@@ -4827,7 +4827,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_ChangeProfessorMouseClicked
 
     /**
-     * Switches from the planningphase to the activityphase if the play button was pressed
+     * Switches from the planningphase to the activityphase if the play button
+     * was pressed
+     *
      * @param evt the click
      */
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
@@ -4850,7 +4852,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * The next fields are for the registration
-     * @param evt 
+     *
+     * @param evt
      */
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
         textfield_rKontoname.requestFocus();  //by Dawid
@@ -4891,8 +4894,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_password_rPass2FocusGained
 
     /**
-     * Checks the fields above and creates a new user with all data needed.
-     * Also creates a new folder with inventory.txt, game.txt and profil.txt
+     * Checks the fields above and creates a new user with all data needed. Also
+     * creates a new folder with inventory.txt, game.txt and profil.txt
+     *
      * @param evt the click on the registration button
      */
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
@@ -4913,7 +4917,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * If the data are correct the user is transfered to the menu
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
         if (checkLogIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
@@ -4924,7 +4929,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Calls the form where the user can register himself
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterActionPerformed
         initRegister();  //by Dawid
@@ -4943,6 +4949,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Cancels the registration
+     *
      * @param evt click
      */
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
@@ -4951,8 +4958,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_cancelActionPerformed
 
     /**
-     * Shows a combobox with items in the planningphase.
-     * Currently only the cheat sheet is available
+     * Shows a combobox with items in the planningphase. Currently only the
+     * cheat sheet is available
+     *
      * @param evt click on the box
      */
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
@@ -4981,6 +4989,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Dialog that notices if the user wants to use the cheat sheet or not
+     *
      * @param evt ckicl on the button
      */
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
@@ -5007,6 +5016,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * A dialog that says that the lactor can be changed or not
+     *
      * @param evt click
      */
     private void jBut_OKlectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKlectorMouseClicked
@@ -5019,6 +5029,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Field for username and password on the login screen
+     *
      * @param evt click
      */
     private void textfield_KontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_KontonameFocusGained
@@ -5222,6 +5233,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * If an item from the inventory was taken this function handels its action
+     *
      * @param evt click on an item
      */
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
@@ -5262,6 +5274,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Saves the username and password to perform an autologin
+     *
      * @param evt click on the checkbox
      */
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
@@ -5286,7 +5299,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Retruns from the admin panel
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_auCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_auCancel1ActionPerformed
         panel_Admin.setVisible(true);
@@ -5301,7 +5315,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Changes the current month that is played
-     * @param evt 
+     *
+     * @param evt
      */
     private void slider_aMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slider_aMonthStateChanged
         label_aMonthVal.setText(Integer.toString(slider_aMonth.getValue()));
@@ -5311,8 +5326,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
     /**
-     * Deletes a user 
-     * @param evt 
+     * Deletes a user
+     *
+     * @param evt
      */
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION) {
@@ -5358,7 +5374,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Saves the changes made by the admin
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
         //need to build the array of components for checkRegister_()
@@ -5413,7 +5430,9 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_button_pCancelActionPerformed
 
     /**
-     * The following bars show the average attributs of the students and the attributes for each student if clicked
+     * The following bars show the average attributs of the students and the
+     * attributes for each student if clicked
+     *
      * @param evt click on the bar
      */
     private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
@@ -5473,7 +5492,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Starts a teamwork for the students
-     * @param evt 
+     *
+     * @param evt
      */
     private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
         if (!_maingame.teamwork) {
@@ -5553,7 +5573,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Opens the window and changes the noise and the air quality
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
         String test = button_window.getText();
@@ -5575,7 +5596,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Students can take a brake from the current lecture
-     * @param evt 
+     *
+     * @param evt
      */
     private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
         if (!_maingame.shortBreak) {
@@ -5607,7 +5629,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Shows the knowledge on a progress bar
-     * @param evt 
+     *
+     * @param evt
      */
     private void jProgB_WissenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_WissenMouseClicked
         if (_maingame.barNum == 1) {
@@ -5626,7 +5649,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Shows the motivation on a progress bar
-     * @param evt 
+     *
+     * @param evt
      */
     private void jProgB_MotivationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MotivationMouseClicked
         if (_maingame.barNum == 2) {
@@ -5645,7 +5669,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Shows the tiredness on a progress bar
-     * @param evt 
+     *
+     * @param evt
      */
     private void jProgB_MüdigkeitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MüdigkeitMouseClicked
         if (_maingame.barNum == 3) {
@@ -5664,7 +5689,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Shows a dialog if there are currently no cheat sheets available
-     * @param evt 
+     *
+     * @param evt
      */
     private void jBut_OKnoCheatsAvailableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableMouseClicked
         noCheatsAvailableDialog.setVisible(false);
@@ -5675,15 +5701,17 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Shows a dialog if the user is not allowed to use a cheat sheet yet
-     * @param evt 
+     *
+     * @param evt
      */
     private void jBut_OKnotAllowedUseCheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatMouseClicked
         notAllowedUseCheatDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
-    
+
     /**
      * Changes the noise in the room by clicking the lector
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dozent1ActionPerformed
         if (_maingame.lecturer_counter > 0) {
@@ -5695,7 +5723,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * If the player fails he can try again. The menu is shown
-     * @param evt 
+     *
+     * @param evt
      */
     private void button_retryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_retryActionPerformed
         panel_gamePhases.setVisible(false);
@@ -5947,9 +5976,10 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_1StateChanged
 
     /**
-     * The player has to confirm that he really wants to leave the game
-     * His data gets saved here.
-     * @param evt 
+     * The player has to confirm that he really wants to leave the game His data
+     * gets saved here.
+     *
+     * @param evt
      */
     private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
@@ -5966,28 +5996,33 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_confirmExitMouseClicked
 
     /**
-     * If the player doesn't want to exit the game the dialog is hidden and nothing happens
-     * @param evt 
+     * If the player doesn't want to exit the game the dialog is hidden and
+     * nothing happens
+     *
+     * @param evt
      */
     private void jBut_cancelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_cancelExitMouseClicked
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_cancelExitMouseClicked
 
     /**
-     * Returns from the shop back to the planning phase and saves the user data to his profile
-     * @param evt 
+     * Returns from the shop back to the planning phase and saves the user data
+     * to his profile
+     *
+     * @param evt
      */
     private void button_shopReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopReturnActionPerformed
         User.saveUser();
         Game1.saveGame();
         cl.show(panel_gamePhases, "card3");
-        panel_menue.setVisible(false);  
+        panel_menue.setVisible(false);
     }//GEN-LAST:event_button_shopReturnActionPerformed
 
     /**
-     * Shows an error if ther are no stats available yet.
-     * Player has to play or load the game first
-     * @param evt 
+     * Shows an error if ther are no stats available yet. Player has to play or
+     * load the game first
+     *
+     * @param evt
      */
     private void button_statsErrorOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_statsErrorOKActionPerformed
         dialog_statsError.setVisible(false);
@@ -5995,7 +6030,8 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Saves the last login from the user
-     * @param evt 
+     *
+     * @param evt
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         User.saveLastLogin();
@@ -6590,7 +6626,9 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Special form of checkGlobUser needed for the profile management
-     * @param input 1-dim-array with the text fields for the username and the email address
+     *
+     * @param input 1-dim-array with the text fields for the username and the
+     * email address
      * @param errMess 1-dim-array with the labels to display error messages
      * @return true if the user already exists, false otherwise
      */
@@ -6602,6 +6640,7 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Checks if a user already exists on the current system
+     *
      * @param input 1-dim-array of text fields with the username and the email
      * @param errMess 1-dim-array of labels for the error-messages
      * @return true if the user already exists, false otherwise
@@ -6636,13 +6675,11 @@ public class Sims_1 extends javax.swing.JFrame {
 
     /**
      * Checks if the data put in to create/update a user is valid
+     *
      * @param toCheck 1-dim-array of JComponets with the needed data:
-     * -JTextfield with the account name
-     * -JPassword with the password
-     * -JPassword with the repeated password
-     * -JTextfield with the email
-     * -JTextfield with the repeated email
-     * -JTextfield with the first name of the user
+     * -JTextfield with the account name -JPassword with the password -JPassword
+     * with the repeated password -JTextfield with the email -JTextfield with
+     * the repeated email -JTextfield with the first name of the user
      * -JTextfield with the last name of the user
      * @param errMess 1-dim-array of labels to display error messages
      * @return true if the data put in is correct, false otherwise
@@ -6913,125 +6950,128 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_pName.setText(_mainuser.getFirst_name());
         textfield_pSurename.setText(_mainuser.getLast_name());
     }
-    
-    /**
-     * This method retruns an array of the buttons of the students on the activity phase view 
-     * @return an array of the buttons of the students on the activity phase view 
-     */
-    private javax.swing.JButton[] constructActivityPhaseButtons(){
-        javax.swing.JButton[] result = new javax.swing.JButton[30];
-                result[0]=button_stud1;
-                result[1]=button_stud2;
-                result[2]=button_stud3;
-                result[3]=button_stud4;
-                result[4]=button_stud5;
-                result[5]=button_stud6;
-                result[6]=button_stud7;
-                result[7]=button_stud8;
-                result[8]=button_stud9;
-                result[9]=button_stud10;
-                result[10]=button_stud11;
-                result[11]=button_stud12;
-                result[12]=button_stud13;
-                result[13]=button_stud14;
-                result[14]=button_stud15;
-                result[15]=button_stud16;
-                result[16]=button_stud17;
-                result[17]=button_stud18;
-                result[18]=button_stud19;
-                result[19]=button_stud20;
-                result[20]=button_stud21;
-                result[21]=button_stud22;
-                result[22]=button_stud23;
-                result[23]=button_stud24;
-                result[24]=button_stud25;
-                result[25]=button_stud26;
-                result[26]=button_stud27;
-                result[27]=button_stud28;
-                result[28]=button_stud29;
-                result[29]=button_stud30;              
-        return result;
-    }
-    
-    private javax.swing.JButton[] constructPlanningPhaseButtons(){
-        javax.swing.JButton[] result = new javax.swing.JButton[30];
-                result[0]=jBut_1;
-                result[1]=jBut_2;
-                result[2]=jBut_3;
-                result[3]=jBut_4;
-                result[4]=jBut_5;
-                result[5]=jBut_6;
-                result[6]=jBut_7;
-                result[7]=jBut_8;
-                result[8]=jBut_9;
-                result[9]=jBut_10;
-                result[10]=jBut_11;
-                result[11]=jBut_12;
-                result[12]=jBut_13;
-                result[13]=jBut_14;
-                result[14]=jBut_15;
-                result[15]=jBut_16;
-                result[16]=jBut_17;
-                result[17]=jBut_18;
-                result[18]=jBut_19;
-                result[19]=jBut_20;
-                result[20]=jBut_21;
-                result[21]=jBut_22;
-                result[22]=jBut_23;
-                result[23]=jBut_24;
-                result[24]=jBut_25;
-                result[25]=jBut_26;
-                result[26]=jBut_27;
-                result[27]=jBut_28;
-                result[28]=jBut_29;
-                result[29]=jBut_30;              
-        return result;
-    }
-    
-    private javax.swing.JLabel[] constructLaptopLabels(){
-        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
-                result[0]=label_laptop1;
-                result[1]=label_laptop2;
-                result[2]=label_laptop3;
-                result[3]=label_laptop4;
-                result[4]=label_laptop5;
-                result[5]=label_laptop6;
-                result[6]=label_laptop7;
-                result[7]=label_laptop8;
-                result[8]=label_laptop9;
-                result[9]=label_laptop10;
-                result[10]=label_laptop11;
-                result[11]=label_laptop12;
-                result[12]=label_laptop13;
-                result[13]=label_laptop14;
-                result[14]=label_laptop15;
-                result[15]=label_laptop16;
-                result[16]=label_laptop17;
-                result[17]=label_laptop18;
-                result[18]=label_laptop19;
-                result[19]=label_laptop20;
-                result[20]=label_laptop21;
-                result[21]=label_laptop22;
-                result[22]=label_laptop23;
-                result[23]=label_laptop24;
-                result[24]=label_laptop25;
-                result[25]=label_laptop26;
-                result[26]=label_laptop27;
-                result[27]=label_laptop28;
-                result[28]=label_laptop29;
-                result[29]=label_laptop30;              
-        return result;
-    }
+
     //***********************************************************************  /by Dawid
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
-    
+    /**
+     * This method retruns an array of the buttons of the students on the
+     * activity phase view
+     *
+     * @return an array of the buttons of the students on the activity phase
+     * view
+     */
+    private javax.swing.JButton[] constructActivityPhaseButtons() {
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+        result[0] = button_stud1;
+        result[1] = button_stud2;
+        result[2] = button_stud3;
+        result[3] = button_stud4;
+        result[4] = button_stud5;
+        result[5] = button_stud6;
+        result[6] = button_stud7;
+        result[7] = button_stud8;
+        result[8] = button_stud9;
+        result[9] = button_stud10;
+        result[10] = button_stud11;
+        result[11] = button_stud12;
+        result[12] = button_stud13;
+        result[13] = button_stud14;
+        result[14] = button_stud15;
+        result[15] = button_stud16;
+        result[16] = button_stud17;
+        result[17] = button_stud18;
+        result[18] = button_stud19;
+        result[19] = button_stud20;
+        result[20] = button_stud21;
+        result[21] = button_stud22;
+        result[22] = button_stud23;
+        result[23] = button_stud24;
+        result[24] = button_stud25;
+        result[25] = button_stud26;
+        result[26] = button_stud27;
+        result[27] = button_stud28;
+        result[28] = button_stud29;
+        result[29] = button_stud30;
+        return result;
+    }
+
+    private javax.swing.JButton[] constructPlanningPhaseButtons() {
+        javax.swing.JButton[] result = new javax.swing.JButton[30];
+        result[0] = jBut_1;
+        result[1] = jBut_2;
+        result[2] = jBut_3;
+        result[3] = jBut_4;
+        result[4] = jBut_5;
+        result[5] = jBut_6;
+        result[6] = jBut_7;
+        result[7] = jBut_8;
+        result[8] = jBut_9;
+        result[9] = jBut_10;
+        result[10] = jBut_11;
+        result[11] = jBut_12;
+        result[12] = jBut_13;
+        result[13] = jBut_14;
+        result[14] = jBut_15;
+        result[15] = jBut_16;
+        result[16] = jBut_17;
+        result[17] = jBut_18;
+        result[18] = jBut_19;
+        result[19] = jBut_20;
+        result[20] = jBut_21;
+        result[21] = jBut_22;
+        result[22] = jBut_23;
+        result[23] = jBut_24;
+        result[24] = jBut_25;
+        result[25] = jBut_26;
+        result[26] = jBut_27;
+        result[27] = jBut_28;
+        result[28] = jBut_29;
+        result[29] = jBut_30;
+        return result;
+    }
+
+    private javax.swing.JLabel[] constructLaptopLabels() {
+        javax.swing.JLabel[] result = new javax.swing.JLabel[30];
+        result[0] = label_laptop1;
+        result[1] = label_laptop2;
+        result[2] = label_laptop3;
+        result[3] = label_laptop4;
+        result[4] = label_laptop5;
+        result[5] = label_laptop6;
+        result[6] = label_laptop7;
+        result[7] = label_laptop8;
+        result[8] = label_laptop9;
+        result[9] = label_laptop10;
+        result[10] = label_laptop11;
+        result[11] = label_laptop12;
+        result[12] = label_laptop13;
+        result[13] = label_laptop14;
+        result[14] = label_laptop15;
+        result[15] = label_laptop16;
+        result[16] = label_laptop17;
+        result[17] = label_laptop18;
+        result[18] = label_laptop19;
+        result[19] = label_laptop20;
+        result[20] = label_laptop21;
+        result[21] = label_laptop22;
+        result[22] = label_laptop23;
+        result[23] = label_laptop24;
+        result[24] = label_laptop25;
+        result[25] = label_laptop26;
+        result[26] = label_laptop27;
+        result[27] = label_laptop28;
+        result[28] = label_laptop29;
+        result[29] = label_laptop30;
+        return result;
+    }
+
     /**
      * This method constructs a new activity phase.
      */
-public void startActivityPhase(){
-        
-    if (panel_gamePhases.isVisible() == false) {
+    public void startActivityPhase() {
+
+        if (panel_gamePhases.isVisible() == false) {
             panel_gamePhases.setVisible(true);
         }
         cl.show(panel_gamePhases, "card2");
@@ -7059,21 +7099,12 @@ public void startActivityPhase(){
         jLab_Duplo.setText("Duplo: " + _maingame.duplo.amount + "x");
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
-}
-
-/**
- * This function handels the order of the game phases.
- * It loads a minigame after each semester and images of the player looses
- */
-public void switchPhase(){
-    //Checks the Students that are still present
-    int present = 0;
-    for(int i=0; i<_maingame.studentArray.length; i++){
-        if(_maingame.studentArray[i].present == true){
-            present++;
-        }
     }
 
+    /**
+     * This function handels the order of the game phases. It loads a minigame
+     * after each semester and images of the player looses
+     */
     public void switchPhase() {
         //Checks the Students that are still present
         int present = 0;
@@ -7159,33 +7190,8 @@ public void switchPhase(){
             cl.show(panel_gamePhases, "card8");
         }
     }
-    // Calls the planninghpase without having a minigame
-    else if(_maingame.round%3 != 1 && present != 0){
-        cl.show(panel_gamePhases, "card3");
-        startPlanningPhase();
-    }
-    // Calls the page after the last Semester if there are still students available
-    else if(_maingame.round%3 == 1 && present != 0 && _maingame.getSemester() == 7){
-        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
-        label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png"))); 
-        cl.show(panel_gamePhases, "card8");
-    }
-    // Calls the gameOver screen if there are no students any more
-   else{   
-        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
-        label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
-        switch(_maingame.getSemester()){
-            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-        }
-        cl.show(panel_gamePhases, "card8");
-    }
-}
-public void SetActivityOpaque(){ //button properties for transparency
+
+    public void SetActivityOpaque() { //button properties for transparency
         button_dozent1.setFocusPainted(false);
         button_dozent1.setBorder(null);
         button_dozent1.setOpaque(false);
@@ -7622,90 +7628,95 @@ public void SetActivityOpaque(){ //button properties for transparency
         jBut_30.setFocusPainted(false);
         jBut_30.setBorderPainted(false);
         jBut_30.setContentAreaFilled(false);
-        jBut_30.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-        }
-public  void SetActivityPhaseOpacity(){
-                button_stud1.setOpaque(false);
-                button_stud2.setOpaque(false);
-                button_stud3.setOpaque(false);
-                button_stud4.setOpaque(false);
-                button_stud5.setOpaque(false);
-                button_stud6.setOpaque(false);
-                button_stud7.setOpaque(false);
-                button_stud8.setOpaque(false);
-                button_stud9.setOpaque(false);
-                button_stud10.setOpaque(false);
-                button_stud11.setOpaque(false);
-                button_stud12.setOpaque(false);
-                button_stud13.setOpaque(false);
-                button_stud14.setOpaque(false);
-                button_stud15.setOpaque(false);
-                button_stud16.setOpaque(false);
-                button_stud17.setOpaque(false);
-                button_stud18.setOpaque(false);
-                button_stud19.setOpaque(false);
-                button_stud20.setOpaque(false);
-                button_stud21.setOpaque(false);
-                button_stud22.setOpaque(false);
-                button_stud23.setOpaque(false);
-                button_stud24.setOpaque(false);
-                button_stud25.setOpaque(false);
-                button_stud26.setOpaque(false);
-                button_stud27.setOpaque(false);
-                button_stud28.setOpaque(false);
-                button_stud29.setOpaque(false);
-                button_stud30.setOpaque(false);
-}
-public  void SetPlanningPhaseOpacity(){
-                jBut_1.setOpaque(false);
-                jBut_2.setOpaque(false);
-                jBut_3.setOpaque(false);
-                jBut_4.setOpaque(false);
-                jBut_5.setOpaque(false);
-                jBut_6.setOpaque(false);
-                jBut_7.setOpaque(false);
-                jBut_8.setOpaque(false);
-                jBut_9.setOpaque(false);
-                jBut_10.setOpaque(false);
-                jBut_11.setOpaque(false);
-                jBut_12.setOpaque(false);
-                jBut_13.setOpaque(false);
-                jBut_14.setOpaque(false);
-                jBut_15.setOpaque(false);
-                jBut_16.setOpaque(false);
-                jBut_17.setOpaque(false);
-                jBut_18.setOpaque(false);
-                jBut_19.setOpaque(false);
-                jBut_20.setOpaque(false);
-                jBut_21.setOpaque(false);
-                jBut_22.setOpaque(false);
-                jBut_23.setOpaque(false);
-                jBut_24.setOpaque(false);
-                jBut_25.setOpaque(false);
-                jBut_26.setOpaque(false);
-                jBut_27.setOpaque(false);
-                jBut_28.setOpaque(false);
-                jBut_29.setOpaque(false);
-                jBut_30.setOpaque(false);
-}
+        jBut_30.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }
 
-/**
- * This method displays a popup to show the user the result of an exam.
- * @param failed number of students who have not passed the exam
- * @param remaining number of students who are still taking place in the game
- */
-public void displayExamResults(int failed, int remaining){
-    System.out.println(failed+"failed : remaining"+remaining);
-    label_examFailed.setText(""+failed);
-    label_examRemaining.setText(""+remaining);
-    dialog_examResults.setVisible(true);
-}
+    public void SetActivityPhaseOpacity() {
+        button_stud1.setOpaque(false);
+        button_stud2.setOpaque(false);
+        button_stud3.setOpaque(false);
+        button_stud4.setOpaque(false);
+        button_stud5.setOpaque(false);
+        button_stud6.setOpaque(false);
+        button_stud7.setOpaque(false);
+        button_stud8.setOpaque(false);
+        button_stud9.setOpaque(false);
+        button_stud10.setOpaque(false);
+        button_stud11.setOpaque(false);
+        button_stud12.setOpaque(false);
+        button_stud13.setOpaque(false);
+        button_stud14.setOpaque(false);
+        button_stud15.setOpaque(false);
+        button_stud16.setOpaque(false);
+        button_stud17.setOpaque(false);
+        button_stud18.setOpaque(false);
+        button_stud19.setOpaque(false);
+        button_stud20.setOpaque(false);
+        button_stud21.setOpaque(false);
+        button_stud22.setOpaque(false);
+        button_stud23.setOpaque(false);
+        button_stud24.setOpaque(false);
+        button_stud25.setOpaque(false);
+        button_stud26.setOpaque(false);
+        button_stud27.setOpaque(false);
+        button_stud28.setOpaque(false);
+        button_stud29.setOpaque(false);
+        button_stud30.setOpaque(false);
+    }
 
-/**
- * this method makes the "Ruhe!" label of the lecturer invisible.
- * It should be called when the effect of the action of clicking the lecturer has no influence on the students anymore.
- */
-public void hideQuietingLabel(){
-    label_dozent_action.setVisible(false);
-}
+    public void SetPlanningPhaseOpacity() {
+        jBut_1.setOpaque(false);
+        jBut_2.setOpaque(false);
+        jBut_3.setOpaque(false);
+        jBut_4.setOpaque(false);
+        jBut_5.setOpaque(false);
+        jBut_6.setOpaque(false);
+        jBut_7.setOpaque(false);
+        jBut_8.setOpaque(false);
+        jBut_9.setOpaque(false);
+        jBut_10.setOpaque(false);
+        jBut_11.setOpaque(false);
+        jBut_12.setOpaque(false);
+        jBut_13.setOpaque(false);
+        jBut_14.setOpaque(false);
+        jBut_15.setOpaque(false);
+        jBut_16.setOpaque(false);
+        jBut_17.setOpaque(false);
+        jBut_18.setOpaque(false);
+        jBut_19.setOpaque(false);
+        jBut_20.setOpaque(false);
+        jBut_21.setOpaque(false);
+        jBut_22.setOpaque(false);
+        jBut_23.setOpaque(false);
+        jBut_24.setOpaque(false);
+        jBut_25.setOpaque(false);
+        jBut_26.setOpaque(false);
+        jBut_27.setOpaque(false);
+        jBut_28.setOpaque(false);
+        jBut_29.setOpaque(false);
+        jBut_30.setOpaque(false);
+    }
+
+    /**
+     * This method displays a popup to show the user the result of an exam.
+     *
+     * @param failed number of students who have not passed the exam
+     * @param remaining number of students who are still taking place in the
+     * game
+     */
+    public void displayExamResults(int failed, int remaining) {
+        System.out.println(failed + "failed : remaining" + remaining);
+        label_examFailed.setText("" + failed);
+        label_examRemaining.setText("" + remaining);
+        dialog_examResults.setVisible(true);
+    }
+
+    /**
+     * this method makes the "Ruhe!" label of the lecturer invisible. It should
+     * be called when the effect of the action of clicking the lecturer has no
+     * influence on the students anymore.
+     */
+    public void hideQuietingLabel() {
+        label_dozent_action.setVisible(false);
+    }
 }
