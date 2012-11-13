@@ -31,7 +31,6 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JLabel[] studLaptops;
-    private javax.swing.JLabel label_dozent_action;
 
     /**
      * 
@@ -44,7 +43,7 @@ public class Timer extends Thread {
      * @param jTirednessBar
      * @param activityPhase 
      */
-    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops, javax.swing.JLabel jlabel_dozent_action) {
+    public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase, javax.swing.JLabel[] jstudLaptops) {
         this.label_timer = jLabel_timer;
         initTimer();
         this.game = game;
@@ -55,7 +54,6 @@ public class Timer extends Thread {
         this.NoiseBar = jNoiseBar;
         this.studLaptops = jstudLaptops;
         this.activityPhase = activityPhase;
-        this.label_dozent_action =jlabel_dozent_action;
     }
 
     private void updateAvrg() {
@@ -83,7 +81,7 @@ public class Timer extends Thread {
                 label_timer.setForeground(Color.red);
             }
             long millis = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - millis) < 1000) {
+            while ((System.currentTimeMillis() - millis) < 10) {
                 //do nothing
             }
             timer--;
@@ -124,7 +122,6 @@ public class Timer extends Thread {
             }
             updateAvrg();
             checkLaptops();
-            checkDozent();
             if (timer == 0) {
                 int round = game.round;
                 if (round % 3 == 0) {
@@ -204,20 +201,10 @@ public class Timer extends Thread {
   private void checkLaptops(){
       for(int i=0;i<30;i++)
       {
-          if(game.studentArray[i].laptopClosed== false){
+          if((game.studentArray[i].laptopClosed== false) && (game.studentArray[i].present==true)){
            studLaptops[i].setIcon(new ImageIcon(getClass().getResource("/pictures/laptopauf.png")));
            studLaptops[i].setOpaque(false);
           } 
       }   
-  }
-   private void checkDozent(){
-  if(label_dozent_action.isVisible()==true)
-  {
-  for(int i= Timer.timer;i<1000;i++)
-  {
-      
-  }
-  label_dozent_action.setVisible(false);
-  }
   }
 }

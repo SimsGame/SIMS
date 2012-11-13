@@ -115,7 +115,7 @@ public class Sims_1 extends javax.swing.JFrame {
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
         this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
-        noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
+        noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase
         panel_Credits.setVisible(false);
         label_dozent_action.setVisible(false);
         SetActivityOpaque();
@@ -3467,19 +3467,19 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_gameOver.add(button_retry);
-        button_retry.setBounds(390, 570, 190, 50);
+        button_retry.setBounds(450, 520, 190, 50);
 
         label_gameOverPoints.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         label_gameOverPoints.setForeground(new java.awt.Color(255, 255, 255));
         label_gameOverPoints.setText("Erreichte Punktzahl:");
         panel_gameOver.add(label_gameOverPoints);
-        label_gameOverPoints.setBounds(310, 500, 380, 50);
+        label_gameOverPoints.setBounds(30, 80, 380, 50);
 
         label_gameOverSemester.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         label_gameOverSemester.setForeground(new java.awt.Color(255, 255, 255));
         label_gameOverSemester.setText("Erreichtes Semester: ");
         panel_gameOver.add(label_gameOverSemester);
-        label_gameOverSemester.setBounds(310, 470, 380, 30);
+        label_gameOverSemester.setBounds(30, 40, 380, 30);
 
         label_gameOver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label_gameOver.setOpaque(true);
@@ -4001,6 +4001,9 @@ public class Sims_1 extends javax.swing.JFrame {
         Game1.saveGame();
         if(_maingame.getSemester() == 7){
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
+            label_gameOverSemester.setLocation(310, 470);
+            label_gameOverPoints.setLocation(310, 500);
+            button_retry.setLocation(450, 530);
             cl.show(panel_gamePhases, "card8");
         }
         else{
@@ -6954,7 +6957,7 @@ public void startActivityPhase(){
         label_creditsInv.setText("Credits:   " + _maingame.credits);
             // sets StudIcons on StudButtons
         new StudIcons(activityPhaseButtons, _maingame.getArray()); // added by Tobi
-        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels,label_dozent_action); // added by Jörg, Nadir
+        activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score, this, button_dozent1,laptopLabels); // added by Jörg, Nadir
 }
 
 public void startPlanningPhase(){
@@ -6988,7 +6991,7 @@ public void switchPhase(){
     if(_maingame.round%3 == 1 && present != 0){
         // Create a random minigame
         RandGenerator randGen = new RandGenerator();
-        switch(randGen.getRand(3)+1){
+        switch(1){//randGen.getRand(3)+1){
             case 1: {JPanel panel_snakeMinigame = new Board(); panel_gamePhases.add(panel_snakeMinigame, "card5"); cl.show(panel_gamePhases, "card5"); panel_snakeMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 2: {JPanel panel_numberMinigame = new MinigameNumbergame(); panel_gamePhases.add(panel_numberMinigame, "card6"); cl.show(panel_gamePhases, "card6"); panel_numberMinigame.requestFocus(); panel_menue.setVisible(false); break;} 
             case 3: {JPanel panel_mazeMinigame = new MinigameMazegame(); panel_gamePhases.add(panel_mazeMinigame, "card7"); cl.show(panel_gamePhases, "card7"); panel_mazeMinigame.requestFocus(); panel_menue.setVisible(false); break;}
@@ -7011,17 +7014,18 @@ public void switchPhase(){
     }
     // Calls the gameOver screen if there are no students any more
    else{   
-        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()));
+        label_gameOverSemester.setText("Erreichtes Semester:   "+String.valueOf(_maingame.getSemester()-1));
         label_gameOverPoints.setText("Erreichte Punktzahl:   "+String.valueOf(_maingame.points));
-        switch(_maingame.getSemester()){
-            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));}
-            case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
-            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));}
+        switch(_maingame.getSemester()-1){
+            case 1:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
+            case 2:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_1.png")));label_gameOverSemester.setLocation(30, 50);label_gameOverPoints.setLocation(30, 80);button_retry.setLocation(50, 150);break;}
+            case 3:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_3.png")));label_gameOverSemester.setLocation(310, 490);label_gameOverPoints.setLocation(310, 520);button_retry.setLocation(450, 530);break;}
+           case 4:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_3.png")));label_gameOverSemester.setLocation(310, 490);label_gameOverPoints.setLocation(310, 520);button_retry.setLocation(450, 530);break;}
+            case 5:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));label_gameOverSemester.setLocation(310, 470);label_gameOverPoints.setLocation(310, 500);button_retry.setLocation(450, 530);break;}
+            case 6:{label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/gameover_5.png")));label_gameOverSemester.setLocation(310, 470);label_gameOverPoints.setLocation(310, 500);button_retry.setLocation(450, 530);break;}
+           
         }
-        cl.show(panel_gamePhases, "card8");
+        cl.show(panel_gamePhases, "card8"); 
     }
 }
 public void SetActivityOpaque(){ //button properties for transparency
