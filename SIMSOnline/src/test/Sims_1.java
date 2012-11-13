@@ -333,7 +333,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_shopPointsName = new javax.swing.JLabel();
         label_shopName = new javax.swing.JLabel();
         panel_shopBackPlanningPhase = new javax.swing.JPanel();
-        label_returnToPlanningPhase = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_shopItems = new javax.swing.JPanel();
         label_cheatSheetOverlay = new javax.swing.JLabel();
         label_omniOverlay = new javax.swing.JLabel();
@@ -845,7 +845,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         warningExitPlanningPhase.setMinimumSize(new java.awt.Dimension(600, 320));
         warningExitPlanningPhase.setModal(true);
-        warningExitPlanningPhase.setPreferredSize(new java.awt.Dimension(600, 320));
         warningExitPlanningPhase.getContentPane().setLayout(null);
 
         label_warning1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -2068,6 +2067,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopHeadline.add(punkteShop);
         punkteShop.setBounds(80, 70, 70, 17);
 
+        button_startExchange.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         button_startExchange.setText("UCoins Tauschen");
         button_startExchange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2075,7 +2075,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         });
         panel_shopHeadline.add(button_startExchange);
-        button_startExchange.setBounds(230, 10, 160, 90);
+        button_startExchange.setBounds(200, 10, 190, 90);
 
         label_shopUCoinsName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_shopUCoinsName.setText("UCoins:");
@@ -2103,16 +2103,16 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_shopBackPlanningPhase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_shopBackPlanningPhase.setLayout(null);
 
-        label_returnToPlanningPhase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        label_returnToPlanningPhase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_returnToPlanningPhase.setText("zurück zum  Spiel");
-        label_returnToPlanningPhase.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_returnToPlanningPhaseMouseClicked(evt);
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jButton1.setText("<HTML><BODY><DIV style=\"text-align: center;\">Zurück<BR\\>zur<BR\\>Planung</DIV></BODY></HTML>");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        panel_shopBackPlanningPhase.add(label_returnToPlanningPhase);
-        label_returnToPlanningPhase.setBounds(0, 0, 130, 110);
+        panel_shopBackPlanningPhase.add(jButton1);
+        jButton1.setBounds(5, 5, 120, 100);
 
         shop.add(panel_shopBackPlanningPhase);
         panel_shopBackPlanningPhase.setBounds(850, 0, 130, 110);
@@ -3693,15 +3693,6 @@ public class Sims_1 extends javax.swing.JFrame {
         warningExitPlanningPhase.setVisible(true);
     }//GEN-LAST:event_label_logoMouseClicked
 
-    private void label_returnToPlanningPhaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_returnToPlanningPhaseMouseClicked
-        // Returns from the shop back to the planning phase
-        User.saveUser();
-        Game1.saveGame();
-        cl.show(panel_gamePhases, "card3");
-        //planningPhase.startPlanningPhase();
-        panel_menue.setVisible(false);  
-    }//GEN-LAST:event_label_returnToPlanningPhaseMouseClicked
-
     private void button_startExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_startExchangeActionPerformed
         // Starts the exchange dialog in the shop
         label_swapperCreditsAmount.setText("" + _maingame.credits);
@@ -5132,6 +5123,15 @@ public class Sims_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_cancelExitMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Returns from the shop back to the planning phase
+        User.saveUser();
+        Game1.saveGame();
+        cl.show(panel_gamePhases, "card3");
+        //planningPhase.startPlanningPhase();
+        panel_menue.setVisible(false);  
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -5295,6 +5295,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton jBut_cancelExit;
     private javax.swing.JButton jBut_confirmExit;
     private javax.swing.JButton jBut_startShop;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboB_Items;
     private javax.swing.JLabel jLab_DozCounter;
     private javax.swing.JLabel jLab_DozSwitch;
@@ -5464,7 +5465,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_redBullLocked;
     private javax.swing.JLabel label_redBullName;
     private javax.swing.JLabel label_redBullOverlay;
-    private javax.swing.JLabel label_returnToPlanningPhase;
     private javax.swing.JLabel label_score;
     private javax.swing.JLabel label_semester;
     private javax.swing.JLabel label_shopCreditsName;
