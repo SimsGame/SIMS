@@ -29,7 +29,18 @@ public class Timer extends Thread {
     private javax.swing.JProgressBar NoiseBar;
     private javax.swing.JProgressBar AirBar;
     private javax.swing.JLabel[] studLaptops;
-
+/**
+     * 
+     * @param jLabel_timer
+     * @param game
+     * @param jKnowledgeBar
+     * @param jAirBar
+     * @param jNoiseBar
+     * @param jMotivationBar
+     * @param jTirednessBar
+     * @param activityPhase 
+     */
+    
     public Timer(javax.swing.JLabel jLabel_timer, Game1 game, javax.swing.JProgressBar jKnowledgeBar, javax.swing.JProgressBar jAirBar, javax.swing.JProgressBar jNoiseBar, javax.swing.JProgressBar jMotivationBar, javax.swing.JProgressBar jTirednessBar, ActivityPhase activityPhase,javax.swing.JLabel[] jstudLaptops) {
         this.label_timer = jLabel_timer;
         initTimer();
