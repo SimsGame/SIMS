@@ -59,19 +59,6 @@ public class Item {
     public Item() {
     }
 
-    /**
-     * Creates a new Item and stores it in the Game.java file.
-     *
-     * @param name
-     * @param price
-     * @param currency
-     * @param amount
-     * @param availibility
-     */
-    public Item(String name) {
-        this(name, 0, 5);
-    }
-
     public Item(String name, int amount, int available) {
         switch (name) {
             case _redBullName:
@@ -272,23 +259,6 @@ public class Item {
             name.setText(item.name);
             price.setText(item.price+" "+item.currency);
         }
-    }
-    
-    /**
-     * Updates the Inventory if someone bought something in the shop.
-     * @param item   The container that will be updated.
-     * @param it     The item which was bought.
-     * @param price  The Credits or UCoins label. 
-     * @param value  The new value of coins after the buy.
-     */
-    @Deprecated
-    public static void updateInventroy(JLabel item, Item it, JLabel price, int value, JLabel field){
-        if(item.isVisible() == false){
-            item.setVisible(true);
-            field.setVisible(true);
-        }
-        item.setText(""+it.amount+" x");
-        price.setText(""+value);
     }
     
     /*
