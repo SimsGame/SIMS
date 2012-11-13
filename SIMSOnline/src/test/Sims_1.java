@@ -4530,8 +4530,11 @@ public class Sims_1 extends javax.swing.JFrame {
         item.createItemShop(label_omniName, label_omniAmount, label_omniLocked, _maingame.omniSenseAudio);
     }//GEN-LAST:event_jBut_startShopMouseClicked
 
+    /**
+     * On click Red Bull can be bought if the user has enough credits 
+     * @param evt click
+     */
     private void label_redBullOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_redBullOverlayMouseClicked
-        // On click Red Bull can be bought if the user has enough credits 
         int result = item.managePurchase(_maingame.redBull, label_redBullLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -4542,8 +4545,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_redBullOverlayMouseClicked
 
+    /**
+     * On click Duplo can be bought if the user has enough credits 
+     * @param evt click
+     */
     private void label_duploOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_duploOverlayMouseClicked
-        // On click Duplo can be bought if the user has enough credits 
         int result = item.managePurchase(_maingame.duplo, label_duploLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -4554,8 +4560,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_duploOverlayMouseClicked
 
+    /**
+     * On click Cheat Sheet can be bought if the user has enough credits 
+     * @param evt click
+     */
     private void label_cheatSheetOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_cheatSheetOverlayMouseClicked
-        // On click the cheat sheet can be bought if the user has enough ucoins 
         int result = item.managePurchase(_maingame.cheatSheet, label_cheatSheetLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -4565,8 +4574,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_cheatSheetOverlayMouseClicked
 
+    /**
+     * On click an Omni Sense Audiobook can be bought if the user has enough credits 
+     * @param evt click
+     */
     private void label_omniOverlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_omniOverlayMouseClicked
-        // On click the OMNI Sense audiobook can be bought if the user has enough ucoins 
         int result = item.managePurchase(_maingame.omniSenseAudio, label_omniLocked);
         if (result != 0) {
             dialog_error.setVisible(true);
@@ -4577,6 +4589,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_omniOverlayMouseClicked
 
+    /**
+     * On click the dialog if the user can't buy the item is hidden
+     * @param evt click
+     */
     private void button_shopMessageOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_shopMessageOkActionPerformed
         dialog_error.setVisible(false);
     }//GEN-LAST:event_button_shopMessageOkActionPerformed
@@ -4584,10 +4600,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private void jBut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_1ActionPerformed
 
     }//GEN-LAST:event_jBut_1ActionPerformed
-
+    
+    /**
+     * If the user types something in the exchange dialog the changed amount is displayed directly.
+     * @param evt the click
+     */
     private void textfield_swapperUcoinsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_swapperUcoinsKeyReleased
-        // If the user types something in the exchange dialog the changed
-        // amount is displayed directly.
         int parseResult = 0;
         try {
             parseResult = Integer.parseInt(textfield_swapperUcoins.getText());
@@ -4599,6 +4617,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_textfield_swapperUcoinsKeyReleased
 
+    /**
+     * Sets the student buttons in the planningpahse
+     * @param evt the click
+     */
     private void jBut_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_1MouseClicked
         /**
          * @author Tobias Mauritz
@@ -4639,7 +4661,6 @@ public class Sims_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBut_2MouseClicked
 
     private void jBut_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_3MouseClicked
-
         planningPhase.StudButtonFunctions(2,jBut_3);
           SetPlanningPhaseOpacity(); 
 
@@ -4666,11 +4687,12 @@ public class Sims_1 extends javax.swing.JFrame {
     private void StudFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseEntered
 
     }//GEN-LAST:event_StudFieldMouseEntered
-
+    
+    /**
+     * Shows the average values of each student on the progress bars
+     * @param evt click on the field
+     */
     private void StudFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudFieldMouseClicked
-
-        System.out.println("StudField");
-        // 
         planningPhase.studInfo.StudInfoAverage();
         //StudInfo z = new StudInfo(jProgB_Wissen,jProgB_Motivation, jProgB_Müdigkeit);
 
@@ -4842,6 +4864,10 @@ public class Sims_1 extends javax.swing.JFrame {
           SetPlanningPhaseOpacity(); 
     }//GEN-LAST:event_jBut_30MouseClicked
 
+    /**
+     * Changes the lector if clicked improves noise in the room
+     * @param evt click on the lector
+     */
     private void jBut_ChangeProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_ChangeProfessorMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
