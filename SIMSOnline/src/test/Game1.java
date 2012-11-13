@@ -10,8 +10,9 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Objects of this class are gameoject saving information relevant for each phase
  * @author Jannik
+ * @author Jörg Woditschka
  */
 public class Game1 {
 
@@ -33,7 +34,7 @@ public class Game1 {
                                                 };
     public int professorIconNum;    //needed for saving the game
     public int barNum = 0; //value defines attribute statusbar which is actually clicked: 0: none, 1: knowledge, 2: motivation, 3: tiredness
-    public Student[] studentArray; //added by Jörg
+    public Student[] studentArray; // the array of students
     public double[] rowIntelligence;
     public double airQuality;
     public double noise;
@@ -242,6 +243,10 @@ public class Game1 {
         }
     }
 
+    /**
+     * This method retruns the aray of students
+     * @return array of students
+     */
     public Student[] getArray() {
         return studentArray;
     }

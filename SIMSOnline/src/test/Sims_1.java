@@ -44,7 +44,7 @@ public class Sims_1 extends javax.swing.JFrame {
     public static Admin _mainadmin;
     public ActivityPhase activityPhase;
     public static PlanningPhase planningPhase;
-    protected static javax.swing.JButton[] activityPhaseButtons;
+    protected static javax.swing.JButton[] activityPhaseButtons; //an array of the studnets buttons on the activity phase view
     protected static javax.swing.JButton[] planningPhaseButtons;
     protected static javax.swing.JLabel[] laptopLabels;
     //***************************************************************
@@ -112,7 +112,7 @@ public class Sims_1 extends javax.swing.JFrame {
         setLocationRelativeTo(null); // Fenster zentrieren by Nadir
         autoLogin();
         panel_Admin.setVisible(false); // change by Nadir
-        this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
+        this.activityPhaseButtons=constructActivityPhaseButtons();
         this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
         noSave_overlay.setVisible(false); //by Nadir , deactivates the overlay for development phase, remove later
@@ -6776,6 +6776,10 @@ if(_maingame.studentArray[2].laptopClosed== false)
         textfield_pSurename.setText(_mainuser.getLast_name());
     }
     
+    /**
+     * This method retruns an array of the buttons of the students on the activity phase view 
+     * @return an array of the buttons of the students on the activity phase view 
+     */
     private javax.swing.JButton[] constructActivityPhaseButtons(){
         javax.swing.JButton[] result = new javax.swing.JButton[30];
                 result[0]=button_stud1;
@@ -6884,6 +6888,9 @@ if(_maingame.studentArray[2].laptopClosed== false)
     //*****************LogIn/Register: end***********************************
     //***********************************************************************
     
+    /**
+     * This method constructs a new activity phase.
+     */
 public void startActivityPhase(){
         
     if (panel_gamePhases.isVisible() == false) {
@@ -6915,6 +6922,7 @@ public void startPlanningPhase(){
         jLab_Redbull.setText("Red Bull: " + _maingame.redBull.amount + "x");
         jLab_OMNI.setText("OMNISense Audio: " + _maingame.omniSenseAudio.amount + "x");
 }
+
 public void switchPhase(){
     //Checks the Students that are still present
     int present = 0;
@@ -7469,12 +7477,23 @@ public  void SetPlanningPhaseOpacity(){
                 jBut_29.setOpaque(false);
                 jBut_30.setOpaque(false);
 }
+
+/**
+ * This method displays a popup to show the user the result of an exam.
+ * @param failed number of students who have not passed the exam
+ * @param remaining number of students who are still taking place in the game
+ */
 public void displayExamResults(int failed, int remaining){
     System.out.println(failed+"failed : remaining"+remaining);
     label_examFailed.setText(""+failed);
     label_examRemaining.setText(""+remaining);
     dialog_examResults.setVisible(true);
 }
+
+/**
+ * this method makes the "Ruhe!" label of the lecturer invisible.
+ * It should be called when the effect of the action of clicking the lecturer has no influence on the students anymore.
+ */
 public void hideQuietingLabel(){
     label_dozent_action.setVisible(false);
 }
