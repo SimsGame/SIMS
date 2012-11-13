@@ -23,6 +23,7 @@ public class StudInfo {
     private javax.swing.JProgressBar TirednessBar;
     // current StudentArray 
     private Student[] studArr;
+    private int presentCounter;
 
 
     /**
@@ -80,19 +81,21 @@ public class StudInfo {
         this.knowledge_H = 0;
         this.motivation_H = 0;
         this.tiredness_H = 0;
+        this.presentCounter = 0;
 
         // iterates the studentArray and sum up the attribute values
         for (int i = 0; i < 30; i++) {
             if (studArr[i].present){
+            this.presentCounter = this.presentCounter + 1;
             this.knowledge_H = this.knowledge_H + studArr[i].getKnowledge();
             this.motivation_H = this.motivation_H + studArr[i].getMotivation();
             this.tiredness_H = this.tiredness_H + studArr[i].getTiredness();
             }
         }
 
-        this.knowledge = (int) (this.knowledge_H / 30);
-        this.motivation = (int) (this.motivation_H / 30);
-        this.tiredness = (int) (this.tiredness_H / 30);
+        this.knowledge = (int) (this.knowledge_H / this.presentCounter);
+        this.motivation = (int) (this.motivation_H / this.presentCounter);
+        this.tiredness = (int) (this.tiredness_H / this.presentCounter);
         
         Sims_1._maingame.avarageMotivation = this.motivation;
         Sims_1._maingame.averageKnowledge = this.knowledge;
