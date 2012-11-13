@@ -478,7 +478,6 @@ public class Sims_1 extends javax.swing.JFrame {
         textfield_aOMNI = new javax.swing.JTextField();
         label_aRedBull = new javax.swing.JLabel();
         label_aOMNI = new javax.swing.JLabel();
-        check_aSpicker = new javax.swing.JCheckBox();
         label_aSpicker = new javax.swing.JLabel();
         slider_aMonth = new javax.swing.JSlider();
         label_aMonth = new javax.swing.JLabel();
@@ -496,6 +495,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrDuplo = new javax.swing.JLabel();
         label_aErrRedBull = new javax.swing.JLabel();
         label_aErrOmni = new javax.swing.JLabel();
+        textfield_aSpicker = new javax.swing.JTextField();
         background_adminUser = new javax.swing.JLabel();
         panel_Admin = new javax.swing.JPanel();
         background_admin = new javax.swing.JLabel();
@@ -2971,7 +2971,6 @@ public class Sims_1 extends javax.swing.JFrame {
 
         label_aOMNI.setText("OMNI-Sense:");
         panel_adminUser.add(label_aOMNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
-        panel_adminUser.add(check_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         label_aSpicker.setText("Spicker:");
         panel_adminUser.add(label_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
@@ -3046,6 +3045,7 @@ public class Sims_1 extends javax.swing.JFrame {
         label_aErrOmni.setForeground(new java.awt.Color(255, 0, 0));
         label_aErrOmni.setText("Fehler?");
         panel_adminUser.add(label_aErrOmni, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
+        panel_adminUser.add(textfield_aSpicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 150, -1));
 
         background_adminUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/adminpanel_00000.png"))); // NOI18N
         panel_adminUser.add(background_adminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -4338,7 +4338,6 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_swapperExchange;
     private javax.swing.JButton button_window;
     private javax.swing.JDialog buyCoins;
-    private javax.swing.JCheckBox check_aSpicker;
     private javax.swing.JCheckBox check_autoLogin;
     private javax.swing.JCheckBox check_saveUser;
     private javax.swing.JLabel creditsShop;
@@ -4630,6 +4629,7 @@ public class Sims_1 extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_aOMNI;
     private javax.swing.JTextField textfield_aPass;
     private javax.swing.JTextField textfield_aRedBull;
+    private javax.swing.JTextField textfield_aSpicker;
     private javax.swing.JTextField textfield_aSurename;
     private javax.swing.JTextField textfield_aUCoins;
     private javax.swing.JTextField textfield_pEmail1;
@@ -5032,7 +5032,7 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_adminUser.setVisible(false);
         JTextField[] textFieldHelp = {textfield_aKontoname, textfield_aPass, textfield_aEmail, textfield_aName, textfield_aSurename, textfield_aUCoins, textfield_aCredits, textfield_aDuplo, textfield_aRedBull, textfield_aOMNI};
         JLabel[] errMess = {label_aErrAccName, label_aErrPass, label_aErrEmail, label_aErrFirstName, label_aErrLastName, label_aErrUCoins, label_aErrCredits, label_aErrDuplo, label_aErrRedBull, label_aErrOmni};
-        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
+//        _mainadmin = new Admin(panel_Admin, panel_adminUser, textFieldHelp, check_aSpicker, slider_aMonth, errMess); 
         panel_Admin.add(button_aCancel);
         panel_Admin.add(background_admin);
 
