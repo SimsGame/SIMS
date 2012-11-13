@@ -4882,6 +4882,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBut_ChangeProfessorMouseClicked
 
+    /**
+     * Switches from the planningphase to the activityphase if the play button was pressed
+     * @param evt the click
+     */
     private void jBut_PlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_PlayMouseClicked
         // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
@@ -4898,9 +4902,12 @@ public class Sims_1 extends javax.swing.JFrame {
         label_ucoinsInv.setText("UCoins:  " + _mainuser.getUcoins());
         label_creditsInv.setText("Credits:   " + _maingame.credits);
         SetActivityPhaseOpacity();
-     //   activityPhase = new ActivityPhase(label_timer, KnowledgeBar,AirBar,NoiseBar, MotivationBar, TirednessBar, label_item1InvAmount, label_item2InvAmount, label_item3InvAmount, activityPhaseButtons, label_score); // added by Jörg, Nadir
     }//GEN-LAST:event_jBut_PlayMouseClicked
 
+    /**
+     * The next fields are for the registration
+     * @param evt 
+     */
     private void textfield_rKontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_rKontonameFocusGained
         textfield_rKontoname.requestFocus();  //by Dawid
         textfield_rKontoname.selectAll();
@@ -4940,6 +4947,11 @@ public class Sims_1 extends javax.swing.JFrame {
         password_rPass2.selectAll();
     }//GEN-LAST:event_password_rPass2FocusGained
 
+    /**
+     * Checks the fields above and creates a new user with all data needed.
+     * Also creates a new folder with inventory.txt, game.txt and profil.txt
+     * @param evt the click on the registration button
+     */
     private void button_rRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rRegisterActionPerformed
         JComponent[] toCheck = {textfield_rKontoname, password_rPass1, password_rPass2, textfield_rEmail1, textfield_rEmail2, textfield_rName, textfield_rSurename};
         JLabel[] errMess = {label_rErrAccname, label_rErrPass1, label_rErrPass2, label_rErrEmail1, label_rErrEmail2, label_rErrFirstName, label_rErrLastName};
@@ -4953,12 +4965,20 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_rRegisterActionPerformed
 
+    /**
+     * If the data are correct the user is transfered to the menu
+     * @param evt 
+     */
     private void button_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LoginActionPerformed
         if (checkLogIn(textfield_Kontoname.getText(), password_Pass.getPassword())) {  //by Dawid
             logIn(textfield_Kontoname.getText());
         }
     }//GEN-LAST:event_button_LoginActionPerformed
 
+    /**
+     * Calls the form where the user can register himself
+     * @param evt 
+     */
     private void button_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterActionPerformed
         initRegister();  //by Dawid
         button_Register.setSelected(true);
@@ -4977,11 +4997,20 @@ public class Sims_1 extends javax.swing.JFrame {
    
     }//GEN-LAST:event_textfield_rKontonameActionPerformed
 
+    /**
+     * Cancels the registration
+     * @param evt click
+     */
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
         panel_Register.setVisible(false);  //by Dawid
         button_Register.setSelected(false);
     }//GEN-LAST:event_button_cancelActionPerformed
 
+    /**
+     * Shows a combobox with items in the planningphase.
+     * Currently only the cheat sheet is available
+     * @param evt click on the box
+     */
     private void jComboB_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboB_ItemsActionPerformed
         /*
          * lokale Variablen für diese Methode, momentan zu Testzwecken
@@ -5006,6 +5035,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboB_ItemsActionPerformed
 
+    /**
+     * Dialog that notices if the user wants to use the cheat sheet or not
+     * @param evt ckicl on the button
+     */
     private void jBut_JAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_JAMouseClicked
         planningPhase.setCheatFlag(true);
         warningDialog.setVisible(false);
@@ -5030,6 +5063,10 @@ public class Sims_1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBut_JAActionPerformed
 
+    /**
+     * A dialog that says that the lactor can be changed or not
+     * @param evt click
+     */
     private void jBut_OKlectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKlectorMouseClicked
         professorChangedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKlectorMouseClicked
@@ -5038,6 +5075,10 @@ public class Sims_1 extends javax.swing.JFrame {
         professorNotChangedDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotchangedMouseClicked
 
+    /**
+     * Field for username and password on the login screen
+     * @param evt click
+     */
     private void textfield_KontonameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_KontonameFocusGained
         textfield_Kontoname.requestFocus();
         textfield_Kontoname.selectAll();
@@ -5238,6 +5279,10 @@ public class Sims_1 extends javax.swing.JFrame {
  
     }//GEN-LAST:event_panel_activityPhaseStudFieldMouseEntered
 
+    /**
+     * If an item from the inventory was taken this function handels its action
+     * @param evt click on an item
+     */
     private void label_item1InvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_item1InvMouseClicked
         if (activityPhase.redBullPressed == false) {
             activityPhase.redBullPressed = true;
@@ -5274,6 +5319,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_item3InvMouseClicked
 
+    /**
+     * Saves the username and password to perform an autologin
+     * @param evt click on the checkbox
+     */
     private void button_aSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aSaveActionPerformed
         if (_mainadmin.checkChanges()) {
             _mainadmin.saveChages();
@@ -5297,6 +5346,10 @@ public class Sims_1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textfield_aEmailFocusGained
 
+    /**
+     * Retruns from the admin panel
+     * @param evt 
+     */
     private void button_auCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_auCancel1ActionPerformed
         panel_Admin.setVisible(true);
         panel_adminUser.setVisible(false);
@@ -5310,6 +5363,10 @@ public class Sims_1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textfield_aNameFocusGained
 
+    /**
+     * Changes the current month that is played
+     * @param evt 
+     */
     private void slider_aMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slider_aMonthStateChanged
         label_aMonthVal.setText(Integer.toString(slider_aMonth.getValue()));
     }//GEN-LAST:event_slider_aMonthStateChanged
@@ -5318,6 +5375,10 @@ public class Sims_1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textfield_rNameActionPerformed
 
+    /**
+     * Deletes a user 
+     * @param evt 
+     */
     private void button_aDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_aDeleteActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Profil wirklich löschen? Achtung: kann nciht rückgängig gemacht werden") == JOptionPane.OK_OPTION) {
             _mainadmin.delSpecUser();
@@ -5370,6 +5431,10 @@ public class Sims_1 extends javax.swing.JFrame {
        
     }//GEN-LAST:event_password_pPass2FocusGained
 
+    /**
+     * Saves the changes made by the admin
+     * @param evt 
+     */
     private void button_pSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pSaveActionPerformed
         JComponent[] toCheck = {textfield_pKontoname, password_pPass1, password_pPass2, textfield_pEmail1, textfield_pEmail2, textfield_pName, textfield_pSurename};
         JLabel[] errMess = {label_pErrAccname, label_pErrPass1, label_pErrPass2, label_pErrEmail1, label_pErrEmail2, label_pErrFirstName, label_pErrLastName};
@@ -5414,6 +5479,10 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Profile.setVisible(false);
     }//GEN-LAST:event_button_pCancelActionPerformed
 
+    /**
+     * The following bars show the average attributs of the students and the attributes for each student if clicked
+     * @param evt click on the bar
+     */
     private void KnowledgeBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KnowledgeBarMouseClicked
         if(_maingame.barNum==1){
             _maingame.barNum=0;    
@@ -5469,6 +5538,10 @@ public class Sims_1 extends javax.swing.JFrame {
         jToggleBut_SwitchStud.setSelected(false);
     }//GEN-LAST:event_jComboB_ItemsMouseClicked
 
+    /**
+     * Starts a teamwork for the students
+     * @param evt 
+     */
     private void toggleButton_teamworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_teamworkActionPerformed
         if (!_maingame.teamwork){
             toggleButton_teamwork.setSelected(true);
@@ -5545,6 +5618,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_toggleButton_teamworkActionPerformed
 
+    /**
+     * Opens the window and changes the noise and the air quality
+     * @param evt 
+     */
     private void button_windowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_windowActionPerformed
         String test = button_window.getText();
         if (test.equals("Fenster : OFFEN")) {
@@ -5563,6 +5640,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_windowActionPerformed
 
+    /**
+     * Students can take a brake from the current lecture
+     * @param evt 
+     */
     private void toggleButton_shortBreakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButton_shortBreakActionPerformed
         if (!_maingame.shortBreak){
             toggleButton_shortBreak.setSelected(true);
@@ -5595,6 +5676,10 @@ public class Sims_1 extends javax.swing.JFrame {
   
     }//GEN-LAST:event_login_backgroundMouseExited
 
+    /**
+     * Shows the knowledge on a progress bar
+     * @param evt 
+     */
     private void jProgB_WissenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_WissenMouseClicked
         if(_maingame.barNum==1){
             _maingame.barNum=0;
@@ -5610,6 +5695,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jProgB_WissenMouseClicked
 
+    /**
+     * Shows the motivation on a progress bar
+     * @param evt 
+     */
     private void jProgB_MotivationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MotivationMouseClicked
         if(_maingame.barNum==2){
             _maingame.barNum=0;
@@ -5625,6 +5714,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jProgB_MotivationMouseClicked
 
+    /**
+     * Shows the tiredness on a progress bar
+     * @param evt 
+     */
     private void jProgB_MüdigkeitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProgB_MüdigkeitMouseClicked
         if(_maingame.barNum==3){
             _maingame.barNum=0;
@@ -5640,6 +5733,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jProgB_MüdigkeitMouseClicked
 
+    /**
+     * Shows a dialog if there are currently no cheat sheets available
+     * @param evt 
+     */
     private void jBut_OKnoCheatsAvailableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnoCheatsAvailableMouseClicked
         noCheatsAvailableDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnoCheatsAvailableMouseClicked
@@ -5648,10 +5745,18 @@ public class Sims_1 extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatActionPerformed
 
+    /**
+     * Shows a dialog if the user is not allowed to use a cheat sheet yet
+     * @param evt 
+     */
     private void jBut_OKnotAllowedUseCheatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_OKnotAllowedUseCheatMouseClicked
         notAllowedUseCheatDialog.setVisible(false);
     }//GEN-LAST:event_jBut_OKnotAllowedUseCheatMouseClicked
-
+    
+    /**
+     * Changes the noise in the room by clicking the lector
+     * @param evt 
+     */
     private void button_dozent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dozent1ActionPerformed
       if (_maingame.lecturer_counter>0){
             label_dozent_action.setVisible(true);
@@ -5660,6 +5765,10 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_dozent1ActionPerformed
 
+    /**
+     * If the player fails he can try again. The menu is shown
+     * @param evt 
+     */
     private void button_retryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_retryActionPerformed
         panel_gamePhases.setVisible(false);
         panel_menue.setVisible(true);
@@ -5909,6 +6018,11 @@ public class Sims_1 extends javax.swing.JFrame {
          SetPlanningPhaseOpacity();  // TODO add your handling code here:
     }//GEN-LAST:event_jBut_1StateChanged
 
+    /**
+     * The player has to confirm that he really wants to leave the game
+     * His data gets saved here.
+     * @param evt 
+     */
     private void jBut_confirmExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_confirmExitMouseClicked
          // if the toggleButton is clicked for switching student and not a student the button will be deselected
         jToggleBut_SwitchStud.setSelected(false);
@@ -5923,8 +6037,11 @@ public class Sims_1 extends javax.swing.JFrame {
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_confirmExitMouseClicked
 
+    /**
+     * If the player doesn't want to exit the game the dialog is hidden and nothing happens
+     * @param evt 
+     */
     private void jBut_cancelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBut_cancelExitMouseClicked
-        // TODO add your handling code here:
         warningExitPlanningPhase.setVisible(false);
     }//GEN-LAST:event_jBut_cancelExitMouseClicked
 
