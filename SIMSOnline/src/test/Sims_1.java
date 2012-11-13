@@ -16,7 +16,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Jannik, Yulia, Tobias, Nadir, Jörg, Dawid
+ * @author Jannik, Julia, Tobias, Nadir, Jörg, Dawid
  */
 public class Sims_1 extends javax.swing.JFrame {
 
@@ -73,7 +73,7 @@ public class Sims_1 extends javax.swing.JFrame {
         miniGameFinished.add(button_afterGame);
         initComponents();
         setSize(1000, 700);
-        buyCoins.setSize(400, 320);
+        buyCoins.setSize(400, 320); // Jannik
         buyCoins.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         buyCoins.setLocationRelativeTo(null);
         dialog_error.setSize(400, 320);
@@ -94,12 +94,11 @@ public class Sims_1 extends javax.swing.JFrame {
         noCheatsAvailableDialog.setSize(400, 320); //added by Julia
         noCheatsAvailableDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         noCheatsAvailableDialog.setLocationRelativeTo(null);
-       // warningExitPlanningPhase.setSize(500, 320);
         warningExitPlanningPhase.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         warningExitPlanningPhase.setLocationRelativeTo(null);
         dialog_statsError.setLocationRelativeTo(null);
         dialog_examResults.setLocationRelativeTo(null);
-        panel_gamePhases.setVisible(false);                  //changes by Dawid
+        panel_gamePhases.setVisible(false);                  
         panel_menue.setVisible(false);
         panel_Register.setVisible(false);
         panel_Login.setVisible(true);
@@ -110,9 +109,9 @@ public class Sims_1 extends javax.swing.JFrame {
         label_easteregg.setVisible(false);
         cl = (CardLayout) (panel_gamePhases.getLayout());
         setIconImage(new ImageIcon(getClass().getResource("/pictures/icon_test.png")).getImage()); // Icon added by Nadir
-        setLocationRelativeTo(null); // Fenster zentrieren by Nadir
+        setLocationRelativeTo(null); 
         autoLogin();
-        panel_Admin.setVisible(false); // change by Nadir
+        panel_Admin.setVisible(false); 
         this.activityPhaseButtons=constructActivityPhaseButtons(); //added by Jörg
         this.laptopLabels=constructLaptopLabels();
         this.planningPhaseButtons=constructPlanningPhaseButtons(); //added by Tobias
@@ -123,10 +122,6 @@ public class Sims_1 extends javax.swing.JFrame {
         SetPlanningOpaque();
         label_windowsclosed.setVisible(false);
         panel_stats.setVisible(false);
-      
-        
-        
-   
     }
 
     /**
@@ -3997,8 +3992,12 @@ public class Sims_1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void goToNextPage() {
-        // Flipes to the planning phase after a minigame.
+    /**
+     * Flipes to the planning phase after a minigame.
+     * Saves the current game.
+     * If the semester is 7 the game is over.
+     */
+    private void goToNextPage() {       
         Game1.saveGame();
         if(_maingame.getSemester() == 7){
             label_gameOver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/game_success.png")));
@@ -4018,19 +4017,31 @@ public class Sims_1 extends javax.swing.JFrame {
             panel_menue.setVisible(false);
         }
     }
-
+    
+    /**
+     * Button in the planningphase
+     * Calls the function which helps switching the students.
+     * @param evt the click on the button
+     */
     private void jToggleBut_SwitchStudMouseClicked(java.awt.event.MouseEvent evt) {
         planningPhase.startStudSwitch();
-
     }
-
+    
+    /**
+     * TEST ONLY (login screen): Entes the admin data to the field. 
+     * @param evt the click event
+     */
     private void buton_enterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_enterAdminActionPerformed
         textfield_Kontoname.setText(_adminName);
         password_Pass.setText(_adminPass);
     }//GEN-LAST:event_buton_enterAdminActionPerformed
 
+    /**
+     * Starts a new game with initial values from the Game1.java
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuStartNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStartNewGameActionPerformed
-        // Starts a new game with initial values from the game_1.java.
         panel_stats.setVisible(false);
         Game1.initNewSavefile();
         Game1.loadGame();
@@ -4039,13 +4050,22 @@ public class Sims_1 extends javax.swing.JFrame {
         switchPhase();
     }//GEN-LAST:event_button_menuStartNewGameActionPerformed
 
+    /**
+     * Exits the game and closes the SIMS window
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuExitActionPerformed
         // Closes the entire game.
         System.exit(0);
     }//GEN-LAST:event_button_menuExitActionPerformed
 
+    /**
+     * Loads and existing game which always starts with a planning phase
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuLoadGameActionPerformed
-        // Loads and existing game which always starts with a planning phase.
         panel_stats.setVisible(false);
         if (!noSave_overlay.isVisible()) {
             Game1.loadGame();
@@ -4055,6 +4075,11 @@ public class Sims_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button_menuLoadGameActionPerformed
 
+    /**
+     * Shows the developer credits to the user
+     * Available in the menu
+     * @param evt the click event
+     */
     private void button_menuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuCreditsActionPerformed
         panel_stats.setVisible(false);
         panel_Profile.setVisible(false);
@@ -4062,6 +4087,8 @@ public class Sims_1 extends javax.swing.JFrame {
         panel_Credits.requestFocus();
         javax.swing.Timer timer;
         int delay = 100; //milliseconds
+        
+        // The action listener wihich make the field move
         ActionListener taskPerformer = new ActionListener() {
             int down = 0;
             public void actionPerformed(ActionEvent evt) {
@@ -4075,7 +4102,6 @@ public class Sims_1 extends javax.swing.JFrame {
                     }
                 }
                 else{
-                    //down = 0;
                     panel_Credits.setLocation(panel_Credits.getX(), panel_Credits.getY()+490);
                     if(panel_Credits.getY() >= +490)
                         down = 1;
@@ -4083,7 +4109,7 @@ public class Sims_1 extends javax.swing.JFrame {
             }
         };
         timer = new javax.swing.Timer(delay, taskPerformer);
-        timer.start();
+        timer.start(); // The timer to start the actionlistener
     }//GEN-LAST:event_button_menuCreditsActionPerformed
 
     private void button_menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuProfileActionPerformed
