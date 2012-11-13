@@ -18,16 +18,20 @@ import javax.swing.JTextField;
  */
 public class User {
 
-    private String accountname;// = "";
-    private String password;// = "";
-    private String email;// = "";
-    private String first_name;// = "";
-    private String last_name;// = "";
-    private Date reg_date;// = new Date();
-    private Date last_login;// = new Date();
-    private int time_played;// = 0;
-    private int ucoins;//;
-
+    private String accountname;
+    private String password;
+    private String email;
+    private String first_name;
+    private String last_name;
+    private Date reg_date;
+    private Date last_login;
+    private long time_played;
+    private int ucoins;
+    
+    public void setTime_played(long time_played) {
+        this.time_played = time_played;
+    }
+    
     public void setAccountname(String accountname) {
         this.accountname = accountname;
     }
@@ -80,7 +84,7 @@ public class User {
         return reg_date;
     }
 
-    public int getTime_played() {
+    public long getTime_played() {
         return time_played;
     }
 
@@ -190,6 +194,10 @@ public class User {
     public static boolean saveUser() {
         return createUser(Sims_1._mainuser);
     }
+    
+    public static boolean saveLastLogin(){
+        return createUser(Sims_1._mainuser.accountname, Sims_1._mainuser.password.toCharArray(), Sims_1._mainuser.email, Sims_1._mainuser.first_name, Sims_1._mainuser.last_name, Sims_1._mainuser.reg_date, new Date(), Sims_1._mainuser.time_played, Sims_1._mainuser.ucoins);
+    }
 
     public static boolean createUser(User user) {
         return createUser(user.getAccountname(), user.getPassword().toCharArray(), user.getEmail(), user.getFirst_name(), user.getLast_name(), user.getReg_date(), user.getLast_login(), user.getTime_played(), user.getUcoins());
@@ -199,7 +207,7 @@ public class User {
         return createUser(accountname, password, email, first_name, last_name, new Date(), new Date(), 0, 0);
     }
 
-    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name, Date registerDate, Date lastLogin, int timePlayed, int UCoins) {
+    public static boolean createUser(String accountname, char[] password, String email, String first_name, String last_name, Date registerDate, Date lastLogin, long timePlayed, int UCoins) {
 
         //set up an array with the user-data to write:
         String str[] = new String[9];
@@ -215,7 +223,7 @@ public class User {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-y");      //set format for the date (eg. 24.10.2012)
         str[5] = format.format(registerDate);       //get the current date with the set format
         str[6] = format.format(lastLogin);    //last login
-        str[7] = Integer.toString(timePlayed);   //time played
+        str[7] = Long.toString(timePlayed);   //time played
         str[8] = Integer.toString(UCoins);   //UCoins
 
         //ready to create the user-files

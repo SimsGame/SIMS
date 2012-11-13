@@ -5,6 +5,7 @@ package test;
 
 import java.awt.Color;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -12,6 +13,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Jannik
+ * @author Jörg Woditschka
  */
 public class Game1 {
 
@@ -21,6 +23,8 @@ public class Game1 {
     public int overallCredits;
     public int points;
     public int round;
+    public Date startTimePlayed;
+    public Long timePlayed;
     public double averageKnowledge;
     public double avarageMotivation;
     public double averageTiredness;
@@ -116,10 +120,10 @@ public class Game1 {
       for (int j=0; j<6; j++){
             for (int i=counter; i<endCounter; i++){
                 if (quietingCounter>0&&add1>=0){
-                    add1=-1;
+                    add1-=0.2;
                 }
                 else if(quietingCounter>0){
-                    add1=add1-1;
+                    add1-=0.1;
                 }
                 studentArray[i].changeMotivation(add1);
                 studentArray[i].changeTiredness(add2);
@@ -134,16 +138,21 @@ public class Game1 {
         rowIntelligence = new double[6];
         int rowStart=0;
         int rowEnd=5;
+        int cnt=0;
         double row=0;
         for (int i=0; i<6; i++){
             for (int j=rowStart; j<rowEnd;j++){
+                if(studentArray[i].present){
                 row = row+studentArray[j].getIntelligence();
+                cnt++;
+                }
             }
-            row=row/5;
+            row=row/cnt;
             rowIntelligence[i]=row;
             row=0;
             rowStart=rowStart+5;
             rowEnd=rowEnd+5;
+            cnt=0;
         }
      }
      
@@ -151,11 +160,13 @@ public class Game1 {
          for (int i = 0; i < 30; i++) {
              if (studentArray[i].present){
                  double knowledge=studentArray[i].getKnowledge();
-                 if(knowledge<examvalue){
+                 if(knowledge<examvalue && !studentArray[i].getCheatAvailable()){
                    studentArray[i].present=false;
                    remainingStudents--;
                    failedStudents++;
-                 } 
+                 }else if(studentArray[i].getCheatAvailable()){
+                     studentArray[i].setCheatAvailable(false);
+                 }
              }
          }
      }
@@ -235,6 +246,10 @@ public class Game1 {
         }
     }
 
+    /**
+     * This method retruns the aray of students
+     * @return array of students
+     */
     public Student[] getArray() {
         return studentArray;
     }
@@ -263,6 +278,7 @@ public class Game1 {
         this.professor = new Integer(help.pop());
         this.professorIconNum = new Integer(help.pop());
         this.professorIcon = professorIconPath[this.professorIconNum];
+        this.timePlayed = new Long(help.pop());
         help = savegame.pop();
         for(int i = 0; i<5; i++){
             if(help.pop().equals("0")){
@@ -293,16 +309,32 @@ public class Game1 {
         if(this.barNum==0){
             for(int i=0; i<30; i++){
                 if(this.studentArray[i].present){
-                Color color = new Color(220, 220, 220);
+                Color color = new Color(220, 220, 0);
                 studButtons[i].setBackground(color);
                 studButtons[i].setOpaque(true);
                 }
             }
         }else if(this.barNum==1){
+                int factor;
+                int sub;
+                int smstr=getSemester();
+                switch(smstr){
+                    case 1: factor=10; sub=0; break;
+                    case 2: factor=10; sub=10; break;
+                    case 3: factor=100/15; sub=20; break;
+                    case 4: factor=100/15; sub=35; break;
+                    case 5: factor=5; sub=50; break;
+                    case 6: factor=5; sub=70; break;
+                    default: factor=1; sub=0; break;
+                }
             for(int i=0; i<30; i++){
                 if(this.studentArray[i].present){
-                Color color = new Color(255-(int)(this.studentArray[i].getKnowledge()*2.55), (int)(this.studentArray[i].getKnowledge()*2.55), 0);
-                studButtons[i].setBackground(color);
+                int knowledge=(int)((this.studentArray[i].getKnowledge()-sub)*2.55)*factor;
+                if(knowledge>255){
+                    knowledge=255;
+                }
+                //Color color = new Color(255-knowledge, knowledge, 0);
+                //studButtons[i].setBackground(color);
                 studButtons[i].setOpaque(true);
                 }
             }
@@ -335,6 +367,7 @@ public class Game1 {
         sublist.add("0");
         sublist.add("1");
         sublist.add(Integer.toString((int) Math.round(Math.random() * 100 + 1)));
+        sublist.add("0");
         sublist.add("0");
         mainlist.add(new LinkedList(sublist));
         sublist = new LinkedList();
@@ -389,6 +422,7 @@ public class Game1 {
         sublist.add(Integer.toString(Sims_1._maingame.round));
         sublist.add(Integer.toString(Sims_1._maingame.professor));
         sublist.add(Integer.toString(Sims_1._maingame.professorIconNum));
+        sublist.add(Long.toString(Sims_1._maingame.timePlayed));
         mainlist.add(new LinkedList(sublist));
         sublist = new LinkedList();
         for(int i = 0; i<5; i++){
@@ -427,5 +461,13 @@ public class Game1 {
         }catch (Exception e){
             e.printStackTrace();
         }   
+    }
+    
+    public static void setTimeToSave(){
+        Sims_1._maingame.startTimePlayed = new Date();
+    }
+    
+    public static void saveTimePlayed(){
+        Sims_1._maingame.timePlayed += new Date().getTime() - Sims_1._maingame.startTimePlayed.getTime();
     }
 }

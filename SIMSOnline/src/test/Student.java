@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Objects of this class are one student of the game
  * @author Joerg Woditschka
  * @author Nadir Yuldashev
  */
@@ -170,7 +170,7 @@ public class Student {
 
     /**
      *
-     * @param value
+     * @param value sets the knowledge of the students
      */
     public void setKnowledge(double value) {
         if(value<0){
@@ -208,7 +208,7 @@ public class Student {
 
     /**
      *
-     * @param value
+     * @param value sets the tiredness of the student
      */
     public void setTiredness(double value) {
         value=value+Sims_1._maingame.professor/100;
