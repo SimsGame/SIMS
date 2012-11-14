@@ -27,7 +27,7 @@ public class StudInfo {
 
 
     /**
-     * - constructor which expects the three progress bars
+     * - constructor which expects the three progress bars <br>
      * - called on loading the PlanningPhase
      * @param jProgB_Knowledge progress bar which shows the knowledge
      * @param jProgB_Motivation progress bar which shows the motivation

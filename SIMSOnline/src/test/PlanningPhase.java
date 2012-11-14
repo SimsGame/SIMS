@@ -51,9 +51,9 @@ public class PlanningPhase {
 
     /**
      * - constructor which initializes the progress bars, the professor counter
-     * label and the switch student toggle button <br> - tt sets the progress
-     * bars to the current average values of the students <br> - tt validates if
-     * the professor can be switched
+     * label and the switch student toggle button <br> 
+     * - sets the progress bars to the current average values of the students <br>
+     * - validates if the professor can be switched
      *
      * @param jProgB_Knowledge progress bar which shows the knowledge
      * @param jProgB_Motivation progress bar which shows the motivation
@@ -62,6 +62,7 @@ public class PlanningPhase {
      * professor
      * @param jToggleBut_SwitchStud toggle button for student switching
      * @param jLab_SwitchCounter label with counter value of available student
+     * @param jBut_Dozent button of the dozent
      * switchs
      */
     public PlanningPhase(JProgressBar jProgB_Knowledge,
@@ -118,8 +119,6 @@ public class PlanningPhase {
      * - is called when the stud switch toggle button was clicked and
      * initializes the switchFlag with the isSelected() method of an toggle
      * button
-     *
-     * @param jLab_SwitchCounter
      */
     public void startStudSwitch() {
 
@@ -153,7 +152,8 @@ public class PlanningPhase {
 
     /**
      * - stores the clicked student into stud2 or stud1 which depends on the
-     * studCounter <br> - when both are stored the StudSwitch() method is called
+     * studCounter <br> 
+     * - when both are stored the StudSwitch() method is called
      *
      * @param stud_nr student array index number of clicked student
      * @param studBut student button which was clicked which will be stored
