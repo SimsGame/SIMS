@@ -555,7 +555,8 @@ public class Game1 {
                 result+=studentArray[i].getKnowledge()-sub;
             }
         }
-        credits+=(int)result;
+        credits += (int)result;
+        overallCredits += (int)result;
         //System.out.println("Credits gained: "+(int)result);
     }
 }
