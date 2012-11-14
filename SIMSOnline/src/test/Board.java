@@ -119,6 +119,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
 
         } else {
             gameOver(g);
+            
         }
     }
 
@@ -278,6 +279,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
      * @param g the graphics where the "GameOver" was printed
      */
     public void gameEnd(long time, final Graphics g){
+        endCounter = 1;
         int points;
         int credits;
         JPanel endGameBackground = new JPanel();
@@ -303,7 +305,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 endDialog.setVisible(false);
-                endCounter = 1;
+                
                 Sims_1.button_afterGame.doClick();
             }});
         label_headline.setFont(new Font("Text", 1,20));
@@ -320,6 +322,7 @@ public class Board extends javax.swing.JPanel implements ActionListener {
         label_Punkte.setForeground(Color.green);
         points = dots * 6;
         credits = dots * 2;
+        System.out.println(credits);
         Sims_1._maingame.points += points;
         Sims_1._maingame.credits += credits;
         Sims_1._maingame.overallCredits += credits;

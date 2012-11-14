@@ -4010,6 +4010,7 @@ public class Sims_1 extends javax.swing.JFrame {
             button_retry.setLocation(450, 530);
             cl.show(panel_gamePhases, "card8");
         } else {
+            System.out.println(_maingame.credits);
             planningPhase = new PlanningPhase(jProgB_Wissen, jProgB_Motivation, jProgB_Müdigkeit, jLab_DozCounter, jToggleBut_SwitchStud, jLab_StudCounter, jBut_Dozent);
             if (panel_gamePhases.isVisible() == false) {
                 panel_gamePhases.setVisible(true);
@@ -4036,7 +4037,12 @@ public class Sims_1 extends javax.swing.JFrame {
 
     private void button_menuStartNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_menuStartNewGameActionPerformed
         // Starts a new game with initial values from the game_1.java.
+        noSave_overlay.setVisible(false);
         panel_stats.setVisible(false);
+        if(_maingame!=null){
+            _maingame.credits = 0;
+        }
+        _maingame = null;
         Game1.initNewSavefile();
         Game1.loadGame();
         startTime = System.currentTimeMillis();
@@ -5620,10 +5626,71 @@ public class Sims_1 extends javax.swing.JFrame {
             toggleButton_teamwork.setSelected(false);
             _maingame.shortBreak = true;
             System.out.println("You just started a break: " + _maingame.shortBreak);
+            button_stud1.setLocation(120, 10);
+            button_stud2.setLocation(220, 10);
+            button_stud3.setLocation(330, 10);
+            button_stud4.setLocation(430, 10);
+            button_stud5.setLocation(540, 10);
+            button_stud6.setLocation(640, 10);
+            button_stud7.setLocation(120, 90);
+            button_stud8.setLocation(220, 90);
+            button_stud9.setLocation(330, 90);
+            button_stud10.setLocation(430, 90);
+            button_stud11.setLocation(540, 90);
+            button_stud12.setLocation(640, 90);
+            button_stud13.setLocation(120, 180);
+            button_stud14.setLocation(220, 180);
+            button_stud15.setLocation(330, 180);
+            button_stud16.setLocation(430, 180);
+            button_stud17.setLocation(540, 180);
+            button_stud18.setLocation(640, 180);
+            button_stud19.setLocation(120, 260);
+            button_stud20.setLocation(220, 260);
+            button_stud21.setLocation(330, 260);
+            button_stud22.setLocation(430, 260);
+            button_stud23.setLocation(540, 260);
+            button_stud24.setLocation(640, 260);
+            button_stud25.setLocation(120, 340);
+            button_stud26.setLocation(220, 340);
+            button_stud27.setLocation(330, 340);
+            button_stud28.setLocation(430, 340);
+            button_stud29.setLocation(540, 340);
+            button_stud30.setLocation(640, 340);
+            
         } else {
             toggleButton_shortBreak.setSelected(false);
             _maingame.shortBreak = false;
             System.out.println("You just ended the break: " + _maingame.shortBreak);
+            button_stud1.setLocation(120, 10);
+            button_stud2.setLocation(220, 10);
+            button_stud3.setLocation(330, 10);
+            button_stud4.setLocation(430, 10);
+            button_stud5.setLocation(540, 10);
+            button_stud6.setLocation(640, 10);
+            button_stud7.setLocation(120, 90);
+            button_stud8.setLocation(220, 90);
+            button_stud9.setLocation(330, 90);
+            button_stud10.setLocation(430, 90);
+            button_stud11.setLocation(540, 90);
+            button_stud12.setLocation(640, 90);
+            button_stud13.setLocation(120, 180);
+            button_stud14.setLocation(220, 180);
+            button_stud15.setLocation(330, 180);
+            button_stud16.setLocation(430, 180);
+            button_stud17.setLocation(540, 180);
+            button_stud18.setLocation(640, 180);
+            button_stud19.setLocation(120, 260);
+            button_stud20.setLocation(220, 260);
+            button_stud21.setLocation(330, 260);
+            button_stud22.setLocation(430, 260);
+            button_stud23.setLocation(540, 260);
+            button_stud24.setLocation(640, 260);
+            button_stud25.setLocation(120, 340);
+            button_stud26.setLocation(220, 340);
+            button_stud27.setLocation(330, 340);
+            button_stud28.setLocation(430, 340);
+            button_stud29.setLocation(540, 340);
+            button_stud30.setLocation(640, 340);
         }
     }//GEN-LAST:event_toggleButton_shortBreakActionPerformed
 
@@ -7130,6 +7197,7 @@ public class Sims_1 extends javax.swing.JFrame {
      */
     public void switchPhase() {
         //Checks the Students that are still present
+                System.out.println(_maingame.credits);
         int present = 0;
         for (int i = 0; i < _maingame.studentArray.length; i++) {
             if (_maingame.studentArray[i].present == true) {
